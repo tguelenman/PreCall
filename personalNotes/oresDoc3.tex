@@ -70,7 +70,7 @@ Link: \href{https://towardsdatascience.com/beyond-accuracy-precision-and-recall-
 \subsection{Visualizing Precision and Recall}
 \begin{itemize}
 \item Confusion Matrix:\\
-\includegraphics[scale=.3]{confusionMatrix}
+\includegraphics[scale=.3]{resources/3/confusionMatrix}
 \item ROC curve (Receiver Operating Characteristic):
 \begin{itemize}
 \item Definition: plots the true positive rate (TPR) versus the false positive rate (FPR) as a function of the model’s threshold for classifying a positive
@@ -80,7 +80,7 @@ Link: \href{https://towardsdatascience.com/beyond-accuracy-precision-and-recall-
 \item \colorbox{cyan}{\textbf{tpr}}: the portion, of all positive data, that was predicted as positive
 \item \textbf{fpr}: the portion, of all negative data, that was predicted as positive
 \end{description}
-\includegraphics[scale=0.5]{ROCcurve}
+\includegraphics[scale=0.5]{resources/3/ROCcurve}
 \begin{description}
 \item Bottom left: Decision threshold = 1.0 $\Rightarrow$ all data is predicted as false $\rightarrow$ tpr = fpr = 0.0
 \item Top right: \colorbox{cyan}{Decision threshold} = 0.0 $\Rightarrow$ all data is predicted as positive $\rightarrow$ tpr = fpr = 1.0
@@ -124,7 +124,7 @@ Link: \href{https://towardsdatascience.com/beyond-accuracy-precision-and-recall-
 \item The result will be ``[('Culture.Language and literature', 0.5791824638170249),
  ('Geography.Countries', 0.3864267805975978), ...]''
 \item After specifying a few parameters for the Lime explainer, it can be used to explain the scoring; results will look like this: 
-\item \includegraphics[scale=0.7]{limeExplainer}
+\item \includegraphics[scale=0.7]{resources/3/limeExplainer}
 \end{description}
 \end{itemize}
 \section{Crucial Metrics}
@@ -133,9 +133,9 @@ Link: \href{https://towardsdatascience.com/beyond-accuracy-precision-and-recall-
 ), \textit{the right metrics for classification tasks heavily depend on the context. Let's take a look at possible parameters/metrics to use in ORES API queries.}
 \\
 Keep in mind the confusion matrix:\\
-\includegraphics[scale=0.4]{confusionMatrix}\\
+\includegraphics[scale=0.4]{resources/3/confusionMatrix}\\
 Or in another format:\\
-\includegraphics[scale=0.4]{confusionCircle}
+\includegraphics[scale=0.4]{resources/3/confusionCircle}
 \begin{description}
 \item Note that the colors of all parts of the circle are always a mix of two colors from the legend on the right.
 \end{description}
@@ -146,7 +146,7 @@ The following subsections describe interesting metrics, notably in the wikidataw
 \item Or: the portion, of all actual positive data, that was labeled as positive
 \item In other words Recall $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$
 \item Again in other words $ =\frac{\texttt{correctly\_labeled\_as\_positives}}{\texttt{actual\_positives}}$
-\item $=\frac{\includegraphics[scale=0.1]{confusionCircleTP}}{\includegraphics[scale=0.1]{confusionCircleTP+FN}}$
+\item $=\frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FN}}$
 \end{itemize}
 \subsection{Precision}
 \begin{itemize}
@@ -154,11 +154,11 @@ The following subsections describe interesting metrics, notably in the wikidataw
 \item The portion, of all as ``positive'' labeled data, that is actually positive
 \item $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$
 \item $= \frac{\texttt{correctly\_labeled\_as\_positives}}{\texttt{all\_labeled\_as\_positive}}$
-\item $=\frac{\includegraphics[scale=0.1]{confusionCircleTP}}{\includegraphics[scale=0.1]{confusionCircleTP+FP}}$
+\item $=\frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}$
 \end{itemize}
 \subsection*{Recall vs Precision}
 When increasing one of these two, the other one naturally decreases. For an intuitive example, let's take a look at \href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Google's Loan Threshold Simulation}:\\
-\includegraphics[scale=0.7]{loanML3}\\
+\includegraphics[scale=0.7]{resources/3/loanML3}\\
 \begin{description}
 \item The dark grey / dark blue dots, representing clients that would actually pay back their loan, are more and more included ($\rightarrow$ given loans) if we move the threshold further to the left.
 \item But so are clients that would not. Thus moving the threshold to the left increases the \textbf{recall} (\textbf{tpr}) but decreases the \textbf{precision} and vice versa when moving to the right.
@@ -179,7 +179,7 @@ When increasing one of these two, the other one naturally decreases. For an intu
 \begin{itemize}
 \item Summarize the performance of a classifier over all possible thresholds
 \item The receiver operating characteristic (ROC) curve plots the TPR versus FPR as a function of the model’s threshold for classifying a positive
-\includegraphics[scale=0.5]{ROCcurve}
+\includegraphics[scale=0.5]{resources/3/ROCcurve}
 \begin{description}
 \item Two classifiers are shown, one in blue, one in red. The black line is a random classifier.
 \item Keep in mind that on the \colorbox{green}{X-} and \colorbox{orange}{Y-axis} we have the portion, of all \colorbox{green}{negative} and of all \colorbox{orange}{positive} data, respectively, that was predicted as positive
@@ -195,7 +195,7 @@ When increasing one of these two, the other one naturally decreases. For an intu
 \item This one stands for \textbf{Precision Recall AUC} (see: \url{http://www.chioka.in/differences-between-roc-auc-and-pr-auc/})
 \item Sample PR-curve: 
 \begin{description}
-\item \includegraphics[scale=0.7]{PRcurve}
+\item \includegraphics[scale=0.7]{resources/3/PRcurve}
 \item Instead of the top left corner for the ROC-curve, here, we want to be in the top right corner for our classifier to be perfect
 \end{description}
 \item \textbf{pr\_auc} is, as expected, the area under the PR-curve. The higher its value, the better the model 
@@ -215,18 +215,18 @@ see: \url{https://www.kaggle.com/general/7517}
 \end{itemize}
 \subsection{accuracy}
 \begin{itemize}
-\item \textbf{accuracy}$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}} =\frac{\includegraphics[scale=0.1]{confusionCircleTP+TN}}{\includegraphics[scale=0.1]{confusionCircleTotal}}$
+\item \textbf{accuracy}$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}} =\frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$
 \end{itemize}
 \subsection{match\_rate}
 \begin{itemize}
 \item ``The proportion of observations matched/not-matched''
-\item \textbf{match\_rate} $=\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}=\frac{\includegraphics[scale=0.1]{confusionCircleTP+FP}}{\includegraphics[scale=0.1]{confusionCircleTotal}}$
+\item \textbf{match\_rate} $=\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}=\frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$
 \end{itemize}
 \subsection{filter\_rate}
 \begin{itemize}
 \item ``The proportion of observations filtered/not-filtered'' (?)
 \item \textbf{filter\_rate} $=1-\texttt{match\_rate}$
-\item $=\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} = \frac{\includegraphics[scale=0.1]{confusionCircleTN+FN}}{\includegraphics[scale=0.1]{confusionCircleTotal}}$
+\item $=\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} = \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$
 \end{itemize}
 \subsection{!$<$metric$>$}
 \begin{itemize}
@@ -241,7 +241,7 @@ see: \url{https://www.kaggle.com/general/7517}
 \item !recall
 \end{itemize}
 %TODO -counts -rates\\
-%TODO google discr. alles mit der grafik nochmal erklären?
+%TODO include google discr. graphic for each metric?
 \section{Github Repository}
 To be found at:\\
 \url{https://github.com/tguelenman/OresCustomDocumentation}
@@ -250,7 +250,7 @@ To be found at:\\
 \subsection{Confused Pie Plots}
 source:\\
 \url{http://www.dietergalea.com/confusion-matrices-alternative/}\\
-\includegraphics[scale=0.6]{confusedPiePlots}
+\includegraphics[scale=0.6]{resources/3/confusedPiePlots}
 \begin{description}
 \item Good for multi-class classification with a lot of classes (or probably even good for 5 or more)
 \end{description}

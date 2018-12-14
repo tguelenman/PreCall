@@ -23,7 +23,7 @@
 \item \href{https://ores.wikimedia.org/v3/scores}{https://ores.wikimedia.org/v3/\colorbox{green}{scores}}
 \begin{description}
 \item Lists all available contexts (wikis) for scoring
-\item \includegraphics[scale=0.5]{ORESscores}
+\item \includegraphics[scale=0.5]{resources/2/ORESscores}
 \item Models: reverted, damaging, goodfaith, articlequality, draftquality, drafttopic, wp10, pagelevel, itemquality
 \end{description}
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki}{https://ores.wikimedia.org/v3/\colorbox{green}{scores}/\colorbox{orange}{\{context\}}}
@@ -35,7 +35,7 @@
 \begin{description}
 \item Shows all scoring information on an edit of the specified context
 \item Find revision ID of any article: top right: View history \(\rightarrow\) click on time/data-link \(\rightarrow\) ID displayed in URL at the end
-\item \includegraphics[scale=0.7]{ORESscoresId}
+\item \includegraphics[scale=0.7]{resources/2/ORESscoresId}
 \end{description}
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki/870259881}{https://ores.wikimedia.org/v3/\colorbox{green}{scores}/\colorbox{orange}{\{context\}}/\colorbox{cyan}{\{revid\}}}/\colorbox{yellow}{\{model\}}
 \begin{description}
@@ -44,7 +44,7 @@
 \item Add \href{https://ores.wikimedia.org/v3/scores/?model_info=type}{/?model\_info=\{\colorbox{pink}{model\_info}\}} to any query (at the end!)
 \begin{description}
 \item For example: \colorbox{pink}{\textit{model\_info}} = \colorbox{green}{type}, \colorbox{green}{statistics}
-\item \includegraphics[scale=0.8]{ORESscoresType}
+\item \includegraphics[scale=0.8]{resources/2/ORESscoresType}
 \end{description}
 \end{itemize}
 \section{Specifying parameters}
@@ -92,7 +92,7 @@ Interesting: model\_info=statistics.thresholds\\
 $\rightarrow$``.true'' doesn't work
 \begin{description}
 \item Lists for each article quality (Stub to FA) the values for each parameter, given a threshold
-\item \includegraphics[scale=0.6]{ORESarticlequalityThresholds}
+\item \includegraphics[scale=0.6]{resources/2/ORESarticlequalityThresholds}
 \end{description}
 \subsubsection{Different parameters}
 Same as above.
@@ -113,7 +113,7 @@ Paper:
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}{\textbf{maximum recall @ precision $>=$ 0.9}} produces:
 \end{itemize}
 \begin{description}
-\item \includegraphics[scale=0.7]{ORESmaxFilterAtRecall}
+\item \includegraphics[scale=0.7]{resources/2/ORESmaxFilterAtRecall}
 \end{description}
 \begin{itemize}
 \item \textbf{maximum} can be replaced with \textbf{minimum}

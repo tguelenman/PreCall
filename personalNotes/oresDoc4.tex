@@ -53,6 +53,7 @@ roc\_auc & \\ \hline
 
 %TODO order^
 %TODO precision vs recall 
+%TODO roc auc vs pr auc
 \begin{description}
 \item The metrics are the same for the damaging and itemquality models, but a few changes will be made to the explanatory parts to better fit the damaging model (TODO: ...right?). Also the structure of explanations will be changed to the following:
 \item For each metric (if possible) there will be:
@@ -112,11 +113,87 @@ $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[sc
 \item $=2*\frac{\texttt{precision} * \texttt{recall}}{\texttt{precision}+\texttt{recall}}$
 \item Compared to the simple average (of recall and precision), the harmonic mean punishes extreme values (e.g. precision 1.0 and recall 0.0 $\rightarrow$ average 0.5, but F1 $= 0$)
 \end{description}
-
+%
+\subsection{fpr}
+\begin{enumerate}
+\item The false positive rate (\textbf{FPR}) is the probability of a false alarm
+\end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+$= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
+\end{tabular}
+%TODO confusion cirlce TN+FP, loan same
+\subsection{roc\_auc}
+\begin{enumerate}
+\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision
+\end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+- & -& - \\ \hline
+\end{tabular}
+\begin{description}
+\item The receiver operating characteristic (ROC) curve plots the TPR versus FPR as a function of the model’s threshold for classifying a positive
+\includegraphics[scale=0.5]{resources/3/ROCcurve}
+\item Increasing the threshold $\rightarrow$ moving up a curve ($\equiv$ model) to the top right corner, where all data is predicted as positive (threshold = 1.0) and vice versa
+\end{description}
+%
+\subsection{pr\_auc}
+(see: \href{http://www.chioka.in/differences-between-roc-auc-and-pr-auc/}{link 1} and \href{https://acutecaretesting.org/en/articles/precision-recall-curves-what-are-they-and-how-are-they-used}{link 2})
+\begin{enumerate}
+\item The \textbf{area under} the \textbf{curve} of the \textbf{PR}-curve, same: similar objective as the \textbf{roc\_auc}, but PR curves are better than ROC curves if the populations are imbalanced
+\end{enumerate}
+\begin{description}
+\item The PR-curve plots the Precision versus the Recall 
+\item \includegraphics[scale=0.7]{resources/3/PRcurve}
+\item Instead of the top left corner for the ROC-curve, here, we want to be in the top right corner for our classifier to be perfect
+\end{description}
+%
+\subsection{accuracy}
+\begin{enumerate}
+\item %TODO
+\end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
+%TODO correct loan
+\end{tabular}
+\subsection{match\_rate}
+\begin{enumerate}
+\item ``The proportion of observations matched/not-matched''
+\end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+$= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
+%TODO correct loan
+\end{tabular}
+%
+%TODO hier weitermachen
+\subsection{filter\_rate}
+\begin{itemize}
+\item ``The proportion of observations filtered/not-filtered'' (?)
+\item \textbf{filter\_rate} $=1-\texttt{match\_rate}$
+\item $=\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} = \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$
+\end{itemize}
 %
 %
 %
 \newpage
+\section*{Additional Information}
+\begin{itemize}
+\item Confluence Link (Bachelor Thesis): \url{https://intern.hcc.mi.fu-berlin.de/confluence/pages/viewpage.action?pageId=33269659}
+\item Amir's mail links
+\begin{itemize}
+\item \href{https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters}{New Filters for Edit Review Documentation Link}
+\item \href{https://ores.wikimedia.org/v3/scores/eswiki/?models=damaging&model_info=statistics.thresholds.false.%22maximum+recall+%40+precision+%3E%3D+0.995%22%7Cstatistics.thresholds.true.%22maximum+filter_rate+%40+recall+%3E%3D+0.9%22%7Cstatistics.thresholds.true.%22maximum+recall+%40+precision+%3E%3D+0.6%22%7Cstatistics.thresholds.true.%22maximum+recall+%40+precision+%3E%3D+0.9%22&format=json}{ORES API Call Link}
+\begin{description}
+\item ``Basically it asks for threshold from the API when "recall is at its maximum when precision is at least 0.995"''
+\end{description}
+\end{itemize}
+\end{itemize}
 \section*{Questions}
 \begin{itemize}
 %

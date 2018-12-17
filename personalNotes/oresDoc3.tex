@@ -184,7 +184,7 @@ When increasing one of these two, the other one naturally decreases. For an intu
 \item Two classifiers are shown, one in blue, one in red. The black line is a random classifier.
 \item Keep in mind that on the \colorbox{green}{X-} and \colorbox{orange}{Y-axis} we have the portion, of all \colorbox{green}{negative} and of all \colorbox{orange}{positive} data, respectively, that was predicted as positive
 \item As we increase the threshold we include fewer and fewer data (also data labeled as positive), thus moving down to the bottom left ($\rightarrow$ decision threshold = 1.0) on the corresponding curve; top right $\rightarrow$ threshold = 0.0
-\item That means at the top right corner all data is predicted as positive and in the bottom left corner all data is predicted as negative
+\item That means in the top right corner all data is predicted as positive and in the bottom left corner all data is predicted as negative
 \end{description}
 \item Now, to evaluate / quantify a given ROC, we calculate the area under the curve (\textbf{AUC})
 \item The AUC is a metric between 0 and 1, where higher values signify better capability of achieving a blend of precision and recall (since a higher peaking curve means higher \textbf{tpr})

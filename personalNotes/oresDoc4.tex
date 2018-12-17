@@ -17,7 +17,10 @@
 %
 \section*{Goals}
 \begin{enumerate}
-\item Adjust crucial metrics list to match the damaging model metrics
+\item Adjust crucial metrics list \begin{itemize}
+\item to match the damaging model metrics \checkmark
+\item add 2 last metrics
+\end{itemize}
 \item Check out mail attachments
 \item Check out new Confluence pages and goals
 \item Research
@@ -35,9 +38,9 @@ Metrics simple list:\\
 
 \begin{tabular}{| l | l |}
 \hline 
-!f1 &  \\ \hline
-!precision & \\ \hline
-!recall & \\ \hline
+!f1 & \checkmark \\ \hline
+!precision & \checkmark \\ \hline
+!recall & \checkmark \\ \hline
 accuracy & \checkmark \\ \hline
 counts & \\ \hline
 f1 & \checkmark \\ \hline
@@ -51,11 +54,8 @@ recall &  \checkmark\\ \hline
 roc\_auc & \checkmark \\ \hline
 \end{tabular}
 
-%TODO order^
-%TODO precision vs recall 
-%TODO roc auc vs pr auc
 \begin{description}
-\item The metrics are the same for the damaging and itemquality models, but a few changes will be made to the explanatory parts to better fit the damaging model (TODO: ...right?). Also the structure of explanations will be changed to the following:
+\item The metrics are the same for the damaging and itemquality models, but a few changes will be made to the explanatory parts nontheless (compared to the version in oresDoc3). Also the structure of explanations will be changed to the following:
 \item For each metric (if possible) there will be:
 \begin{enumerate}
 \item An intuitive explanation
@@ -182,10 +182,57 @@ $= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $
 \begin{enumerate}
 \item %TODO
 \end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+ & & \\ \hline
+\end{tabular}
+%
 \subsection{rates}
 \begin{enumerate}
 \item %TODO
 \end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+ & & \\ \hline
+\end{tabular}
+%
+\subsection{!$<$metric$>$}
+\begin{itemize}
+\item Any $<$metric$>$ with an exclamation mark is the same metric for the negative class
+\item e.g. recall $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}} \Rightarrow$ \textbf{!}recall  $= \frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$
+\item Example usage: find all items that are not ``E'' class $\rightarrow$ look at \textbf{!}recall for ``E'' class.
+\end{itemize}
+\subsubsection{Existing !$<$metric$>$s}
+\begin{itemize}
+\item !f1
+\item !precision
+\item !recall
+\end{itemize}
+%
+\subsection{Additional explanations}
+\subsubsection{recall vs precision}
+When increasing one of these two, the other one naturally decreases. For an intuitive example, let's take a look at \href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Google's Loan Threshold Simulation}:\\
+\includegraphics[scale=0.6]{resources/3/loanML3}\\
+\begin{description}
+\item The dark grey / dark blue dots, representing clients that would actually pay back their loan, are more and more included ($\rightarrow$ given loans) if we move the threshold further to the left.
+\item But so are clients that would not. Thus moving the threshold to the left increases the \textbf{recall} (\textbf{tpr}) but decreases the \textbf{precision} and vice versa when moving to the right.
+\end{description}
+%
+\subsubsection{roc\_auc vs pr\_auc}
+see: \url{https://www.kaggle.com/general/7517}
+\begin{itemize}
+\item tl;dr: if the class imbalance problem exists, \textbf{pr\_auc} is more appropriate than \textbf{roc\_auc}
+\begin{description}
+\item If TNs are not meaningful to the problem or there are a lot more negatives than positives, \textbf{pr\_auc} is the way to go (it does not account for TNs).
+\end{description}
+\item In other words: 
+\begin{itemize}
+\item If the model needs to perform equally on the positive and negative class $\rightarrow$ \textbf{roc\_auc}
+\item If it's not interesting how the model performs on negative class $\rightarrow$ \textbf{pr\_auc} (example: detecting cancer; find all positives and make sure they're correct!)
+\end{itemize}
+\end{itemize}
 %
 %
 %

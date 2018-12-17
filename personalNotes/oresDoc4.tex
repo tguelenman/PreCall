@@ -35,20 +35,20 @@ Metrics simple list:\\
 
 \begin{tabular}{| l | l |}
 \hline 
-!f1 & \checkmark \\ \hline
+!f1 &  \\ \hline
 !precision & \\ \hline
 !recall & \\ \hline
-accuracy & \\ \hline
+accuracy & \checkmark \\ \hline
 counts & \\ \hline
-f1 & \\ \hline
-filter\_rate & \\ \hline
-fpr & \\ \hline
-match\_rate & \\ \hline
-pr\_auc & \\ \hline 
+f1 & \checkmark \\ \hline
+filter\_rate & \checkmark \\ \hline
+fpr & \checkmark \\ \hline
+match\_rate & \checkmark \\ \hline
+pr\_auc & \checkmark \\ \hline 
 precision & \checkmark\\ \hline
 rates & \\ \hline 
 recall &  \checkmark\\ \hline
-roc\_auc & \\ \hline
+roc\_auc & \checkmark \\ \hline
 \end{tabular}
 
 %TODO order^
@@ -80,7 +80,7 @@ roc\_auc & \\ \hline
 \end{description}
 \end{itemize}
 %
-\subsection{Recall}
+\subsection{recall}
 \begin{enumerate}
 \item Recall ($\equiv$ True Positive Rate) is defined as the ability of a model to find all relevant cases within the dataset.
 \end{enumerate}
@@ -90,7 +90,7 @@ roc\_auc & \\ \hline
 $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FN}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FN}}$\\ \hline
 \end{tabular}
 %
-\subsection{Precision}
+\subsection{precision}
 \begin{enumerate}
 \item Ability of the model to find only relevant cases within the dataset
 \end{enumerate}
@@ -100,7 +100,7 @@ $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$ & $= \frac{\includegraphics[sc
 $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
 \end{tabular}
 %
-\subsection{F1}
+\subsection{f1}
 \begin{enumerate}
 \item F1-Score, the harmonic mean of recall and precision, a metric from 0 (worst) to 1 (best), used to evaluate the accuracy of a model by taking recall and precision into account 
 \end{enumerate}
@@ -121,9 +121,8 @@ $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[sc
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
+$= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleFP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanFP}}{\includegraphics[scale=0.6]{resources/4/loanTN+FP}}$\\ \hline
 \end{tabular}
-%TODO confusion cirlce TN+FP, loan same
 \subsection{roc\_auc}
 \begin{enumerate}
 \item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision
@@ -152,32 +151,41 @@ $= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[sc
 %
 \subsection{accuracy}
 \begin{enumerate}
-\item %TODO
+\item Measuring the portion of correctly predicted data
 \end{enumerate}
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
-%TODO correct loan
+$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
 \end{tabular}
 \subsection{match\_rate}
 \begin{enumerate}
-\item ``The proportion of observations matched/not-matched''
+\item The proportion of observations matched/not-matched
 \end{enumerate}
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
-%TODO correct loan
+$= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
 \end{tabular}
 %
-%TODO hier weitermachen
 \subsection{filter\_rate}
-\begin{itemize}
-\item ``The proportion of observations filtered/not-filtered'' (?)
-\item \textbf{filter\_rate} $=1-\texttt{match\_rate}$
-\item $=\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} = \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$
-\end{itemize}
+\begin{enumerate}
+\item The proportion of observations filtered/not-filtered
+\end{enumerate}
+\begin{tabular}{|l|l|l|l|}
+\hline
+2. & 3. & 4.\\ 
+$= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTN+FN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
+\end{tabular}
+%
+\subsection{counts}
+\begin{enumerate}
+\item %TODO
+\end{enumerate}
+\subsection{rates}
+\begin{enumerate}
+\item %TODO
+\end{enumerate}
 %
 %
 %

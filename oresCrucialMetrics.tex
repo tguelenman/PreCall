@@ -11,52 +11,14 @@
 
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
-\title{ORES Custom Documentation IV}
-%\author{Tom Gülenman}
+\title{ORES Crucial Metrics (using the example of enwiki/damaging)}
 \date{}
+%\author{Tom Gülenman}
 \begin{document}
 \maketitle
 \textit{Disclaimer: No guarantee for the correctness of information / explanations / sources is given.}\\
 %
-\section*{Goals}
-\begin{enumerate}
-\item Adjust crucial metrics list \begin{itemize}
-\item to match the damaging model metrics \checkmark
-\item add 2 last metrics \checkmark
-\end{itemize}
-\item Check out mail attachments \checkmark
-\item Check out new Confluence pages and goals \checkmark
-\item Research
-\begin{itemize}
-\item Check out FAT Conference Docs
-\item In what other cases than confusion matrices are those parameters explained?
-\item Are there already visualizations of some of these parameters in any contexts?
-\item Are there any applications, where I can filter for these parameters $\rightarrow$ visualizations or just about anything?
-\end{itemize}
-\end{enumerate}
-%
-\newpage
-\section{Crucial metrics: \textbf{damaging}-model}
-Metrics simple list:\\
-
-\begin{tabular}{| l | l |}
-\hline 
-!f1 & \checkmark \\ \hline
-!precision & \checkmark \\ \hline
-!recall & \checkmark \\ \hline
-accuracy & \checkmark \\ \hline
-counts & \checkmark \\ \hline
-f1 & \checkmark \\ \hline
-filter\_rate & \checkmark \\ \hline
-fpr & \checkmark \\ \hline
-match\_rate & \checkmark \\ \hline
-pr\_auc & \checkmark \\ \hline 
-precision & \checkmark\\ \hline
-rates & \checkmark \\ \hline 
-recall &  \checkmark\\ \hline
-roc\_auc & \checkmark \\ \hline
-\end{tabular}
-
+\section*{Crucial metrics: \textbf{damaging}-model}
 \begin{description}
 \item The metrics are the same for the damaging and itemquality models, but a few changes will be made to the explanatory parts nontheless (compared to the version in oresDoc3). Also the structure of explanations will be changed to the following:
 \item For each metric (if possible) there will be:
@@ -71,15 +33,15 @@ roc\_auc & \checkmark \\ \hline
 \begin{itemize}
 \item Confusion Matrix 
 \begin{description}
-\item \includegraphics[scale=0.3]{resources/3/confusionMatrix}
+\item \includegraphics[scale=0.3]{personalNotes/resources/3/confusionMatrix}
 \end{description}
 \item ``Confusion Circle''
 \begin{description}
-\item \includegraphics[scale=0.35]{resources/3/confusionCircle}
+\item \includegraphics[scale=0.35]{personalNotes/resources/3/confusionCircle}
 \end{description}
 \item Loan Threshold
 \begin{description}
-\item \includegraphics[scale=0.57]{resources/4/loanML4}
+\item \includegraphics[scale=0.57]{personalNotes/resources/4/loanML4}
 \end{description}
 \end{itemize}
 %
@@ -90,7 +52,7 @@ roc\_auc & \checkmark \\ \hline
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FN}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FN}}$\\ \hline
+$= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$ & $= \frac{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTP+FN}}$ & $= \frac{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTP}}{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTP+FN}}$\\ \hline
 \end{tabular}
 %
 \subsection{precision}
@@ -100,7 +62,7 @@ $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$ & $= \frac{\includegraphics[sc
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
+$= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTP+FP}}$ & $= \frac{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTP}}{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTP+FP}}$\\ \hline
 \end{tabular}
 %
 \subsection{f1}
@@ -124,7 +86,7 @@ $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[sc
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleFP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanFP}}{\includegraphics[scale=0.6]{resources/4/loanTN+FP}}$\\ \hline
+$= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleFP}}{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTN+FP}}$ & $= \frac{\includegraphics[scale=0.6]{personalNotes/resources/4/loanFP}}{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTN+FP}}$\\ \hline
 \end{tabular}
 \subsection{roc\_auc}
 \begin{enumerate}
@@ -137,7 +99,7 @@ $= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[sc
 \end{tabular}
 \begin{description}
 \item The receiver operating characteristic (ROC) curve plots the TPR versus FPR as a function of the model’s threshold for classifying a positive
-\includegraphics[scale=0.5]{resources/3/ROCcurve}
+\includegraphics[scale=0.5]{personalNotes/resources/3/ROCcurve}
 \item Increasing the threshold $\rightarrow$ moving up a curve ($\equiv$ model) to the top right corner, where all data is predicted as positive (threshold = 1.0) and vice versa
 \end{description}
 %
@@ -148,7 +110,7 @@ $= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[sc
 \end{enumerate}
 \begin{description}
 \item The PR-curve plots the Precision versus the Recall 
-\item \includegraphics[scale=0.7]{resources/3/PRcurve}
+\item \includegraphics[scale=0.7]{personalNotes/resources/3/PRcurve}
 \item Instead of the top left corner for the ROC-curve, here, we want to be in the top right corner for our classifier to be perfect
 \end{description}
 %
@@ -159,7 +121,7 @@ $= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[sc
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
+$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTotal}}$\\ \hline
 \end{tabular}
 \subsection{match\_rate}
 \begin{enumerate}
@@ -168,7 +130,7 @@ $= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[s
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
+$= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTP+FP}}{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTotal}}$\\ \hline
 \end{tabular}
 %
 \subsection{filter\_rate}
@@ -178,7 +140,7 @@ $= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[s
 \begin{tabular}{|l|l|l|l|}
 \hline
 2. & 3. & 4.\\ 
-$= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTN+FN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
+$= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $= \frac{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{personalNotes/resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTN+FN}}{\includegraphics[scale=0.6]{personalNotes/resources/4/loanTotal}}$\\ \hline
 \end{tabular}
 %
 \subsection{counts}
@@ -192,7 +154,7 @@ $= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $
 \end{tabular}
 \begin{description}
 \item When calling the enwiki damaging model for example (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics}{Link}), you'll notice the following under counts:
-\item \includegraphics[scale=1]{resources/4/enwikiDamagingCounts}
+\item \includegraphics[scale=1]{personalNotes/resources/4/enwikiDamagingCounts}
 \item The information stored in \textit{labels} is what we defined above under \textbf{1.}
 \item \textit{n} is the total number of edits taken into account
 \item \textit{predictions} is where it gets interesting: \textit{false} and \textit{true} as parents of another two of those are the labels and the values of their ``child''-booleans are the actual values of their edits
@@ -213,7 +175,7 @@ $= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $
 \end{tabular}
 \begin{description}
 \item Calling the API the same way as for \textbf{counts}, we get:
-\item \includegraphics[scale=1]{resources/4/enwikiDamagingRates}
+\item \includegraphics[scale=1]{personalNotes/resources/4/enwikiDamagingRates}
 \item As already mentioned, the size of \textit{sample} equals our \textit{n} in \textbf{counts} $= 19428$.
 \item But why have a sample and the whole population? Because there is a significant number of bot edits and edits that don't need reviewing (admins, autopatrolled users). The sample of edits does not contain any of those.
 \end{description}
@@ -234,7 +196,7 @@ $= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $
 \subsection{Additional explanations}
 \subsubsection{recall vs precision}
 When increasing one of these two, the other one naturally decreases. For an intuitive example, let's take a look at \href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Google's Loan Threshold Simulation}:\\
-\includegraphics[scale=0.6]{resources/3/loanML3}\\
+\includegraphics[scale=0.6]{personalNotes/resources/3/loanML3}\\
 \begin{description}
 \item The dark grey / dark blue dots, representing clients that would actually pay back their loan, are more and more included ($\rightarrow$ given loans) if we move the threshold further to the left.
 \item But so are clients that would not. Thus moving the threshold to the left increases the \textbf{recall} (\textbf{tpr}) but decreases the \textbf{precision} and vice versa when moving to the right.
@@ -252,67 +214,5 @@ see: \url{https://www.kaggle.com/general/7517}
 \item If the model needs to perform equally on the positive and negative class $\rightarrow$ \textbf{roc\_auc}
 \item If it's not interesting how the model performs on negative class $\rightarrow$ \textbf{pr\_auc} (example: detecting cancer; find all positives and make sure they're correct!)
 \end{itemize}
-\end{itemize}
-%
-\section{Research}
-\subsection{Confusion Matrices Alternatives}
-\begin{itemize}
-\item Already mentioned before: Confused Pie Plots (\href{http://www.dietergalea.com/confusion-matrices-alternative/}{Link})
-\item ``Visualization of Confusion Matrix for Non-Expert Users'' (\href{https://pdfs.semanticscholar.org/1e04/b2882ddd6e07f411e3a77d9d20bdd21273a8.pdf}{Link})
-\begin{description}
-\item \includegraphics[scale=0.5]{resources/4/confusionMatrixAlternative2} 
-\end{description}
-\item Same project: (\href{https://www.researchgate.net/publication/302412429_Simplifying_the_Visualization_of_Confusion_Matrix}{Link}) 
-\begin{description}
-\item \includegraphics[scale=0.35]{resources/4/confusionMatrixAlternative3}
-\item Personal comment: Since the most commonly mentioned problem with confusion matrices is the readability with a high amount of classes, these (and probably most other) alternative representations aim to improve that aspect, thus they might not be extremely useful for visualizations in the context of the \textbf{damaging}-model.
-\end{description}
-\end{itemize}
-\subsection{Classifier Visualizations}
-\begin{itemize}
-\item Scikit Discrimination Threshold Visualization (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
-\begin{description}
-\item \includegraphics[scale=0.7]{resources/4/discriminationThresholdVisualization}
-\item For binary probabilistic classifiers only (fits the \textbf{damaging}-model).
-\item $\rightarrow$ Is this interesting to us? We need the dataset (see link for code)!
-\item If it is, also check other visualizations on the site!
-\end{description}
-\end{itemize}
-%
-%
-%
-\newpage
-\section*{Additional Information}
-\begin{itemize}
-\item \href{https://www.mediawiki.org/wiki/ORES/Thresholds}{ORES Threshold Link}
-\item \href{https://intern.hcc.mi.fu-berlin.de/confluence/pages/viewpage.action?pageId=33269659}{Confluence Link (Bachelor Thesis)}
-\item Amir's mail links
-\begin{itemize}
-\item \href{https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters}{New Filters for Edit Review Documentation Link}
-\item \href{https://ores.wikimedia.org/v3/scores/eswiki/?models=damaging&model_info=statistics.thresholds.false.%22maximum+recall+%40+precision+%3E%3D+0.995%22%7Cstatistics.thresholds.true.%22maximum+filter_rate+%40+recall+%3E%3D+0.9%22%7Cstatistics.thresholds.true.%22maximum+recall+%40+precision+%3E%3D+0.6%22%7Cstatistics.thresholds.true.%22maximum+recall+%40+precision+%3E%3D+0.9%22&format=json}{ORES API Call Link}
-\begin{description}
-\item ``Basically it asks for threshold from the API when "recall is at its maximum when precision is at least 0.995"''
-\end{description}
-\end{itemize}
-\item Bowen Yu: \href{https://meta.m.wikimedia.org/wiki/Research:Applying_Value-Sensitive_Algorithm_Design_to_ORES}{Applying Value-Sensitive Algorithm Design to ORES}
-\end{itemize}
-\section*{Questions}
-\begin{itemize}
-%
-\item \colorbox{yellow}{Q:} Should I ask Aaron how he would like us to work together? I'm not sure how he meant it.
-\begin{description}
-\item \colorbox{orange}{A:} 
-\end{description}
-%
-\item \colorbox{yellow}{Q:} In what situations exactly do we want to optimize the threshold in the context of user centered threshold optimization?
-\begin{description}
-\item \colorbox{orange}{A:} 
-\end{description}
-%
-\item \colorbox{yellow}{Q:} VPN recommendation?
-\begin{description}
-\item \colorbox{orange}{A:} 
-\end{description}
-%
 \end{itemize}
 \end{document}

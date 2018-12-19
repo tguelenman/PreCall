@@ -275,15 +275,31 @@ Of course, there are multiple tools to plot the ROC and PR curves. For example:
 \item PR: Scikit-yb (\href{http://www.scikit-yb.org/en/develop/api/classifier/prcurve.html}{Link})
 \end{itemize}
 \subsection{Classifier Visualizations}
+\subsubsection{Metrics!}
 \begin{itemize}
-\item Actual visualization of parameters: Scikit Discrimination Threshold Visualization (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
+\item Scikit Discrimination Threshold Visualization (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
 \begin{description}
 \item \includegraphics[scale=0.7]{resources/4/discriminationThresholdVisualization}
 \item For binary probabilistic classifiers only (fits the \textbf{damaging}-model).
 \item $\rightarrow$ Is this interesting to us? We need the dataset (see link for code)!
 \item If it is, also check other visualizations on the site!
 \end{description}
+\item Threshold slider and Confusion Matrix (\href{https://www.r-bloggers.com/visualizing-classifier-thresholds/}{Link}), with Python Code (\href{https://github.com/cjbayesian/datascience-utils/blob/master/cm_thresholds_widget.ipynb}{Link})
+\begin{description}
+\item \includegraphics[scale=1.5]{resources/4/thresholdAndConfusionR}
+\end{description}
+\item Heatmap for Recall, Precision and F1 (\href{https://medium.com/district-data-labs/visual-diagnostics-for-more-informed-machine-learning-7ec92960c96b}{Tutorial Link}):
+\begin{description}
+\item \includegraphics[scale=0.5]{resources/4/heatmapMetrics}
+\end{description}
+\item Visualization of Precision, Recall and Queue\_Rate with Thresholds (\href{https://blog.insightdatascience.com/visualizing-machine-learning-thresholds-to-make-better-business-decisions-4ab07f823415}{Link}):
+\begin{description}
+\item \includegraphics[scale=0.7]{resources/4/PRQT}
+\end{description}
 \end{itemize}
+\subsubsection{Classifiers in general}
+Lots of options here: just from Scikit alone (\href{https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html}{Source}):\\
+\includegraphics[scale=0.23]{resources/4/ScikitClassifierComparison}
 %
 %
 %

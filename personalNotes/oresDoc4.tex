@@ -268,9 +268,15 @@ see: \url{https://www.kaggle.com/general/7517}
 \item Personal comment: Since the most commonly mentioned problem with confusion matrices is the readability with a high amount of classes, these (and probably most other) alternative representations aim to improve that aspect, thus they might not be extremely useful for visualizations in the context of the \textbf{damaging}-model.
 \end{description}
 \end{itemize}
+\subsection{roc\_auc and pr\_auc}
+Of course, there are multiple tools to plot the ROC and PR curves. For example:
+\begin{itemize}
+\item ROC: Scikit-learn (\href{https://datamize.wordpress.com/2015/01/24/how-to-plot-a-roc-curve-in-scikit-learn/}{Tutorial Link})
+\item PR: Scikit-yb (\href{http://www.scikit-yb.org/en/develop/api/classifier/prcurve.html}{Link})
+\end{itemize}
 \subsection{Classifier Visualizations}
 \begin{itemize}
-\item Scikit Discrimination Threshold Visualization (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
+\item Actual visualization of parameters: Scikit Discrimination Threshold Visualization (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
 \begin{description}
 \item \includegraphics[scale=0.7]{resources/4/discriminationThresholdVisualization}
 \item For binary probabilistic classifiers only (fits the \textbf{damaging}-model).
@@ -284,6 +290,7 @@ see: \url{https://www.kaggle.com/general/7517}
 \newpage
 \section*{Additional Information}
 \begin{itemize}
+\item Interesting: ML metrics evaluation in python (\href{https://machinelearningmastery.com/metrics-evaluate-machine-learning-algorithms-python/}{Link})
 \item \href{https://www.mediawiki.org/wiki/ORES/Thresholds}{ORES Threshold Link}
 \item \href{https://intern.hcc.mi.fu-berlin.de/confluence/pages/viewpage.action?pageId=33269659}{Confluence Link (Bachelor Thesis)}
 \item Amir's mail links
@@ -294,6 +301,7 @@ see: \url{https://www.kaggle.com/general/7517}
 \item ``Basically it asks for threshold from the API when "recall is at its maximum when precision is at least 0.995"''
 \end{description}
 \item \href{https://github.com/wikimedia/editquality/blob/master/model_info/enwiki.damaging.md}{Enwiki Damaging Modelinfo Link}
+\item \href{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html}{Scikit Information on \textit{micro} and \textit{macro} Link}
 \end{itemize}
 \item Bowen Yu: \href{https://meta.m.wikimedia.org/wiki/Research:Applying_Value-Sensitive_Algorithm_Design_to_ORES}{Applying Value-Sensitive Algorithm Design to ORES}
 \end{itemize}
@@ -310,12 +318,6 @@ see: \url{https://www.kaggle.com/general/7517}
 \item \colorbox{orange}{A:} 
 \end{description}
 %
-\item \colorbox{yellow}{Q:} VPN recommendation?
-\begin{description}
-\item \colorbox{orange}{A:} 
-\end{description}
-%
 \end{itemize}
 \end{document}
 %TODO questions. 
-%TODO last research.

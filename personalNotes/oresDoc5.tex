@@ -1,0 +1,51 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[unicode=true,bookmarks=false,bookmarksopen=true]{hyperref}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{listings}
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\title{ORES Custom Documentation V}
+%\author{Tom Gülenman}
+\date{}
+\begin{document}
+\maketitle
+\textit{Disclaimer: No guarantee for the correctness of information / explanations / sources is given.}\\
+%
+\section*{Goals}
+\begin{enumerate}
+\item Metric list:
+\begin{itemize}
+\item Add examples to each metric (if possible)
+\item Adjust the desciption of counts $\rightarrow$ labels, predictions
+\end{itemize}
+\item Research what form of revision data is needed (for existing visualizations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
+\item Watch \href{https://www.dataschool.io/roc-curves-and-auc-explained}{``ROC curves and Area Under the Curve explained''} and think about what parameters could be used in which ways to filter the output of the current UI (currently: X inputs $\rightarrow$ X outputs)
+\begin{description}
+\item Also check out: \href{https://www.kaggle.com/general/7517#post41179}{Precision-Recall AUC vs ROC AUC discussion}
+\end{description}
+\item Read \href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} (carefully!)
+\item Think about what could be the goal of this thesis
+\end{enumerate}
+
+\section*{Questions}
+\begin{itemize}
+%
+\item \colorbox{yellow}{Q:} Should I ask Aaron how he would like us to work together? I'm not sure how he meant it.
+\begin{description}
+\item \colorbox{orange}{A:} 
+\end{description}
+%
+\item \colorbox{yellow}{Q:} In what situations exactly do we want to optimize the threshold in the context of user centered threshold optimization?
+\begin{description}
+\item \colorbox{orange}{A:} 
+\end{description}
+%
+\end{itemize}
+\end{document}

@@ -11,6 +11,9 @@
 
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
+\definecolor{pGreen}{rgb}{0.44, 0.71, 0}
+\definecolor{nRed}{rgb}{0.74, 0, 0}
+
 \title{ORES Custom Documentation V}
 %\author{Tom Gülenman}
 \date{}
@@ -60,13 +63,12 @@ roc\_auc & \checkmark \\ \hline
 \end{tabular}
 
 \begin{description}
-\item The metrics are the same for the damaging and itemquality models, but a few changes will be made to the explanatory parts nontheless (compared to the version in oresDoc3). Also the structure of explanations will be changed once again (compared to the version in oresDoc4) to the following:
+\item Again, changes have been made to the list and explanations, compared to the version in oresDoc4. The structure of explanations will be as follows:
 \item For each metric (if possible) there will be:
 \begin{enumerate}
 \item A definition
 \item An intuitive explanation with an example
 \item The formula based on the \textbf{confusion matrix}
-\item Its meaning based on the ``\textbf{confusion circle}''
 \item Its meaning based on the \textbf{loan threshold} representation by Google (\href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Link})
 \end{enumerate}
 \end{description}
@@ -76,20 +78,44 @@ roc\_auc & \checkmark \\ \hline
 \begin{description}
 \item \includegraphics[scale=0.3]{resources/3/confusionMatrix}
 \end{description}
-\item ``Confusion Circle''
-\begin{description}
-\item \includegraphics[scale=0.35]{resources/3/confusionCircle}
-\end{description}
 \item Loan Threshold
 \begin{description}
 \item \includegraphics[scale=0.57]{resources/4/loanML4}
 \end{description}
 \end{itemize}
 %
-\subsection*{The example}
+\subsection*{The example scenario}
 To ease the understanding, let's stick to the following scenario and refer to it for each metric:
 \begin{itemize}
-\item 100 people
+\item 100 people represent our total population
+\item 35\% of our population is infected with disease X
+\begin{description}
+\item That leaves us with the following \textbf{labels}: \textbf{35} \colorbox{pGreen}{\textbf{positives}} and \textbf{65} \colorbox{nRed}{\textbf{negatives}} (being tested for disease X;)
+\item \includegraphics[scale=0.5]{resources/5/exampleBase}
+\end{description}
+\item A classifier is now supposed to classify every person of our population (based on their visible symptoms for example). This is the \textbf{prediction}:
+\begin{itemize}
+\item If our algorithm says a person is infected, that person will be classified as a \colorbox{pGreen}{\textbf{positive}}, and marked with radioactive symbol:
+\begin{description}
+\item \includegraphics[scale=0.3]{resources/5/radioactive}
+\end{description}
+\item If the prediction results in a \colorbox{nRed}{\textbf{negative}}, the person will be marked with a sun symbol:
+\begin{description}
+\item \includegraphics[scale=0.3]{resources/5/sun}
+\end{description}
+\end{itemize}
+\item The classifier may predict that:
+\begin{itemize}
+\item out of the 35 \colorbox{pGreen}{infected people}, \textbf{30} are infected (those 30 are what we call \textbf{true positives}) and \textbf{5} are not (those 5 are \textbf{false negatives}) 
+\item out of the 65 \colorbox{nRed}{non infected people}, \textbf{10} are infected (\textbf{false positives}) and \textbf{55} are not (\textbf{true negatives})
+\begin{description}
+\item \includegraphics[scale=0.5]{resources/5/examplePredicted}
+\item \includegraphics[scale=0.5]{resources/5/exampleTP} \textbf{true positive}: infected and correctly predicted
+\item \includegraphics[scale=0.5]{resources/5/exampleFN} \textbf{false negative}: infected and incorrectly predicted
+\item \includegraphics[scale=0.5]{resources/5/exampleTN} \textbf{true negative}: not infected and correctly predicted
+\item \includegraphics[scale=0.5]{resources/5/exampleFP} \textbf{false positive}: not infected and incorrectly predicted
+\end{description}
+\end{itemize}
 \end{itemize}
 
 \subsection{recall}

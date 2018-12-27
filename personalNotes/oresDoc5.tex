@@ -123,7 +123,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \subsection{recall}
 \begin{enumerate}
 \item $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$
-\item Recall ($\equiv$ true positive rate $\equiv$ ``sensitivity'') is the ability of a model to find all relevant cases within the dataset.
+\item Recall ($\equiv$ true positive rate $\equiv$ ``sensitivity'') is the ability of a model to find \textbf{all} relevant cases within the dataset.
 \item Now, in our example scenario, the relevant cases are the infected people. We absolutely want to identify those: \includegraphics[scale=0.3]{resources/5/exampleP}. The ability of the model to identify those depends on how many will be \textbf{correctly} predicted to be infected: \includegraphics[scale=0.3]{resources/5/exampleTP}.
 \begin{description}
 \item In other words, we are looking for the ratio of correctly predicted to be infected people to all infected people.
@@ -134,13 +134,14 @@ To ease the understanding, let's stick to the following scenario and refer to it
 %
 \subsection{precision}
 \begin{enumerate}
-\item Ability of the model to find only relevant cases within the dataset
+\item $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$
+\item Ability of the model to find \textbf{only} relevant cases within the dataset
+\item Again, we take a look at the relevant cases, the infected people: \includegraphics[scale=0.3]{resources/5/exampleP}. This time around though, we are \textbf{not} interested in the ratio of correctly predicted to be infected people to \textbf{all} infected people. Instead we want to know how good the model is at only predicting those to be infected, that actually are. Therefore, we want the ratio of all \includegraphics[scale=0.3]{resources/5/exampleTP} to all those predicted to be infected: $\includegraphics[scale=0.3]{resources/5/exampleTP} + \includegraphics[scale=0.3]{resources/5/exampleFP}$
+\begin{description}
+\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleFP}}$
+\end{description}
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$\\ \hline
-\end{tabular}
 %
 \subsection{f1}
 \begin{enumerate}

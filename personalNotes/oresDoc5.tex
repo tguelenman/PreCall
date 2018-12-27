@@ -70,6 +70,7 @@ roc\_auc & \checkmark \\ \hline
 \item A definition
 \item An intuitive explanation with an example
 \item Its meaning based on the \textbf{loan threshold} representation by Google (\href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Link})
+\item Additional information (if necessary)
 \end{enumerate}
 \end{description}
 \subsection*{Explanations: References}
@@ -128,6 +129,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \begin{description}
 \item In other words, we are looking for the ratio of correctly predicted to be infected people to all infected people.
 \item That leads to $\frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP}}$, with $\includegraphics[scale=0.3]{resources/5/exampleP} = \includegraphics[scale=0.3]{resources/5/exampleTP} + \includegraphics[scale=0.3]{resources/5/exampleFN}$, which is equivalent to the formula in \textbf{1.}, if you replace the symbols with their confusion matrix counterpart according to the legend in \textbf{The example scenario}.
+\item In terms of numbers for our example that would be $\frac{30}{30+5} \approx 0.86$
 \end{description}
 \item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FN}}$
 \end{enumerate}
@@ -138,34 +140,30 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item Ability of the model to find \textbf{only} relevant cases within the dataset
 \item Again, we take a look at the relevant cases, the infected people: \includegraphics[scale=0.3]{resources/5/exampleP}. This time around though, we are \textbf{not} interested in the ratio of correctly predicted to be infected people to \textbf{all} infected people. Instead we want to know how good the model is at only predicting those to be infected, that actually are. Therefore, we want the ratio of all \includegraphics[scale=0.3]{resources/5/exampleTP} to all those predicted to be infected: $\includegraphics[scale=0.3]{resources/5/exampleTP} + \includegraphics[scale=0.3]{resources/5/exampleFP}$
 \begin{description}
-\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleFP}}$
+\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleFP}} = \frac{30}{30+10} = 0.75$
 \end{description}
 \item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}$
 \end{enumerate}
 %
 \subsection{f1}
 \begin{enumerate}
-\item F1-Score, the harmonic mean of recall and precision, a metric from 0 (worst) to 1 (best), used to evaluate the accuracy of a model by taking recall and precision into account 
+\item -
+\item f1-Score, the harmonic mean of recall and precision, a metric from \textbf{0} (worst) to \textbf{1} (best), used to evaluate the accuracy of a model by taking into account recall and precision: $=2*\frac{\texttt{precision} * \texttt{recall}}{\texttt{precision}+\texttt{recall}}$
+\item For our example model, that would result in $=2*\frac{0.75 * \frac{30}{35}}{0.75+\frac{30}{35}} = 0.8$
+\item -
+\item Additional information: Compared to the simple average (of recall and precision), the harmonic mean punishes extreme values (e.g. precision 1.0 and recall 0.0 $\rightarrow$ average = 0.5, but f1 $= 0$)
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-- & - & - \\ \hline
-\end{tabular}
-\begin{description}
-\item $=2*\frac{\texttt{precision} * \texttt{recall}}{\texttt{precision}+\texttt{recall}}$
-\item Compared to the simple average (of recall and precision), the harmonic mean punishes extreme values (e.g. precision 1.0 and recall 0.0 $\rightarrow$ average 0.5, but F1 $= 0$)
-\end{description}
 %
 \subsection{fpr}
 \begin{enumerate}
-\item The false positive rate (\textbf{FPR}) is the probability of a false alarm
+\item $\frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$
+\item The false positive rate is the probability of a false alarm.
+\item In our example, a false alarm would obviously be labeling someone as infected, who isn't: \includegraphics[scale=0.3]{resources/5/exampleFP}. Now we just have to ask ourselves what portion of those, that, if they \textbf{were} incorrectly predicted as infected (because they \textbf{are not} infected: \includegraphics[scale=0.3]{resources/5/exampleN}), \textbf{are} incorrectly predicted as infected? Hence, we are looking for the ratio of \includegraphics[scale=0.3]{resources/5/exampleFP} to all non infected people: $\includegraphics[scale=0.3]{resources/5/exampleFP} + \includegraphics[scale=0.3]{resources/5/exampleTN}$.
+\begin{description}
+\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleFP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleFP} + \sum \includegraphics[scale=0.3]{resources/5/exampleTN}} = \frac{10}{10+55} \approx 0.15$
+\end{description}
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanFP}}{\includegraphics[scale=0.6]{resources/4/loanTN+FP}}$
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-$= \frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleFP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FP}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanFP}}{\includegraphics[scale=0.6]{resources/4/loanTN+FP}}$\\ \hline
-\end{tabular}
 \subsection{roc\_auc}
 \begin{enumerate}
 \item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision

@@ -66,9 +66,9 @@ roc\_auc & \checkmark \\ \hline
 \item Again, changes have been made to the list and explanations, compared to the version in oresDoc4. The structure of explanations will be as follows:
 \item For each metric (if possible) there will be:
 \begin{enumerate}
+\item The formula based on the \textbf{confusion matrix}
 \item A definition
 \item An intuitive explanation with an example
-\item The formula based on the \textbf{confusion matrix}
 \item Its meaning based on the \textbf{loan threshold} representation by Google (\href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Link})
 \end{enumerate}
 \end{description}
@@ -77,6 +77,7 @@ roc\_auc & \checkmark \\ \hline
 \item Confusion Matrix 
 \begin{description}
 \item \includegraphics[scale=0.3]{resources/3/confusionMatrix}
+\item Abbreviations: \textbf{\textcolor{pGreen}{TP}}, \textbf{\textcolor{nRed}{FP}}, \textbf{\textcolor{nRed}{FN}} and \textbf{\textcolor{pGreen}{TN}}.
 \end{description}
 \item Loan Threshold
 \begin{description}
@@ -118,16 +119,18 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \end{itemize}
 \end{itemize}
 
+\paragraph{Let's get started.}
 \subsection{recall}
 \begin{enumerate}
-\item Recall ($\equiv$ true positive rate $\equiv$ ``sensitivity'') is defined as the ability of a model to find all relevant cases within the dataset.
-\item Let's consider the follow example: 
+\item $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$
+\item Recall ($\equiv$ true positive rate $\equiv$ ``sensitivity'') is the ability of a model to find all relevant cases within the dataset.
+\item Now, in our example scenario, the relevant cases are the infected people. We absolutely want to identify those: \includegraphics[scale=0.3]{resources/5/exampleP}. The ability of the model to identify those depends on how many will be \textbf{correctly} predicted to be infected: \includegraphics[scale=0.3]{resources/5/exampleTP}.
+\begin{description}
+\item In other words, we are looking for the ratio of correctly predicted to be infected people to all infected people.
+\item That leads to $\frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP}}$, with $\includegraphics[scale=0.3]{resources/5/exampleP} = \includegraphics[scale=0.3]{resources/5/exampleTP} + \includegraphics[scale=0.3]{resources/5/exampleFN}$, which is equivalent to the formula in \textbf{1.}, if you replace the symbols with their confusion matrix counterpart according to the legend in \textbf{The example scenario}.
+\end{description}
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FN}}$
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FN}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP}}{\includegraphics[scale=0.6]{resources/4/loanTP+FN}}$\\ \hline
-\end{tabular}
 %
 \subsection{precision}
 \begin{enumerate}

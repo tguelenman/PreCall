@@ -165,7 +165,10 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item $\frac{\includegraphics[scale=0.6]{resources/4/loanFP}}{\includegraphics[scale=0.6]{resources/4/loanTN+FP}}$
 \end{enumerate}
 \subsection{roc\_auc}
+%TODO
+%TODO check out https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5
 \begin{enumerate}
+\item -
 \item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision
 \end{enumerate}
 \begin{tabular}{|l|l|l|l|}
@@ -192,13 +195,14 @@ To ease the understanding, let's stick to the following scenario and refer to it
 %
 \subsection{accuracy}
 \begin{enumerate}
-\item Measuring the portion of correctly predicted data
+\item $\frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$
+\item Accuracy measures the portion of correctly predicted data
+\item In our example scenario, the correctly predicted data are infected patients, predicted to be infected ( \includegraphics[scale=0.3]{resources/5/exampleTP} ), and non infected patients, predicted not to be infected ( \includegraphics[scale=0.3]{resources/5/exampleTN} ). To get this wanted portion of correctly predicted data, we also have to include the incorrectly predicted data in our denominator, which will result in the total of our population: 
+\begin{description}
+\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleTN}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP} + \sum \includegraphics[scale=0.3]{resources/5/exampleN}} = \frac{30+55}{100} = 0.85$
+\end{description}
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+TN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
-\end{tabular}
 \subsection{match\_rate}
 \begin{enumerate}
 \item The proportion of observations matched/not-matched

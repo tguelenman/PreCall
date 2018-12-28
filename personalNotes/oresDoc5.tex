@@ -183,6 +183,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \end{description}
 %
 \subsection{pr\_auc}
+%TODO
 (see: \href{http://www.chioka.in/differences-between-roc-auc-and-pr-auc/}{link 1} and \href{https://acutecaretesting.org/en/articles/precision-recall-curves-what-are-they-and-how-are-they-used}{link 2})
 \begin{enumerate}
 \item The \textbf{area under} the \textbf{curve} of the \textbf{PR}-curve, same: similar objective as the \textbf{roc\_auc}, but PR curves are better than ROC curves if the populations are imbalanced
@@ -197,32 +198,35 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \begin{enumerate}
 \item $\frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$
 \item Accuracy measures the portion of correctly predicted data
-\item In our example scenario, the correctly predicted data are infected patients, predicted to be infected ( \includegraphics[scale=0.3]{resources/5/exampleTP} ), and non infected patients, predicted not to be infected ( \includegraphics[scale=0.3]{resources/5/exampleTN} ). To get this wanted portion of correctly predicted data, we also have to include the incorrectly predicted data in our denominator, which will result in the total of our population: 
+\item In our example scenario, this is equal to asking ourselves \textit{out of all patients, what's the portion of correctly predicted cases?} The correctly predicted cases are infected patients, predicted to be infected ( \includegraphics[scale=0.3]{resources/5/exampleTP} ), and non infected patients, predicted not to be infected ( \includegraphics[scale=0.3]{resources/5/exampleTN} ). This wanted proportion results in: 
 \begin{description}
-\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleTN}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP} + \sum \includegraphics[scale=0.3]{resources/5/exampleN}} = \frac{30+55}{100} = 0.85$
+\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleTN}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP} + \sum \includegraphics[scale=0.3]{resources/5/exampleN}} = \frac{30+55}{35+65} = 0.85$
 \end{description}
-\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP+TN}}{\includegraphics[scale=0.6]{resources/4/loanTotal2}}$
 \end{enumerate}
 \subsection{match\_rate}
 \begin{enumerate}
-\item The proportion of observations matched/not-matched
+\item $\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$
+\item The match rate is the proportion of observations matched/not-matched, meaning the ratio of observations predicted to be positive to the total of observations.
+\item Concerning our example, this would be equal to wanting to know what portion of the population was predicted to be infected. Those groups are: \includegraphics[scale=0.3]{resources/5/exampleTP} and \includegraphics[scale=0.3]{resources/5/exampleFP}.
+\begin{description}
+\item \item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTP} + \sum \includegraphics[scale=0.3]{resources/5/exampleFP}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP} + \sum \includegraphics[scale=0.3]{resources/5/exampleN}} = \frac{30+10}{35+65} = 0.4$
+\end{description}
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}{\includegraphics[scale=0.6]{resources/4/loanTotal2}}$
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-$= \frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTP+FP}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTP+FP}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
-\end{tabular}
 %
 \subsection{filter\_rate}
 \begin{enumerate}
-\item The proportion of observations filtered/not-filtered
+\item $1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}}$
+\item The filter rate is the proportion of observations filtered/not-filtered, meaning the ratio of observations predicted to be negative to the total of observations. This is the complement to the match rate.
+\item In our example scenario, this would be equal to wanting to know what portion of the population was predicted not to be infected.
+\begin{description}
+\item $= \frac{\sum \includegraphics[scale=0.3]{resources/5/exampleTN} + \sum \includegraphics[scale=0.3]{resources/5/exampleFN}}{\sum \includegraphics[scale=0.3]{resources/5/exampleP} + \sum \includegraphics[scale=0.3]{resources/5/exampleN}} = \frac{55+5}{35+65} = 0.6 = 1- \texttt{match\_rate}$
+\end{description}
+\item $\frac{\includegraphics[scale=0.6]{resources/4/loanTN+FN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-$= 1-\texttt{match\_rate} = \frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}} $ & $= \frac{\includegraphics[scale=0.1]{resources/3/confusionCircleTN+FN}}{\includegraphics[scale=0.1]{resources/3/confusionCircleTotal}}$ & $= \frac{\includegraphics[scale=0.6]{resources/4/loanTN+FN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$\\ \hline
-\end{tabular}
 %
+%TODO hier gehts weiter
 \subsection{counts}
 \begin{enumerate}
 \item The number of edits labeled as \textit{false} and \textit{true}

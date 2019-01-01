@@ -226,7 +226,6 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item $\frac{\includegraphics[scale=0.6]{resources/4/loanTN+FN}}{\includegraphics[scale=0.6]{resources/4/loanTotal}}$
 \end{enumerate}
 %
-%TODO hier gehts weiter
 \subsection{counts}
 \begin{enumerate}
 \item \begin{itemize}
@@ -316,12 +315,13 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item Calling the API the same way as for \textbf{counts} (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics}{Link}), we get:
 \item \includegraphics[scale=0.7]{resources/4/enwikiDamagingRates}
 \item The number of edits taken into account for \textbf{sample} equals the \textbf{n} from \textbf{counts} $= 19428$.
-\item Now we see that, taking into account the results from \textbf{counts}, \textit{rates\_sample\_false}: $0.961 = \frac{18677}{19428}$ 
+\item Now we see that, also looking at the output under \textbf{counts}, \textit{rates\_sample\_false}: $0.961 = \frac{18677}{19428}$.
 \item Note that we are shown results for ``population'' and ``sample''. There is a significant number of bot edits and edits that don't need reviewing (admins, autopatrolled users). The \textbf{sample} of edits does not contain any of those.
 \end{description}
 \end{enumerate}
 
 %
+%TODO change anything here?
 \subsection{!$<$metric$>$}
 \begin{itemize}
 \item Any $<$metric$>$ with an exclamation mark is the same metric for the negative class

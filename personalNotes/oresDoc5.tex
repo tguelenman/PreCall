@@ -112,10 +112,10 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item out of the 65 \colorbox{nRed}{non infected people}, \textbf{10} are infected (\textbf{false positives}) and \textbf{55} are not (\textbf{true negatives})
 \begin{description}
 \item \includegraphics[scale=0.5]{resources/5/examplePredicted}
-\item \includegraphics[scale=0.5]{resources/5/exampleTP} \textbf{true positive}: infected and correctly predicted
-\item \includegraphics[scale=0.5]{resources/5/exampleFN} \textbf{false negative}: infected and incorrectly predicted
-\item \includegraphics[scale=0.5]{resources/5/exampleTN} \textbf{true negative}: not infected and correctly predicted
-\item \includegraphics[scale=0.5]{resources/5/exampleFP} \textbf{false positive}: not infected and incorrectly predicted
+\item \includegraphics[scale=0.5]{resources/5/exampleTP} \textbf{true positive}: infected and correctly predicted (\textbf{30})
+\item \includegraphics[scale=0.5]{resources/5/exampleFN} \textbf{false negative}: infected and incorrectly predicted (\textbf{5})
+\item \includegraphics[scale=0.5]{resources/5/exampleTN} \textbf{true negative}: not infected and correctly predicted (\textbf{55})
+\item \includegraphics[scale=0.5]{resources/5/exampleFP} \textbf{false positive}: not infected and incorrectly predicted (\textbf{10})
 \end{description}
 \end{itemize}
 \end{itemize}
@@ -267,10 +267,27 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \end{itemize}
 \end{itemize}
 \end{itemize}
-\item In the example, actual positives and negatives refer to:
+\item Concerning our example:
 \begin{itemize}
-\item Actual negatives: $\includegraphics[scale=0.3]{resources/5/exampleTP}+\includegraphics[scale=0.3]{resources/5/exampleFN}= 30+5=35$
-\item Actual positives: $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFP}=55+10=65$
+\item \textbf{labels}:
+\begin{itemize}
+\item false (actual negatives): $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFP}=55+10=65$ 
+\item true (actual positives): $\includegraphics[scale=0.3]{resources/5/exampleTP}+\includegraphics[scale=0.3]{resources/5/exampleFN}= 30+5=35$
+\end{itemize}
+\item \textbf{n} (Total): $100$
+\item \textbf{predictions}:
+\begin{itemize}
+\item false (predicted as false): $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFN} = 55+5=60$
+\begin{itemize}
+\item false (predicted as false and actually false): $\includegraphics[scale=0.3]{resources/5/exampleTN} = 55$
+\item true (predicted as false but actually true):  $\includegraphics[scale=0.3]{resources/5/exampleFN} = 5$
+\end{itemize}
+\item true (predicted as true): $\includegraphics[scale=0.3]{resources/5/exampleFP}+\includegraphics[scale=0.3]{resources/5/exampleTP} = 10+30=40$
+\begin{itemize}
+\item false (predicted as true but actually false): $\includegraphics[scale=0.3]{resources/5/exampleFP} = 10$
+\item true (predicted as true and actually true): $\includegraphics[scale=0.3]{resources/5/exampleTP} = 30$
+\end{itemize}
+\end{itemize}
 \end{itemize}
 \item -
 \item \underline{Additional information}:

@@ -232,8 +232,8 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item \begin{itemize}
 \item \textbf{labels}:
 \begin{itemize}
-\item false: $\texttt{TP}+\texttt{FN}$
-\item true: $\texttt{TN}+\texttt{FP}$
+\item false:  $\texttt{TN}+\texttt{FP}$
+\item true: $\texttt{TP}+\texttt{FN}$
 \end{itemize}
 \item \textbf{n}: $\texttt{Total}$
 \item \textbf{predictions}:
@@ -241,11 +241,11 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item false:
 \begin{itemize}
 \item false: $\texttt{TN}$
-\item true: $\texttt{FN}$
+\item true: $\texttt{FP}$
 \end{itemize}
 \item true:
 \begin{itemize}
-\item false: $\texttt{FP}$
+\item false: $\texttt{FN}$
 \item true: $\texttt{TP}$
 \end{itemize}
 \end{itemize}
@@ -255,15 +255,15 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item \textbf{n}: The sample size; total number of edits taken into account
 \item \textbf{predictions}: \textcolor{blue}{edits ...}
 \begin{itemize}
-\item false: \textcolor{nRed}{... predicted to be false ...}
+\item false: \textcolor{nRed}{... actually being false ...}
 \begin{itemize}
-\item false: \textcolor{nRed}{... and actually being false}
-\item true: \textcolor{nRed}{... but actually being true}
+\item false: \textcolor{nRed}{... and predicted to be false}
+\item true: \textcolor{nRed}{... but predicted to be true}
 \end{itemize}
-\item true: \textcolor{pGreen}{... predicted to be true ...}
+\item true: \textcolor{pGreen}{... actually being true ...}
 \begin{itemize}
-\item false: \textcolor{pGreen}{... but actually being false}
-\item true: \textcolor{pGreen}{... and actually being true}
+\item false: \textcolor{pGreen}{... but predicted to be false}
+\item true: \textcolor{pGreen}{... and predicted to be true}
 \end{itemize}
 \end{itemize}
 \end{itemize}
@@ -271,53 +271,56 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \begin{itemize}
 \item \textbf{labels}:
 \begin{itemize}
-\item false (actual negatives): $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFP}=55+10=65$ 
-\item true (actual positives): $\includegraphics[scale=0.3]{resources/5/exampleTP}+\includegraphics[scale=0.3]{resources/5/exampleFN}= 30+5=35$
+\item false (\textcolor{nRed}{non infected people}): $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFP}=55+10=65$ 
+\item true (\textcolor{pGreen}{infected people}): $\includegraphics[scale=0.3]{resources/5/exampleTP}+\includegraphics[scale=0.3]{resources/5/exampleFN}= 30+5=35$
 \end{itemize}
 \item \textbf{n} (Total): $100$
 \item \textbf{predictions}:
 \begin{itemize}
-\item false (predicted as false): $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFN} = 55+5=60$
+\item false (\textcolor{nRed}{non infected people ...})
 \begin{itemize}
-\item false (predicted as false and actually false): $\includegraphics[scale=0.3]{resources/5/exampleTN} = 55$
-\item true (predicted as false but actually true):  $\includegraphics[scale=0.3]{resources/5/exampleFN} = 5$
+\item false (\textcolor{nRed}{... and predicted not to be infected}): $\includegraphics[scale=0.3]{resources/5/exampleTN} = 55$
+\item true (\textcolor{nRed}{... but predicted to be infected}): $\includegraphics[scale=0.3]{resources/5/exampleFP} = 10$
 \end{itemize}
-\item true (predicted as true): $\includegraphics[scale=0.3]{resources/5/exampleFP}+\includegraphics[scale=0.3]{resources/5/exampleTP} = 10+30=40$
+\item true (\textcolor{pGreen}{infected people ...})
 \begin{itemize}
-\item false (predicted as true but actually false): $\includegraphics[scale=0.3]{resources/5/exampleFP} = 10$
-\item true (predicted as true and actually true): $\includegraphics[scale=0.3]{resources/5/exampleTP} = 30$
+\item false (\textcolor{pGreen}{... predicted not to be infected}): $\includegraphics[scale=0.3]{resources/5/exampleFN} = 5$
+\item true (\textcolor{pGreen}{... predicted to be infected}): $\includegraphics[scale=0.3]{resources/5/exampleTP} = 30$
 \end{itemize}
 \end{itemize}
 \end{itemize}
 \item -
 \item \underline{Additional information}:
 \begin{description}
-\item When calling the enwiki damaging model for example (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics}{Link}), you'll notice the following under counts:
+\item When calling the enwiki damaging model for example (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics}{Link}), you will get the following output for counts:
 \item \includegraphics[scale=0.7]{resources/4/enwikiDamagingCounts}
-\item \textit{n} is the total number of edits taken into account
-\item \textit{predictions}: \textit{false} and \textit{true} as parents of another two of those are the labels and the values of their ``child''-booleans are the actual values of edits
-\item $\Rightarrow$ e.g. of 18677 edits that were labeled as \textit{false}, 719 were false negatives
+\item $\Rightarrow$ e.g. out of 18677 edits that were labeled as \textit{false}, 719 were false positives
 \end{description}
 \end{enumerate}
 %
 \subsection{rates}
 \begin{enumerate}
-\item The rates simply equal $\frac{\texttt{label}}{\texttt{n}}$, both from \textbf{counts} for \textit{rates}: \textit{sample}: \textit{label}, and with \textit{label} = \textit{false} or \textit{true}
+\item \begin{itemize}
+\item false: $\frac{\texttt{counts\_labels\_false}}{\texttt{counts\_n}}$
+\item true: $\frac{\texttt{counts\_labels\_true}}{\texttt{counts\_n}}$
+\end{itemize}
+\item The rates simply give us the proportion of edits labeled as false or true to the total number of edits taken into account.
+\item For the example scenario: 
+\begin{itemize}
+\item false (proportion of infected people to the total number of people tested): $\frac{\sum \includegraphics[scale=0.3]{resources/5/exampleN}}{100} = \frac{65}{100} = 0.65$
+\item true (proportion of infected people to the total number of people tested): $\frac{\sum \includegraphics[scale=0.3]{resources/5/exampleP}}{100} = \frac{35}{100} = 0.35$
+\end{itemize}
+\item -
+\item \underline{Additional information}:
 \begin{description}
-\item So \textit{rates}: \textit{sample}: \textit{false}: $0.961 = \frac{18677}{19428}$  
+\item Calling the API the same way as for \textbf{counts} (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics}{Link}), we get:
+\item \includegraphics[scale=0.7]{resources/4/enwikiDamagingRates}
+\item The number of edits taken into account for \textbf{sample} equals the \textbf{n} from \textbf{counts} $= 19428$.
+\item Now we see that, taking into account the results from \textbf{counts}, \textit{rates\_sample\_false}: $0.961 = \frac{18677}{19428}$ 
+\item Note that we are shown results for ``population'' and ``sample''. There is a significant number of bot edits and edits that don't need reviewing (admins, autopatrolled users). The \textbf{sample} of edits does not contain any of those.
 \end{description}
 \end{enumerate}
-\begin{tabular}{|l|l|l|l|}
-\hline
-2. & 3. & 4.\\ 
-- & - & - \\ \hline
-\end{tabular}
-\begin{description}
-\item Calling the API the same way as for \textbf{counts}, we get:
-\item \includegraphics[scale=0.7]{resources/4/enwikiDamagingRates}
-\item As already mentioned, the size of \textit{sample} equals our \textit{n} in \textbf{counts} $= 19428$.
-\item But why have a sample and the whole population? Because there is a significant number of bot edits and edits that don't need reviewing (admins, autopatrolled users). The sample of edits does not contain any of those.
-\end{description}
+
 %
 \subsection{!$<$metric$>$}
 \begin{itemize}

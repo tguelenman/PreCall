@@ -230,14 +230,47 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \subsection{counts}
 \begin{enumerate}
 \item \begin{itemize}
+\item \textbf{labels}:
+\begin{itemize}
 \item false: $\texttt{TP}+\texttt{FN}$
 \item true: $\texttt{TN}+\texttt{FP}$
 \end{itemize}
-\item The number of edits (\textit{manually}) labeled as \textit{false} and \textit{true}: these values represent the \textbf{actual} positives and negatives.
+\item \textbf{n}: $\texttt{Total}$
+\item \textbf{predictions}:
+\begin{itemize}
+\item false:
+\begin{itemize}
+\item false: $\texttt{TN}$
+\item true: $\texttt{FN}$
+\end{itemize}
+\item true:
+\begin{itemize}
+\item false: $\texttt{FP}$
+\item true: $\texttt{TP}$
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item \begin{itemize}
+\item \textbf{labels}: The number of edits (\textit{manually}) labeled as \textit{false} and \textit{true}: these values represent the \textbf{actual} positives and negatives.
+\item \textbf{n}: The sample size; total number of edits taken into account
+\item \textbf{predictions}: \textcolor{blue}{edits ...}
+\begin{itemize}
+\item false: \textcolor{nRed}{... predicted to be false ...}
+\begin{itemize}
+\item false: \textcolor{nRed}{... and actually being false}
+\item true: \textcolor{nRed}{... but actually being true}
+\end{itemize}
+\item true: \textcolor{pGreen}{... predicted to be true ...}
+\begin{itemize}
+\item false: \textcolor{pGreen}{... but actually being false}
+\item true: \textcolor{pGreen}{... and actually being true}
+\end{itemize}
+\end{itemize}
+\end{itemize}
 \item In the example, actual positives and negatives refer to:
 \begin{itemize}
 \item Actual negatives: $\includegraphics[scale=0.3]{resources/5/exampleTP}+\includegraphics[scale=0.3]{resources/5/exampleFN}= 30+5=35$
-\item Actual positives: $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFP}=10+55=65$
+\item Actual positives: $\includegraphics[scale=0.3]{resources/5/exampleTN}+\includegraphics[scale=0.3]{resources/5/exampleFP}=55+10=65$
 \end{itemize}
 \item -
 \item \underline{Additional information}:

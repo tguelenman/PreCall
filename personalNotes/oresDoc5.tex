@@ -27,7 +27,7 @@
 \begin{itemize}
 \item Add examples \checkmark
 \item Correct the descriptions of counts and rates \checkmark
-\item Improve descriptions of roc\_auc and pr\_auc
+\item Improve descriptions of roc\_auc and pr\_auc \checkmark
 \item Add the new standalone version to the repo
 \end{itemize}
 \item Research what form of revision data is needed (for existing visualizations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
@@ -41,7 +41,6 @@
 %
 %
 %
-%TODO macro + micro
 \newpage
 \section{Crucial metrics: \textbf{damaging}-model}
 Metrics simple list:\\
@@ -361,9 +360,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item Note that we are shown results for ``population'' and ``sample''. There is a significant number of bot edits and edits that don't need reviewing (admins, autopatrolled users). The \textbf{sample} of edits does not contain any of those.
 \end{description}
 \end{enumerate}
-
 %
-%TODO change anything here?
 \subsection{!$<$metric$>$}
 \begin{itemize}
 \item Any $<$metric$>$ with an exclamation mark is the same metric for the negative class
@@ -376,29 +373,12 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item !precision
 \item !recall
 \end{itemize}
-%
-\subsection{Additional explanations}
-\subsubsection{recall vs precision}
-When increasing one of these two, the other one naturally decreases. For an intuitive example, let's take a look at \href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Google's Loan Threshold Simulation}:\\
-\includegraphics[scale=0.6]{resources/3/loanML3}\\
+\subsection{macro and micro}
+Once more querying \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics}{ORES}, you'll notice that most metrics contain entries, labeled with ``macro'' and ``micro'':
 \begin{description}
-\item The dark grey / dark blue dots, representing clients that would actually pay back their loan, are more and more included ($\rightarrow$ given loans) if we move the threshold further to the left.
-\item But so are clients that would not. Thus moving the threshold to the left increases the \textbf{recall} (\textbf{tpr}) but decreases the \textbf{precision} and vice versa when moving to the right.
+\item \includegraphics[scale=0.7]{resources/5/macroAndMicro}
 \end{description}
-%
-\subsubsection{roc\_auc vs pr\_auc}
-see: \url{https://www.kaggle.com/general/7517}
-\begin{itemize}
-\item tl;dr: if the class imbalance problem exists, \textbf{pr\_auc} is more appropriate than \textbf{roc\_auc}
-\begin{description}
-\item If TNs are not meaningful to the problem or there are a lot more negatives than positives, \textbf{pr\_auc} is the way to go (it does not account for TNs).
-\end{description}
-\item In other words: 
-\begin{itemize}
-\item If the model needs to perform equally on the positive and negative class $\rightarrow$ \textbf{roc\_auc}
-\item If it's not interesting how the model performs on negative class $\rightarrow$ \textbf{pr\_auc} (example: detecting cancer; find all positives and make sure they're correct!)
-\end{itemize}
-\end{itemize}
+%TODO http://rushdishams.blogspot.com/2011/08/micro-and-macro-average-of-precision.html
 %
 %
 %

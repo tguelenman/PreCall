@@ -14,38 +14,13 @@
 \definecolor{pGreen}{rgb}{0.44, 0.71, 0}
 \definecolor{nRed}{rgb}{0.74, 0, 0}
 
-\title{ORES Custom Documentation V}
+\title{ORES Metrics Documentation}
 %\author{Tom Gülenman}
 \date{}
 \begin{document}
 \maketitle
 \textit{Disclaimer: No guarantee for the correctness of information / explanations / sources is given.}\\
 %
-\section*{Goals}
-\begin{enumerate}
-\item Metrics list:
-\begin{itemize}
-\item Add examples \checkmark
-\item Correct the descriptions of counts and rates \checkmark
-\item Improve descriptions of roc\_auc and pr\_auc \checkmark
-\item Add the new standalone version to the repo \checkmark
-\end{itemize}
-\item Research what form of revision data is needed (for existing visualizations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
-\item 
-\begin{itemize}
-\item Watch \href{https://www.dataschool.io/roc-curves-and-auc-explained}{``ROC curves and Area Under the Curve explained''} and add insights to the \textbf{roc\_auc} in the list \checkmark
-\item and think about what parameters could be used in which ways to filter the output of the current UI (currently: X inputs $\rightarrow$ X outputs)
-\end{itemize}
-\begin{description}
-\item Also check out: \href{https://www.kaggle.com/general/7517#post41179}{Precision-Recall AUC vs ROC AUC discussion}
-\end{description}
-\item Read \href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} (carefully!)
-\item Think about what could be the goal of this thesis
-\end{enumerate}
-%
-%
-%
-\newpage
 \section{Crucial metrics: \textbf{damaging}-model}
 Examined metrics:
 \begin{itemize}
@@ -118,8 +93,8 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \end{description}
 \end{itemize}
 \end{itemize}
-
 \paragraph{Let's get started.}
+\newpage
 \subsection{recall}
 \begin{enumerate}
 \item $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$
@@ -363,30 +338,12 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \begin{itemize}
 \item Any $<$metric$>$ with an exclamation mark is the same metric for the negative class
 \item e.g. recall $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}} \Rightarrow$ \textbf{!}recall  $= \frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$
-\item Example usage: find all items that are not ``E'' class  (itemquality model) $\rightarrow$ look at \textbf{!}recall for ``E'' class.
+\item Example usage: find all items that are not ``E'' class (itemquality model) $\rightarrow$ look at \textbf{!}recall for ``E'' class.
 \end{itemize}
 \subsubsection{Existing !$<$metric$>$s}
 \begin{itemize}
 \item !f1
 \item !precision
 \item !recall
-\end{itemize}
-%
-%
-%
-%
-\section*{Questions}
-\begin{itemize}
-%
-\item \colorbox{yellow}{Q:} Should I ask Aaron how he would like us to work together?
-\begin{description}
-\item \colorbox{orange}{A:} 
-\end{description}
-%
-\item \colorbox{yellow}{Q:} In what situations exactly do we want to optimize the threshold in the context of user centered threshold optimization?
-\begin{description}
-\item \colorbox{orange}{A:} 
-\end{description}
-%
 \end{itemize}
 \end{document}

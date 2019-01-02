@@ -25,8 +25,10 @@
 \begin{enumerate}
 \item Metric list:
 \begin{itemize}
-\item Add examples
-\item Adjust the description of counts $\rightarrow$ labels, predictions
+\item Add examples \checkmark
+\item Correct the descriptions of counts and rates \checkmark
+\item Improve descriptions of roc\_auc and pr\_auc
+\item Add the new standalone version to the repo
 \end{itemize}
 \item Research what form of revision data is needed (for existing visualizations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
 \item Watch \href{https://www.dataschool.io/roc-curves-and-auc-explained}{``ROC curves and Area Under the Curve explained''} and think about what parameters could be used in which ways to filter the output of the current UI (currently: X inputs $\rightarrow$ X outputs)
@@ -39,7 +41,7 @@
 %
 %
 %
-%TODO eigene grafik + google rausnehmen?
+%TODO macro + micro
 \newpage
 \section{Crucial metrics: \textbf{damaging}-model}
 Metrics simple list:\\
@@ -165,14 +167,12 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item $\frac{\includegraphics[scale=0.6]{resources/4/loanFP}}{\includegraphics[scale=0.6]{resources/4/loanTN+FP}}$
 \end{enumerate}
 \subsection{roc\_auc}
-%TODO
-%TODO check out https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5
 \begin{enumerate}
 \item -
-\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision
+\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision.
 \item In our example, we haven't used the notion of threshold yet. For classifying people as infected or not, the classifier will evaluate multiple criteria and calculate the probability that a patient is infected. Many binary classifiers have the threshold at 0.5, meaning that, if the probability of a true outcome is higher than 50\%, it is classified as a positive; or in our case as an infected patient. Depending on the situation however, it can be useful to move that threshold.
 \begin{description}
-\item  The receiver operating characteristic (ROC) curve is used to visualize the performance of a binary classifier
+\item  The receiver operating characteristic (ROC) curve is used to visualize the performance of a classifier
 \item The ROC curve plots the TPR versus FPR as a function of the model’s threshold for classifying a positive.
 \item \includegraphics[scale=0.5]{resources/3/ROCcurve}
 \item Increasing the threshold $\rightarrow$ moving up a curve ($\equiv$ model) to the top right corner, where all data is predicted as positive (threshold = 1.0) and vice versa
@@ -186,16 +186,55 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \end{enumerate}
 %
 \subsection{pr\_auc}
-%TODO
-(see: \href{http://www.chioka.in/differences-between-roc-auc-and-pr-auc/}{link 1} and \href{https://acutecaretesting.org/en/articles/precision-recall-curves-what-are-they-and-how-are-they-used}{link 2})
 \begin{enumerate}
-\item The \textbf{area under} the \textbf{curve} of the \textbf{PR}-curve, same: similar objective as the \textbf{roc\_auc}, but PR curves are better than ROC curves if the populations are imbalanced
-\end{enumerate}
+\item -
+\item Similarly to the \textbf{roc\_auc}, the area under the precision recall curve \textbf{pr\_auc} evaluates a classifiers performance. The main difference, however, is that the \textbf{pr\_auc} does not make use of \textbf{true negatives}. It is therefore favourable to use \textbf{pr\_auc} over \textbf{roc\_auc} if true negatives are unimportant to the general problem or if there are a lot more negatives than positives.
 \begin{description}
-\item The PR-curve plots the Precision versus the Recall 
+\item The PR-curve plots the Precision versus the Recall:
 \item \includegraphics[scale=0.7]{resources/3/PRcurve}
-\item Instead of the top left corner for the ROC-curve, here, we want to be in the top right corner for our classifier to be perfect
+\item Instead of the top left corner for the ROC-curve, here, we want our curve to reach the top right corner for our classifier to be perfect.
 \end{description}
+\begin{description}
+\item The following scenario provides a good example (\href{https://www.kaggle.com/general/7517#post41179}{Source 1} and \href{http://www.chioka.in/differences-between-roc-auc-and-pr-auc/}{Source 2}) of a case with a lot more negatives than positives and comparing ROC to PR:
+\begin{itemize}
+\item Out of 1 million documents, we want to find the 100 relevant ones.
+\item The task is accomplished by two different algorithms:
+\begin{enumerate}
+\item 100 retrieved documents, 90 relevant
+\item 2000 retrieved documents, 90 relevant
+\end{enumerate}
+\item Algorithm (a) is obviously preferable.
+\item We know that ROC- and PR-curves both plot coordinates with $\texttt{tpr} = \texttt{recall}$ as one dimension. Now the question is: how do they differ in the other dimension, when plotting both algorithms?
+\item In all cases $\texttt{tpr} = \texttt{recall} = 0.9$. We also have:
+\begin{enumerate}
+\item $\texttt{TN} = 999890$ and $\texttt{FP} = 10$
+\item $\texttt{TN} = 997990$ and $\texttt{FP} = 1910$
+\end{enumerate}
+\item \colorbox{yellow}{ROC}:
+\begin{enumerate}
+\item $\texttt{fpr}= \frac{\texttt{FP}}{\texttt{FP+TN}} = \frac{10}{10+999890} = 0.00001$
+\item $\texttt{fpr}= \frac{1910}{1910+997990} = 0.00191$
+\begin{description}
+\item Having retrieved many more documents, and therefore having many more \textbf{false positives}, algorithm (b) has a higher \textbf{fpr} than algorithm (a). 
+\item The \textbf{fpr} also takes into account the vast amount of \textbf{true negatives} though, which is why the difference between the two \textbf{fpr}s is still quite small: $0.0019$.
+\end{description}
+\end{enumerate}
+\item \colorbox{yellow}{PR}:
+\begin{enumerate}
+\item $\texttt{precision}= \frac{\texttt{TP}}{\texttt{TP+FP}} = \frac{90}{90+10} = 0.9$
+\item $\texttt{precision}= \frac{90}{90+1910} = 0.045$
+\begin{description}
+\item Not accounting for \textbf{true negatives}, the \textbf{precision} is not affected by the relative imbalance.
+\item We are presented a remarkable difference of $0.855$.
+\end{description}
+\end{enumerate}
+\item To close on this topic, not the following (by Randy C): ``Obviously, those are just single points in ROC and PR space, but if these differences persist across various scoring thresholds, using ROC AUC, we'd see a very small difference between the two algorithms, whereas PR AUC would show quite a large difference.''
+\end{itemize}
+\end{description}  
+%
+\item Similarly to the \textbf{roc\_auc}, the point on the PR curve of our example for the standard threshold of 0.5 would be: $(\texttt{precision},\texttt{recall}) = (0.75.0.86)$.
+\item -
+\end{enumerate}
 %
 \subsection{accuracy}
 \begin{enumerate}

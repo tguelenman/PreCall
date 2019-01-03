@@ -384,6 +384,57 @@ Insights from the linked video and discussion under \textbf{Goals} have been add
 %TODO
 
 \section{\href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} - Notes}
+\begin{itemize}
+\item Interactive Machine Learning (\textbf{IML}) complements human percept. + int.: computat. speed + power
+\item Interactive process: input from user without needing knowledge of ML
+\begin{description}
+\item $\Rightarrow$ UI Design is fundamental!
+\item ... but no consolidated principles on implement. of such a UI
+\end{description}
+\item In this paper: proposit. of model of generalised IML system and solut. principles for effective IML interf.
+\end{itemize}
+\subsection{Introduction}
+\begin{itemize}
+\item ML: application as development tool only for experts
+\item IML: training process as HCI task $\rightarrow$ more accessible
+\begin{description}
+\item for example: human input in example selection, creation and labelling
+\end{description}
+\item Note: expert may still be required to underlying alg.
+\item Ideal case: non expert constructs own learned concepts by creating or collecting training data according to their need
+\begin{description}
+\item In practice: major challenge for ML practitioner (=expert) and UI designer!
+\item $\Rightarrow$ This paper: focuses on interface design challenge
+\end{description}
+\item IML: allows for application of domain knowledge (domain experts can now train models)!
+\item IML workflow is co-adaptive: user and target model directly influence each other's behaviour
+\begin{description}
+\item Again, this is done over the interface: it's a dialogue between human and machine
+\end{description}
+\item Four key challenges for designing and IML interface:
+\begin{enumerate}
+\item Users are imprecise and inconsistent. ``Unless users perceive their own deficiencies, this failure [poor model resulting from poor training by user] is attributed to the system.''
+\item Uncertainty relating user input and user intent. E.g. user doesn't assign an example to a concept does not imply a counter example
+\item Model is not your conventional information structure: ``ML model evolves in response to user input but not necessarily in a way that is perceived as intuitive or predictable by the user''
+\item Training is open ended.
+\end{enumerate}
+\end{itemize}
+\subsubsection{Guidance for the designer}
+Structural and behavioural breakdown of IML system will be presented.
+\begin{description}
+\item Help designers think about the architecture and support discussion of design considerations with clear terminology
+\item Also help with how to present information to users and what interactions to promote
+\end{description}
+\begin{itemize}
+\item Structural: Constituent components (user, interface, data, model)
+\begin{description}
+\item Interface will be divided into four elements itself.
+\end{description}
+\item Behavioural: Seperate process of interactively building model into sub-tasks
+\begin{description}
+\item Tasks may overlap / be performed iteratively
+\end{description}
+\end{itemize}
 %TODO
 
 \section{Possible goal of the thesis}

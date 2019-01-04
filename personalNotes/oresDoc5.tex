@@ -499,7 +499,7 @@ Structural and behavioural breakdown of IML system will be presented.
 \item Text is often available in high volumes, often already has some sort of labelling
 \end{description}
 \begin{itemize}
-\item \textbf{abstrackr}: ``online tool to support screening for systematic reviews of published medical evidence'' (classification of relevant citations)
+\item \textbf{abstrackr}: ``online tool to support screening for systematic reviews of published medical evidence'' (classification of relevant citations) by Wallace et al.
 \item IML system for statutory analysis (by Savelka et al): facilitate the process of reviewing regulatory frameworks (public health)
 \item Classifying student code sumbissions: interactive interface by Kim et al.
 \item See paper for more examples by Yimam et al., Huang et al., Endert et al.
@@ -509,7 +509,7 @@ Structural and behavioural breakdown of IML system will be presented.
 \item Already a very popular application area for ML in general $\Rightarrow$ availability of suitable techniques 
 \end{description}
 \begin{itemize}
-\item CueFlik (Fogarty et al.): ``interactive application that allows users to create their own concepts to incorporate into image search''
+\item \textit{CueFlik} (Fogarty et al.): ``interactive application that allows users to create their own concepts to incorporate into image search''
 \begin{description}
 \item \underline{Interesting}: ``providing a visualisation of both the most-confident positive and most-confident negative samples led to higher quality and faster concept learning than providing the full ranking of images''
 \end{description}
@@ -520,6 +520,105 @@ Structural and behavioural breakdown of IML system will be presented.
 \item Also note: successful interaction technique is (amongst others) ``provid[ing] pixel
 or region level feedback by directly sketching on images''
 \end{description}
+\subsubsection{Time series data: speech, audio, video and motion}
+\begin{itemize}
+\item Automatic speech recognizer + IML interface for error correction (Sanchez-Cortina et al.)
+\item Automatic recognition of animal behaviours (video footage) by Kabra et al.
+\item Filtering surveillance streams for safeguarding nuclear processing facility: help identify potential hazards (Versino and Lombardi)
+\item Seperation of individual sources from recorded audio track with ``paint-on'' approach (on regions of time-frequency visualisation of audio recording by Bryan et al.
+\item \textit{BeatBox}: users train system to recognise different percussive vocalisations (Hipke at al.)
+\item See paper for more examples
+\end{itemize}
+\begin{description}
+\item \underline{Interesting}: ``IML is not necessarily just about making a task more efficient or
+productive, but potentially about extending human creativity''
+\item In regards to time series data, interfaces ``must find ways to allow users to quickly inspect and review samples'' $\leftarrow$ major challenge
+\end{description}
+\subsubsection{Assisted processing of structured information}
+\begin{description}
+\item Structured data $\rightarrow$ train models $\rightarrow$ enhance user capabilities
+\end{description}
+\begin{itemize}
+\item Social networking assistance tool: probabilistic model of contacts likely to be relevant (to a part. group) (Amershi et al.)
+\item IML process to assist auditors for health insurance claims: highlighting of fields of interest and ``grouping similar claims in the processing queue to reduce inefficiencies of context switching'' (by Ghani and Kumar)
+\item \textit{AppGrouper} helps clustering topically coherent applications in online app store, where users can edit clusters and encourage creation of more/fewer
+\end{itemize}
+\begin{description}
+\item ``Pairing human judgement with computational intelligence through a carefully designed interface'' proves valuable in imporoving the clustering results over alg.-generated clusters f.ex.
+\item System level architecture may not require modifying
+\end{description}
+\subsection{Raw numerical data}
+\begin{description}
+\item Demonstrate data type agnosticism: IML process with numerical data, abstracted from any particular application
+\end{description}
+\begin{itemize}
+\item \textit{BrainCel}: adds ML functionality to spreadsheet interface; user selects rows, model makes predictions based on those (Sarkar et al.)
+\item See paper for more examples
+\end{itemize}
+\begin{description}
+\item These approaches lose in terms of domain relevance because of their abstraction but gain in flexibility.
+\end{description}
+%
+\subsection{Composition of an IML Interface}
+\begin{description}
+\item Presenting interface elements that are common among the broad range of IML syst.
+\end{description}
+\begin{itemize}
+\item Desired attributes of interface:
+\begin{itemize}
+\item Illustrat. of current state of learned concept
+\item Guiding user to provide quality improving input
+\item Provide revision mechanisms
+\end{itemize}
+\item Four key interface elements (paper, Fig. 3.):
+\begin{description}
+\item \includegraphics[scale=0.45]{resources/5/fourInterfaceElements}
+\item ``We do not suggest that these elements are necessarily visually distinct, or indeed necessary in all applications of IML.''
+\item ``one-time only custom task may have limited or no use for the model inspection or task overview interfaces''
+\end{description}
+\end{itemize}
+\subsubsection{Sample review}
+\begin{itemize}
+\item Model outputs are presented for review by user
+\item Useful: Selection of representative and non-redundant samples for review (users are unwilling to judge large numbers of test cases)
+\item Examples of displaying output samples:
+\begin{itemize}
+\item Showing best and worst samples for classification
+\item Show regions of the image belonging to classification
+\end{itemize}
+\item Challenge: Specific output samples doesn't always reflect the generalised model performance
+\end{itemize}
+\begin{description}
+\item \underline{Interesting}: ``[...]  people want to understand why specific instances fail. Understanding why the model fails for a given sample may help the user determine the most appropriate feedback strategy''
+\item $\Rightarrow$ Avoid overly abstract/condensed representat. of output samples
+\end{description}
+\subsubsection{Feedback assignment}
+\begin{itemize}
+\item User assigns labels, selects features, generates new samples
+\item Perhaps most crucial interface
+\item Challenge: Concept that users are trying to train may shift over time $\rightarrow$ efforts to improve guidance for being requested and providing input
+\end{itemize}
+\subsubsection{Model inspection}
+\begin{description}
+\item Summative view of model quality
+\end{description}
+\begin{itemize}
+\item \colorbox{yellow}{ORES metrics: ... ?} ``The assessment of model quality is not necessarily limited to prediction accuracy, and may also incorporate other metrics such as coverage and confidence.''
+\item Three main causes of model errors:
+\begin{enumerate}
+\item Mislabelled data
+\item Feature deficiencies: not enough samples of given feature for model to make a distinction
+\item Insufficient data
+\end{enumerate}
+\item Model inspection interface: support user in identifying such errors
+\item Also often used to evaluate model performance: ROC and cost curves, but also targeted testing $\leftarrow$ difficult for end-users
+\item Visual inspection of model performance may be complicated with data formats $\neq$ images; one solution might be \textit{ModelTracker}, a visual representation of model performance for use in debugging by Amershi et al.
+\end{itemize}
+\begin{description}
+\item Note: ``framing task completion criteria purely in terms of model quality is undesirable. Focusing an end user on model prediction accuracy alone is likely to promote overfitting. For this reason, we make a distinction between the model inspection and task overview interfaces.''
+\end{description}
+\subsubsection{Task overview}
+%TODO seite 16
 %
 %
 %

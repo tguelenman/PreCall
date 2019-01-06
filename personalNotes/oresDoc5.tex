@@ -618,8 +618,83 @@ productive, but potentially about extending human creativity''
 \item Note: ``framing task completion criteria purely in terms of model quality is undesirable. Focusing an end user on model prediction accuracy alone is likely to promote overfitting. For this reason, we make a distinction between the model inspection and task overview interfaces.''
 \end{description}
 \subsubsection{Task overview}
-%TODO seite 16
+\begin{itemize}
+\item Only sometimes included
+\item Provide visibility of global objectives
+\item Contextualise objectives with information, such as availability of training data and target application
+\item Guide user recognizing the most efficient way of improving the model (improving classification accuracy is not always the answer!)
+\end{itemize}
+\subsection{A Generalised Workflow for a Comprehensive IML Process}
+IML worflow as behavioural breakdown into six user activities:
+\begin{enumerate}
+\item Feature selection
+\item Model selection
+\item Model steering $\leftarrow$ \textbf{core activity, majority of time spent here}
+\item Quality assessment
+\item Termination assessment
+\item Transfer
+\end{enumerate}
+\begin{description}
+\item ``to be interpreted in combination with the structural breakdown of the IML interface'' (Sample Review, Feedback Assignment, ...)
+\end{description}
+\subsubsection{Feature selection}
+\begin{itemize}
+\item This step may be unnecessary in many applications, but ...
+\item ... users selecting features delivers efficiency and quality gains.
+\item Also: users enjoy ``identifying useful features for incorporation in the training process''.
+\end{itemize}
+\begin{description}
+\item ``Designing the IML system and interface to accommodate the feature selection activity may thus be desirable, though not always practical'' (certain data types are not suited for it).
+\end{description}
+\subsubsection{Model selection}
+\begin{itemize}
+\item Cases where data and feature structures are not known a priori: allow user to make selection of model (or perform comparative evaluation \textbf{and not} the author)
+\item Another argument for it: ideal IML system is agnostic to underlying model and algorithm
+\item User experimenting with multiple different ML techniques within IML app. $\Rightarrow$ learning process without an expert
+\end{itemize}
+\subsubsection{Model steering}
+\begin{itemize}
+\item Interaction involved:
+\begin{itemize}
+\item Correcting samples
+\item Assigning labels to new samples
+\item Generating completely new samples
+\end{itemize}
+\item ``The emphasis, however, is generally on providing \underline{just enough} feedback per iteration to push the model in the right direction.''
+\item Quality of this dialogue is directly influenced by quality of interface design
+\item Challenge: users seem to not like undergoing multiple iterations, but instead spend more time labelling samples $\rightarrow$ need for high-level guidance (e.g. follow iterative approach!)
+\item Even more so since users suffer from inconsistency ($\Rightarrow$ \textit{Structured Labeling} by Kulesza et al.)
+\end{itemize}
+\subsubsection{Quality assessment}
+\begin{itemize}
+\item Evaluate the trained system performance
+\item After some training, user will periodically check model quality and compare against ``some desired or pre-established threshold''.
+\item Challenges in this section: Support users in selecting appr. strategy and avoiding overfitting
+\end{itemize}
+\subsubsection{Termination assessment}
+\begin{itemize}
+\item Potentially some overlap with \textbf{Quality assessment}
+\item User should decide when to end IML process, ...
+\item ... but alternative conditions for ending it could be:
+\begin{itemize}
+\item further labelling will deliver negligible gain
+\item there is already sufficient confidence in the particular classifications of value
+\item increasing risk of overfitting
+\end{itemize}
+\begin{description}
+\item User could base his decision on contextualisations like those
+\end{description}
+\end{itemize}
+\subsubsection{Transfer}
+\begin{itemize}
+\item \textbf{Transfer} = Deploying trained model in target domain
+\item Tools are often applied in unpredictable (at design time) ways
+\item Some applications do not require transfer activity
+\item Still useful to consider end use of trained models and its impact on the interface design
+\end{itemize}
 %
+%
+\subsection{Emergent Solution Principles}
 %
 %
 \section{Possible goal of the thesis}

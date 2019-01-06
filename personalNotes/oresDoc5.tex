@@ -30,7 +30,7 @@
 \item Improve descriptions of roc\_auc and pr\_auc \checkmark
 \item Add the new standalone version to the repo \checkmark
 \end{itemize}
-\item Research what form of revision data is needed (for existing visualizations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
+\item Research what form of revision data is needed (for existing visualisations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
 \item 
 \begin{itemize}
 \item Watch \href{https://www.dataschool.io/roc-curves-and-auc-explained}{``ROC curves and Area Under the Curve explained''} and add insights to the \textbf{roc\_auc} in the list \checkmark
@@ -547,7 +547,7 @@ productive, but potentially about extending human creativity''
 \item ``Pairing human judgement with computational intelligence through a carefully designed interface'' proves valuable in imporoving the clustering results over alg.-generated clusters f.ex.
 \item System level architecture may not require modifying
 \end{description}
-\subsection{Raw numerical data}
+\subsubsection{Raw numerical data}
 \begin{description}
 \item Demonstrate data type agnosticism: IML process with numerical data, abstracted from any particular application
 \end{description}
@@ -695,8 +695,136 @@ IML worflow as behavioural breakdown into six user activities:
 %
 %
 \subsection{Emergent Solution Principles}
+\begin{description}
+\item ``Establish some basic solution principles for interface design in IML''
+\item Interpretatiion and importance of principles depend on expected involvmt of user and complexity
+\end{description}
+Six key solution principles:
+\begin{enumerate}
+\item Mask task goals and constraints explicit
+\item Support user understanding of model uncertainty and confidence
+\item Capture intent rather than input
+\item Provide effective data representations
+\item Exploit interactivity and promote rich interactions
+\item Engage the user
+\end{enumerate}
+\subsubsection{Mask task goals and constraints explicit}
+\begin{itemize}
+\item Solution principle to 2 of 4 key challenges of section 1:
+\begin{enumerate}
+\item Users are imprecise and inconsistent
+\item Training is open ended
+\end{enumerate}
+\item Solutions:
+\begin{enumerate}
+\item Construct explicit goals and constraints $\rightarrow$ focus user efforts and improve consistency; also: ``careful framing of the task goals and awareness of the interface''
+\item Also improved user understanding of goals and constraints. Understanding the current objective, presented by the interface, is enough, for the naive user, to keep working into the right direction (as opposed to understanding the global objective)
+\end{enumerate}
+\begin{description}
+\item Other mentioned risks:
+\begin{itemize}
+\item Frustration due to lack of knowledge e.g. how to eradicate false positives/negatives (the model will probably need to undergo quite a few steps of change before the wanted result is produced)
+\item Overfitting
+\end{itemize}
+\end{description}
+\end{itemize}
+\subsubsection{Support user understanding of model uncertainty and confidence}
+\begin{itemize}
+\item Solution principle to one key challenge: ``interacting with a model is not like interacting with a conventional information structure'':
+\begin{itemize}
+\item Uncertainty exists in the task of steering the model and in its application $\leftarrow$ users have to understand it to manage their expectations
+\item ``A number of strategies have been explored as a means to simplify the interpretation of model behaviour'', e.g. Presenting best and worst matching samples
+\end{itemize}
+\end{itemize}
+\begin{description}
+\item There is high interest in repres. model quality in more intuitive ways in general. One example technique: t-Distributed Stochastic Neighbour Embedding, visual representation of clustering models
+\end{description}
+\subsubsection{Capture intent rather than input}
+\begin{description}
+\item ``Careful design of the interface may help to extract user intent from potentially noisy input actions.''
+\end{description}
+\begin{itemize}
+\item Solution principle to one key challenge: ``there is uncertainty in the relationship between user intent and user input'' (HCI challenge in general too):
+\begin{itemize}
+\item For example guide user to samples that are either definitely good or bad by displaying only best and worst samples
+\item Other example: Amershi et al, custom social networks; skipping past contacts $\rightarrow$ contacts should be labeled as negative
+\end{itemize}
+\end{itemize}
+\begin{description}
+\item ``in circumstances where the user cannot explicitly express their intent, they may still be able to achieve their goal by exploiting a sequence of actions'' $\rightarrow$ exploit this creativity: example of creating gestures by drawing sub-sequences that, combined, will result in the final gesture
+\end{description}
+\subsubsection{Provide efficient data representations}
+\begin{itemize}
+\item Reviewing samples (model steering): high importance to the model $\leftarrow$ improve speed and quality of this step!
+\item Interface supporting rapid understanding of model outputs: ``visualisation of image regions associated with different classification predictions'' (Ribeiro et al.)
+\item Design objectives:
+\begin{description}
+\item Maximise user perception to features relevant to understanding functions and deficiencies of the model
+\item Interfaces supporting complex data interaction: aim at simplification of data (clusters etc.) and ``amplify user's cognitive ability'' (highlight regions etc.)
+\end{description}
+\end{itemize}
+\subsubsection{Exploit interactivity and promote rich interactions}
+\begin{itemize}
+\item User's interactions drive the model devpmt
+\begin{description}
+\item ``the IML interface should be maximally interactive and should exploit rich forms of interaction where possible, for example direct sketching on images, ...''
+\end{description}
+\item Interaction for understanding
+\begin{itemize}
+\item Interaction with ML algorithm is non-traditional interaction experience
+\item Even though it may take many actions before model change is observable, rapidly filtering uninteresting data from view is important
+\item Interactive data exploration tools support understanding 
+\end{itemize}
+\item Make the most of the user
+\begin{itemize}
+\item Reversing actions is highly valued interaction feature in IML
+\item Similarly: visualisation of model quality history
+\item ``Users want to feel like they are contributing value and that their inputs are utilised''
+\item Users do not enjoy being asked `yes or no' questions repeatedly
+\item Execution speed is also important for interactivity
+\end{itemize}
+\end{itemize}
+\subsubsection{Engage the user}
+\begin{itemize}
+\item ``presenting partial predictions can keep users engaged by encouraging them to actively improve prediction quality. Such feedback, even though incomplete, can be helpful in reminding the user that they are a critical component in the process and that their activities are having an effect''
+\item Intuitive representations of progress also help in engaging the user (see ModelTracker)
+\end{itemize}
 %
 %
+\subsection{Open Research Problems}
+Emerging areas of investigation in IML and other valuable avenues of research (see paper for more details):
+\begin{itemize}
+\item Priming and guiding the user
+\item Capturing, representing and reasoning with uncertainty
+\item Enhancing perception, interaction and engagement via immersive environments
+\item Evaluating interfaces and user performance in IML
+\end{itemize}
+%
+%
+\subsection{Conclusions}
+\begin{itemize}
+\item ML techniques are getting interesting to non-experts
+\item IML represents new opportunities to assist users in data intensive processing tasks and the dvpmt of complex functionality without explicit programming
+\item IML, a co-adaptive process: driven by the user, but model and user evolve together during training; they adjust their strategies based on their counterpart's feedback
+\item Careful design of user interfaces is crucial
+\item IML has utility on range of data types
+\item Overview has been given of 
+\begin{itemize}
+\item Interface design problems (section 4)
+\item Workflow: activities involved in IML (section 5)
+\item Solution principles (section 6)
+\end{itemize}
+\end{itemize}
+\begin{description}
+\item ``As users are increasingly attempting to gain insights from ever larger volumes of data and more and more user interfaces become driven by machine learning algorithms, Interactive Machine Learning is likely to become a more central theme in user interface design.''
+\end{description}
+
+
+
+
+
+
+
 \section{Possible goal of the thesis}
 %TODO
 

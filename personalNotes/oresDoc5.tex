@@ -34,11 +34,11 @@
 \item 
 \begin{itemize}
 \item Watch \href{https://www.dataschool.io/roc-curves-and-auc-explained}{``ROC curves and Area Under the Curve explained''} and add insights to the \textbf{roc\_auc} in the list \checkmark
-\item and think about what parameters could be used in which ways to filter the output of the current UI (currently: X inputs $\rightarrow$ X outputs)
+\item and think about what parameters could be used in which ways to filter the output of the current UI (currently: X inputs $\rightarrow$ X outputs) \checkmark
 \item Also check out: \href{https://www.kaggle.com/general/7517#post41179}{Precision-Recall AUC vs ROC AUC discussion} \checkmark
 \end{itemize}
-\item Read \href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning}
-\item Think about what could be the goal of this thesis
+\item Read \href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} \checkmark
+\item Think about what could be the goal of this thesis 
 \end{enumerate}
 %
 %
@@ -381,8 +381,19 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \subsection{pr\_auc and roc\_auc}
 Insights from the linked video and discussion under \textbf{Goals} have been added to the metrics list.
 \subsection{What parameters could be used to filter the output of the current UI?}
-%TODO
-
+Obvious filter possibilities:
+\begin{itemize}
+\item Sort by (but show all)
+\item Filter for parameter $=$, $<$ or $>$ x
+\item Show greatest / lowest parameter1 for parameter2 $=$, $<$ or $>$ x
+\end{itemize}
+Metrics:
+\begin{itemize}
+\item \textbf{Accuracy}: still one of the important ones. Although, there should be a warning not to focus too much on this one
+\item \textbf{Precision} and \textbf{Recall}
+\item \textbf{roc\_auc} and \textbf{pr\_auc}: Maybe decide automatically which to display (or display both with remarks that one is more important). Use \textbf{pr\_auc} if TN are unimportant or there are a lot more negatives than positives
+\item \textbf{match\_rate} and \textbf{filter\_rate}: (BIG) maybe!
+\end{itemize}
 \section{\href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} - Notes}
 \begin{itemize}
 \item Interactive Machine Learning (\textbf{IML}) complements human percept. + int.: computat. speed + power
@@ -435,7 +446,6 @@ Structural and behavioural breakdown of IML system will be presented.
 \item Tasks may overlap / be performed iteratively
 \end{description}
 \end{itemize}
-%TODO ``The six solution principles identified and described in detail in Section 6''
 \subsubsection{Outline}
 \begin{itemize}
 \item Section 2: Detailed definition of IML

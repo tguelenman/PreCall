@@ -30,9 +30,8 @@
 \item Improve descriptions of roc\_auc and pr\_auc \checkmark
 \item Add the new standalone version to the repo \checkmark
 \end{itemize}
-\item Research what form of revision data is needed (for existing visualisations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context
-\item 
-\begin{itemize}
+\item Research what form of revision data is needed (for existing visualisations, but also in general) $\rightarrow$ also check RecentChanges and new Filters and what API calls look like in that context $\sim$
+\item \begin{itemize}
 \item Watch \href{https://www.dataschool.io/roc-curves-and-auc-explained}{``ROC curves and Area Under the Curve explained''} and add insights to the \textbf{roc\_auc} in the list \checkmark
 \item and think about what parameters could be used in which ways to filter the output of the current UI (currently: X inputs $\rightarrow$ X outputs) \checkmark
 \item Also check out: \href{https://www.kaggle.com/general/7517#post41179}{Precision-Recall AUC vs ROC AUC discussion} \checkmark
@@ -371,7 +370,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 %
 %
 %
-\section{Revision data, RecentChanges and newFilters}
+\section{Revision data, RecentChanges}
 \subsection{Existing visualizations (see OresDoc4)}
 \begin{itemize}
 \item Visualization of Precision, Recall and Queue Rate (\href{https://blog.insightdatascience.com/visualizing-machine-learning-thresholds-to-make-better-business-decisions-4ab07f823415}{Link}):
@@ -387,6 +386,12 @@ OH,107,415,371-7191,...''
 \item \includegraphics[scale=0.3]{resources/4/discriminationThresholdVisualization}
 \item Reads .csv files
 \end{description}
+\end{itemize}
+\subsection{Wikipedia RecentChanges}
+\begin{itemize}
+\item General information on the API: \href{https://www.mediawiki.org/wiki/API:Recent_changes_stream}{Wikimedia Link}.
+\item Recent Changes stream: ``/v2/stream/recentchange'' (see: \href{https://wikitech.wikimedia.org/wiki/EventStreams}{EventStreams} and \href{https://stream.wikimedia.org/?doc#!/Streams/get_v2_stream_recentchange}{Swagger Documentation})
+\item See properties and examples of RecentChanges Feed: \href{https://www.mediawiki.org/wiki/Manual:RCFeed}{RCFeed}
 \end{itemize}
 %
 %

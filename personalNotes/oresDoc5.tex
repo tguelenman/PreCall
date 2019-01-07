@@ -38,7 +38,6 @@
 \item Also check out: \href{https://www.kaggle.com/general/7517#post41179}{Precision-Recall AUC vs ROC AUC discussion} \checkmark
 \end{itemize}
 \item Read \href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} \checkmark
-\item Think about what could be the goal of this thesis 
 \end{enumerate}
 %
 %
@@ -373,8 +372,22 @@ To ease the understanding, let's stick to the following scenario and refer to it
 %
 %
 \section{Revision data, RecentChanges and newFilters}
-%TODO
-%
+\subsection{Existing visualizations (see OresDoc4)}
+\begin{itemize}
+\item Visualization of Precision, Recall and Queue Rate (\href{https://blog.insightdatascience.com/visualizing-machine-learning-thresholds-to-make-better-business-decisions-4ab07f823415}{Link}):
+\begin{description}
+\item \includegraphics[scale=0.3]{resources/4/PRQT}
+\item Reads data of the following format (txt file):
+\item ''State,Account Length,Area Code,Phone,...\\
+KS,128,415,382-4657,...\\
+OH,107,415,371-7191,...''
+\end{description}
+\item Discrimination Threshold Visualization (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link}):
+\begin{description}
+\item \includegraphics[scale=0.3]{resources/4/discriminationThresholdVisualization}
+\item Reads .csv files
+\end{description}
+\end{itemize}
 %
 %
 \section{pr\_auc, roc\_auc and filtering the ORES UI output}
@@ -385,15 +398,24 @@ Obvious filter possibilities:
 \begin{itemize}
 \item Sort by (but show all)
 \item Filter for parameter $=$, $<$ or $>$ x
-\item Show greatest / lowest parameter1 for parameter2 $=$, $<$ or $>$ x
+\item Maximize / minimize parameter
+\item Maximize / minimize parameter1 for parameter2 $=$, $<$ or $>$ x
+\item Find threshold for greatest / lowest parameter
 \end{itemize}
 Metrics:
 \begin{itemize}
 \item \textbf{Accuracy}: still one of the important ones. Although, there should be a warning not to focus too much on this one
-\item \textbf{Precision} and \textbf{Recall}
+\item \textbf{Precision}, \textbf{Recall} and \textbf{f1}
 \item \textbf{roc\_auc} and \textbf{pr\_auc}: Maybe decide automatically which to display (or display both with remarks that one is more important). Use \textbf{pr\_auc} if TN are unimportant or there are a lot more negatives than positives
 \item \textbf{match\_rate} and \textbf{filter\_rate}: (BIG) maybe!
 \end{itemize}
+\subsection{Prototype discussion:}
+Keep in mind, that we have access to basically ``all'' thresholds: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}
+%
+%
+%
+%
+%
 \section{\href{https://doi.org/10.1145/3185517}{A Review of User Interface Design for Interactive Machine Learning} - Notes}
 \begin{itemize}
 \item Interactive Machine Learning (\textbf{IML}) complements human percept. + int.: computat. speed + power
@@ -828,16 +850,6 @@ Emerging areas of investigation in IML and other valuable avenues of research (s
 \begin{description}
 \item ``As users are increasingly attempting to gain insights from ever larger volumes of data and more and more user interfaces become driven by machine learning algorithms, Interactive Machine Learning is likely to become a more central theme in user interface design.''
 \end{description}
-
-
-
-
-
-
-
-\section{Possible goal of the thesis}
-%TODO
-
 %
 %
 %

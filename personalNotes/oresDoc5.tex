@@ -162,7 +162,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \subsection{roc\_auc}
 \begin{enumerate}
 \item -
-\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision.
+\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), is the probability of ranking a random positive higher than a random negative and serves as a measure of classification performance
 \item In our example, we haven't used the notion of threshold yet. For classifying people as infected or not, the classifier will evaluate multiple criteria and calculate the probability that a patient is infected. Many binary classifiers have the threshold at 0.5, meaning that, if the probability of a true outcome is higher than 50\%, it is classified as a positive; or in our case as an infected patient. Depending on the situation however, it can be useful to move that threshold.
 \begin{description}
 \item  The receiver operating characteristic (ROC) curve is used to visualize the performance of a classifier

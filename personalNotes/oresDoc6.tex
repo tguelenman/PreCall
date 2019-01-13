@@ -23,7 +23,7 @@
 %
 \section*{Goals}
 \begin{enumerate}
-\item Metrics List: Create Table as a general quick-view
+\item Metrics List: Create Table as a general quickview \checkmark
 \item Metrics: which combinations are particularly useful, which are nonsensical?
 \begin{itemize}
 \item Ask for documentation on IRC (\checkmark)
@@ -54,7 +54,7 @@
 \textbf{Metric} & \textbf{Quick Definition} & \textbf{Value}\\\hline \hline
 accuracy & Portion of correctly predicted data & $\frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$\\\hline
 counts & Number of \textbf{F}\&\textbf{T}-labels and predictions&\\\hline
-f1 & Harmonic mean of recall and precision & $2*\frac{\texttt{prec} * \texttt{rec}}{\texttt{prec}+\texttt{rec}}$\\\hline
+f1 & Harmonic mean of recall and precision & $2*\frac{\texttt{rec} * \texttt{prec}}{\texttt{rec}+\texttt{prec}}$\\\hline
 filter\_rate & Portion of observations predicted & $1-\texttt{match\_rate} =$\\ &to be negative&$\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}}$\\\hline
 fpr & Probability of a false alarm & $\frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$\\\hline
 match\_rate & Portion of observations predicted & $\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$\\ &to be positive&\\\hline
@@ -63,12 +63,10 @@ precision & Ability to find only relevant cases & $\frac{\texttt{TP}}{\texttt{TP
 rates & Proportion of \textbf{F}\&\textbf{T}-labels to the total&\\\hline
 recall & Ability to find \textbf{all} relevant cases & $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$\\\hline
 roc\_auc & Measure of classification performance &\\\hline
-!f1 & Negated f1 & \\\hline
+!f1 & Negated f1 & $2*\frac{\texttt{!rec} * \texttt{!prec}}{\texttt{!rec}+\texttt{!prec}}$\\\hline
 !precision & Negated precision & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FN}}$ \\\hline
 !recall & Negated recall & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$\\\hline
 \end{tabular}
-%TODO negated values correct?
-%TODO metrics document: change order?
 %TODO metrics doc add Probability of ranking a random positive higher than a random negative to roc_auc
 %
 %

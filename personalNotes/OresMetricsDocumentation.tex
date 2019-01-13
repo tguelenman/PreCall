@@ -22,28 +22,31 @@
 \textit{Disclaimer: No guarantee for the correctness of information / explanations / sources is given.}\\
 %
 \section{Crucial metrics: \textbf{damaging}-model}
-Examined metrics:
-\begin{itemize}
-\item !f1
-\item !precision
-\item !recall
-\item accuracy
-\item counts
-\item f1
-\item filter\_rate
-\item fpr
-\item match\_rate
-\item pr\_auc
-\item precision
-\item rates
-\item recall
-\item roc\_auc
-\end{itemize}
+Examined metrics Quickview:\\
+
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Metric} & \textbf{Quick Definition} & \textbf{Value}\\\hline \hline
+accuracy & Portion of correctly predicted data & $\frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$\\\hline
+counts & Number of \textbf{F}\&\textbf{T}-labels and predictions&\\\hline
+f1 & Harmonic mean of recall and precision & $2*\frac{\texttt{rec} * \texttt{prec}}{\texttt{rec}+\texttt{prec}}$\\\hline
+filter\_rate & Portion of observations predicted & $1-\texttt{match\_rate} =$\\ &to be negative&$\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}}$\\\hline
+fpr & Probability of a false alarm & $\frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$\\\hline
+match\_rate & Portion of observations predicted & $\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$\\ &to be positive&\\\hline
+pr\_auc & Measure of classification performance &\\\hline
+precision & Ability to find only relevant cases & $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$\\\hline
+rates & Proportion of \textbf{F}\&\textbf{T}-labels to the total&\\\hline
+recall & Ability to find \textbf{all} relevant cases & $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$\\\hline
+roc\_auc & Measure of classification performance &\\\hline
+!f1 & Negated f1 & $2*\frac{\texttt{!rec} * \texttt{!prec}}{\texttt{!rec}+\texttt{!prec}}$\\\hline
+!precision & Negated precision & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FN}}$ \\\hline
+!recall & Negated recall & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$\\\hline
+\end{tabular}\\ \\
 For each metric (if possible) there will be:
 \begin{enumerate}
 \item The formula based on the \textbf{confusion matrix}
 \item A definition
-\item An intuitive explanation with an example
+\item An intuitive explanation referring to the example introduced below
 \item Its meaning based on the \textbf{loan threshold} representation by Google (\href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Link})
 \item Additional information (if necessary)
 \end{enumerate}
@@ -141,7 +144,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \subsection{roc\_auc}
 \begin{enumerate}
 \item -
-\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), rates the ability of a model to achieve a blend of recall and precision.
+\item The \textbf{area under} the \textbf{curve} of the \textbf{ROC}-curve, a measure between 0.5 (worthless) and 1.0 (perfect: getting no FPs), is the probability of ranking a random positive higher than a random negative and serves as a measure of classification performance.
 \item In our example, we haven't used the notion of threshold yet. For classifying people as infected or not, the classifier will evaluate multiple criteria and calculate the probability that a patient is infected. Many binary classifiers have the threshold at 0.5, meaning that, if the probability of a true outcome is higher than 50\%, it is classified as a positive; or in our case as an infected patient. Depending on the situation however, it can be useful to move that threshold.
 \begin{description}
 \item  The receiver operating characteristic (ROC) curve is used to visualize the performance of a classifier
@@ -338,7 +341,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \begin{itemize}
 \item Any $<$metric$>$ with an exclamation mark is the same metric for the negative class
 \item e.g. recall $= \frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}} \Rightarrow$ \textbf{!}recall  $= \frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$
-\item Example usage: find all items that are not ``E'' class (itemquality model) $\rightarrow$ look at \textbf{!}recall for ``E'' class.
+\item Example usage: find all items that are not ``E'' class  (itemquality model) $\rightarrow$ look at \textbf{!}recall for ``E'' class.
 \end{itemize}
 \subsubsection{Existing !$<$metric$>$s}
 \begin{itemize}

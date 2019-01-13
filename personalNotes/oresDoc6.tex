@@ -38,8 +38,8 @@
 \end{itemize}
 \item Take a closer look at the Threshold Plot for Logistic Regression (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
 \begin{itemize}
-\item What is the meaning of the areas around the curves?
-\item What is queue rate exactly?
+\item What is the meaning of the areas around the curves? \checkmark
+\item What is queue rate exactly? \checkmark
 \end{itemize}
 \item Take a closer look at the Swagger API Documentation
 \item \colorbox{red}{ !!! } Improve knowledge of ORES Docs and foremost the metrics
@@ -90,4 +90,17 @@ To better understand threshold ranges it's helpful to also take a look at the fo
 \href{https://upload.wikimedia.org/wikipedia/commons/e/e8/RC-quality-filters-diagram.png}{Wikimedia Source}\\
 %TODO explanation
 %TODO Highlighting? https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Highlighting_function
+%
+%
+%
+\section{\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Discrimination Threshold Visualisation (Logistic Regression)}}
+\includegraphics[scale=0.7]{resources/4/discriminationThresholdVisualization}\\
+\subsection{Areas - or bands - around the curves}
+The model will split the data multiple times, differently, into train and test sets and then run the trials. This ensures a certain amount of variability being visualized. Corresponding section on the site: \\
+
+``\textit{The visualizer also accounts for variability in the model by running multiple trials with different train and test splits of the data. The variability is visualized using a band such that the curve is drawn as the median score of each trial and the band is from the 10th to 90th percentile.}''
+
+\subsection{Queue rate}
+``This metric describes the percentage of instances that must be reviewed.''\\
+It can be helpful to think about the costs of reviewing whatever it is that must be reviewed in the context of business decision, where the ability to review is a limited resource and might be a factor in adjusting the threshold in order to find a favourable outcome.
 \end{document}

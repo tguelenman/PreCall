@@ -33,7 +33,7 @@
 \item Recent Changes filter classes: how are edits assigned to them?
 \begin{itemize}
 \item Also ask for documentation on IRC \checkmark
-\item Which metrics are included in the process? \checkmark but still TODO
+\item Which metrics are included in the process? \checkmark
 \item How are the metrics (precision, recall, threshold) included in the associated API calls? What do the (GET?)-Requests look like?
 \end{itemize}
 \item Take a closer look at the Threshold Plot for Logistic Regression (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
@@ -88,10 +88,11 @@ More links for quickstart:
 The Recent Changes quality prediction filters are a helpful tool in varying the precision and recall of catching damaging edits. They can be applied on the Recent changes site (\href{https://en.wikipedia.org/wiki/Special:RecentChanges?hidebots=1&hidecategorization=1&hideWikibase=1&limit=50&days=7&urlversion=2}{Link}).\\
 \\
 \includegraphics[scale=0.85]{resources/6/RCFilters}\\
-{\href{https://en.wikipedia.org/wiki/Special:ORESModels}{Wikipedia Source}\\
-\\
+{\href{https://en.wikipedia.org/wiki/Special:ORESModels}{Wikipedia Source}
+\subsection{Precision and Recall}
 To put those numbers into context: we can expect that, for example, the \textit{Likely have problems} filter will be right about $45.7\%$ of the time, classifying a contribution as damaging while catching $48.1\%$ of problem edits.\\
 
+\subsection{Threshold ranges}
 Keep in mind that the damaging model classifier is binary, deciding wether a contribution is damaging or not, but does not only output 0 or 1, but instead a probability (between 0 and 1) of how probable it is, that a contribution is damaging. The threshold then decides at which probability the contributions are split into damaging and non-damaging (e.g. a threshold of 0.6 means that every contribution with a value of under 0.6 will be classified as non-damaging and vice versa). Threshold ranges therefore signify the following: 
 \begin{itemize}
 \item \textit{Very likely good}: Contributions that score between 0 and 0.315 on the probability-of-being-damaging scale
@@ -103,13 +104,20 @@ Keep in mind that the damaging model classifier is binary, deciding wether a con
 To better understand threshold ranges it's helpful to also take a look at the following graphic:\\
 \includegraphics[scale=0.5]{resources/6/RC-quality-filters-diagram}\\
 \href{https://upload.wikimedia.org/wikipedia/commons/e/e8/RC-quality-filters-diagram.png}{Wikimedia Source}, \href{https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters}{MediaWiki Source}\\
-Two things might be confusing:
+Note two things:
 \begin{enumerate}
-\item The \textit{May have problems}, \textit{Likely have problems}, and \textit{Very likely have problems} filters overlap
-\item The \textit{Very likely good} and \textit{May have problems} filters overlap
+\item The \textit{May have problems}, \textit{Likely have problems}, and \textit{Very likely have problems} filters overlap.
+\begin{description}
+\item More precisely, the most general filter \textit{May have problems} contains all edits that also are part of the other two filters and, similarly, edits of \textit{Very likely have problems} are a subset of \textit{Likely have problems}.
+\end{description}
+\item The \textit{Very likely good} and \textit{May have problems} filters overlap.
+\begin{description}
+\item This overlap is referred to as ``the indeterminate zone between problem and problem-free edits'' and happens in order to achieve a ``broader recall''.
+\end{description}
 \end{enumerate}
-%TODO explanation
-%TODO Highlighting? https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Highlighting_function
+\subsection{Highlighting}
+It is also possible to apply filters, for example the broadest one \textit{May have problems} and then highlight edits marked as particularly alarming by using color highlighting for the \textit{Likely have problems} and \textit{Very likely have problems} filters.\\
+Read more on highlighting: \href{https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Highlighting_function}{Mediawiki Link}.
 %
 %
 %

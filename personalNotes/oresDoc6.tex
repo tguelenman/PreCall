@@ -33,7 +33,7 @@
 \item Recent Changes filter classes: how are edits assigned to them?
 \begin{itemize}
 \item Also ask for documentation on IRC \checkmark
-\item Which metrics are included in the process? \checkmark
+\item Which metrics are included in the process? \checkmark but still TODO
 \item How are the metrics (precision, recall, threshold) included in the associated API calls? What do the (GET?)-Requests look like?
 \end{itemize}
 \item Take a closer look at the Threshold Plot for Logistic Regression (\href{http://www.scikit-yb.org/en/latest/api/classifier/threshold.html}{Link})
@@ -67,7 +67,6 @@ roc\_auc & Measure of classification performance &\\\hline
 !precision & Negated precision & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FN}}$ \\\hline
 !recall & Negated recall & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$\\\hline
 \end{tabular}
-%TODO metrics doc add Probability of ranking a random positive higher than a random negative to roc_auc
 %
 %
 %
@@ -75,6 +74,13 @@ roc\_auc & Measure of classification performance &\\\hline
 example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20!precision%20@%20precision%20%3E=%200.9%27}
 %TODO
 %TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example
+More links for quickstart:
+\begin{itemize}
+\item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{1}
+\item \href{https://upload.wikimedia.org/wikipedia/commons/2/26/Precisionrecall.svg}{2}
+\item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20!precision%20@%20precision%20%3E=%200.9%27}{3}
+\item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20filter_rate%20@%20recall%20%3E=%200.75%27}{4}
+\end{itemize}
 %
 %
 %
@@ -85,9 +91,23 @@ The Recent Changes quality prediction filters are a helpful tool in varying the 
 {\href{https://en.wikipedia.org/wiki/Special:ORESModels}{Wikipedia Source}\\
 \\
 To put those numbers into context: we can expect that, for example, the \textit{Likely have problems} filter will be right about $45.7\%$ of the time, classifying a contribution as damaging while catching $48.1\%$ of problem edits.\\
+
+Keep in mind that the damaging model classifier is binary, deciding wether a contribution is damaging or not, but does not only output 0 or 1, but instead a probability (between 0 and 1) of how probable it is, that a contribution is damaging. The threshold then decides at which probability the contributions are split into damaging and non-damaging (e.g. a threshold of 0.6 means that every contribution with a value of under 0.6 will be classified as non-damaging and vice versa). Threshold ranges therefore signify the following: 
+\begin{itemize}
+\item \textit{Very likely good}: Contributions that score between 0 and 0.315 on the probability-of-being-damaging scale
+\item \textit{May have problems}: Contributions that score between 0.144 and 1
+\item \textit{Likely have problems}: Contributions that score between 0.612 and 1
+\item \textit{Very likely have problems}: Contributions that score between 0.912 and 1
+\end{itemize}
+
 To better understand threshold ranges it's helpful to also take a look at the following graphic:\\
 \includegraphics[scale=0.5]{resources/6/RC-quality-filters-diagram}\\
-\href{https://upload.wikimedia.org/wikipedia/commons/e/e8/RC-quality-filters-diagram.png}{Wikimedia Source}\\
+\href{https://upload.wikimedia.org/wikipedia/commons/e/e8/RC-quality-filters-diagram.png}{Wikimedia Source}, \href{https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters}{MediaWiki Source}\\
+Two things might be confusing:
+\begin{enumerate}
+\item The \textit{May have problems}, \textit{Likely have problems}, and \textit{Very likely have problems} filters overlap
+\item The \textit{Very likely good} and \textit{May have problems} filters overlap
+\end{enumerate}
 %TODO explanation
 %TODO Highlighting? https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Highlighting_function
 %

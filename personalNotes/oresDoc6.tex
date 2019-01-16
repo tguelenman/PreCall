@@ -118,6 +118,13 @@ Note two things:
 \subsection{Highlighting}
 It is also possible to apply filters, for example the broadest one \textit{May have problems} and then highlight edits marked as particularly alarming by using color highlighting for the \textit{Likely have problems} and \textit{Very likely have problems} filters.\\
 Read more on highlighting: \href{https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Highlighting_function}{Mediawiki Link}.
+\subsection{Recent Changes API Calls}
+Here is how it is decided to which filter category contributions belong:
+\begin{enumerate}
+\item MediaWiki sends requests to ORES, as soon as edits are saved, to get the \textbf{score.probability.true} of edits. (See source: \href{https://github.com/wikimedia/mediawiki-extensions-ORES/blob/master/includes/FetchScoreJob.php}{MediaWiki Request to ORES})
+\item The value of \textbf{score.probability.true} is then stored in a table (ores\_classification table) that can be joined to the recent\_changes table.
+\item Having the threshold ranges for all available filters, an edit's \textbf{score.probability.true} has to be a value in the threshold ranges interval for the edit to be a part of that filter category.
+\end{enumerate}
 %
 %
 %

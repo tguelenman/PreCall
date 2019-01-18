@@ -128,7 +128,7 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \item f1-Score, the harmonic mean of recall and precision, a metric from \textbf{0} (worst) to \textbf{1} (best), used to evaluate the accuracy of a model by taking into account recall and precision: $=2*\frac{\texttt{precision} * \texttt{recall}}{\texttt{precision}+\texttt{recall}}$
 \item For our example model, that would result in $=2*\frac{0.75 * \frac{30}{35}}{0.75+\frac{30}{35}} = 0.8$
 \item -
-\item \underline{Additional information}: Compared to the simple average (of recall and precision), the harmonic mean punishes extreme values (e.g. precision 1.0 and recall 0.0 $\rightarrow$ average = 0.5, but f1 $= 0$)
+\item \underline{Additional information}: Compared to the simple average (of recall and precision), the harmonic mean punishes extreme values (e.g. precision 1.0 and recall 0.0 $\rightarrow$ average = 0.5, but f1 $= 0$). Also note that, even though the f1-score can theoretically take values up to 1.0, the hightest f1-score achieved by the damaging model for enwiki is $0.461$.
 \end{enumerate}
 %
 \subsection{fpr}

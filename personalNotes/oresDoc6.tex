@@ -71,16 +71,19 @@ roc\_auc & Measure of classification performance &\\\hline
 %
 %
 \section{Metrics combinations}
-example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20!precision%20@%20precision%20%3E=%200.9%27}
+example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}
 %TODO
 %TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example
 More links for quickstart:
-\begin{itemize}
+\begin{itemize} %TODO rausnehmen
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{1}
 \item \href{https://upload.wikimedia.org/wikipedia/commons/2/26/Precisionrecall.svg}{2}
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20!precision%20@%20precision%20%3E=%200.9%27}{3}
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20filter_rate%20@%20recall%20%3E=%200.75%27}{4}
 \end{itemize}
+Querying the API as in the example above, the output, before applying the given filters of \textbf{recall} and \textbf{precision}, is the list of values of all available metrics for \underline{thresholds} (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{Link}).
+Asking for the maximum recall in a specific precision interval (greater or equal 0.9), the final output is just the one set of values (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}{Link}).
+\paragraph{Note that \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available metrics for this type of queries. Neither is \colorbox{yellow}{threshold}.}
 %
 %
 %

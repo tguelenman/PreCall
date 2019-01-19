@@ -70,7 +70,7 @@ roc\_auc & Measure of classification performance &\\\hline
 %
 %
 %
-\section{Metrics combinations}
+\section{Metrics combinations - or - ``syntax for requesting an optimization from ORES'' (source: paper)}
 example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}
 %TODO
 %TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example
@@ -83,7 +83,25 @@ More links for quickstart:
 \end{itemize}
 Querying the API as in the example above, the output, before applying the given filters of \textbf{recall} and \textbf{precision}, is the list of values of all available metrics for \underline{thresholds} (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{Link}).
 Asking for the maximum recall in a specific precision interval (greater or equal 0.9), the final output is just the one set of values (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}{Link}).
-\paragraph{Note that \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available metrics for this type of queries. Neither is \colorbox{yellow}{threshold}.}
+\paragraph{Note: }
+\begin{itemize}
+\item The metrics \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available parameters for this type of query. Neither is \colorbox{yellow}{threshold}. %TODO confirm threshold not being part of it =QUESTION2
+\item Other than that, all combinations of metrics that can be seen (e.g. in the output of the example link) can be used. %TODO confirm =QUESTION1
+\item Queries with values outside of the possible interval (e.g. maximum \textbf{recall} @ \textbf{precision} $>= 1.1$) or queries that simply do not return any results (e.g. maximum filter\_rate @ f1 $>= 0.5$; f1 does not yield a value of 0.5 or higher for any threshold) return null:
+\begin{description}
+\item \includegraphics[scale=0.7]{resources/6/returnNull}
+\end{description}
+\end{itemize}
+\subsection{(Some) Useful combinations}
+\begin{itemize}
+\item maximum \textbf{recall} @ \textbf{precision} $>=$ very high (e.g. 0.9)
+\begin{itemize}
+\item Determines a ``useful threshold for a counter-vandalism bot''.
+\item Recall and precision is one of the most important trade-offs to adjust.
+\item A bot that automatically reverts damaging edits should only operate at high precisions in order to make the least mistakes while reverting, which could result in a lot of frustration for well behaving, misunderstood users.
+\item It therefore makes sense to set a precision lower bound, high enough so that every value above seems acceptable, and then search for the threshold, that returns the highest possible recall.
+\end{itemize} maximum filter\_rate @ recall $>=$ high (e.g. 0.75)
+\end{itemize}
 %
 %
 %

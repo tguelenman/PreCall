@@ -24,7 +24,7 @@ body{
 .Content{
 	flex: 2;
 	background-color: white;
-	margin: 20px;
+	margin: 40px 80px;
 	/*min-height: 800px;*/
 	padding: 20px;
 }

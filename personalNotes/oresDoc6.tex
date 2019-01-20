@@ -71,9 +71,8 @@ roc\_auc & Measure of classification performance &\\\hline
 %
 %
 \section{Metrics combinations - or - ``syntax for requesting an optimization from ORES'' (source: paper)}
-example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}
-%TODO
-%TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example
+example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true."maximum recall @ precision >= 0.9"}
+%%TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example
 More links for quickstart:
 \begin{itemize} %TODO rausnehmen
 \item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{1}
@@ -97,10 +96,17 @@ Asking for the maximum recall in a specific precision interval (greater or equal
 \item maximum \textbf{recall} @ \textbf{precision} $>=$ very high (e.g. 0.9)
 \begin{itemize}
 \item Determines a ``useful threshold for a counter-vandalism bot''.
-\item Recall and precision is one of the most important trade-offs to adjust.
-\item A bot that automatically reverts damaging edits should only operate at high precisions in order to make the least mistakes while reverting, which could result in a lot of frustration for well behaving, misunderstood users.
-\item It therefore makes sense to set a precision lower bound, high enough so that every value above seems acceptable, and then search for the threshold, that returns the highest possible recall.
-\end{itemize} maximum filter\_rate @ recall $>=$ high (e.g. 0.75)
+\item \textbf{Recall} and \textbf{precision} is one of the most important trade-offs to adjust.
+\item A bot that automatically reverts damaging edits should only operate at high \textbf{precisions} in order to make the least mistakes while reverting and not to cause lots of frustration for well behaving, misunderstood and sometimes inexperienced users (e.g. the rejection of good-faith newcomers).
+\item It therefore makes sense to set a \textbf{precision} lower bound, high enough so that every value above seems acceptable, and then search for the threshold, that returns the highest possible \textbf{recall}.
+\end{itemize} 
+\item maximum filter\_rate @ recall $>=$ high (e.g. 0.75)
+\begin{itemize}
+\item Determines ``a useful threshold for semi-automated edit review''.
+\item With semi-automated tools, we have our algorithms marking edits as potentially damaging and then specific users looking into those. We can therefore typically afford lower \textbf{precision} than in fully automated review tools and, as a consequence, we can expect higher \textbf{recall}.
+\item Having fixed a reasonably high \textbf{recall} lower bound, we still want to minimize the work necessary by reviewers. That is why we could maximize the \textbf{filter\_rate}
+\end{itemize}
+%TODO continue list?
 \end{itemize}
 %
 %

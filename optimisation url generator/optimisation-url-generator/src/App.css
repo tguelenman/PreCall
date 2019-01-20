@@ -1,0 +1,40 @@
+body{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#root{
+	width: 100%;
+	height: 100%;
+}
+
+.App {
+	min-height: 100%;
+	width: 100%;
+	position: relative;/**/
+	background-color: #c1c1c1;
+	text-align: center;
+}
+
+.Header {
+	flex: 1;
+}
+
+.Content{
+	flex: 2;
+	background-color: white;
+	margin: 20px;
+	/*min-height: 800px;*/
+	padding: 20px;
+}
+
+.Footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	flex: 3;
+	background-color: white;
+	padding: 20px;
+}

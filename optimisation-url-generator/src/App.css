@@ -28,6 +28,7 @@ body{
 	/*min-height: 800px;*/
 	padding: 30px;
 	border-radius: 7px;
+	box-shadow: 2px 2px 2px 2px #8f8f8f;
 }
 
 .Footer{

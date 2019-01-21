@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'semantic-ui-react'
+import { 
+	Form, Input, Button, 
+	Label, 
+} from 'semantic-ui-react'
+	
 import './OptUrlGen.css';
 
 //listing only wikis that have a damaging model
@@ -70,11 +74,7 @@ export default class OptUrlGen extends Component {
 
 	handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-	
-	//TODO also for other models <- mit trennstrich zur naechsten section
-	//TODO copy to clipboard?, 2) open in new tab <- only possible if all states have a value
-
-
+	//TODO 2) open in new tab <- only possible if all states have a value
 
 	render() {
 		const { 
@@ -90,8 +90,10 @@ export default class OptUrlGen extends Component {
 			<div className = "OptUrlGen">
 			{/*<Form onSubmit={this.handleSubmit}>*/}
 				<Form>
+					<Label basic pointing='below' color='red'>Select a wiki</Label>
 					<Form.Select name='wiki' fluid value={wiki} options={wikiOptions} onChange={this.handleChange}/>
-					<hr/>
+					<hr className="DividerClass"/>
+					<Label basic pointing='below' color='red'>Construct your optimisation query</Label>
 					<Form.Group widths='equal'>
 						<Form.Select name='minMax' fluid value={minMax} options={minMaxOptions} onChange={this.handleChange}/>
 						<Form.Select name='metric1' fluid value={metric1} placeholder='Metric 1' options={metricOptions} onChange={this.handleChange}/>
@@ -100,8 +102,8 @@ export default class OptUrlGen extends Component {
 						<Form.Select name='lg' fluid value={lg} options={glOptions}  onChange={this.handleChange}/>
 						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0'  onChange={this.handleChange}/>
 					</Form.Group>
-					<Input Id='outputUrl' name='outputUrl' value={outputUrl} />
-					<Form.Button Id='newTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/>
+					<Input Id='OutputUrl' name='outputUrl' value={outputUrl} />
+					<Form.Button Id='NewTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/>
 				</Form>
 			</div>
 		)

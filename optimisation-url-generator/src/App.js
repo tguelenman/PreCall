@@ -44,7 +44,8 @@ export default class App extends Component {
 					}
 				</div>
 				<div className="Footer">
-					Also check out <a>https://ores.wikimedia.org/</a>
+					<a className="FooterLinks" href='https://www.mediawiki.org/wiki/ORES'>https://www.mediawiki.org/wiki/ORES</a>
+					<a className="FooterLinks" href='https://ores.wikimedia.org/'>https://ores.wikimedia.org/</a>
 				</div>
 			</div>
 		)

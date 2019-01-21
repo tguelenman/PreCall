@@ -26,7 +26,8 @@ body{
 	background-color: white;
 	margin: 40px 80px;
 	/*min-height: 800px;*/
-	padding: 20px;
+	padding: 30px;
+	border-radius: 7px;
 }
 
 .Footer{
@@ -37,4 +38,8 @@ body{
 	flex: 3;
 	background-color: white;
 	padding: 20px;
+}
+
+.FooterLinks{
+	margin: 40px;
 }

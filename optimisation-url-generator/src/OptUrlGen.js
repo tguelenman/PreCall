@@ -103,7 +103,10 @@ export default class OptUrlGen extends Component {
 						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0'  onChange={this.handleChange}/>
 					</Form.Group>
 					<Input Id='OutputUrl' name='outputUrl' value={outputUrl} />
-					<Form.Button Id='NewTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/>
+					{(wiki && minMax && metric1 && metric2 && lg && metricFloat)? 
+						<Form.Button basic color='black' Id='NewTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/> :
+						<Form.Button basic color='black' Id='NewTabButtonDisabled' content='Please fill out empty fields'/>
+					}
 				</Form>
 			</div>
 		)

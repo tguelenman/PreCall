@@ -13,7 +13,9 @@ body{
 	min-height: 100%;
 	width: 100%;
 	position: relative;/**/
-	background-color: #c1c1c1;
+	background-image: url(Objective_Revision_Evaluation_Service_logo.svg.png);
+	//background-repeat: no-repeat;
+	background-size: contain;
 	text-align: center;
 }
 
@@ -23,7 +25,7 @@ body{
 
 .Content{
 	flex: 2;
-	background-color: white;
+	background-color: #dcdcdc;
 	margin: 40px 80px;
 	/*min-height: 800px;*/
 	padding: 30px;

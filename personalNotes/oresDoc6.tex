@@ -73,20 +73,13 @@ roc\_auc & Measure of classification performance &\\\hline
 %
 \section{Metrics combinations - or - ``syntax for requesting an optimization from ORES'' (source: paper)}
 example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true."maximum recall @ precision >= 0.9"}
-%%TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example
-More links for quickstart:
-\begin{itemize} %TODO rausnehmen
-\item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{1}
-\item \href{https://upload.wikimedia.org/wikipedia/commons/2/26/Precisionrecall.svg}{2}
-\item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20!precision%20@%20precision%20%3E=%200.9%27}{3}
-\item \href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20filter_rate%20@%20recall%20%3E=%200.75%27}{4}
-\end{itemize}
+%%TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example QUESTION2: how do you see that 16%...?
 Querying the API as in the example above, the output, before applying the given filters of \textbf{recall} and \textbf{precision}, is the list of values of all available metrics for \underline{thresholds} (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{Link}).
 Asking for the maximum recall in a specific precision interval (greater or equal 0.9), the final output is just the one set of values (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}{Link}).
 \paragraph{Note: }
 \begin{itemize}
-\item The metrics \colorbox{yellow}{pr\_auc}, \colorbox{yellow}{roc\_auc}, \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available parameters for this type of query. Neither is \colorbox{yellow}{threshold}. %TODO confirm threshold not being part of it =QUESTION2
-\item Other than that, all combinations of metrics that can be seen (e.g. in the output of the example link) can be used. %TODO confirm =QUESTION1
+\item The metrics \colorbox{yellow}{pr\_auc}, \colorbox{yellow}{roc\_auc}, \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available parameters for this type of query. Neither is \colorbox{yellow}{threshold}. %TODO confirm threshold not being part of it =QUESTION1
+\item Other than that, all combinations of metrics that can be seen (e.g. in the output of the example link) can be used.
 \item Queries with values outside of the possible interval (e.g. maximum \textbf{recall} @ \textbf{precision} $>= 1.1$) or queries that simply do not return any results (e.g. maximum filter\_rate @ f1 $>= 0.5$; f1 does not yield a value of 0.5 or higher for any threshold) return null:
 \begin{description}
 \item \includegraphics[scale=0.7]{resources/6/returnNull}
@@ -107,7 +100,6 @@ Asking for the maximum recall in a specific precision interval (greater or equal
 \item With semi-automated tools, we have our algorithms marking edits as potentially damaging and then specific users looking into those. We can therefore typically afford lower \textbf{precision} than in fully automated review tools and, as a consequence, we can expect higher \textbf{recall}.
 \item Having fixed a reasonably high \textbf{recall} lower bound, we still want to minimize the work necessary by reviewers. That is why we could maximize the \textbf{filter\_rate}
 \end{itemize}
-%TODO continue list?
 \end{itemize}
 %
 %
@@ -165,6 +157,7 @@ The model will split the data multiple times, differently, into train and test s
 
 \subsection{Queue rate}
 ``This metric describes the percentage of instances that must be reviewed.''\\
+This refers to the percentage of instances that have been classified as positives. In this case, the classifier is used in the context of fraud investigation and a positive means a case that has to be reviewed. 
 It can be helpful to think about the costs of reviewing whatever it is that must be reviewed in the context of business decisions, where the ability to review is a limited resource and might be a factor in adjusting the threshold in order to find a favourable outcome.
 %
 %
@@ -180,5 +173,6 @@ Nothing to document.
 %
 %
 \section*{Optimisation URL Generator}
-Started Implementation. See on GitHub.
+Started implementing a tool, that will make constructing optimisation queries to ORES easier. A working version as react-app can be found here:\\
+\url{https://github.com/tguelenman/OresCustomDocumentation/tree/master/optimisation-url-generator}.
 \end{document}

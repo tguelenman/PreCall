@@ -72,13 +72,14 @@ roc\_auc & Measure of classification performance &\\\hline
 %
 %
 \section{Metrics combinations - or - ``syntax for requesting an optimization from ORES'' (source: paper)}
-example: \url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true."maximum recall @ precision >= 0.9"}
-%%TODO also see https://www.mediawiki.org/wiki/ORES/Thresholds -> worked example QUESTION2: how do you see that 16%...?
+example:\\
+\url{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true."maximum recall @ precision >= 0.9"}\\
+
 Querying the API as in the example above, the output, before applying the given filters of \textbf{recall} and \textbf{precision}, is the list of values of all available metrics for \underline{thresholds} (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true}{Link}).
 Asking for the maximum recall in a specific precision interval (greater or equal 0.9), the final output is just the one set of values (\href{https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.%27maximum%20recall%20@%20precision%20%3E=%200.9%27}{Link}).
 \paragraph{Note: }
 \begin{itemize}
-\item The metrics \colorbox{yellow}{pr\_auc}, \colorbox{yellow}{roc\_auc}, \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available parameters for this type of query. Neither is \colorbox{yellow}{threshold}. %TODO confirm threshold not being part of it =QUESTION1
+\item The metrics \colorbox{yellow}{pr\_auc}, \colorbox{yellow}{roc\_auc}, \colorbox{yellow}{counts} and \colorbox{yellow}{rates} are not part of the available parameters for this type of query. Neither is \colorbox{yellow}{threshold}.
 \item Other than that, all combinations of metrics that can be seen (e.g. in the output of the example link) can be used.
 \item Queries with values outside of the possible interval (e.g. maximum \textbf{recall} @ \textbf{precision} $>= 1.1$) or queries that simply do not return any results (e.g. maximum filter\_rate @ f1 $>= 0.5$; f1 does not yield a value of 0.5 or higher for any threshold) return null:
 \begin{description}

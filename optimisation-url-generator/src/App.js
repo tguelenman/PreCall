@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react'
-import './App.css';
+import './styling/App.css';
 import OptUrlGen from './OptUrlGen.js';
 
 export default class App extends Component {
@@ -8,7 +8,7 @@ export default class App extends Component {
 		activeItem: 'optUrlGen',
 	}
 
-	handleItemClick = (e, { activeName }) => this.setState({ activeItem: activeName })
+	handleItemClick = (e, { activename }) => this.setState({ activeItem: activename })
 
 	render() {
 		const { activeItem } = this.state
@@ -17,23 +17,26 @@ export default class App extends Component {
 		return (
 			<div className="App">
 				<div className="Header">
-					<Menu>
-						<Menu.Item header>ORES</Menu.Item>
+					<Menu id='MainMenu'>
+						<Menu.Item header className="MenuItem">	
+							<img id='HeaderLogo' src={require('./styling/images/Objective_Revision_Evaluation_Service_logo.svg.png')} alt=''/>
+							ORES
+						</Menu.Item>
 						<Menu.Item
 							name='Optimisation URL Generator'
 							active={activeItem === 'optUrlGen'}
-							activeName='optUrlGen'
+							activename='optUrlGen'
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item 
 							name='Another Menu Tab 1'
 							active={activeItem === 'menu1'}
-							activeName='menu1'
+							activename='menu1'
 							onClick={this.handleItemClick} />
 						<Menu.Item
 							name='Another Menu Tab 2'
 							active={activeItem === 'menu2'}
-							activeName='menu2'
+							activename='menu2'
 							onClick={this.handleItemClick}
 						/>
 					</Menu>

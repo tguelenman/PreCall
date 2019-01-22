@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { 
-	Form, Input, Button, 
-	Label, 
+	Form, Input, Label, 
 } from 'semantic-ui-react'
 	
-import './OptUrlGen.css';
+import './styling/OptUrlGen.css';
 
 //listing only wikis that have a damaging model
 const wikiOptions = [
@@ -97,15 +96,15 @@ export default class OptUrlGen extends Component {
 					<Form.Group widths='equal'>
 						<Form.Select name='minMax' fluid value={minMax} options={minMaxOptions} onChange={this.handleChange}/>
 						<Form.Select name='metric1' fluid value={metric1} placeholder='Metric 1' options={metricOptions} onChange={this.handleChange}/>
-						<p>@</p>
+						<p id="at">@</p>
 						<Form.Select name='metric2' fluid value={metric2} placeholder='Metric 2' options={metricOptions}  onChange={this.handleChange}/>
 						<Form.Select name='lg' fluid value={lg} options={glOptions}  onChange={this.handleChange}/>
 						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0'  onChange={this.handleChange}/>
 					</Form.Group>
 					<Input Id='OutputUrl' name='outputUrl' value={outputUrl} />
 					{(wiki && minMax && metric1 && metric2 && lg && metricFloat)? 
-						<Form.Button basic color='black' Id='NewTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/> :
-						<Form.Button basic color='black' Id='NewTabButtonDisabled' content='Please fill out empty fields'/>
+						<Form.Button color='red' Id='NewTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/> :
+						<Form.Button color='red' Id='NewTabButtonDisabled' content='Please fill out empty fields'/>
 					}
 				</Form>
 			</div>

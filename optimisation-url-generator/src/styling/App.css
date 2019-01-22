@@ -59,7 +59,7 @@ a.item{
 	width: 100%;
 	height: 60px;
 	flex: 3;
-	background-color: #82b4cd;
+	background-image: linear-gradient(#82b4cd,#006699);
 	padding: 20px;
 }
 

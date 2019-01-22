@@ -13,7 +13,7 @@ body{
 	min-height: 100%;
 	width: 100%;
 	position: relative;/**/
-	background-image: url(images/Objective_Revision_Evaluation_Service_logo.svg.png);
+	background-image: url(images/GreyObjective_Revision_Evaluation_Service_logo.svg.png);
 	background-size: contain;
 	text-align: center;
 }
@@ -59,7 +59,7 @@ a.item{
 	width: 100%;
 	height: 60px;
 	flex: 3;
-	background-color: #006699;
+	background-color: #82b4cd;
 	padding: 20px;
 }
 

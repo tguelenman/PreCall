@@ -21,10 +21,35 @@
 \maketitle
 \textit{Disclaimer: No guarantee for the correctness of information / explanations / sources is given.}\\
 %
+%
+%
 \section*{Goals}
 \begin{enumerate}
 \item Look further into visualisation possibilities for Use Case 1
 \end{enumerate}
 \section{Data Visualisations}
-Use Case 1: maximum recall @ precision $>=0.9$
+\underline{Use Case 1}: maximum recall @ precision $>=0.9$\\
+%
+\subsection{Quick brainstorming}
+\begin{itemize}
+\item Maybe we should not focus on constructing sdomething that works for Use Case 1, but already look for solutions that will help with every query.
+\item The common factor are the confusion matrix values: TP, FP, TN, FN and still the best visualisation to me is the Google Discrimination Threshold one (\href{https://research.google.com/bigpicture/attacking-discrimination-in-ml/}{Link}).
+\item I feel like constructing something like that and then showing pie charts or something similar to put the focus on the metrics of the query would be optimal, even though we don't need to be able to move the threshold. The threshold doesn't have to be the center of attention for a visualisation like that. It can just be put where it belongs automatically, based on the other metrics, to give a better understanding of where the negatives end and the positives start. 
+\end{itemize}
+%
+\subsection{Concrete suggestions}
+\begin{itemize}
+\item \url{https://beta.observablehq.com/@mbostock/d3-histogram}
+\begin{description}
+\item Histogram. 
+\begin{itemize}
+\item Insert score.probability.true values into the array \checkmark
+\item Manually paint threshold ontop of it (?)
+\item Differently color bars to account for probabilities of TP/FP and TN/FN distributions (?)1
+\end{itemize}
+\end{description}
+\end{itemize}
+%
+%
+%
 \end{document}

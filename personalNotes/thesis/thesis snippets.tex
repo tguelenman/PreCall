@@ -1,0 +1,27 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[ngerman, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[unicode=true,bookmarks=false,bookmarksopen=true]{hyperref}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{listings}
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\definecolor{pGreen}{rgb}{0.44, 0.71, 0}
+\definecolor{nRed}{rgb}{0.74, 0, 0}
+
+\title{ORES Custom Documentation - Thesis Snippets}
+\author{Tom Gülenman}
+\date{}
+\begin{document}
+\tableofcontents
+\section{Introduction}
+ORES\footnote{\url{https://ores.wikimedia.org/}} stands for Objective Revision Evaluation Service and is a machine learning-powered webservice developed by the Wikimedia Scoring Platform team\footnote{\url{https://www.mediawiki.org/wiki/Wikimedia_Scoring_Platform_team}}. As of now, it offers a restful API\footnote{https://ores.wikimedia.org/v3/} and a very basic user interface\footnote{https://ores.wmflabs.org/ui/} allowing users to retrieve scoring information about edits across a multitude of wikis.
+%TODO edits = broad term = edits, new article creations etc.
+%TODO which wikis?
+%TODO scores have been determined by ORES' machine learning algorithms 
+\end{document}

@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { 
 	Form, Input, Label, 
 } from 'semantic-ui-react'
-	
+
+import MetricsGetRequest from './MetricsGetRequest.js';
+
 import './styling/OptUrlGen.css';
+
 
 //listing only wikis that have a damaging model
 const wikiOptions = [
@@ -69,25 +72,53 @@ export default class OptUrlGen extends Component {
 		metric2: '',
 		lg: '>=',
 		metricFloat: '',
+		outputUrl: '',
+		getResult: {
+			'!f1': '',
+			'!precision': '',
+			'!recall': '',
+			'accuracy': '',
+			'f1': '',
+			'filter_rate': '',
+			'fpr': '',
+			'match_rate': '',
+			'precision': '',
+			'recall': '',
+		},
 	}
 
 	handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-	//TODO 2) open in new tab <- only possible if all states have a value
-
+	getRequestMetrics = (metricsObject) => {
+		/*metricsObject will look like:
+		{
+			'!f1':x,
+			'!precision':y,
+			...
+			'threshold':z
+		}
+		with x,y,z floats between 0 and 1
+		*/
+		this.setState({ 
+			getResult: JSON.stringify(metricsObject)
+		})
+	}
+	
 	render() {
 		const { 
 			wiki, minMax, metric1,
 			metric2, lg, metricFloat,
-			/*submittedMinMax, 
-			submittedMetric1, submittedMetric2, submittedLg,
-			submittedMetricFloat,*/
 		} = this.state
+		
+		var blabla = JSON.stringify(this.state.getResult)
 
 		var outputUrl = "https://ores.wikimedia.org/v3/scores/"+wiki+"/?models=damaging&model_info=statistics.thresholds.true.'"+minMax+" "+metric1+" @ "+metric2+" "+lg+" "+metricFloat+"'"
+		if(this.state.outputUrl !== outputUrl){
+			this.setState({ outputUrl: outputUrl })
+		}
+		
 		return (
 			<div className = "OptUrlGen">
-			{/*<Form onSubmit={this.handleSubmit}>*/}
 				<Form>
 					<Label basic pointing='below' color='red'>Select a wiki</Label>
 					<Form.Select name='wiki' fluid value={wiki} options={wikiOptions} onChange={this.handleChange}/>
@@ -101,11 +132,19 @@ export default class OptUrlGen extends Component {
 						<Form.Select name='lg' fluid value={lg} options={glOptions}  onChange={this.handleChange}/>
 						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0'  onChange={this.handleChange}/>
 					</Form.Group>
-					<Input Id='OutputUrl' name='outputUrl' value={outputUrl} />
+					<Input Id='OutputUrl' name='outputUrl' value={this.state.outputUrl !== '' ? this.state.outputUrl : outputUrl} />
+					
 					{(wiki && minMax && metric1 && metric2 && lg && metricFloat)? 
-						<Form.Button color='red' Id='NewTabButton' content='Open in new tab' onClick={() => window.open(outputUrl, '_blank')}/> :
-						<Form.Button color='red' Id='NewTabButtonDisabled' content='Please fill out empty fields'/>
+					
+						(<div><Form.Button color='red' Id='WikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
+						<hr className="DividerClass"/>
+						<MetricsGetRequest currentUrl={outputUrl} requestHandler={this.getRequestMetrics}/></div>) :
+						
+						<Form.Button color='red' Id='DisabledButton' content='Please fill out empty fields'/>
 					}
+					
+					<p>state outputUrl: {this.state.outputUrl}</p>
+					<p>state getResult: {blabla}</p>
 				</Form>
 			</div>
 		)

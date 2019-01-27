@@ -25,13 +25,13 @@ export default class App extends Component {
 							ORES
 						</Menu.Item>
 						<Menu.Item
-							name='Optimisation URL Generator'
+							name='Optimisation Queries'
 							active={activeItem === 'optUrlGen'}
 							activename='optUrlGen'
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item 
-							name='ORES API Calls'
+							name='ORES API Testing'
 							active={activeItem === 'apiCallsTestrange'}
 							activename='apiCallsTestrange'
 							onClick={this.handleItemClick} />

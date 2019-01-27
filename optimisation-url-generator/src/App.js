@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react'
 import './styling/App.css';
 import OptUrlGen from './OptUrlGen.js';
+import ApiCallsTestrange from './ApiCallsTestrange.js';
 
 export default class App extends Component {
 	state = {
@@ -13,6 +14,7 @@ export default class App extends Component {
 	render() {
 		const { activeItem } = this.state
 		var optUrlGen = <OptUrlGen/>
+		var apiCallsTestrange = <ApiCallsTestrange/>
 
 		return (
 			<div className="App">
@@ -29,12 +31,12 @@ export default class App extends Component {
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item 
-							name='Another Menu Tab 1'
-							active={activeItem === 'menu1'}
-							activename='menu1'
+							name='ORES API Calls'
+							active={activeItem === 'apiCallsTestrange'}
+							activename='apiCallsTestrange'
 							onClick={this.handleItemClick} />
 						<Menu.Item
-							name='Another Menu Tab 2'
+							name='Another Menu Tab'
 							active={activeItem === 'menu2'}
 							activename='menu2'
 							onClick={this.handleItemClick}
@@ -43,7 +45,7 @@ export default class App extends Component {
 				</div>
 				<div className="Content">
 					{this.state.activeItem === 'optUrlGen' ? optUrlGen : 
-						this.state.activeItem === 'menu1' ? '' : ''
+						this.state.activeItem === 'apiCallsTestrange' ? apiCallsTestrange : ''
 					}
 				</div>
 				<div className="Footer">

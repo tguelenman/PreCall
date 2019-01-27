@@ -18,10 +18,160 @@
 \author{Tom Gülenman}
 \date{}
 \begin{document}
+\maketitle
+\newpage
 \tableofcontents
+\newpage
+\section*{How To...}
+\subsection*{Zu klären:}
+\begin{itemize}
+\item Titel der BA
+\item Anmelden
+\item Zweitgutachter
+\item Documentation and results section -> TODO: Doku der Durchführung = auch sowas wie 1) Treffen in der Arbeitsgruppe mit Claudia und Christoph, 2) bei WikiMedia Deutschland etc.
+\item Literature section: Trotzdem Fußnoten auf den Seiten davor?
+\item DEUTSCH ODER ENGLISCH?
+\end{itemize}
+\subsection*{Sonstige Anforderungen an die Ausarbeitung\footnote{\url{https://www.mi.fu-berlin.de/stud/mentoring/inf/misc/faq_abschlussarbeit/index.html}}:}
+\begin{itemize}
+\item Sie sollte gut strukturiert sein. Alles sollte nur einmal auftauchen und leicht auffindbar sein (Verzeichnisse, Querverweise).
+\item Zwischen Titelblatt und Inhaltsverzeichnis sollte es eine Zusammenfassung geben (0,5 bis 1 Seite lang)
+\item Alle Behauptungen müssen belegt werden, sei es mit einer Literaturquelle, einem sorgfältigen Argument oder mit eigenen empirischen Daten.
+\item Es sollte eine klare, einfache deutsche Sprache benutzt werden. "Denglisch" ist zu vermeiden. Ausarbeitungen in Englisch werden nur akzeptiert, falls die/der Studierende Englisch eher besser beherrscht als Deutsch.
+\item Wichtige Begriffe definieren.
+\item Hilfreiche und treffgenaue Literaturhinweise einfügen. Dafür ist die Kenntnis der einschlägigen wissenschaftlichen Literatur nötig. (Bei Bachelorarbeiten ist der Anspruch aus Zeitgründen hier niedriger.)
+\item Ermüdende Informationsberge sollten in einen Anhang verbannt werden.
+\end{itemize}
+\subsection*{Arbeiten mit Programmen (JA): besonders beachten:}
+\begin{itemize}
+\item Einführung: kurze Beschreibung, welche Methode/welcher Lösungsansatz gewählt wurde
+\item Beschreibung besonderer Schwierigkeiten und wie sie gelöst, umgangen oder vermieden wurden (oder warum nicht)
+\item Ergebnis (Was habe ich rausbekommen?)
+\end{itemize}
+\subsection*{Sonstiges:}
+Große Länge einer Abschlussarbeit ist kein Vorteil, kürzer ist meist sogar besser: Unnötiges weglassen, Nötiges knapp ausdrücken. In der Bachelorordnung von 2014 ist in §10(6) eine Länge von ca. 25 Seiten (7500 Wörter) vorgesehen, in der Masterordnung von 2014 in §9(6) eine Länge von 50 bis 80 Seiten.
+%
+%
+%
 \section{Introduction}
-ORES\footnote{\url{https://ores.wikimedia.org/}} stands for Objective Revision Evaluation Service and is a machine learning-powered webservice developed by the Wikimedia Scoring Platform team\footnote{\url{https://www.mediawiki.org/wiki/Wikimedia_Scoring_Platform_team}}. As of now, it offers a restful API\footnote{https://ores.wikimedia.org/v3/} and a very basic user interface\footnote{https://ores.wmflabs.org/ui/} allowing users to retrieve scoring information about edits across a multitude of wikis.
+\colorbox{orange}{Einführung}: Was ist das Problem\colorbox{orange}{?} Warum ist es ein Problem\colorbox{orange}{?} Wie bettet es sich in andere Arbeiten ein\colorbox{orange}{?} Was ist nicht das Problem\colorbox{orange}{?} Was wird nicht gelöst mit dieser Arbeit\colorbox{orange}{?}
+\\
+\\
+\colorbox{yellow}{+Worum geht es?}
+\\
+\\
+ORES\footnote{\url{https://ores.wikimedia.org/}} stands for Objective Revision Evaluation Service and is a machine learning-powered webservice developed by the Wikimedia Scoring Platform team\footnote{\url{https://www.mediawiki.org/wiki/Wikimedia_Scoring_Platform_team}}. As of now, it offers a restful API\footnote{\url{https://ores.wikimedia.org/v3/}} and a very basic user interface\footnote{\url{https://ores.wmflabs.org/ui/}} allowing users to retrieve scoring information about edits across a multitude of wikis.
 %TODO edits = broad term = edits, new article creations etc.
 %TODO which wikis?
 %TODO scores have been determined by ORES' machine learning algorithms 
+\\
+\\
+\colorbox{yellow}{Was ist das Problem?}
+\\
+\\
+\colorbox{yellow}{Warum ist es ein Problem?}
+\\
+\\
+\colorbox{yellow}{Wie bettet es sich in andere Arbeiten ein?}
+\\
+\\
+\colorbox{yellow}{Was ist nicht das Problem?}
+\\
+\\
+\colorbox{yellow}{Was wird nicht gelöst mit dieser Arbeit?}
+\\
+\\
+%
+%
+%
+\section{ORES usage: state-of-the-art}
+\colorbox{orange}{Stand der Kunst, Vergleichbare Arbeiten (wissenschaftliche Literatur)}
+\\
+\\
+\colorbox{yellow}{Stand der Kunst}
+\\
+\\
+How ORES is used: e.g. classroom application and other examples
+\\
+\\
+\colorbox{yellow}{Vergleichbare Arbeiten}
+%
+%
+%
+\section{Approach}
+\colorbox{orange}{Gewählter Lösungsansatz, Alternativen, Abwägungen}
+\\
+\\
+\colorbox{yellow}{Gewählter Lösungsansatz}
+\\
+\\
+In jedem Fall: viel Recherche und Dokumentationsarbeit als Voraussetzung (auch in Zusammenarbeit mit Entwicklern). React Oberfläche. Auch schon zwischendurch tool gebaut: URL Generator. Filter-Funktion mit Schiebereglern stand von Anfang an fest. Dann den am Ende gewählten Visualisierungsansatz beschreiben.
+\\
+\\
+\colorbox{yellow}{Alternativen}
+\\
+\\
+Alternativen: vor allem im Sinne von Visualisierungen beschreiben
+\\
+\\
+\colorbox{yellow}{Abwägungen}
+\\
+\\
+Abwägungen: warum ist es \textbf{diese} Visualisierung geworden? (Falls vorher noch Alternativen in anderen Zusammenhängen beschrieben $\rightarrow$ auch dazu Abwägungen: warum ist es so besser?
+\\
+\\
+\section{Major difficulties}
+\colorbox{orange}{Beschreibung} besonderer Schwierigkeiten\colorbox{orange}{!} und wie sie gelöst, umgangen oder vermieden wurden\colorbox{orange}{!} (oder warum nicht)\colorbox{orange}{!}
+\\
+\\
+\colorbox{yellow}{Beschreibung besonderer Schwierigkeiten}
+\\
+\\
+So gut wie keine Doku; ständiger Austausch mit Entwicklern und viel Ausprobieren / Selbst-Zusammenreimen von Nöten.
+%TODO more obviously...
+\\
+\\
+\colorbox{yellow}{...wie sie gelöst, umgangen oder vermieden}
+\\
+\\
+Solutions and workarounds (+avoidance?):\\
+Das und vorherige Partie verbinden weil Problem und Lösung von Doku und Austausch mit Entwicklern zu trennen vielleicht nicht gut ist. Ansonsten hängt das von den anderen Punkten ab.
+\\
+\\
+\colorbox{yellow}{...oder warum nicht}
+\\
+\\
+%
+%
+%
+\section{Documentation and results}
+\colorbox{orange}{Dokumentation der Durchführung und der entstandenen Artefakte}
+\\
+\\
+\colorbox{yellow}{Dokumentation}
+Für das Erreichen der gesetzten Ziele war es unumgänglich eine eigene Dokumentation gewisser Funktionsweisen des Systems anzulegen: siehe Doku der Parameter/Metriken (und Anderes?).
+%TODO weitere Dokumentation der *Durchführung* -> also wirklich wie die Arbeit von verlief -> also auch sowas wie Treffen in der Arbeitsgruppe etc?
+%
+%
+%
+\section{Evaluation / Conclusion}
+\colorbox{orange}{Evaluation (z.B. kleine Feldstudie)/Ergebnis (Was habe ich rausbekommen?)}
+%
+%
+%
+\section{Outlook}
+\colorbox{orange}{Ausblick}
+User studies?
+%
+%
+%
+\section{Literature}
+\colorbox{orange}{Literaturliste}
+Aber trotzdem Fußnoten auf den Seiten davor?
+%
+%
+%
 \end{document}
+%
+%
+%

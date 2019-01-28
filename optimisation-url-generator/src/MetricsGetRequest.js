@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Request from 'superagent';
 import { Button, } from 'semantic-ui-react';
 
+import './styling/MetricsGetRequest.css';
+
 export default class MetricsGetRequest extends Component {
 
 	state = {
@@ -10,7 +12,7 @@ export default class MetricsGetRequest extends Component {
 	//ComponentWillUpdate = (nextProps) => {}
 
 	requestMetrics = () => {
-		console.log("currentURL: ",this.props.currentUrl)
+		console.log('currentURL: ',this.props.currentUrl)
 		Request
 			.get(this.props.currentUrl)
 			.then( res => {
@@ -24,7 +26,8 @@ export default class MetricsGetRequest extends Component {
 	
 	render() {
 		return (
-			<Button onClick={this.requestMetrics}></Button>
+			<Button id='GetResults' color={'red'} onClick={this.requestMetrics}>Get Results</Button>
+			
 		)
 	}
 }

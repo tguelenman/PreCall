@@ -4,6 +4,7 @@ import {
 } from 'semantic-ui-react'
 
 import MetricsGetRequest from './MetricsGetRequest.js';
+import MetricsShow from './MetricsShow.js'
 
 import './styling/OptUrlGen.css';
 
@@ -73,6 +74,7 @@ export default class OptUrlGen extends Component {
 		lg: '>=',
 		metricFloat: '',
 		outputUrl: '',
+		getResultComplete: '',
 		getResult: {
 			'!f1': '',
 			'!precision': '',
@@ -85,22 +87,35 @@ export default class OptUrlGen extends Component {
 			'precision': '',
 			'recall': '',
 		},
+		getResultChanged: false,
 	}
 
 	handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-	getRequestMetrics = (metricsObject) => {
-		/*metricsObject will look like:
-		{
-			'!f1':x,
-			'!precision':y,
-			...
-			'threshold':z
+	getRequestMetrics = (getResultComplete) => {
+
+		//this is the Object that looks like this: {!f1: x, !precision: y, ...}
+		var metricsObject = getResultComplete[this.state.wiki]['models']['damaging']['statistics']['thresholds']['true'][0]
+		
+		//now, for every metric, we want to save its value to our state
+		//first read our current state
+		var currentStateGetResult = this.state.getResult
+
+		for (var metricOption in metricOptions){
+			var metric = metricOptions[metricOption]["key"]
+
+			//then give each entry the new value
+			currentStateGetResult[metric] = metricsObject[metric]
+			console.log(currentStateGetResult)
 		}
-		with x,y,z floats between 0 and 1
-		*/
-		this.setState({ 
-			getResult: JSON.stringify(metricsObject)
+		
+		//and set it as the new state
+		this.setState({
+			getResultComplete: getResultComplete,
+			getResult: currentStateGetResult,
+			getResultsButtonPressed: true,
+		}, () => {
+			this.setState({ getResultChanged: true, })
 		})
 	}
 	
@@ -108,9 +123,9 @@ export default class OptUrlGen extends Component {
 		const { 
 			wiki, minMax, metric1,
 			metric2, lg, metricFloat,
+			getResult
 		} = this.state
 		
-		var blabla = JSON.stringify(this.state.getResult)
 
 		var outputUrl = "https://ores.wikimedia.org/v3/scores/"+wiki+"/?models=damaging&model_info=statistics.thresholds.true.'"+minMax+" "+metric1+" @ "+metric2+" "+lg+" "+metricFloat+"'"
 		if(this.state.outputUrl !== outputUrl){
@@ -138,13 +153,12 @@ export default class OptUrlGen extends Component {
 					
 						(<div><Form.Button color='red' Id='WikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
 						<hr className="DividerClass"/>
-						<MetricsGetRequest currentUrl={outputUrl} requestHandler={this.getRequestMetrics}/></div>) :
+						<MetricsGetRequest currentUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
+							{this.state.getResultChanged ? <MetricsShow metrics={this.state.getResult}/> : 'not yet'}
+						</div>) :
 						
 						<Form.Button color='red' Id='DisabledButton' content='Please fill out empty fields'/>
 					}
-					
-					<p>state outputUrl: {this.state.outputUrl}</p>
-					<p>state getResult: {blabla}</p>
 				</Form>
 			</div>
 		)

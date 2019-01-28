@@ -11,12 +11,6 @@ export default class MetricsGetRequest extends Component {
 		metrics: this.props.metrics
 	}
 	
-	/*componentWillUpdate = (nextProps) => {
-		this.setState({
-			metrics: nextProps.metrics,
-		})
-	}*/
-	
 	render() {
 		const { metrics, } = this.state
 		console.log("MetricsShow: ",JSON.stringify(this.state.metrics))

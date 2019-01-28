@@ -1,0 +1,12 @@
+div.ui.action.input{
+	width: 50%;
+	min-width: 500px;
+}
+
+div.ui.compact.selection.dropdown{
+	width: 100px;
+}
+
+div.ui.active.visible.compact.selection.dropdown{
+	width: 100px;
+}

@@ -9,13 +9,14 @@ export default class MetricsGetRequest extends Component {
 	state = {
 	}
 	
-	//ComponentWillUpdate = (nextProps) => {}
-
+	//just do the request
 	requestMetrics = () => {
 		console.log('currentURL: ',this.props.currentUrl)
 		Request
 			.get(this.props.currentUrl)
 			.then( res => {
+				
+				//and send the answer back to the parent component
 				this.props.requestHandler(res.body)
 			})
 			.catch(err => {

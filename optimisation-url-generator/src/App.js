@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react'
 import './styling/App.css';
 import OptUrlGen from './OptUrlGen.js';
-import ApiCallsTestrange from './ApiCallsTestrange.js';
+import RadarChart from './RadarChart.js';
 
 export default class App extends Component {
 	state = {
@@ -14,7 +14,7 @@ export default class App extends Component {
 	render() {
 		const { activeItem } = this.state
 		var optUrlGen = <OptUrlGen/>
-		var apiCallsTestrange = <ApiCallsTestrange/>
+		var radarChart = <RadarChart/>
 
 		return (
 			<div className="App">
@@ -31,9 +31,9 @@ export default class App extends Component {
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item 
-							name='ORES API Testing'
-							active={activeItem === 'apiCallsTestrange'}
-							activename='apiCallsTestrange'
+							name='Radar Chart'
+							active={activeItem === 'radarChart'}
+							activename='radarChart'
 							onClick={this.handleItemClick} />
 						<Menu.Item
 							name='Another Menu Tab'
@@ -45,7 +45,7 @@ export default class App extends Component {
 				</div>
 				<div className="Content">
 					{this.state.activeItem === 'optUrlGen' ? optUrlGen : 
-						this.state.activeItem === 'apiCallsTestrange' ? apiCallsTestrange : ''
+						this.state.activeItem === 'radarChart' ? radarChart : ''
 					}
 				</div>
 				{/*

@@ -21,3 +21,8 @@
 	color: white;
 	margin-top: 9px;
 }
+
+div.ui.labeled.input.MetricLabel{
+	width: 30% !important;
+	min-width: 300px;
+}

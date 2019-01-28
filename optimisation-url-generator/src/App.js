@@ -48,10 +48,12 @@ export default class App extends Component {
 						this.state.activeItem === 'apiCallsTestrange' ? apiCallsTestrange : ''
 					}
 				</div>
+				{/*
 				<div className="Footer">
 					<a className="FooterLinks" href='https://www.mediawiki.org/wiki/ORES'>https://www.mediawiki.org/wiki/ORES</a>
 					<a className="FooterLinks" href='https://ores.wikimedia.org/'>https://ores.wikimedia.org/</a>
 				</div>
+				*/}
 			</div>
 		)
 	}

@@ -26,8 +26,7 @@ export default class MetricsGetRequest extends Component {
 	
 	render() {
 		return (
-			<Button id='GetResults' color={'red'} onClick={this.requestMetrics}>Get Results</Button>
-			
+			<Button id='GetResultsButton' color={'red'} onClick={this.requestMetrics}>Get Results</Button>
 		)
 	}
 }

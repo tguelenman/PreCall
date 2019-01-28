@@ -26,7 +26,9 @@ export default class MetricsGetRequest extends Component {
 		Object.keys(metrics).forEach(function(key) {
 			console.log(key,metrics[key])
 			output.push(
+				<Form.Field>
 					<Input className='MetricLabel' label={key} value={metrics[key] ? metrics[key] : "null"} />
+				</Form.Field>
 			)
 		})
 		

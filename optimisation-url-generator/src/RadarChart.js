@@ -15,10 +15,11 @@ const metricOptionsRadar = [
 export default class RadarChart extends Component {
 
 	state = {
-		//TODO radar in state
 		goMetric: 'recall',
-		metricFloat: '',
+		metricValue: '',
 		data: this.props.data,
+		tellUserAboutChange: false,
+		finalValues: '',
 	}
 	
 	handleChange = (e, { name, value }) => {
@@ -26,25 +27,37 @@ export default class RadarChart extends Component {
 	}
 
 	goButtonClicked = () => {
-		const { goMetric, metricFloat, } = this.state
+		const { goMetric, metricValue, data } = this.state
 		
-		if (goMetric !== 'threshold') {
-			var getUrl = "https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.'maximum "+this.state.goMetric+" @ "+this.state.goMetric+" <= "+metricFloat+"'"
-		}
-		//var getUrl = "https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.'"+minMax+" "+this.state.goMetric+" @ "+this.state.goMetric+" "+lg+" "+metricFloat+"'"
-
+		//find the closest existing value to the specified one
+		//(metricValue is specified by the User)
+		const definitiveValue = this.findClosestValue(goMetric, metricValue)
 		
+		//now find the index of an object (set of metric values)
+		//that corresponds to the specified metric and its definitiveValue
+		const indexOfDataObject = this.findWithAttr(data, goMetric, definitiveValue)
+		
+		//with that index, get the object
+		const finalValues = data[indexOfDataObject]
+		console.log("corObj: ",finalValues)
+		
+		this.setState({finalValues: finalValues})
+		
+		/*TODO
+		if definitiveValue !== metricValue{
+			this.setState({tellUserAboutChange: true,})
+		}*/
 	}
 	
 	findClosestValue = (metric, metricValue) => {
-		var data = this.state.data
+		const data = this.state.data
 		
 		//create array with all values of specified metric
 		var metricArray = []
 		for (var entry in data){
 			metricArray.push(data[entry][metric])
 		}
-		
+				
 		//ascending sort
 		metricArray.sort((a, b) => a - b)
 
@@ -67,54 +80,25 @@ export default class RadarChart extends Component {
 				}
 			}
 		}
-		
+	}
+	
+	//find index of an object, in an array of objects, by the value of an attribute
+	findWithAttr = (array, attr, value) => {
+		for(var i = 0; i < array.length; i += 1) {
+			if(array[i][attr] === value) {
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 	render() {
-		
-		var t = this.findClosestValue('recall',0.345)
-		const data = this.state.data
-		console.log("t: ",t)
-		//console.log("data: ",data)
-		
-		//build the radar chart
-		var radar = <Radar id='RadarChart'
-			width={400}
-			height={400}
-			padding={70}
-			domainMax={1}
-			highlighted={null}
-			onHover={(point) => {
-			/*if (point) {
-				console.log('hovered over a data point');
-			} else {
-				console.log('not over anything');
-				}*/
-			}}
-		data={{
-			variables: [
-				{key: 'recall', label: 'Recall'},
-				{key: 'precision', label: 'Precision'},
-				{key: 'threshold', label: 'Threshold'},
-			],
-			sets: [
-				{
-					key: 'get',
-					label: 'GET Result',
-					values: {
-						recall: 0.3,
-						precision: 0.5,
-						threshold: 0.7,
-					},
-				},
-			],
-		}}
-		/>
+		const {finalValues} = this.state
 		
 		return (
 			<div id='RadarChart'>
 				<div id='ParameterSelection'>
-					<Input id='ParameterSelectionInput' name='metricFloat' onChange={this.handleChange} type='text' placeholder='Value between 0.0 and 1.0' action>
+					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChange} type='text' placeholder='Value between 0.0 and 1.0' action>
 						<input />
 						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChange}/>
 						<Button type='submit' onClick={this.goButtonClicked}>GO!</Button>
@@ -122,7 +106,41 @@ export default class RadarChart extends Component {
 				</div>
 				<hr className="DividerClass"/>
 				<div id='Visualisation'>
-					{radar}
+					{finalValues ? 
+						<Radar id='RadarChart'
+							width={400}
+							height={400}
+							padding={70}
+							domainMax={1}
+							highlighted={null}
+							onHover={(point) => {
+							/*if (point) {
+								console.log('hovered over a data point');
+							} else {
+								console.log('not over anything');
+								}*/
+							}}
+							data={{
+								variables: [
+									{key: 'recall', label: 'Recall'},
+									{key: 'precision', label: 'Precision'},
+									{key: 'threshold', label: 'Threshold'},
+								],
+								sets: [
+									{
+										key: 'get',
+										label: 'GET Result',
+										values: {
+											//get these values from state
+											recall: finalValues['recall'],
+											precision: finalValues['precision'],
+											threshold: finalValues['threshold'],
+										},
+									},
+								],
+							}}
+						/> : ''
+					}
 				</div>
 			</div>
 		)

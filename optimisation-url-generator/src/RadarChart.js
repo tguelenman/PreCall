@@ -3,6 +3,7 @@ import {
 	Select, Button, Input, 
 	Label, } from 'semantic-ui-react';
 import Radar from 'react-d3-radar';
+import MetricsShow from './MetricsShow.js';
 
 import './styling/RadarChart.css';
 
@@ -35,18 +36,14 @@ export default class RadarChart extends Component {
 		
 		//find the closest existing value to the specified one
 		//(metricValue is specified by the User)
-		console.log(metricValue)
 		const definitiveValue = this.findClosestValue(goMetric, metricValue)
 		
-		console.log("def: ",definitiveValue)
 		//now find the index of an object (set of metric values)
 		//that corresponds to the specified metric and its definitiveValue
 		const indexOfDataObject = this.findWithAttr(data, goMetric, definitiveValue)
-				console.log("index: ",indexOfDataObject)
 
 		//with that index, get the object
 		const finalValues = data[indexOfDataObject]
-		console.log("corObj: ",finalValues)
 		
 		this.setState({finalValues: finalValues})
 		
@@ -68,10 +65,14 @@ export default class RadarChart extends Component {
 		//ascending sort
 		metricArray.sort((a, b) => a - b)
 
-		//find the closest value of the metric to the specified value
+		/**** //find the closest value of the metric to the specified value ****/
+		const lastElem = metricArray[metricArray.length-1]
+		if (lastElem <= metricValue){
+			return lastElem
+		}
+		
 		for (var i in metricArray){
-			console.log("hi: ",metricValue, metricArray[i])
-			console.log(metricArray[i] === metricValue)
+			//console.log("hi: ",metricValue, metricArray[i])
 			//the wanted value of the specified metric exists
 			if (metricArray[i] === metricValue) {
 				return metricValue
@@ -104,56 +105,65 @@ export default class RadarChart extends Component {
 		return -1;
 	}
 	
-	//TODO unten text?
 	render() {
 		const {finalValues} = this.state
-
+		
+		/*const t = this.findClosestValue('recall', 1.0)
+		console.log("hi :",t)*/
+		
 		return (
 			<div id='RadarChart'>
 				<div id='ParameterSelection'>
-					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} type='text' placeholder='Value between 0.0 and 1.0' action>
+					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />
 						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChangeMetric}/>
 						<Button type='submit' onClick={this.goButtonClicked}>GO!</Button>
 					</Input>
 				</div>
 				<hr className="DividerClass"/>
-				<div id='Visualisation'>
-					{finalValues ? 
-						<Radar id='RadarChart'
-							width={400}
-							height={400}
-							padding={70}
-							domainMax={1}
-							highlighted={null}
-							onHover={(point) => {
-							/*if (point) {
-								console.log('hovered over a data point');
-							} else {
-								console.log('not over anything');
-								}*/
-							}}
-							data={{
-								variables: [
-									{key: 'recall', label: 'Recall'},
-									{key: 'precision', label: 'Precision'},
-									{key: 'threshold', label: 'Threshold'},
-								],
-								sets: [
-									{
-										key: 'get',
-										label: 'GET Result',
-										values: {
-											//get these values from state
-											recall: finalValues['recall'],
-											precision: finalValues['precision'],
-											threshold: finalValues['threshold'],
+				<div id='BottomFlexPart'>
+					<div id='Visualisation'>
+						{finalValues ? 
+							<Radar id='RadarChart'
+								width={400}
+								height={400}
+								padding={70}
+								domainMax={1}
+								highlighted={null}
+								/*onHover={(point) => {
+								if (point) {
+									console.log('hovered over a data point');
+								} else {
+									console.log('not over anything');
+									}
+								}}*/
+								data={{
+									variables: [
+										{key: 'recall', label: 'Recall'},
+										{key: 'precision', label: 'Precision'},
+										{key: 'threshold', label: 'Threshold'},
+									],
+									sets: [
+										{
+											key: 'get',
+											label: 'GET Result',
+											values: {
+												//get these values from state
+												recall: finalValues['recall'],
+												precision: finalValues['precision'],
+												threshold: finalValues['threshold'],
+											},
 										},
-									},
-								],
-							}}
-						/> : ''
-					}
+									],
+								}}
+							/> : ''
+						}
+					</div>
+					<div id='RadarInformation'>
+						{ finalValues? 
+							<MetricsShow formGroup={false} metrics={finalValues} /> : ''
+						}
+					</div>
 				</div>
 			</div>
 		)

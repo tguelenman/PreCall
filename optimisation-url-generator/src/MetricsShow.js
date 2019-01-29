@@ -11,8 +11,13 @@ export default class MetricsGetRequest extends Component {
 		metrics: this.props.metrics
 	}
 	
+	componentWillReceiveProps  = (nextProps) => {
+		this.setState({ metrics: nextProps.metrics })
+	}
+	
 	render() {
 		const { metrics, } = this.state
+		const formGroup = this.props.formGroup
 		console.log("MetricsShow: ",JSON.stringify(this.state.metrics))
 		
 		//TODO what to do if everything is null
@@ -26,11 +31,19 @@ export default class MetricsGetRequest extends Component {
 			)
 		})
 		
+		console.log("output: ",output)
 		return (
 			<div>
-				<Form id='MetricLabels'>
-					{output}
-				</Form>
+				{metrics ?
+					<Form className='MetricLabels'>
+					{formGroup ? 
+						<Form.Group width='equal'>
+							{output}
+						</Form.Group> :
+						output
+					}
+					</Form> : ''
+				}
 			</div>
 		)
 	}

@@ -11,20 +11,25 @@ div.ui.active.visible.compact.selection.dropdown{
 	width: 100px;
 }
 
+
 #RadarChart{
 	height: 100%;
 	width: 800px;
-	display: block;
-	margin: auto;
+}
+
+#BottomFlexPart{
+	display: flex;
 }
 
 #Visualisation{
-	text-align: center;
 	height: 800px;
-	width: 800px;
+	min-width: 800px;
 	margin-bottom: 100px;
 	background-color: white;
 	border: 3px solid #990000;
 	border-radius: 15px;
 }
 
+#RadarInformation{
+	margin-top: 100px;
+}

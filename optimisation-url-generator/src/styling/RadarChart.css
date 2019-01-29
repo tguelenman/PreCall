@@ -24,5 +24,7 @@ div.ui.active.visible.compact.selection.dropdown{
 	width: 800px;
 	margin-bottom: 100px;
 	background-color: white;
+	border: 3px solid #990000;
+	border-radius: 15px;
 }
 

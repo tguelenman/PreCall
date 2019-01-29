@@ -22,8 +22,12 @@ export default class RadarChart extends Component {
 		finalValues: '',
 	}
 	
-	handleChange = (e, { name, value }) => {
+	handleChangeMetric = (e, { name, value }) => {
 		this.setState({ [name]: value })
+	}
+	
+	handleChangeMetricValue = (e, { name, value }) => {
+		this.setState({ [name]: parseFloat(value) })
 	}
 
 	goButtonClicked = () => {
@@ -31,12 +35,15 @@ export default class RadarChart extends Component {
 		
 		//find the closest existing value to the specified one
 		//(metricValue is specified by the User)
+		console.log(metricValue)
 		const definitiveValue = this.findClosestValue(goMetric, metricValue)
 		
+		console.log("def: ",definitiveValue)
 		//now find the index of an object (set of metric values)
 		//that corresponds to the specified metric and its definitiveValue
 		const indexOfDataObject = this.findWithAttr(data, goMetric, definitiveValue)
-		
+				console.log("index: ",indexOfDataObject)
+
 		//with that index, get the object
 		const finalValues = data[indexOfDataObject]
 		console.log("corObj: ",finalValues)
@@ -61,8 +68,10 @@ export default class RadarChart extends Component {
 		//ascending sort
 		metricArray.sort((a, b) => a - b)
 
+		//find the closest value of the metric to the specified value
 		for (var i in metricArray){
-			
+			console.log("hi: ",metricValue, metricArray[i])
+			console.log(metricArray[i] === metricValue)
 			//the wanted value of the specified metric exists
 			if (metricArray[i] === metricValue) {
 				return metricValue
@@ -72,7 +81,10 @@ export default class RadarChart extends Component {
 			else if (metricArray[i] > metricValue) {
 				
 				//find its closest neighbour and return it
-				if (Math.abs(metricArray[i]-metricValue) <= Math.abs(metricArray[i-1]-metricValue)){
+				if (metricArray[i-1] !== 'undefined'){
+					return metricArray[i]
+				}
+				else if (Math.abs(metricArray[i]-metricValue) <= Math.abs(metricArray[i-1]-metricValue)){
 					return metricArray[i]
 				}
 				else{
@@ -92,15 +104,16 @@ export default class RadarChart extends Component {
 		return -1;
 	}
 	
+	//TODO unten text?
 	render() {
 		const {finalValues} = this.state
-		
+
 		return (
 			<div id='RadarChart'>
 				<div id='ParameterSelection'>
-					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChange} type='text' placeholder='Value between 0.0 and 1.0' action>
+					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} type='text' placeholder='Value between 0.0 and 1.0' action>
 						<input />
-						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChange}/>
+						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChangeMetric}/>
 						<Button type='submit' onClick={this.goButtonClicked}>GO!</Button>
 					</Input>
 				</div>

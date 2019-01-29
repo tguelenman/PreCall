@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { 
-	Form, Button, Input, 
-	Label } from 'semantic-ui-react';
+	Form, Input, 
+	} from 'semantic-ui-react';
 
 import './styling/MetricsShow.css';
 

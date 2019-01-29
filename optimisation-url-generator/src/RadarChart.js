@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { 
 	Select, Button, Input, 
-	Label, Form } from 'semantic-ui-react';
+	Label, } from 'semantic-ui-react';
 import Radar from 'react-d3-radar';
 
 import './styling/RadarChart.css';
@@ -16,10 +16,18 @@ export default class RadarChart extends Component {
 
 	state = {
 		//TODO radar in state
+		goMetric: 'recall',
 	}
 	
+	handleChange = (e, { name, value }) => {
+		this.setState({ [name]: value })
+		}
+
 	render() {
 		
+		//TODO metricF etc.
+		//var getUrl = "https://ores.wikimedia.org/v3/scores/enwiki/?models=damaging&model_info=statistics.thresholds.true.'"+minMax+" "+this.state.goMetric+" @ "+this.state.goMetric+" "+lg+" "+metricFloat+"'"
+
 		//build the radar chart
 		var radar = <Radar id='RadarChart'
 			width={400}
@@ -28,11 +36,11 @@ export default class RadarChart extends Component {
 			domainMax={1}
 			highlighted={null}
 			onHover={(point) => {
-			if (point) {
+			/*if (point) {
 				console.log('hovered over a data point');
 			} else {
 				console.log('not over anything');
-				}
+				}*/
 			}}
 		data={{
 			variables: [
@@ -59,7 +67,7 @@ export default class RadarChart extends Component {
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' type='text' placeholder='Value between 0.0 and 1.0' action>
 						<input />
-						<Select compact options={metricOptionsRadar} defaultValue='recall' />
+						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChange}/>
 						<Button type='submit'>GO!</Button>
 					</Input>
 				</div>

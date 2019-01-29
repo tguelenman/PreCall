@@ -45,7 +45,10 @@ export default class RadarChart extends Component {
 		//with that index, get the object
 		const finalValues = data[indexOfDataObject]
 		
-		this.setState({finalValues: finalValues})
+		this.setState({
+			finalValues: finalValues,
+			tellUserAboutChange: (definitiveValue !== metricValue),
+		})
 		
 		/*TODO
 		if definitiveValue !== metricValue{
@@ -106,7 +109,10 @@ export default class RadarChart extends Component {
 	}
 	
 	render() {
-		const {finalValues} = this.state
+		const {
+			finalValues, tellUserAboutChange, goMetric,
+			metricValue, 
+		} = this.state
 		
 		/*const t = this.findClosestValue('recall', 1.0)
 		console.log("hi :",t)*/
@@ -161,7 +167,11 @@ export default class RadarChart extends Component {
 					</div>
 					<div id='RadarInformation'>
 						{ finalValues? 
-							<MetricsShow formGroup={false} metrics={finalValues} /> : ''
+							<div>
+								{ tellUserAboutChange ? <p>You have chosen a value of {metricValue} for {goMetric}. Unfortunately it does not exist. The next closest value has been seleected for you: {finalValues[goMetric]}.</p> :''}
+								<MetricsShow formGroup={false} metrics={finalValues} />
+							</div> :
+							<p>Please insert a value and choose a metric to display more information.</p>
 						}
 					</div>
 				</div>

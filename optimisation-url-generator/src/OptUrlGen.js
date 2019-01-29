@@ -97,22 +97,9 @@ export default class OptUrlGen extends Component {
 		//this is the Object that looks like this: {!f1: x, !precision: y, ...}
 		var metricsObject = getResultComplete[this.state.wiki]['models']['damaging']['statistics']['thresholds']['true'][0]
 		
-		//now, for every metric, we want to save its value to our state
-		//first read our current state
-		var currentStateGetResult = this.state.getResult
-
-		for (var metricOption in metricOptions){
-			var metric = metricOptions[metricOption]["key"]
-
-			//then give each entry the new value
-			currentStateGetResult[metric] = metricsObject[metric]
-			console.log(currentStateGetResult)
-		}
-		
-		//and set it as the new state
 		this.setState({
-			getResultComplete: getResultComplete,
-			getResult: currentStateGetResult,
+			//getResultComplete: getResultComplete,
+			getResult: metricsObject,
 			getResultsButtonPressed: true,
 		}, () => {
 			this.setState({ getResultChanged: true, })
@@ -153,7 +140,7 @@ export default class OptUrlGen extends Component {
 					
 						(<div><Form.Button color='red' Id='WikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
 						<hr className="DividerClass"/>
-						<MetricsGetRequest currentUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
+						<MetricsGetRequest getUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
 							{this.state.getResultChanged ? <MetricsShow metrics={getResult}/> : ''}
 						</div>) :
 						

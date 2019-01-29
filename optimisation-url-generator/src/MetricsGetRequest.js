@@ -11,9 +11,9 @@ export default class MetricsGetRequest extends Component {
 	
 	//just do the request
 	requestMetrics = () => {
-		console.log('currentURL: ',this.props.currentUrl)
+		console.log('getUrl: ',this.props.getUrl)
 		Request
-			.get(this.props.currentUrl)
+			.get(this.props.getUrl)
 			.then( res => {
 				
 				//and send the answer back to the parent component

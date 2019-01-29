@@ -3,18 +3,32 @@ import { Menu } from 'semantic-ui-react'
 import './styling/App.css';
 import OptUrlGen from './OptUrlGen.js';
 import RadarChart from './RadarChart.js';
+import { OresApi } from './OresApi.js';
 
 export default class App extends Component {
 	state = {
 		activeItem: 'optUrlGen',
+		didCallApi: false,
+		oresEnComplete: '',
 	}
 
 	handleItemClick = (e, { activename }) => this.setState({ activeItem: activename })
-
+	
+	componentWillMount = () => {
+		if (!this.state.didCallApi) {
+			OresApi.getAll(
+				(result) => this.setState({
+					didCallApi: true,
+					oresEnComplete: result['enwiki']['models']['damaging']['statistics']['thresholds']['true'],
+				})
+			)
+		}
+	}
+	
 	render() {
 		const { activeItem } = this.state
 		var optUrlGen = <OptUrlGen/>
-		var radarChart = <RadarChart/>
+		var radarChart = <RadarChart data={this.state.oresEnComplete}/>
 
 		return (
 			<div className="App">

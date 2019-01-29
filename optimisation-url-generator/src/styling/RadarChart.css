@@ -10,3 +10,18 @@ div.ui.compact.selection.dropdown{
 div.ui.active.visible.compact.selection.dropdown{
 	width: 100px;
 }
+
+#RadarChart{
+	height: 100%;
+	width: 800px;
+	display: block;
+	margin: auto;
+}
+
+#Visualisation{
+	text-align: center;
+	height: 800px;
+	width: 800px;
+	margin-bottom: 100px;
+}
+

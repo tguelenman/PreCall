@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { 
 	Select, Button, Input, 
 	Label, Form } from 'semantic-ui-react';
+import Radar from 'react-d3-radar';
 
 import './styling/RadarChart.css';
 
@@ -14,10 +15,44 @@ const metricOptionsRadar = [
 export default class RadarChart extends Component {
 
 	state = {
+		//TODO radar in state
 	}
 	
 	render() {
 		
+		//build the radar chart
+		var radar = <Radar id='RadarChart'
+			width={400}
+			height={400}
+			padding={70}
+			domainMax={1}
+			highlighted={null}
+			onHover={(point) => {
+			if (point) {
+				console.log('hovered over a data point');
+			} else {
+				console.log('not over anything');
+				}
+			}}
+		data={{
+			variables: [
+				{key: 'recall', label: 'Recall'},
+				{key: 'precision', label: 'Precision'},
+				{key: 'threshold', label: 'Threshold'},
+			],
+			sets: [
+				{
+					key: 'get',
+					label: 'GET Result',
+					values: {
+						recall: 0.3,
+						precision: 0.5,
+						threshold: 0.7,
+					},
+				},
+			],
+		}}
+		/>
 		
 		return (
 			<div id='RadarChart'>
@@ -30,7 +65,7 @@ export default class RadarChart extends Component {
 				</div>
 				<hr className="DividerClass"/>
 				<div id='Visualisation'>
-				
+					{radar}
 				</div>
 			</div>
 		)

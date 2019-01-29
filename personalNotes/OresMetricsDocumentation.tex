@@ -26,21 +26,21 @@ Examined metrics Quickview:\\
 
 \begin{tabular}{|l|l|c|}
 \hline
-\textbf{Metric} & \textbf{Quick Definition} & \textbf{Value}\\\hline \hline
-accuracy & Portion of correctly predicted data & $\frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$\\\hline
-counts & Number of \textbf{F}\&\textbf{T}-labels and predictions&\\\hline
-f1 & Harmonic mean of recall and precision & $2*\frac{\texttt{rec} * \texttt{prec}}{\texttt{rec}+\texttt{prec}}$\\\hline
-filter\_rate & Portion of observations predicted & $1-\texttt{match\_rate} =$\\ &to be negative&$\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}}$\\\hline
-fpr & Probability of a false alarm & $\frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$\\\hline
-match\_rate & Portion of observations predicted & $\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$\\ &to be positive&\\\hline
-pr\_auc & Measure of classification performance &\\\hline
-precision & Ability to find only relevant cases & $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$\\\hline
-rates & Proportion of \textbf{F}\&\textbf{T}-labels to the total&\\\hline
+\textbf{Metric} & \textbf{Quick Definition} & \textbf{Value}\\\hline \hline \hline
 recall & Ability to find \textbf{all} relevant cases & $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FN}}$\\\hline
+precision & Ability to find only relevant cases & $\frac{\texttt{TP}}{\texttt{TP} + \texttt{FP}}$\\\hline
+f1 & Harmonic mean of recall and precision & $2*\frac{\texttt{rec} * \texttt{prec}}{\texttt{rec}+\texttt{prec}}$\\\hline \hline
+fpr & Probability of a false alarm & $\frac{\texttt{FP}}{\texttt{FP} + \texttt{TN}}$\\\hline \hline
 roc\_auc & Measure of classification performance &\\\hline
-!f1 & Negated f1 & $2*\frac{\texttt{!rec} * \texttt{!prec}}{\texttt{!rec}+\texttt{!prec}}$\\\hline
-!precision & Negated precision & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FN}}$ \\\hline
+pr\_auc & Measure of classification performance &\\\hline \hline
+accuracy & Portion of correctly predicted data & $\frac{\texttt{TP}+\texttt{TN}}{\texttt{Total}}$\\\hline \hline
+match\_rate & Portion of observations predicted & $\frac{\texttt{TP}+\texttt{FP}}{\texttt{Total}}$\\ &to be positive&\\\hline
+filter\_rate & Portion of observations predicted & $1-\texttt{match\_rate} =$\\ &to be negative&$\frac{\texttt{TN}+\texttt{FN}}{\texttt{Total}}$\\\hline \hline
+counts & Number of \textbf{F}\&\textbf{T}-labels and predictions&\\\hline
+rates & Proportion of \textbf{F}\&\textbf{T}-labels to the total&\\\hline \hline
 !recall & Negated recall & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FP}}$\\\hline
+!precision & Negated precision & $\frac{\texttt{TN}}{\texttt{TN} + \texttt{FN}}$ \\\hline
+!f1 & Negated f1 & $2*\frac{\texttt{!rec} * \texttt{!prec}}{\texttt{!rec}+\texttt{!prec}}$\\\hline
 \end{tabular}\\ \\
 For each metric (if possible) there will be:
 \begin{enumerate}
@@ -345,8 +345,8 @@ To ease the understanding, let's stick to the following scenario and refer to it
 \end{itemize}
 \subsubsection{Existing !$<$metric$>$s}
 \begin{itemize}
-\item !f1
-\item !precision
 \item !recall
+\item !precision
+\item !f1
 \end{itemize}
 \end{document}

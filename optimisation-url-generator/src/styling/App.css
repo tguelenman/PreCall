@@ -53,6 +53,7 @@ a.item{
 	flex: 2;
 	background-color: #006699; /*339966; 990000*/
 	margin: 40px 80px;
+	margin-bottom: 0;
 	/*min-height: 800px;*/
 	padding: 30px;
 	border-radius: 7px;

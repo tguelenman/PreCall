@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {2}ORES usage: state-of-the-art}{5}{section.2}
 \contentsline {section}{\numberline {3}Approach}{5}{section.3}
 \contentsline {section}{\numberline {4}Major difficulties}{6}{section.4}
-\contentsline {section}{\numberline {5}Documentation and results}{6}{section.5}
-\contentsline {section}{\numberline {6}Evaluation / Conclusion}{6}{section.6}
-\contentsline {section}{\numberline {7}Outlook}{6}{section.7}
+\contentsline {section}{\numberline {5}Documentation and results}{7}{section.5}
+\contentsline {section}{\numberline {6}Evaluation / Conclusion}{7}{section.6}
+\contentsline {section}{\numberline {7}Outlook}{7}{section.7}
 \contentsline {section}{\numberline {8}Literature}{7}{section.8}

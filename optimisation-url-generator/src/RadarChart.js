@@ -10,7 +10,7 @@ import './styling/RadarChart.css';
 const metricOptionsRadar = [
 	{ key: 'recall', text: 'Recall', value: 'recall'},
 	{ key: 'precision', text: 'Precision', value: 'precision'},
-	{ key: 'threshold', text: 'Threshold', value: 'threshold'},
+	{ key: 'filter_rate', text: 'Filter_rate', value: 'filter_rate'},
 ]
 
 export default class RadarChart extends Component {
@@ -127,52 +127,62 @@ export default class RadarChart extends Component {
 					</Input>
 				</div>
 				<hr className="DividerClass"/>
-				<div id='BottomFlexPart'>
-					<div id='Visualisation'>
-						{finalValues ? 
-							<Radar id='RadarChart'
-								width={400}
-								height={400}
-								padding={70}
-								domainMax={1}
-								highlighted={null}
-								/*onHover={(point) => {
-								if (point) {
-									console.log('hovered over a data point');
-								} else {
-									console.log('not over anything');
-									}
-								}}*/
-								data={{
-									variables: [
-										{key: 'recall', label: 'Recall'},
-										{key: 'precision', label: 'Precision'},
-										{key: 'threshold', label: 'Threshold'},
-									],
-									sets: [
-										{
-											key: 'get',
-											label: 'GET Result',
-											values: {
-												//get these values from state
-												recall: finalValues['recall'],
-												precision: finalValues['precision'],
-												threshold: finalValues['threshold'],
+				<div id='BottomFlexContainer'>
+					<div id='BottomFlexPart1'>
+						<div id='VisualisationRadar'>
+							{finalValues ? 
+								<Radar id='RadarChart'
+									width={400}
+									height={400}
+									padding={70}
+									domainMax={1}
+									highlighted={null}
+									/*onHover={(point) => {
+									if (point) {
+										console.log('hovered over a data point');
+									} else {
+										console.log('not over anything');
+										}
+									}}*/
+									data={{
+										variables: [
+											{key: 'recall', label: 'Recall'},
+											{key: 'precision', label: 'Precision'},
+											{key: 'filter_rate', label: 'Filter_rate'},
+										],
+										sets: [
+											{
+												key: 'get',
+												label: 'GET Result',
+												values: {
+													//get these values from state
+													recall: finalValues['recall'],
+													precision: finalValues['precision'],
+													filter_rate: finalValues['filter_rate'],
+												},
 											},
-										},
-									],
-								}}
-							/> : ''
-						}
+										],
+									}}
+								/> : ''
+							}
+						</div>
+						<div id='VisualisationDistribution'>
+						
+						</div>
 					</div>
-					<div id='RadarInformation'>
-						{ finalValues? 
-							<div>
-								{ tellUserAboutChange ? <p>You have chosen a value of {metricValue} for {goMetric}. Unfortunately it does not exist. The next closest value has been seleected for you: {finalValues[goMetric]}.</p> :''}
-								<MetricsShow formGroup={false} metrics={finalValues} />
-							</div> :
-							<p>Please insert a value and choose a metric to display more information.</p>
-						}
+					<div id='BottomFlexPart2'>
+						<div id='RadarInformation'>
+							{ finalValues? 
+								<div>
+									{ tellUserAboutChange ? <p>You have chosen a value of {metricValue} for {goMetric}. Unfortunately it does not exist. The next closest value has been seleected for you: {finalValues[goMetric]}.</p> :''}
+									<MetricsShow formGroup={false} metrics={finalValues} />
+								</div> :
+								<p>Please insert a value and choose a metric to display more information.</p>
+							}
+						</div>
+						<div id='VisualisationResult'>
+						
+						</div>
 					</div>
 				</div>
 			</div>

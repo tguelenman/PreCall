@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { 
 	Select, Button, Input, 
 	Label, } from 'semantic-ui-react';
-import Radar from 'react-d3-radar';
+import RadarGraph from './RadarGraph.js';
 import MetricsShow from './MetricsShow.js';
 
-import './styling/RadarChart.css';
+import './styling/Visualisations.css';
 
 const metricOptionsRadar = [
 	{ key: 'recall', text: 'Recall', value: 'recall'},
@@ -13,7 +13,7 @@ const metricOptionsRadar = [
 	{ key: 'filter_rate', text: 'Filter_rate', value: 'filter_rate'},
 ]
 
-export default class RadarChart extends Component {
+export default class Visualisations extends Component {
 
 	state = {
 		goMetric: 'recall',
@@ -114,6 +114,9 @@ export default class RadarChart extends Component {
 			metricValue, 
 		} = this.state
 		
+		console.log("finalValues 1: ",finalValues)
+		var radarGraph = <RadarGraph finalValues={finalValues}/>
+		
 		/*const t = this.findClosestValue('recall', 1.0)
 		console.log("hi :",t)*/
 		
@@ -131,43 +134,7 @@ export default class RadarChart extends Component {
 				<hr className="DividerClass"/>
 				<div id='BottomFlexContainer'>
 					<div id='BottomFlexPart1'>
-						<div id='VisualisationRadar'>
-							{finalValues ? 
-								<Radar id='RadarChart'
-									width={400}
-									height={400}
-									padding={70}
-									domainMax={1}
-									highlighted={null}
-									/*onHover={(point) => {
-									if (point) {
-										console.log('hovered over a data point');
-									} else {
-										console.log('not over anything');
-										}
-									}}*/
-									data={{
-										variables: [
-											{key: 'recall', label: 'Recall'},
-											{key: 'precision', label: 'Precision'},
-											{key: 'filter_rate', label: 'Filter_rate'},
-										],
-										sets: [
-											{
-												key: 'get',
-												label: 'GET Result',
-												values: {
-													//get these values from state
-													recall: finalValues['recall'],
-													precision: finalValues['precision'],
-													filter_rate: finalValues['filter_rate'],
-												},
-											},
-										],
-									}}
-								/> : ''
-							}
-						</div>
+						{radarGraph}
 						<div id='VisualisationDistribution'>
 						
 						</div>
@@ -177,7 +144,7 @@ export default class RadarChart extends Component {
 							{ finalValues? 
 								<MetricsShow metrics={finalValues} numberOfColumns={2} style={'SmallLabels'} thresholdWithout={true}/>
 								:
-								<p>Please insert a value and choose a metric to display more information.</p>
+								<p id='PleaseInsert'>Please insert a value and choose a metric to display more information.</p>
 							}
 						</div>
 						<div id='VisualisationResult'>

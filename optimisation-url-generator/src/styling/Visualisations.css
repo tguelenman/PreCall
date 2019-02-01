@@ -44,7 +44,6 @@ div.ui.active.visible.compact.selection.dropdown{
 	background-color: white;
 	border: 3px solid #990000;
 	border-radius: 15px;
-
 }
 
 #VisualisationDistribution{
@@ -70,9 +69,16 @@ div.ui.active.visible.compact.selection.dropdown{
 	border: 3px solid #990000;
 	border-radius: 15px;
 
+
 	display: flex;
 	align-items: center;
 	color: white;
+}
+
+#PleaseInsert{
+	margin: auto;
+	padding: 10px;
+	font-size: 17px;
 }
 
 #VisualisationResult{

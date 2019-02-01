@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
 import Request from 'superagent';
-import { Button, } from 'semantic-ui-react';
 
 import './styling/MetricsGetRequest.css';
 

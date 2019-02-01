@@ -141,7 +141,7 @@ export default class OptUrlGen extends Component {
 						(<div><Form.Button color='red' Id='WikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
 						<hr className="DividerClass"/>
 						<MetricsGetRequest getUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
-							{this.state.getResultChanged ? <MetricsShow metrics={getResult}/> : ''}
+							{this.state.getResultChanged ? <MetricsShow numberOfColumns={1} style={'MediumLabels'} metrics={getResult}/> : ''}
 						</div>) :
 						
 						<Form.Button color='red' Id='DisabledButton' content='Please fill out empty fields'/>

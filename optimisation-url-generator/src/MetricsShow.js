@@ -5,6 +5,14 @@ import {
 
 import './styling/MetricsShow.css';
 
+//with threshold
+const firstColumn = ['!f1', '!precision', '!recall', 'accuracy', 'f1', 'filter_rate']
+const secondColumn = ['fpr', 'match_rate', 'precision', 'recall', 'threshold']
+
+//without threshold
+const firstColumnNoT = ['!f1', '!precision', '!recall', 'accuracy', 'f1']
+const secondColumnNoT = ['filter_rate', 'fpr', 'match_rate', 'precision', 'recall']
+
 export default class MetricsGetRequest extends Component {
 
 	state = {
@@ -17,32 +25,79 @@ export default class MetricsGetRequest extends Component {
 	
 	render() {
 		const { metrics, } = this.state
-		const formGroup = this.props.formGroup
+		const style = this.props.style
+		const numberOfColumns = this.props.numberOfColumns
+		const thresholdWithout = this.props.thresholdWithout
 		console.log("MetricsShow: ",JSON.stringify(this.state.metrics))
 		
-		//TODO what to do if everything is null
+		//listing the metrics in 1 column
 		var output = []
-		Object.keys(metrics).forEach(function(key) {
-			console.log(key,metrics[key])
-			output.push(
-				<Form.Field>
-					<Input className='MetricLabel' label={key} value={metrics[key] ? metrics[key] : "null"} />
-				</Form.Field>
-			)
-		})
+		if (numberOfColumns === 1){
+			Object.keys(metrics).forEach((key) => {
+				output.push(
+					<Form.Field>
+						<Input className={style} label={key} value={metrics[key] ? metrics[key] : "null"} />
+					</Form.Field>
+				)
+			})
+		}
 		
-		console.log("output: ",output)
+		//listing the metrics in 2 columns
+		var firstOutput = []
+		var secondOutput = []
+				
+		if (numberOfColumns === 2){
+			
+			var firstColumnOutput = []
+			var secondColumnOutput = []
+			
+			//check if we are to display the threshold or not
+			if (thresholdWithout) {
+				firstColumnOutput = firstColumnNoT
+				secondColumnOutput = secondColumnNoT
+			} else {
+				firstColumnOutput = firstColumn
+				secondColumnOutput = secondColumn
+			}
+			
+			Object.keys(metrics).forEach((key) => {
+				
+				//metric is to be shown in the first Column
+				if (firstColumnOutput.indexOf(key) !== -1){
+					firstOutput.push(
+						<Form.Field>
+							<Input className={style} label={key} value={metrics[key] ? metrics[key] : "null"} />
+						</Form.Field>
+					)
+				}
+				else if (secondColumnOutput.indexOf(key) !== -1){
+					secondOutput.push(
+						<Form.Field>
+							<Input className={style} label={key} value={metrics[key] ? metrics[key] : "null"} />
+						</Form.Field>
+					)
+				}
+			})
+		}
+		
 		return (
-			<div>
+			<div id='MetricsShowDiv'>
 				{metrics ?
-					<Form className='MetricLabels'>
-					{formGroup ? 
-						<Form.Group width='equal'>
+					(numberOfColumns === 1 ? 
+						(<Form className='MetricLabels'>
 							{output}
-						</Form.Group> :
-						output
-					}
-					</Form> : ''
+						</Form>) :
+						
+					numberOfColumns === 2 ?
+						<div id='multipleColumns'>
+							<Form id='MetricLabelsLeft'>
+									{firstOutput}
+							</Form>
+							<Form id='MetricLabelsRight'>
+									{secondOutput}
+							</Form>
+						</div> : ''
+					) : ''
 				}
 			</div>
 		)

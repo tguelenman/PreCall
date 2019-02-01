@@ -117,6 +117,7 @@ export default class RadarChart extends Component {
 		/*const t = this.findClosestValue('recall', 1.0)
 		console.log("hi :",t)*/
 		
+		//TODO chosen non existing value text: value changes on input change before pressing the button
 		return (
 			<div id='RadarChart'>
 				<div id='ParameterSelection'>
@@ -126,6 +127,7 @@ export default class RadarChart extends Component {
 						<Button type='submit' onClick={this.goButtonClicked}>GO!</Button>
 					</Input>
 				</div>
+				{ tellUserAboutChange ? <p id='AutomaticValueChange'>You have chosen a value of {metricValue} for {goMetric}. The next closest possible value has been selected for you: {finalValues[goMetric]}.</p> :''}
 				<hr className="DividerClass"/>
 				<div id='BottomFlexContainer'>
 					<div id='BottomFlexPart1'>
@@ -173,15 +175,13 @@ export default class RadarChart extends Component {
 					<div id='BottomFlexPart2'>
 						<div id='RadarInformation'>
 							{ finalValues? 
-								<div>
-									{ tellUserAboutChange ? <p>You have chosen a value of {metricValue} for {goMetric}. Unfortunately it does not exist. The next closest value has been seleected for you: {finalValues[goMetric]}.</p> :''}
-									<MetricsShow formGroup={false} metrics={finalValues} />
-								</div> :
+								<MetricsShow metrics={finalValues} numberOfColumns={2} style={'SmallLabels'} thresholdWithout={true}/>
+								:
 								<p>Please insert a value and choose a metric to display more information.</p>
 							}
 						</div>
 						<div id='VisualisationResult'>
-						
+							<p>Threshold: {finalValues['threshold']}</p>
 						</div>
 					</div>
 				</div>

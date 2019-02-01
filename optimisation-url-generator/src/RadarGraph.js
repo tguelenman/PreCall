@@ -55,6 +55,5 @@ export default class RadarGraph extends Component {
 				}
 			</div>
 		)
-		
 	}
 }

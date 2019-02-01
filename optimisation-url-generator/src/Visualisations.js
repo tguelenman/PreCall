@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { 
 	Select, Button, Input, 
-	Label, } from 'semantic-ui-react';
-import RadarGraph from './RadarGraph.js';
-import MetricsShow from './MetricsShow.js';
+	Label, } from 'semantic-ui-react'
+import RadarGraph from './RadarGraph.js'
+import MetricsShow from './MetricsShow.js'
+import ThresholdBar from './ThresholdBar.js'
 
 import './styling/Visualisations.css';
 
@@ -131,7 +132,7 @@ export default class Visualisations extends Component {
 					</Input>
 				</div>
 				{ tellUserAboutChange ? <p id='AutomaticValueChange'>You have chosen a value of {metricValue} for {goMetric}. The next closest possible value has been selected for you: {finalValues[goMetric]}.</p> :''}
-				<hr className="DividerClass"/>
+				<hr className="dividerClass"/>
 				<div id='BottomFlexContainer'>
 					<div id='BottomFlexPart1'>
 						{radarGraph}
@@ -149,6 +150,7 @@ export default class Visualisations extends Component {
 						</div>
 						<div id='VisualisationResult'>
 							<p>Threshold: {finalValues['threshold']}</p>
+							<ThresholdBar /> 
 						</div>
 					</div>
 				</div>

@@ -1,16 +1,16 @@
-#OutputUrl{
+.outputUrl{
 	width: 100%;
 }
 
-#DisabledButton{
+#disabledButton{
 	margin-top: 30px;
 }
 
-#WikimediaSourceButton{
+.wikimediaSourceButton{
 	margin-top: 30px;
 }
 
-.DividerClass{
+.dividerClass{
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));

@@ -124,7 +124,7 @@ export default class OptUrlGen extends Component {
 				<Form>
 					<Label basic pointing='below' color='red'>Select a wiki</Label>
 					<Form.Select name='wiki' fluid value={wiki} options={wikiOptions} onChange={this.handleChange}/>
-					<hr className="DividerClass"/>
+					<hr className="dividerClass"/>
 					<Label basic pointing='below' color='red'>Construct your optimisation query</Label>
 					<Form.Group widths='equal'>
 						<Form.Select name='minMax' fluid value={minMax} options={minMaxOptions} onChange={this.handleChange}/>
@@ -134,17 +134,17 @@ export default class OptUrlGen extends Component {
 						<Form.Select name='lg' fluid value={lg} options={glOptions}  onChange={this.handleChange}/>
 						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0'  onChange={this.handleChange}/>
 					</Form.Group>
-					<Input Id='OutputUrl' name='outputUrl' value={this.state.outputUrl !== '' ? this.state.outputUrl : outputUrl} />
+					<Input className='outputUrl' name='outputUrl' value={this.state.outputUrl !== '' ? this.state.outputUrl : outputUrl} />
 					
 					{(wiki && minMax && metric1 && metric2 && lg && metricFloat)? 
 					
-						(<div><Form.Button color='red' Id='WikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
-						<hr className="DividerClass"/>
+						(<div><Form.Button color='red' className='wikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
+						<hr className="dividerClass"/>
 						<MetricsGetRequest getUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
 							{this.state.getResultChanged ? <MetricsShow numberOfColumns={1} style={'MediumLabels'} metrics={getResult}/> : ''}
 						</div>) :
 						
-						<Form.Button color='red' Id='DisabledButton' content='Please fill out empty fields'/>
+						<Form.Button color='red' id='disabledButton' content='Please fill out empty fields'/>
 					}
 				</Form>
 			</div>

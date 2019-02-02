@@ -1,0 +1,20 @@
+#thresholdBarDiv{
+	padding: 10%;
+	height: 100%;
+	width: 100%;
+
+}
+
+#thresholdBar{
+	border-radius: 5px;
+	border: 1px solid black;
+	margin-top: 10%;
+}
+
+#thresholdDiv{
+	margin-left: -10px;
+}
+
+#thresholdP{
+	margin-top: 20px;
+}

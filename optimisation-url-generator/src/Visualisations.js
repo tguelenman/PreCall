@@ -149,8 +149,7 @@ export default class Visualisations extends Component {
 							}
 						</div>
 						<div id='VisualisationResult'>
-							<p>Threshold: {finalValues['threshold']}</p>
-							<ThresholdBar /> 
+							<ThresholdBar threshold={finalValues['threshold']}/> 
 						</div>
 					</div>
 				</div>

@@ -5,9 +5,11 @@
   "dependencies": {
     "chart.js": "^2.7.3",
     "d3.js": "0.0.2-security",
+    "gradient-barchart": "^1.0.0",
     "react": "^16.7.0",
     "react-d3-radar": "^1.0.0-rc4",
     "react-dom": "^16.7.0",
+    "react-horizontal-stacked-bar-chart": "^8.12.9",
     "react-scripts": "2.1.3",
     "semantic-ui-react": "^0.84.0",
     "superagent": "^4.1.0"

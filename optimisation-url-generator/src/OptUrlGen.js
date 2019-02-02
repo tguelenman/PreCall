@@ -138,10 +138,10 @@ export default class OptUrlGen extends Component {
 					
 					{(wiki && minMax && metric1 && metric2 && lg && metricFloat)? 
 					
-						(<div><Form.Button color='red' className='wikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
+						(<div><Form.Button color='red' id='wikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
 						<hr className="dividerClass"/>
 						<MetricsGetRequest getUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
-							{this.state.getResultChanged ? <MetricsShow numberOfColumns={1} style={'MediumLabels'} metrics={getResult}/> : ''}
+							{this.state.getResultChanged ? <MetricsShow numberOfColumns={1} styling={'MediumLabels'} metrics={getResult}/> : ''}
 						</div>) :
 						
 						<Form.Button color='red' id='disabledButton' content='Please fill out empty fields'/>

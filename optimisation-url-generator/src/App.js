@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import './styling/App.css';
-import OptUrlGen from './OptUrlGen.js';
-import Visualisations from './Visualisations.js';
-import { OresApi } from './OresApi.js';
+import './styling/App.css'
+import OptUrlGen from './OptUrlGen.js'
+import Visualisations from './Visualisations.js'
+import { OresApi } from './OresApi.js'
+import Testrange from './Testrange.js'
 
 export default class App extends Component {
 	state = {
@@ -50,16 +51,17 @@ export default class App extends Component {
 							activename='visualisations'
 							onClick={this.handleItemClick} />
 						<Menu.Item
-							name='Another Menu Tab'
-							active={activeItem === 'menu2'}
-							activename='menu2'
+							name='Testrange'
+							active={activeItem === 'testrange'}
+							activename='testrange'
 							onClick={this.handleItemClick}
 						/>
 					</Menu>
 				</div>
 				<div className="Content">
 					{this.state.activeItem === 'optUrlGen' ? optUrlGen : 
-						this.state.activeItem === 'visualisations' ? visualisations : ''
+						this.state.activeItem === 'visualisations' ? visualisations : 
+						this.state.activeItem === 'testrange' ? <Testrange /> : ''
 					}
 				</div>
 				{/*

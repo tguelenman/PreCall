@@ -137,26 +137,25 @@ export default class Visualisations extends Component {
 				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-					<div id='BottomFlexPart1'>
-						{radarGraph}
-						<div id='VisualisationDistribution'>
-						
+						<div id='BottomFlexPart1'>
+							{radarGraph}
+							<div id='VisualisationDistribution'>
+							
+							</div>
 						</div>
-					</div>
-					<div id='BottomFlexPart2'>
-						<div id='RadarInformation'>
-							{ finalValues? 
-								<MetricsShow metrics={finalValues} numberOfColumns={2} style={'SmallLabels'} thresholdWithout={true}/>
-								:
-								<p id='PleaseInsert'>Please insert a value and choose a metric to display more information.</p>
-							}
+						<div id='BottomFlexPart2'>
+							<div id='RadarInformation'>
+								{ finalValues? 
+									<MetricsShow metrics={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
+									:
+									<p id='PleaseInsert'>Please insert a value and choose a metric to display more information.</p>
+								}
+							</div>
+							<div id='VisualisationResult'>
+								<ThresholdBar threshold={finalValues['threshold']}/> 
+							</div>
 						</div>
-						<div id='VisualisationResult'>
-							<ThresholdBar threshold={finalValues['threshold']}/> 
-						</div>
-					</div>
-				</div> : ''
-					
+					</div> : ''
 				}
 				
 			</div>

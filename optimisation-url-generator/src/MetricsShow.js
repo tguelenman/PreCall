@@ -25,7 +25,7 @@ export default class MetricsGetRequest extends Component {
 	
 	render() {
 		const { metrics, } = this.state
-		const style = this.props.style
+		const styling = this.props.styling
 		const numberOfColumns = this.props.numberOfColumns
 		const thresholdWithout = this.props.thresholdWithout
 		console.log("MetricsShow: ",JSON.stringify(this.state.metrics))
@@ -36,7 +36,7 @@ export default class MetricsGetRequest extends Component {
 			Object.keys(metrics).forEach((key) => {
 				output.push(
 					<Form.Field>
-						<Input className={style} label={key} value={metrics[key] ? metrics[key] : "null"} />
+						<Input className={styling} label={key} value={metrics[key] ? metrics[key] : "null"} />
 					</Form.Field>
 				)
 			})
@@ -66,14 +66,14 @@ export default class MetricsGetRequest extends Component {
 				if (firstColumnOutput.indexOf(key) !== -1){
 					firstOutput.push(
 						<Form.Field>
-							<Input className={style} label={key} value={metrics[key] ? metrics[key] : "null"} />
+							<Input className={styling} label={key} value={metrics[key] ? metrics[key] : "null"} />
 						</Form.Field>
 					)
 				}
 				else if (secondColumnOutput.indexOf(key) !== -1){
 					secondOutput.push(
 						<Form.Field>
-							<Input className={style} label={key} value={metrics[key] ? metrics[key] : "null"} />
+							<Input className={styling} label={key} value={metrics[key] ? metrics[key] : "null"} />
 						</Form.Field>
 					)
 				}

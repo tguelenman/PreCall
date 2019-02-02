@@ -115,7 +115,6 @@ export default class Visualisations extends Component {
 			metricValue, 
 		} = this.state
 		
-		console.log("finalValues 1: ",finalValues)
 		var radarGraph = <RadarGraph finalValues={finalValues}/>
 		
 		/*const t = this.findClosestValue('recall', 1.0)
@@ -123,7 +122,9 @@ export default class Visualisations extends Component {
 		
 		//TODO chosen non existing value text: value changes on input change before pressing the button
 		return (
+
 			<div id='RadarChart'>
+
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />
@@ -133,7 +134,9 @@ export default class Visualisations extends Component {
 				</div>
 				{ tellUserAboutChange ? <p id='AutomaticValueChange'>You have chosen a value of {metricValue} for {goMetric}. The next closest possible value has been selected for you: {finalValues[goMetric]}.</p> :''}
 				<hr className="dividerClass"/>
-				<div id='BottomFlexContainer'>
+				
+				{ finalValues ?
+					<div id='BottomFlexContainer'>
 					<div id='BottomFlexPart1'>
 						{radarGraph}
 						<div id='VisualisationDistribution'>
@@ -152,7 +155,10 @@ export default class Visualisations extends Component {
 							<ThresholdBar threshold={finalValues['threshold']}/> 
 						</div>
 					</div>
-				</div>
+				</div> : ''
+					
+				}
+				
 			</div>
 		)
 	}

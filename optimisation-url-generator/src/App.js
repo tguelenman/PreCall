@@ -45,7 +45,7 @@ export default class App extends Component {
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item 
-							name='Radar Chart'
+							name='Visualisations'
 							active={activeItem === 'visualisations'}
 							activename='visualisations'
 							onClick={this.handleItemClick} />

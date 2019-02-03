@@ -5,7 +5,7 @@ import {
 import RadarGraph from './RadarGraph.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
-import Testrange from './Testrange.js'
+import ConfusionDistribution from './ConfusionDistribution.js'
 
 import './styling/Visualisations.css';
 
@@ -141,7 +141,7 @@ export default class Visualisations extends Component {
 						<div id='BottomFlexPart1'>
 							{radarGraph}
 							<div id='VisualisationDistribution'>
-								<Testrange metricValues={finalValues}/>
+								<ConfusionDistribution metricValues={finalValues}/>
 							</div>
 						</div>
 						<div id='BottomFlexPart2'>

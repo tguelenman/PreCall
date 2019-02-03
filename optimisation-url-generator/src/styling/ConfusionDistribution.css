@@ -1,0 +1,120 @@
+#outerDistributionDiv{
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+#predictedNegatives{
+	border-right: 3px solid #363636;
+}
+
+#predictedPositives{
+
+	border-left: 3px solid #363636;
+}
+
+.predicted{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+#trueNegatives{
+	padding-left: 100px;
+	padding-top: 100px;
+}
+
+#falseNegatives{
+	padding-left: 100px;
+	padding-bottom: 100px;
+}
+
+#falsePositives{
+	padding-top: 100px;
+	padding-right: 100px;
+}
+
+#truePositives{
+	padding-right: 100px;
+	padding-bottom: 100px;
+}
+
+.tfnp{
+	width: 100%;
+	height: 50%;
+}
+
+#trueNegativesContent{
+ 	flex-wrap: wrap-reverse;
+	justify-content: flex-end;
+	align-content: end;
+}
+
+#falseNegativesContent{
+ 	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-content: end;
+}
+
+#falsePositivesContent{
+ 	flex-wrap: wrap-reverse;
+	align-content: end;
+}
+
+#truePositivesContent{
+ 	flex-wrap: wrap;
+	align-content: end;
+}
+
+.content{
+	display: flex;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+}
+
+.actualPositives{
+	border-top: 2px solid #363636;
+}
+
+.actualNegatives{
+	border-bottom: 2px solid #363636;
+}
+
+/***********************************************/
+/***********************************************/
+/***********************************************/
+
+/*
+#cccccc
+#686868
+#92a5ce
+#003399
+*/
+
+.bubble{
+	height: 10%;
+	width: 10%;
+	border-radius: 50%;
+	margin: 1px;
+}
+
+.tn{
+	background-color: #cccccc;
+	border: 1px solid #999999;
+}
+
+.fn{
+	background-color: #686868;
+	border: 1px solid #363636;
+}
+
+.fp{
+	background-color: #92a5ce;
+	border: 1px solid #6e7d9c;
+}
+
+.tp{
+	background-color: #003399;
+	border: 1px solid #002266;
+}

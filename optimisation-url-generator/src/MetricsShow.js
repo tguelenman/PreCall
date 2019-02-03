@@ -16,27 +16,26 @@ const secondColumnNoT = ['filter_rate', 'fpr', 'match_rate', 'precision', 'recal
 export default class MetricsGetRequest extends Component {
 
 	state = {
-		metrics: this.props.metrics
+		metricValues: this.props.metricValues
 	}
 	
 	componentWillReceiveProps  = (nextProps) => {
-		this.setState({ metrics: nextProps.metrics })
+		this.setState({ metricValues: nextProps.metricValues })
 	}
 	
 	render() {
-		const { metrics, } = this.state
+		const { metricValues, } = this.state
 		const styling = this.props.styling
 		const numberOfColumns = this.props.numberOfColumns
 		const thresholdWithout = this.props.thresholdWithout
-		console.log("MetricsShow: ",JSON.stringify(this.state.metrics))
 		
 		//listing the metrics in 1 column
 		var output = []
 		if (numberOfColumns === 1){
-			Object.keys(metrics).forEach((key) => {
+			Object.keys(metricValues).forEach((key) => {
 				output.push(
 					<Form.Field>
-						<Input className={styling} label={key} value={metrics[key] ? metrics[key] : "null"} />
+						<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
 					</Form.Field>
 				)
 			})
@@ -60,20 +59,20 @@ export default class MetricsGetRequest extends Component {
 				secondColumnOutput = secondColumn
 			}
 			
-			Object.keys(metrics).forEach((key) => {
+			Object.keys(metricValues).forEach((key) => {
 				
 				//metric is to be shown in the first Column
 				if (firstColumnOutput.indexOf(key) !== -1){
 					firstOutput.push(
 						<Form.Field>
-							<Input className={styling} label={key} value={metrics[key] ? metrics[key] : "null"} />
+							<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
 						</Form.Field>
 					)
 				}
 				else if (secondColumnOutput.indexOf(key) !== -1){
 					secondOutput.push(
 						<Form.Field>
-							<Input className={styling} label={key} value={metrics[key] ? metrics[key] : "null"} />
+							<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
 						</Form.Field>
 					)
 				}
@@ -82,7 +81,7 @@ export default class MetricsGetRequest extends Component {
 		
 		return (
 			<div id='MetricsShowDiv'>
-				{metrics ?
+				{metricValues ?
 					(numberOfColumns === 1 ? 
 						(<Form className='MetricLabels'>
 							{output}

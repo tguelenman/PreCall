@@ -5,6 +5,7 @@ import {
 import RadarGraph from './RadarGraph.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
+import Testrange from './Testrange.js'
 
 import './styling/Visualisations.css';
 
@@ -140,13 +141,13 @@ export default class Visualisations extends Component {
 						<div id='BottomFlexPart1'>
 							{radarGraph}
 							<div id='VisualisationDistribution'>
-							
+								<Testrange metricValues={finalValues}/>
 							</div>
 						</div>
 						<div id='BottomFlexPart2'>
 							<div id='RadarInformation'>
 								{ finalValues? 
-									<MetricsShow metrics={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
+									<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
 									:
 									<p id='PleaseInsert'>Please insert a value and choose a metric to display more information.</p>
 								}

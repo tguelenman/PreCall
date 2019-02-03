@@ -11,7 +11,6 @@ export default class MetricsGetRequest extends Component {
 	
 	//just do the request
 	requestMetrics = () => {
-		console.log('getUrl: ',this.props.getUrl)
 		Request
 			.get(this.props.getUrl)
 			.then( res => {

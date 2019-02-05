@@ -1,10 +1,16 @@
+#visualisationRadar{
+	margin: auto;
+	background-color: yellow;
+}
+
 #visualisationRadar > svg > g > g > g > text{
 	font-family: Helvetica, Arial;
+	font-size: 15px;
 }
 
 #visualisationRadar > svg > g > g > g > path{
 	fill-opacity: 0;
-	stroke: orange;
+	stroke: grey;
 	stroke-opacity: 0.5;
 	stroke-width: 5px;
 }

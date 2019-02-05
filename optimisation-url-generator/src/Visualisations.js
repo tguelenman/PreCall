@@ -115,16 +115,14 @@ export default class Visualisations extends Component {
 			finalValues, tellUserAboutChange, goMetric,
 			metricValue, 
 		} = this.state
-		
-		var radarGraph = <RadarGraph finalValues={finalValues}/>
-		
+				
 		/*const t = this.findClosestValue('recall', 1.0)
 		console.log("hi :",t)*/
 		
 		//TODO chosen non existing value text: value changes on input change before pressing the button
 		return (
 
-			<div id='RadarChart'>
+			<div id='Visualisations'>
 
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
@@ -138,24 +136,12 @@ export default class Visualisations extends Component {
 				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-						<div id='BottomFlexPart1'>
-							{radarGraph}
-							<div id='VisualisationDistribution'>
-								<ConfusionDistribution metricValues={finalValues}/>
-							</div>
-						</div>
-						<div id='BottomFlexPart2'>
+						<RadarGraph finalValues={finalValues}/>						
+						<ThresholdBar threshold={finalValues['threshold']}/> 
+						<ConfusionDistribution metricValues={finalValues}/>
 							<div id='RadarInformation'>
-								{ finalValues? 
-									<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
-									:
-									<p id='PleaseInsert'>Please insert a value and choose a metric to display more information.</p>
-								}
+								<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
 							</div>
-							<div id='VisualisationResult'>
-								<ThresholdBar threshold={finalValues['threshold']}/> 
-							</div>
-						</div>
 					</div> : ''
 				}
 				

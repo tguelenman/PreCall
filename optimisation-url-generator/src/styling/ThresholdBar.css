@@ -1,8 +1,8 @@
 #thresholdBarDiv{
-	padding: 10%;
 	height: 100%;
-	width: 100%;
-
+	width: 300px;
+	margin: auto;
+	background-color: orange;
 }
 
 #thresholdBar{
@@ -17,4 +17,14 @@
 
 #thresholdP{
 	margin-top: 20px;
+}
+
+#VisualisationResult{
+	width: 48%;
+	height: 96%;
+	margin: auto;
+	background-color: white;
+	border: 3px solid #9bcdb4;
+	border-radius: 15px;
+
 }

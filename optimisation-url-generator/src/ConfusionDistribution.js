@@ -14,11 +14,16 @@ export default class ConfusionDistribution extends Component {
 	render() {
 
 		const metricValues = this.state.metricValues
-		
-		var tNContent = []
-		var fNContent = []
-		var fPContent = []
+						
 		var tPContent = []
+		var fNContent = []
+		var tNContent = []
+		var fPContent = []
+
+		var tp
+		var fp
+		var tn
+		var fn
 		
 		if(metricValues) {
 				
@@ -26,12 +31,33 @@ export default class ConfusionDistribution extends Component {
 			const filters = Math.round(100*metricValues['filter_rate'])
 			const matches = Math.round(100*metricValues['match_rate'])
 			
-			const tn = Math.round(filters*metricValues['!precision'])
-			const fn = filters-tn
-			const tp = Math.round(matches*metricValues['precision'])
-			const fp = matches-tp
+			tp = Math.round(matches*metricValues['precision'])
+			fp = matches-tp
+			tn = Math.round(filters*metricValues['!precision'])
+			fn = filters-tn
+
+			for (var index = 0; index < tp; index++){
+				console.log("tp: o")
+				tPContent.push(<div className='pentagon tp' key={'tp'+ index.toString()}></div>)
+			}
 			
-			/***Visualise up to 100 bubbles for TN/FN/FP/TP***/
+			for (index = 0; index < fn; index++){
+				console.log("fn: o")
+				fNContent.push(<div className='pentagon fn' key={'fp'+ index.toString()}></div>)
+			}
+			
+			for (index = 0; index < tn; index++){
+				console.log("tn: o")
+				tNContent.push(<div className='bubble tn' key={'tn'+ index.toString()}></div>)
+			}
+			
+			for (index = 0; index < fp; index++){
+				console.log("fp: o")
+				fPContent.push(<div className='bubble fp' key={'fp'+ index.toString()}></div>)
+			}
+			
+			
+			/*
 			//fill true-negatives-content in the right order
 			for(var colTN=0; colTN<tn; colTN=colTN+10){
 				for(var rowTN=9; rowTN>=0; rowTN--){
@@ -70,40 +96,52 @@ export default class ConfusionDistribution extends Component {
 				//{itp}
 				tPContent.push(<div className='bubble tp'></div>)
 			}
-			/***End of Visualisation***/
+			
+			*/
+			console.log("tp, fn, tn, fp: ",tp, fn, tn, fp)
+			
 		}
 		
+		
 		return (
-			<div id='outerDistributionDiv'>
-				<div id='predictedNegatives' className='predicted'>
-				
-					<div id='trueNegatives' className='actualNegatives total tfnp'>
-						<div id='trueNegativesContent' className='content'>
-							{tNContent}
-						</div>
+			<div id='DistributionDiv'>
+
+				<div id='trueNegatives' className='bubbleContainer'>
+					{tNContent}
+					<div className='bubbleLabeling'>
+						<p className='bubbleP'>{tn}%</p>
+						<p className='bubbleP'>correctly</p>
+						<p className='bubbleP'>detected as</p>
+						<p className='bubbleP'>good</p>
 					</div>
-					<div id='falseNegatives' className='actualPositives total tfnp'>
-						<div id='falseNegativesContent' className='content'>
-							{fNContent}
-						</div>
-					</div>
-					
 				</div>
-				<div id='predictedPositives' className='predicted'>
-				
-					<div id='falsePositives' className='actualNegatives total tfnp'>
-						<div id='falsePositivesContent' className='content'>
-							{fPContent}
-						</div>
+				<div id='falsePositives' className='bubbleContainer'>
+					{fPContent}
+					<div className='bubbleLabeling'>
+						<p className='bubbleP'>{fp}%</p>
+						<p className='bubbleP'>wrongly</p>
+						<p className='bubbleP'>detected as</p>
+						<p className='bubbleP'>damaging</p>
 					</div>
-					<div id='truePositives' className='actualPositives total tfnp'>
-						<div id='truePositivesContent' className='content'>
-							{tPContent}
-						</div>
-					</div>
-					
 				</div>
-			
+				<div id='truePositives' className='bubbleContainer'>
+					{tPContent}
+					<div className='bubbleLabeling'>
+						<p className='bubbleP'>{tp}%</p>
+						<p className='bubbleP'>correctly</p>
+						<p className='bubbleP'>detected as</p>
+						<p className='bubbleP'>damaging</p>
+					</div>
+				</div>
+				<div id='falseNegatives' className='bubbleContainer'>
+					{fNContent}
+					<div className='bubbleLabeling'>
+						<p className='bubbleP'>{fn}%</p>
+						<p className='bubbleP'>wrongly</p>
+						<p className='bubbleP'>detected as</p>
+						<p className='bubbleP'>good</p>
+					</div>
+				</div>	
 			</div>
 		)
 	}

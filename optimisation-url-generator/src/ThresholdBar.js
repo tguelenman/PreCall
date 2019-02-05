@@ -19,7 +19,6 @@ export default class ThresholdBar extends Component {
 		
 		return (
 			<div id='thresholdBarDiv'>
-				<h2>Threshold Result</h2>
 				{ threshold ? <HSBar id='thresholdBar'
 					showTextDown
 					data={[

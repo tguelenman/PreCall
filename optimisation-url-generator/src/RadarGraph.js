@@ -22,8 +22,8 @@ export default class RadarGraph extends Component {
 			<div id='visualisationRadar'>
 				{finalValues ? 
 					<Radar
-						width={400}
-						height={400}
+						width={500}
+						height={500}
 						padding={70}
 						domainMax={1}
 						highlighted={null}

@@ -53,13 +53,16 @@ a.item{
 	background-color: white;
 }
 
+/*006699; 339966; 990000*/
+
 .Content{
 	flex: 2;
-	background-color: #006699; /*339966; 990000*/
+	background-color: white; 
 	margin: 40px 10%;
 	margin-bottom: 0;
 	/*min-height: 800px;*/
 	padding: 30px;
+	border: 1px solid grey;
 	border-radius: 7px;
 }
 

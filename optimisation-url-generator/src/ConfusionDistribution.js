@@ -22,29 +22,14 @@ export default class ConfusionDistribution extends Component {
 		
 		if(metricValues) {
 				
-			//Calculate how many TN/FN/TP/FP we have
-
-			
+			//Calculate how many TN/FN/TP/FP we have		
 			const filters = Math.round(100*metricValues['filter_rate'])
 			const matches = Math.round(100*metricValues['match_rate'])
-			
-
 			
 			const tn = Math.round(filters*metricValues['!precision'])
 			const fn = filters-tn
 			const tp = Math.round(matches*metricValues['precision'])
 			const fp = matches-tp
-
-			/*
-			console.log("filterRate: ",metricValues['filter_rate'])
-			console.log("matchRate: ",metricValues['match_rate'])
-			console.log("filters: ",filters)
-			console.log("matches: ",matches)
-			console.log("tn: ",tn)
-			console.log("fn: ",fn)
-			console.log("fp: ",fp)
-			console.log("tp: ",tp)
-			*/
 			
 			/***Visualise up to 100 bubbles for TN/FN/FP/TP***/
 			//fill true-negatives-content in the right order

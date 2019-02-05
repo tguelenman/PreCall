@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import Radar from 'react-d3-radar';
+import React, { Component } from 'react'
+import Radar from 'react-d3-radar'
+
+import './styling/RadarGraph.css'
 
 export default class RadarGraph extends Component {
 	
@@ -15,10 +17,11 @@ export default class RadarGraph extends Component {
 
 	render () {
 		const {finalValues,} = this.state
+		console.log("fpr: ",finalValues["fpr"])
 		return (
-			<div id='VisualisationRadar'>
+			<div id='visualisationRadar'>
 				{finalValues ? 
-					<Radar id='RadarChart'
+					<Radar
 						width={400}
 						height={400}
 						padding={70}
@@ -33,9 +36,9 @@ export default class RadarGraph extends Component {
 						}}*/
 						data={{
 							variables: [
-								{key: 'recall', label: 'Recall'},
-								{key: 'precision', label: 'Precision'},
-								{key: 'filter_rate', label: 'Filter_rate'},
+								{key: 'fpr', label: 'false positive rate'},
+								{key: 'precision', label: 'precision'},
+								{key: 'recall', label: 'recall'},
 							],
 							sets: [
 								{
@@ -43,9 +46,9 @@ export default class RadarGraph extends Component {
 									label: 'GET Result',
 									values: {
 										//get these values from state
-										recall: finalValues['recall'],
+										fpr: finalValues['fpr'],
 										precision: finalValues['precision'],
-										filter_rate: finalValues['filter_rate'],
+										recall: finalValues['recall'],
 									},
 								},
 							],

@@ -10,9 +10,9 @@ import ConfusionDistribution from './ConfusionDistribution.js'
 import './styling/Visualisations.css';
 
 const metricOptionsRadar = [
-	{ key: 'recall', text: 'Recall', value: 'recall'},
-	{ key: 'precision', text: 'Precision', value: 'precision'},
-	{ key: 'filter_rate', text: 'Filter_rate', value: 'filter_rate'},
+	{ key: 'fpr', text: 'false positive rate', value: 'fpr'},
+	{ key: 'precision', text: 'precision', value: 'precision'},
+	{ key: 'recall', text: 'recall', value: 'recall'},
 ]
 
 export default class Visualisations extends Component {

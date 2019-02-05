@@ -1,0 +1,10 @@
+#visualisationRadar > svg > g > g > g > text{
+	font-family: Helvetica, Arial;
+}
+
+#visualisationRadar > svg > g > g > g > path{
+	fill-opacity: 0;
+	stroke: orange;
+	stroke-opacity: 0.5;
+	stroke-width: 5px;
+}

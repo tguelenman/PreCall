@@ -69,13 +69,13 @@
 	/*flex-basis: 20%;*/
 }
 
-/*.pentagon {
-  position: relative;
-  width: 12.5px;
-  box-sizing: content-box;
-  border-width: 11.5px 4.1px 0;
-  border-style: solid;
-  margin-top: 7.5px;
+.pentagon {
+	position: relative;
+	width: 11px;
+	box-sizing: content-box;
+	border-width: 10.1px 3.5px 0;
+	border-style: solid;
+	margin-top: 6.6px;
 }
 
 .pentagon:before {
@@ -83,21 +83,29 @@
 	position: absolute;
 	height: 0;
 	width: 0;
-	top: -19.3px;
-	left: -4.1px;
-	border-width: 0 10.3px 8px;
+	top: -16.9px;
+	left: -3.6px;
+	border-width: 0 9px 7px;
 	border-style: solid;
 }
 
-.tn{
+.tp{
 	border-color: #66c2a5 transparent;
 }
 
-.tn:before{
+.tp:before{
 	border-color: transparent transparent #66c2a5;
-}*/
+}
 
-.pentagon{
+.fn{
+	border-color: #fc8d62 transparent;
+}
+
+.fn:before{
+	border-color: transparent transparent #fc8d62;
+}
+
+/*.pentagon{
 	border: 1px solid black;
 	border-radius: 100% 100% 0 0;
 	width: 20px;
@@ -111,7 +119,7 @@
 
 .fn{
 	background-color: #fc8d62;
-}
+}*/
 
 .tn{
 	background-color: #66c2a5;

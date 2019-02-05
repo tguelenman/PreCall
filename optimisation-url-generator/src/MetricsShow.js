@@ -6,12 +6,12 @@ import {
 import './styling/MetricsShow.css';
 
 //with threshold
-const firstColumn = ['!f1', '!precision', '!recall', 'accuracy', 'f1', 'filter_rate']
-const secondColumn = ['fpr', 'match_rate', 'precision', 'recall', 'threshold']
+const firstColumn = ['recall', 'precision', 'filter_rate', 'fpr', 'f1', 'threshold']
+const secondColumn = ['!recall', '!precision', 'match_rate', 'accuracy', '!f1']
 
 //without threshold
-const firstColumnNoT = ['!f1', '!precision', '!recall', 'accuracy', 'f1']
-const secondColumnNoT = ['filter_rate', 'fpr', 'match_rate', 'precision', 'recall']
+const firstColumnNoT = ['recall', 'precision', 'filter_rate', 'fpr', 'f1']
+const secondColumnNoT = ['!recall', '!precision', 'match_rate', 'accuracy', '!f1']
 
 export default class MetricsGetRequest extends Component {
 
@@ -29,10 +29,23 @@ export default class MetricsGetRequest extends Component {
 		const numberOfColumns = this.props.numberOfColumns
 		const thresholdWithout = this.props.thresholdWithout
 		
+		var metricValuesSorted = {
+			'recall': metricValues['recall'],
+			'!recall': metricValues['!recall'],
+			'precision': metricValues['precision'],
+			'!precision': metricValues['!precision'],
+			'filter_rate': metricValues['filter_rate'],
+			'match_rate': metricValues['match_rate'],
+			'fpr': metricValues['fpr'],
+			'accuracy': metricValues['accuracy'],
+			'f1': metricValues['f1'],
+			'!f1': metricValues['!f1']
+		}
+		
 		//listing the metrics in 1 column
 		var output = []
 		if (numberOfColumns === 1){
-			Object.keys(metricValues).forEach((key) => {
+			Object.keys(metricValuesSorted).forEach((key) => {
 				output.push(
 					<Form.Field>
 						<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
@@ -59,7 +72,7 @@ export default class MetricsGetRequest extends Component {
 				secondColumnOutput = secondColumn
 			}
 			
-			Object.keys(metricValues).forEach((key) => {
+			Object.keys(metricValuesSorted).forEach((key) => {
 				
 				//metric is to be shown in the first Column
 				if (firstColumnOutput.indexOf(key) !== -1){

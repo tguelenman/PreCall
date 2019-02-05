@@ -41,7 +41,7 @@ export default class ConfusionDistribution extends Component {
 				tPContent.push(<div className='pentagon tp' key={'tp'+ index.toString()}></div>)
 			}
 			
-			for (index = 0; index < fn; index++){
+			for (index = 0; index < fn+10; index++){
 				console.log("fn: o")
 				fNContent.push(<div className='pentagon fn' key={'fp'+ index.toString()}></div>)
 			}
@@ -56,48 +56,6 @@ export default class ConfusionDistribution extends Component {
 				fPContent.push(<div className='bubble fp' key={'fp'+ index.toString()}></div>)
 			}
 			
-			
-			/*
-			//fill true-negatives-content in the right order
-			for(var colTN=0; colTN<tn; colTN=colTN+10){
-				for(var rowTN=9; rowTN>=0; rowTN--){
-					if(colTN+rowTN >= tn){
-						continue
-					}
-					//{colTN+rowTN}
-					tNContent.push(<div className='bubble tn'></div>)
-				}
-			}
-			
-			//fill false-negatives-content in the right order
-			for(var colFN=0; colFN<=fn; colFN=colFN+10){
-				for(var rowFN=9; rowFN>=0; rowFN--){
-					if(colFN+rowFN >= fn) {
-						continue
-					}
-					//{colFN+rowFN}
-					fNContent.push(<div className='bubble fn'></div>)
-				}
-			}
-			
-			//fill false-positives-content in the right order
-			for(var colFP=0; colFP<fp; colFP=colFP+10){
-				for(var rowFP=0; rowFP<10; rowFP++){
-					if(colFP+rowFP > fp || colFP+rowFP < 0){
-						continue;
-					}
-					//{colFP+rowFP}
-					fPContent.push(<div className='bubble fp'></div>)
-				}
-			}
-			
-			//fill true-positives-content in the right order
-			for(var itp=0; itp <tp; itp++){
-				//{itp}
-				tPContent.push(<div className='bubble tp'></div>)
-			}
-			
-			*/
 			console.log("tp, fn, tn, fp: ",tp, fn, tn, fp)
 			
 		}

@@ -2,4 +2,4 @@ https://semantic-ui.mit-license.org/
 https://www.chartjs.org/docs/latest/notes/license.html <- not used rn
 https://github.com/shauns/react-d3-radar/blob/master/LICENSE (react-d3-radar)
 https://d3js.org/ (bottom of page: BSD License (https://opensource.org/licenses/BSD-3-Clause)
-https://www.npmjs.com/package/react-horizontal-stacked-bar-chart
+https://whoisandy.github.io/react-rangeslider/

@@ -41,7 +41,7 @@ export default class ConfusionDistribution extends Component {
 				tPContent.push(<div className='pentagon tp' key={'tp'+ index.toString()}></div>)
 			}
 			
-			for (index = 0; index < fn+10; index++){
+			for (index = 0; index < fn; index++){
 				console.log("fn: o")
 				fNContent.push(<div className='pentagon fn' key={'fp'+ index.toString()}></div>)
 			}

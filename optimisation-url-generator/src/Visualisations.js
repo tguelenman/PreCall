@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { 
 	Select, Button, Input, 
-	Label, } from 'semantic-ui-react'
+	} from 'semantic-ui-react'
 import RadarGraph from './RadarGraph.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
@@ -139,9 +139,9 @@ export default class Visualisations extends Component {
 						<RadarGraph finalValues={finalValues}/>						
 						<ThresholdBar threshold={finalValues['threshold']}/> 
 						<ConfusionDistribution metricValues={finalValues}/>
-							<div id='RadarInformation'>
-								<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
-							</div>
+						<div id='RadarInformation'>
+							<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
+						</div>
 					</div> : ''
 				}
 				

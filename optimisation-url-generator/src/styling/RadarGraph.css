@@ -1,6 +1,5 @@
 #visualisationRadar{
 	margin: auto;
-	background-color: yellow;
 }
 
 #visualisationRadar > svg > g > g > g > text{

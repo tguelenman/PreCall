@@ -25,7 +25,7 @@ export default class ThresholdBar extends Component {
 		
 		const labelStyle={ marginLeft: threshold * 200 }
 		return (
-			<div id='thresholdBar'>
+		{/*<div id='thresholdBar'>
 				{ threshold ? 
 					<div id='sliderContainer'>
 						<div id='thresholdTitle'>
@@ -50,7 +50,7 @@ export default class ThresholdBar extends Component {
 				: ''					
 				}
 				
-			</div>
+		</div>*/}
 		)
 	}
 

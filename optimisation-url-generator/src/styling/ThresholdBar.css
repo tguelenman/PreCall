@@ -1,3 +1,4 @@
+/*
 #thresholdBar{
 	width: 300px;
 	margin: auto;
@@ -25,8 +26,6 @@
 .rangeslider__handle{
 	height: 55px !important;
 	width: 8px !important;
-	/*width: 5px !important;
-	border-radius: 0 !important;*/
 	border: 2px solid #4c524f !important;
 }
 
@@ -55,3 +54,4 @@
 	display: flex;
 	justify-content: space-between;
 }
+*/

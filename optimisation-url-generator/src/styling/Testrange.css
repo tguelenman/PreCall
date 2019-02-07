@@ -1,40 +1,65 @@
+#thresholdBar{
+	height: 400px;
+	margin: auto;
+}
+
 #sliderContainer{
-	width: 300px;
+	display: flex;
+	height: 400px;
+	font-family: Helvetica;
 }	
 	
-.rangeslider__fill{
-	height: 20px !important;
-	background-image: linear-gradient(to right, #66c2a5, #dfdfdf) !important;
-	border: 2px solid #4c524f !important;
-	border-radius: 0 !important;
-	border-left: none !important;
-	border-top: none !important;
-
+#thresholdTitle{
+	margin-bottom: 20px;
 }
-
-.rangeslider__handle{
-	height: 55px !important;
-	width: 8px !important;
-	/*width: 5px !important;
-	border-radius: 0 !important;*/
-	border: 2px solid #4c524f !important;
-}
-
-.rangeslider__handle::after{
-	width: 0 !important;
-	height: 0 !important;
-}
-
+	
 .rangeslider{
-	width: 300px !important;
-	height: 22px !important;
-	background-image: linear-gradient(to left, #fc8d62, #dfdfdf) !important;
+	margin: auto 0 !important;
+	background-color: green;
+	box-sizing: content-box !important;
+	width: 20px !important;
+	max-width: 20px !important;
+	height: 300px !important;
+	background-image: linear-gradient(to bottom, #fc8d62, #dfdfdf) !important;
 	opacity: 1 !important;
 	border: 2px solid #4c524f !important;
 	border-radius: 0 !important;
 }
 
+.rangeslider__fill{
+	/*width: 20px !important;*/
+	box-sizing: content-box !important;
+	background-image: linear-gradient(to top, #66c2a5, #dfdfdf) !important;
+	/*border: 2px solid #4c524f !important;
+	border-radius: 0 !important;
+	border-left: none !important;
+	border-top: none !important;*/
+}
+
+.rangeslider__handle{
+	bottom: -5px !important;
+	left: -20px !important;
+	height: 3px !important;
+	width: 55px !important;
+	border: none !important;
+	background-color: black !important;
+}
+
+.rangeslider__handle::after{
+	/*width: 0 !important;
+	height: 0 !important;*/
+}
+
+#goodToDamagingLabel{
+	height: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: pink;
+}
+
 #zeroToOneLabel{
+	background-color: yellow;
 	display: flex;
 	justify-content: space-between;
 }
@@ -60,24 +85,3 @@
 	border-bottom: 9.5px solid #0083ca;
 }
 
-/*
-.triangle {
-    width: 0;
-    height: 0;
-    border-top: 23px solid transparent;
-    border-bottom: 23px solid transparent;
-    border-right: 23px solid red;
-}
-
-
-.innerTriangle {
-    position: relative;
-    top: -20px;
-    left: 2px;
-    width: 0;
-    height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-right: 20px solid blue;
-}
-*/

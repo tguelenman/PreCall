@@ -136,15 +136,27 @@ export default class Visualisations extends Component {
 				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-						<RadarGraph finalValues={finalValues}/>						
-						<ThresholdBar threshold={finalValues['threshold']}/> 
-						<ConfusionDistribution metricValues={finalValues}/>
+						<h2 className='title'>ORES user-centered parameter optimization</h2>
+						<div id='paramsAndThreshold'>
+							<div id='parameters'>
+								<h2 className='title'>Parameters</h2>
+								<RadarGraph finalValues={finalValues}/>						
+							</div>
+							<div id='threshold'>
+								<h2 className='title'>Decision Threshold</h2>
+								<ThresholdBar threshold={finalValues['threshold']}/> 
+							</div>
+						</div>
+						<div id='preview'>
+							<h2 className='title'>Preview</h2>
+							<ConfusionDistribution metricValues={finalValues}/>
+						</div>
+
 						<div id='RadarInformation'>
 							<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
 						</div>
 					</div> : ''
 				}
-				
 			</div>
 		)
 	}

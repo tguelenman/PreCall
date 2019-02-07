@@ -38,12 +38,12 @@ export default class ConfusionDistribution extends Component {
 
 			for (var index = 0; index < tp; index++){
 				console.log("tp: o")
-				tPContent.push(<div className='pentagon tp' key={'tp'+ index.toString()}></div>)
+				tPContent.push(<div className='triangle' key={'tp'+ index.toString()}><div className='tp innerTriangle'/></div>)
 			}
 			
 			for (index = 0; index < fn; index++){
 				console.log("fn: o")
-				fNContent.push(<div className='pentagon fn' key={'fp'+ index.toString()}></div>)
+				fNContent.push(<div className='triangle' key={'fn'+ index.toString()}><div className='fn innerTriangle'/></div>)
 			}
 			
 			for (index = 0; index < tn; index++){

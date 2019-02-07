@@ -28,15 +28,18 @@ export default class Testrange extends React.Component {
 	render() {
 		const { threshold } = this.state
 		return (
-			<div id='sliderContainer'>
-				<Slider
-					value={threshold}
-					orientation="horizontal"
-					onChange={this.handleOnChange}
-				/>
-				<div id='zeroToOneLabel'>
-					<p>0</p><p>1</p>
+			<div>
+				<div id='sliderContainer'>
+					<Slider
+						value={threshold}
+						orientation="horizontal"
+						onChange={this.handleOnChange}
+					/>
+					<div id='zeroToOneLabel'>
+						<p>0</p><p>1</p>
+					</div>
 				</div>
+				<div className='triangle2'><div className='innerTriangle2'/></div>
 			</div>
 		)
 	}

@@ -59,70 +59,45 @@
 
 .bubble{
 	border: 1px solid black;
-	width: 20px;
-	height: 20px;
+	width: 10px;
+	height: 10px;
 	margin: 0;
 	border-radius: 50%;
 	/*flex-basis: 20%;*/
 }
 
-.pentagon {
-	position: relative;
-	width: 11px;
-	box-sizing: content-box;
-	border-width: 10.1px 3.5px 0;
-	border-style: solid;
-	margin-top: 6.6px;
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 11.5px solid #505050;
 }
 
-.pentagon:before {
-	content: "";
-	position: absolute;
-	height: 0;
-	width: 0;
-	top: -16.9px;
-	left: -3.6px;
-	border-width: 0 9px 7px;
-	border-style: solid;
-}
-
-.tp{
-	border-color: #66c2a5 transparent;
-}
-
-.tp:before{
-	border-color: transparent transparent #66c2a5;
-}
-
-.fn{
-	border-color: #fc8d62 transparent;
-}
-
-.fn:before{
-	border-color: transparent transparent #fc8d62;
-}
-
-/*.pentagon{
-	border: 1px solid black;
-	border-radius: 100% 100% 0 0;
-	width: 20px;
-	height: 20px;
-	margin: 0;
+.innerTriangle {
+    position: relative;
+    left: -4px;
+    top: 1.5px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
 }
 
 .tp{
-	background-color: #66c2a5;
+	border-bottom: 9.5px solid #0083ca;
 }
 
+
 .fn{
-	background-color: #fc8d62;
-}*/
+	border-bottom: 9.5px solid #d82d48;
+}
 
 .tn{
-	background-color: #66c2a5;
+	background-color: #0083ca;
 }
 
 .fp{
-	background-color: #fc8d62;
+	background-color: #d82d48;
 }
 

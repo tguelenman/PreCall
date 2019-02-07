@@ -14,19 +14,31 @@ export default class Testrange extends React.Component {
 	}
 
 	handleOnChange = (value) => {
+
 		this.setState({
-			threshold: value / 1000
-		})
+			threshold: value / 1000,
+			//backgroundSize: '100% '+value/10+'% !important',
+		}/*, () => {
+			
+			var upperBar = document.getElementsByClassName('rangeslider rangeslider-vertical')[0]
+			console.log("uppderBarComplete: ", document.getElementsByClassName('rangeslider rangeslider-vertical'))
+			console.log("style: ",upperBar.style)
+			console.log("styleState: ",this.state.backgroundSize)
+			upperBar.style.backgroundSize = this.state.backgroundSize
+			console.log("bgsize style: ",upperBar.style)		
+		}*/)
 	}
 	
 	componentWillReceiveProps = (nextProps) => {
+				
 		this.setState({
 			threshold: nextProps.threshold,
 		})
 	}
-  
+
 	render() {
-				const threshold = this.state.threshold
+		
+		const threshold = this.state.threshold
 		
 		const labelStyle={ marginTop: 325 - threshold * 300 }
 		return (
@@ -45,12 +57,13 @@ export default class Testrange extends React.Component {
 							steps={1}
 							tooltip={false}
 						/>
+						<div id='zeroToOneLabel'>
+							<p>1.0</p><p>0.0</p>
+						</div>
 						<div id='goodToDamagingLabel' style={labelStyle}>
 							<p>damaging</p><p>good</p>
 						</div>
-						<div id='zeroToOneLabel'>
-							<p>0.0</p><p>1.0</p>
-						</div>
+
 					</div>
 				</div>
 				<div className='triangle2'><div className='innerTriangle2'/></div>

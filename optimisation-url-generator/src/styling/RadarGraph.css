@@ -1,5 +1,7 @@
 #visualisationRadar{
 	margin: auto;
+	width: 350px;
+	height: 350px;
 }
 
 #visualisationRadar > svg > g > g > g > text{

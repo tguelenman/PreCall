@@ -1,11 +1,13 @@
-/*
 #thresholdBar{
-	width: 300px;
+	height: 400px;
 	margin: auto;
+	width: 100%;
+	
 }
 
 #sliderContainer{
-	width: 300px;
+	display: flex;
+	height: 100%;
 	font-family: Helvetica;
 }	
 	
@@ -13,45 +15,57 @@
 	margin-bottom: 20px;
 }
 	
+.rangeslider{
+	margin: auto 0 !important;
+	box-sizing: content-box !important;
+	width: 20px !important;
+	max-width: 20px !important;
+	height: 300px !important;
+	background-image: url('images/redToGrey.png') !important;
+	background-repeat: no-repeat;
+	opacity: 1 !important;
+	border: 2px solid #6d6d6d !important;
+	border-radius: 0 !important;
+}
+
 .rangeslider__fill{
-	height: 20px !important;
-	background-image: linear-gradient(to right, #66c2a5, #dfdfdf) !important;
-	border: 2px solid #4c524f !important;
+	/*width: 20px !important;*/
+	box-sizing: content-box !important;
+	background-image: linear-gradient(to top, #0083ca, #dfdfdf) !important;
+	/*border: 2px solid #4c524f !important;
 	border-radius: 0 !important;
 	border-left: none !important;
-	border-top: none !important;
-
+	border-top: none !important;*/
 }
 
 .rangeslider__handle{
-	height: 55px !important;
-	width: 8px !important;
-	border: 2px solid #4c524f !important;
+	bottom: -5px !important;
+	left: -20px !important;
+	height: 3px !important;
+	width: 55px !important;
+	border: none !important;
+	background-color: black !important;
 }
 
 .rangeslider__handle::after{
-	width: 0 !important;
-	height: 0 !important;
-}
-
-.rangeslider{
-	width: 300px !important;
-	height: 22px !important;
-	background-image: linear-gradient(to left, #fc8d62, #dfdfdf) !important;
-	opacity: 1 !important;
-	border: 2px solid #4c524f !important;
-	border-radius: 0 !important;
+	/*width: 0 !important;
+	height: 0 !important;*/
 }
 
 #goodToDamagingLabel{
-	width: 125px;
+	text-align: left;
+	height: 50px;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	margin-bottom: -15px;
+	background-color: pink;
 }
 
 #zeroToOneLabel{
+	height: 320px;
+	margin: auto 0;
+	padding-left: 5px;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 }
-*/

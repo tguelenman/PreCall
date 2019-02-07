@@ -15,21 +15,21 @@
 	
 .rangeslider{
 	margin: auto 0 !important;
-	background-color: green;
 	box-sizing: content-box !important;
 	width: 20px !important;
 	max-width: 20px !important;
 	height: 300px !important;
-	background-image: linear-gradient(to bottom, #fc8d62, #dfdfdf) !important;
+	background-image: url('images/redToGrey.png') !important;
+	background-repeat: no-repeat;
 	opacity: 1 !important;
-	border: 2px solid #4c524f !important;
+	border: 2px solid #6d6d6d !important;
 	border-radius: 0 !important;
 }
 
 .rangeslider__fill{
 	/*width: 20px !important;*/
 	box-sizing: content-box !important;
-	background-image: linear-gradient(to top, #66c2a5, #dfdfdf) !important;
+	background-image: linear-gradient(to top, #0083ca, #dfdfdf) !important;
 	/*border: 2px solid #4c524f !important;
 	border-radius: 0 !important;
 	border-left: none !important;
@@ -51,6 +51,7 @@
 }
 
 #goodToDamagingLabel{
+	text-align: left;
 	height: 50px;
 	display: flex;
 	flex-direction: column;
@@ -59,8 +60,12 @@
 }
 
 #zeroToOneLabel{
+	height: 320px;
+	margin: auto 0;
+	padding-left: 5px;
 	background-color: yellow;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 }
 

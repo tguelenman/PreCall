@@ -2,14 +2,14 @@
 	height: 400px;
 	margin: auto;
 	width: 100%;
-	
 }
 
 #sliderContainer{
 	display: flex;
-	height: 100%;
+	justify-content: center;
+	height: 460px;
 	font-family: Helvetica;
-}	
+}
 	
 #thresholdTitle{
 	margin-bottom: 20px;
@@ -20,8 +20,9 @@
 	box-sizing: content-box !important;
 	width: 20px !important;
 	max-width: 20px !important;
-	height: 300px !important;
-	background-image: url('images/redToGrey.png') !important;
+	height: 400px !important;
+	/*background-image: url('images/redToGrey.png') !important;*/
+	background-image: linear-gradient(to bottom, #cd3048, #dfdfdf) !important;
 	background-repeat: no-repeat;
 	opacity: 1 !important;
 	border: 2px solid #6d6d6d !important;
@@ -54,15 +55,15 @@
 
 #goodToDamagingLabel{
 	text-align: left;
+	margin-left: 5px;
 	height: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	background-color: pink;
 }
 
 #zeroToOneLabel{
-	height: 320px;
+	height: 415px;
 	margin: auto 0;
 	padding-left: 5px;
 	display: flex;

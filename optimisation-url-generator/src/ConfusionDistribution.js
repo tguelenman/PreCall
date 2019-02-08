@@ -37,27 +37,20 @@ export default class ConfusionDistribution extends Component {
 			fn = filters-tn
 
 			for (var index = 0; index < tp; index++){
-				console.log("tp: o")
 				tPContent.push(<div className='triangle' key={'tp'+ index.toString()}><div className='tp innerTriangle'/></div>)
 			}
 			
 			for (index = 0; index < fn; index++){
-				console.log("fn: o")
 				fNContent.push(<div className='triangle' key={'fn'+ index.toString()}><div className='fn innerTriangle'/></div>)
 			}
 			
 			for (index = 0; index < tn; index++){
-				console.log("tn: o")
 				tNContent.push(<div className='bubble tn' key={'tn'+ index.toString()}></div>)
 			}
 			
 			for (index = 0; index < fp; index++){
-				console.log("fp: o")
 				fPContent.push(<div className='bubble fp' key={'fp'+ index.toString()}></div>)
-			}
-			
-			console.log("tp, fn, tn, fp: ",tp, fn, tn, fp)
-			
+			}			
 		}
 		
 		

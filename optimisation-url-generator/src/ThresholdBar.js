@@ -23,14 +23,12 @@ export default class ThresholdBar extends Component {
 	render () {
 		const threshold = this.state.threshold
 		
-		const labelStyle={ marginTop: 325 - threshold * 300 }
+		const labelStyle={ marginTop: 410 - threshold * 400 }
 		return (
 			<div>
 				{ threshold ? 
 					<div id='thresholdBar'>
-						<div id='thresholdTitle'>
-							<h3>Threshold: {threshold}</h3>
-						</div>
+
 						<div id='sliderContainer'>
 							<Slider
 								value={threshold * 1000}

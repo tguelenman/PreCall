@@ -123,7 +123,6 @@ export default class Visualisations extends Component {
 		return (
 
 			<div id='Visualisations'>
-
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />
@@ -136,7 +135,7 @@ export default class Visualisations extends Component {
 				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-						<h2 className='title'>ORES user-centered parameter optimization</h2>
+						<h2 className='title' id='mainTitle'>ORES user-centered parameter optimization</h2>
 						<div id='paramsAndThreshold'>
 							<div id='parameters'>
 								<h2 className='title'>Parameters</h2>

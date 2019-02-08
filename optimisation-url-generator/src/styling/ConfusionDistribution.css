@@ -3,23 +3,10 @@
 	height: 100%;
 	display: flex;
 	justify-content: space-evenly;
-	margin: auto;
+	margin: auto 0;
+	padding-left: 30px;
 }
 
-#trueNegatives{
-}
-
-#falseNegatives{
-
-}
-
-#falsePositives{
-
-}
-
-#truePositives{
-
-}
 
 .bubbleContainer {
 	max-height: 500px;
@@ -30,18 +17,6 @@
 	box-sizing: content-box;
 	margin: 20px;
 }
-
-/***********************************************/
-/***********************************************/
-/***********************************************/
-
-/*
-#cccccc
-#686868
-#92a5ce
-#003399
-*/
-
 
 .bubbleLabeling{
 	padding-top: 10px;

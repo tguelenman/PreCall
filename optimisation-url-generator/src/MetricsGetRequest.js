@@ -21,7 +21,6 @@ export default class MetricsGetRequest extends Component {
 			.catch(err => {
 				// err.message, err.response
 			});
-
 	}
 	
 	render() {

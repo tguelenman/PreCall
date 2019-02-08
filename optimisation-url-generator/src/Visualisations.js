@@ -135,7 +135,7 @@ export default class Visualisations extends Component {
 				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-						<h2 className='title' id='mainTitle'>ORES user-centered parameter optimization</h2>
+						<h2 className='title' id='mainTitle'>ORES human-centered parameter optimization</h2>
 						<div id='paramsAndThreshold'>
 							<div id='parameters'>
 								<h2 className='title'>Parameters</h2>

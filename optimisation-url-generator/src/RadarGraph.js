@@ -14,6 +14,36 @@ export default class RadarGraph extends Component {
 			finalValues: nextProps.finalValues,
 		})
 	}
+	
+	componentDidMount = () => {
+		//TODO ausprobieren ganz neues element an g ranhängen und altes löschen
+		
+		/*var radar = document.getElementById('visualisationRadar')
+		var svg = radar.childNodes[0]
+		var gs = svg.childNodes[0].childNodes[1].childNodes
+		
+		//0: path, 1, 2 and 3: circle
+		var circles = gs[4].childNodes
+		
+		for (var i=1; i<=4; i++){
+			console.log("circle: ",circles[i])
+			circles[i].setAttribute('r', '20')
+		}
+		
+		console.log(radar)
+		console.log(circles)*/
+		var allCircles = document.getElementsByTagName("circle")
+		for (let circle of allCircles) {
+			if (circle['attributes']['r']['value'] == 3) {
+				circle.setAttribute('r', '9')
+				circle.setAttribute('stroke-width', '3px')
+				circle.setAttribute('stroke-opacity', '1')
+				circle.setAttribute('stroke', 'black')
+				circle.setAttribute('fill', 'white')
+			}
+		}
+		console.log(allCircles)
+	}
 
 	render () {
 		const {finalValues,} = this.state

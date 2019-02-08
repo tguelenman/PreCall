@@ -56,43 +56,50 @@ export default class ConfusionDistribution extends Component {
 		
 		return (
 			<div id='DistributionDiv'>
-
-				<div id='trueNegatives' className='bubbleContainer'>
-					{tNContent}
-					<div className='bubbleLabeling'>
-						<p className='bubbleP'>{tn}%</p>
-						<p className='bubbleP'>correctly</p>
-						<p className='bubbleP'>detected as</p>
-						<p className='bubbleP'>good</p>
+				<div className='outerBubbleContainer'>
+					<div id='trueNegatives' className='bubbleContainer'>
+						{tNContent}
+						<div className='bubbleLabeling'>
+							<p className='bubbleP bubbleValueP'>{tn}%</p>
+							<p className='bubbleP'>correctly</p>
+							<p className='bubbleP'>detected as</p>
+							<p className='bubbleP'>good</p>
+						</div>
 					</div>
 				</div>
-				<div id='falsePositives' className='bubbleContainer'>
-					{fPContent}
-					<div className='bubbleLabeling'>
-						<p className='bubbleP'>{fp}%</p>
-						<p className='bubbleP'>wrongly</p>
-						<p className='bubbleP'>detected as</p>
-						<p className='bubbleP'>damaging</p>
+				<div className='outerBubbleContainer'>
+					<div id='falsePositives' className='bubbleContainer'>
+						{fPContent}
+						<div className='bubbleLabeling'>
+							<p className='bubbleP bubbleValueP'>{fp}%</p>
+							<p className='bubbleP'>wrongly</p>
+							<p className='bubbleP'>detected as</p>
+							<p className='bubbleP'>damaging</p>
+						</div>
 					</div>
 				</div>
-				<div id='truePositives' className='bubbleContainer'>
-					{tPContent}
-					<div className='bubbleLabeling'>
-						<p className='bubbleP'>{tp}%</p>
-						<p className='bubbleP'>correctly</p>
-						<p className='bubbleP'>detected as</p>
-						<p className='bubbleP'>damaging</p>
+				<div className='outerBubbleContainer'>
+					<div id='truePositives' className='bubbleContainer'>
+						{tPContent}
+						<div className='bubbleLabeling'>
+							<p className='bubbleP bubbleValueP'>{tp}%</p>
+							<p className='bubbleP'>correctly</p>
+							<p className='bubbleP'>detected as</p>
+							<p className='bubbleP'>damaging</p>
+						</div>
 					</div>
 				</div>
-				<div id='falseNegatives' className='bubbleContainer'>
-					{fNContent}
-					<div className='bubbleLabeling'>
-						<p className='bubbleP'>{fn}%</p>
-						<p className='bubbleP'>wrongly</p>
-						<p className='bubbleP'>detected as</p>
-						<p className='bubbleP'>good</p>
-					</div>
-				</div>	
+				<div className='outerBubbleContainer'>
+					<div id='falseNegatives' className='bubbleContainer'>
+						{fNContent}
+						<div className='bubbleLabeling'>
+							<p className='bubbleP bubbleValueP'>{fn}%</p>
+							<p className='bubbleP'>wrongly</p>
+							<p className='bubbleP'>detected as</p>
+							<p className='bubbleP'>good</p>
+						</div>
+					</div>	
+				</div>
 			</div>
 		)
 	}

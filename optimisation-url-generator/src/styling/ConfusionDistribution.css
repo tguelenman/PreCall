@@ -1,12 +1,16 @@
 #DistributionDiv{
-	width: 600px;
+	width: 100%;
 	height: 100%;
 	display: flex;
-	justify-content: space-evenly;
-	margin: auto 0;
+
 	padding-left: 30px;
 }
 
+.outerBubbleContainer{
+	width: 25%;
+	display: flex;
+	margin: 0;
+}
 
 .bubbleContainer {
 	max-height: 500px;
@@ -28,8 +32,18 @@
 .bubbleP{
 	margin: 0;
 	text-align: left;
+	font-size: 19px;
+	line-height: 20px;
 	font-family: Helvetica;
-	font-weight: bolder;
+	
+}
+
+.bubbleValueP{
+	padding-top: 5px;
+	font-size: 25px !important;
+	line-height: 25px;
+	font-weight: 100;
+
 }
 
 .bubble{

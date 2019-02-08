@@ -23,7 +23,7 @@ export default class ThresholdBar extends Component {
 	render () {
 		const threshold = this.state.threshold
 		
-		const labelStyle={ marginTop: 410 - threshold * 400 }
+		const labelStyle={ marginTop: 400 - threshold * 400 }
 		return (
 			<div>
 				{ threshold ? 

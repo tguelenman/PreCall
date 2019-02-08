@@ -30,6 +30,9 @@ export default class ThresholdBar extends Component {
 					<div id='thresholdBar'>
 
 						<div id='sliderContainer'>
+							<div id='thresholdValue'>
+								<p style={labelStyle}>{threshold}</p>
+							</div>
 							<Slider
 								value={threshold * 1000}
 								orientation="vertical"

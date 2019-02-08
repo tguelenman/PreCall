@@ -24,6 +24,8 @@ export default class ThresholdBar extends Component {
 		const threshold = this.state.threshold
 		
 		const labelStyle={ marginTop: 400 - threshold * 400 }
+		const thresholdValueStyle= {marginTop: 410 - threshold * 400}
+		
 		return (
 			<div>
 				{ threshold ? 
@@ -31,7 +33,7 @@ export default class ThresholdBar extends Component {
 
 						<div id='sliderContainer'>
 							<div id='thresholdValue'>
-								<p style={labelStyle}>{threshold}</p>
+								<p style={thresholdValueStyle}>{threshold}</p>
 							</div>
 							<Slider
 								value={threshold * 1000}

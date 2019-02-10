@@ -46,11 +46,6 @@ export default class RadarGraph extends Component {
 	coordinates = (circle) => {
 		
 		return circle['cx']['baseVal']['valueAsString']+','+circle['cy']['baseVal']['valueAsString']
-		/*return {circle['cx']['baseVal']['value'],
-			'x': circle['cx']['baseVal']['value'],
-			'y': circle['cy']['baseVal']['value']
-		}*/
-
 	}
 
 	render () {
@@ -74,9 +69,9 @@ export default class RadarGraph extends Component {
 						}}*/
 						data={{
 							variables: [
-								{key: 'fpr', label: 'false positive rate'},
-								{key: 'precision', label: 'precision'},
-								{key: 'recall', label: 'recall'},
+								{key: 'fpr', label: 'false positive rate '+finalValues['fpr']},
+								{key: 'precision', label: 'precision '+finalValues['precision']},
+								{key: 'recall', label: 'recall '+finalValues['recall']},
 							],
 							sets: [
 								{

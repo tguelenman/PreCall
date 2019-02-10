@@ -6,9 +6,11 @@
 
 #sliderContainer{
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	height: 460px;
 	font-family: Helvetica;
+	margin-left: 50px;
+	/*margin-left: -30px;*/
 }
 
 #thresholdTitle{

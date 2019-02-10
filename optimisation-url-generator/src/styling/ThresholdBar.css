@@ -25,7 +25,9 @@
 	background-image: linear-gradient(to bottom, #cd3048, #dfdfdf) !important;
 	background-repeat: no-repeat;
 	opacity: 1 !important;
-	border: 2px solid #6d6d6d !important;
+	border: 1px solid #8f8f8f !important;
+	border-top: 2px solid black !important;
+	border-bottom: 2px solid black !important;
 	border-radius: 0 !important;
 }
 
@@ -84,7 +86,7 @@
 }
 
 #zeroToOneLabel{
-	height: 415px;
+	height: 430px;
 	font-size: 19px;
 	margin: auto 0;
 	padding-left: 5px;

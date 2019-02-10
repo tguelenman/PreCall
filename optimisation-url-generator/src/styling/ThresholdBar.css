@@ -21,7 +21,7 @@
 	width: 20px !important;
 	max-width: 20px !important;
 	height: 400px !important;
-	/*background-image: url('images/redToGrey.png') !important;*/
+	/*background-image: url('images/redToGrey.png');*/
 	background-image: linear-gradient(to bottom, #cd3048, #dfdfdf) !important;
 	background-repeat: no-repeat;
 	opacity: 1 !important;

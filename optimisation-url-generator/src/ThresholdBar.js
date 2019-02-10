@@ -18,17 +18,29 @@ export default class ThresholdBar extends Component {
 	handleOnChange = (value) => {
 		this.setState({
 			threshold: value / 1000
-		})
+		}
+		//, () => { this.adjustThresholdBar() }
+		)
 	}
 	
 	componentDidMount = () => {
-				
 		//adjust Decision Threshold handle
 		var handle = document.getElementsByClassName('rangeslider__handle')[0]
 		var handleCircle = document.createElement('div')
 		handleCircle.id = 'sliderHandleCircle'
 		handle.appendChild(handleCircle)
+		
+		//this.adjustThresholdBar()
+		
 	}	
+		
+	/*adjustThresholdBar = () => {
+		
+		//adjust upper background gradient
+		const sliderTop = document.getElementsByClassName('rangeslider')[0]
+		const newSize = '20px '+(400-this.state.threshold*400)+'px !important'
+		sliderTop.setAttribute('background-size',newSize)		
+	}*/
 	
 	render () {
 		const threshold = this.state.threshold
@@ -36,11 +48,14 @@ export default class ThresholdBar extends Component {
 		const labelStyle={ marginTop: 400 - threshold * 400 }
 		const thresholdValueStyle= {marginTop: 410 - threshold * 400}
 		
+		/*if(document.getElementsByClassName('rangeslider rangeslider-vertical')[0]) {
+			this.adjustThresholdBar()
+		}*/
+		
 		return (
 			<div>
 				{ threshold ? 
 					<div id='thresholdBar'>
-
 						<div id='sliderContainer'>
 							<div id='thresholdValue'>
 								<p style={thresholdValueStyle}>{threshold}</p>

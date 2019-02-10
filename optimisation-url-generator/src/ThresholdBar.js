@@ -20,6 +20,17 @@ export default class ThresholdBar extends Component {
 			threshold: value / 1000
 		})
 	}
+	
+	componentDidMount = () => {
+				
+		//adjust Decision Threshold handle
+		var handle = document.getElementsByClassName('rangeslider__handle')[0]
+		var handleCircle = document.createElement('div')
+		handleCircle.id = 'sliderHandleCircle'
+		handle.appendChild(handleCircle)
+		console.log(handle)
+	}	
+	
 	render () {
 		const threshold = this.state.threshold
 		

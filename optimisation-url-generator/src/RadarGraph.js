@@ -32,17 +32,19 @@ export default class RadarGraph extends Component {
 		
 		console.log(radar)
 		console.log(circles)*/
-		var allCircles = document.getElementsByTagName("circle")
+		
+		//adjust Radar Chart handles
+		var allCircles = document.getElementsByTagName('circle')
 		for (let circle of allCircles) {
-			if (circle['attributes']['r']['value'] == 3) {
+			if (circle['attributes']['r']['value'] === '3') {
 				circle.setAttribute('r', '9')
 				circle.setAttribute('stroke-width', '3px')
 				circle.setAttribute('stroke-opacity', '1')
+				circle.setAttribute('opacity', '1')
 				circle.setAttribute('stroke', 'black')
 				circle.setAttribute('fill', 'white')
 			}
 		}
-		console.log(allCircles)
 	}
 
 	render () {

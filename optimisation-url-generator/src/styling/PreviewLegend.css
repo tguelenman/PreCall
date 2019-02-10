@@ -1,0 +1,42 @@
+#previewUpper{
+	display: flex;
+}
+
+#previewTitle{
+	width: 60%;
+}
+
+#previewLegend{
+	width: 40%;
+	padding-top: 30px;
+	display: flex;
+	flex-direction: column;
+	font-family: Helvetica;
+	font-size: 19px;
+}
+
+.legendRow{
+	display: flex;
+}
+
+.legendShapeContainer{
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 30px;
+}
+
+.legendMargin{
+	margin-top: 8px;
+	margin-right: 10px;
+}
+
+.legendTriangle{
+	border-bottom: 8.5px solid white;
+}
+
+.legendLabel{
+	width: 50%;
+	text-align: left;
+	margin-left: -30px;
+}

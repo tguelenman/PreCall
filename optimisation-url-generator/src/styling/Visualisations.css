@@ -40,6 +40,8 @@ div.ui.active.visible.compact.selection.dropdown{
 	padding-left: 50px;
 }
 
+
+
 #mainTitle{
 	padding-left: 15px !important;
 	padding-top: 0 !important;
@@ -73,8 +75,9 @@ div.ui.active.visible.compact.selection.dropdown{
 	background-color: #fcfcfc;
 	border: 1px solid #b7b7b7;
 	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
 }
-
 
 #RadarInformation{
 	margin: auto;

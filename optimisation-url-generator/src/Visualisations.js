@@ -6,6 +6,7 @@ import RadarGraph from './RadarGraph.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
+import PreviewLegend from './PreviewLegend.js'
 
 import './styling/Visualisations.css';
 
@@ -147,7 +148,7 @@ export default class Visualisations extends Component {
 							</div>
 						</div>
 						<div id='preview'>
-							<h2 className='title'>Preview</h2>
+							<PreviewLegend/>
 							<ConfusionDistribution metricValues={finalValues}/>
 						</div>
 

@@ -12,44 +12,50 @@ export default class RadarGraph extends Component {
 	componentWillReceiveProps = (nextProps) => {
 		this.setState({
 			finalValues: nextProps.finalValues,
-		})
+		}, () => { this.adjustRadar() })
 	}
 	
 	componentDidMount = () => {
-		//TODO ausprobieren ganz neues element an g ranhängen und altes löschen
 		
-		/*var radar = document.getElementById('visualisationRadar')
-		var svg = radar.childNodes[0]
-		var gs = svg.childNodes[0].childNodes[1].childNodes
-		
-		//0: path, 1, 2 and 3: circle
-		var circles = gs[4].childNodes
-		
-		for (var i=1; i<=4; i++){
-			console.log("circle: ",circles[i])
-			circles[i].setAttribute('r', '20')
-		}
-		
-		console.log(radar)
-		console.log(circles)*/
-		
+		this.adjustRadar()
+	}
+	
+	adjustRadar = () => {
+	
 		//adjust Radar Chart handles
 		var allCircles = document.getElementsByTagName('circle')
+		
 		for (let circle of allCircles) {
+			
 			if (circle['attributes']['r']['value'] === '3') {
-				circle.setAttribute('r', '9')
-				circle.setAttribute('stroke-width', '3px')
-				circle.setAttribute('stroke-opacity', '1')
-				circle.setAttribute('opacity', '1')
-				circle.setAttribute('stroke', 'black')
-				circle.setAttribute('fill', 'white')
+				circle.setAttribute('class', 'connectTheseCircles')
 			}
 		}
+
+		//draw straight lines instead of curves in the radar chart
+		const path = document.getElementsByTagName('path')[0]
+		const threeCircles = document.getElementsByClassName('connectTheseCircles')
+		const firstCircleCoords = this.coordinates(threeCircles[0])
+		const secondCircleCoords = this.coordinates(threeCircles[1])
+		const thirdCircleCoords = this.coordinates(threeCircles[2])
+		const newD = 'M'+firstCircleCoords+','+secondCircleCoords+','+thirdCircleCoords+','+firstCircleCoords
+		
+		path.setAttribute('d',newD)	
+	}
+	
+	coordinates = (circle) => {
+		
+		return circle['cx']['baseVal']['valueAsString']+','+circle['cy']['baseVal']['valueAsString']
+		/*return {circle['cx']['baseVal']['value'],
+			'x': circle['cx']['baseVal']['value'],
+			'y': circle['cy']['baseVal']['value']
+		}*/
+
 	}
 
 	render () {
 		const {finalValues,} = this.state
-		console.log("fpr: ",finalValues["fpr"])
+
 		return (
 			<div id='visualisationRadar'>
 				{finalValues ? 

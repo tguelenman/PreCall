@@ -28,7 +28,6 @@ export default class ThresholdBar extends Component {
 		var handleCircle = document.createElement('div')
 		handleCircle.id = 'sliderHandleCircle'
 		handle.appendChild(handleCircle)
-		console.log(handle)
 	}	
 	
 	render () {

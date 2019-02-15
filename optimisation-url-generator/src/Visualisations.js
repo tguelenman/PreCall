@@ -59,6 +59,16 @@ export default class Visualisations extends Component {
 		}*/
 	}
 	
+	componentDidMount = () => {
+		if(!this.state.didMountOnce) {
+			this.setState({
+				goMetric: 'threshold',
+				metricValue: 0.5,
+				didMountOnce: true,
+			}, () => { this.setNewValues() })
+		}
+	}
+	
 	findClosestValue = (metric, metricValue) => {
 		const data = this.state.data
 		

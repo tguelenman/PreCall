@@ -57,7 +57,7 @@ export default class ThresholdBar extends Component {
 					<div id='thresholdBar'>
 						<div id='sliderContainer'>
 							<div id='thresholdValue'>
-								<p style={thresholdValueStyle}>{threshold}</p>
+								<p id='thresholdValueP' style={thresholdValueStyle}>{threshold}</p>
 							</div>
 							<Slider
 								value={threshold * 1000}

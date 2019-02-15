@@ -17,7 +17,7 @@ div.ui.active.visible.compact.selection.dropdown{
 	width: 100%;
 }
 
-#AutomaticValueChange{
+.automaticValueChange{
 	margin: auto;
 	margin-top: 30px;
 }

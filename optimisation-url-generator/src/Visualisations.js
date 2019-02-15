@@ -34,7 +34,7 @@ export default class Visualisations extends Component {
 		this.setState({ [name]: parseFloat(value) })
 	}
 
-	goButtonClicked = () => {
+	setNewValues = () => {
 		const { goMetric, metricValue, data } = this.state
 		
 		//find the closest existing value to the specified one
@@ -111,6 +111,14 @@ export default class Visualisations extends Component {
 		return -1;
 	}
 	
+	setNewThreshold = (thresholdValue) => {
+		console.log("setNewThreshold: ", thresholdValue)
+		this.setState({
+			goMetric: 'threshold',
+			metricValue: thresholdValue,
+		}, () => {this.setNewValues()})
+	}
+	
 	render() {
 		const {
 			finalValues, tellUserAboutChange, goMetric,
@@ -128,10 +136,12 @@ export default class Visualisations extends Component {
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />
 						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChangeMetric}/>
-						<Button type='submit' onClick={this.goButtonClicked}>GO!</Button>
+						<Button type='submit' onClick={this.setNewValues}>GO!</Button>
 					</Input>
 				</div>
-				{ tellUserAboutChange ? <p id='AutomaticValueChange'>You have chosen a value of {metricValue} for {goMetric}. The next closest possible value has been selected for you: {finalValues[goMetric]}.</p> :''}
+				{ tellUserAboutChange ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {goMetric}. The next closest possible value has been selected for you: {finalValues[goMetric]}.</p> :
+					metricValue ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {goMetric}.</p> :
+					<p className='automaticValueChange'>Please choose a metric and a value.</p> }
 				<hr className="dividerClass"/>
 				
 				{ finalValues ?
@@ -144,7 +154,7 @@ export default class Visualisations extends Component {
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Decision Threshold</h2>
-								<ThresholdBar threshold={finalValues['threshold']}/> 
+								<ThresholdBar threshold={finalValues['threshold']} newOverallThreshold={this.setNewThreshold} /> 
 							</div>
 						</div>
 						<div id='preview'>

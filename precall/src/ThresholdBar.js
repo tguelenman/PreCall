@@ -16,6 +16,12 @@ export default class ThresholdBar extends Component {
 	}
 		
 	handleOnChange = (value) => {
+
+		//a value of 0 for threshold is not allowed, note: 1 represents threshold of 0.001
+		if (value === 0){
+			value = 1
+		}
+		
 		this.setState({
 			threshold: value / 1000
 		}, () => { this.props.newOverallThreshold(this.state.threshold) }

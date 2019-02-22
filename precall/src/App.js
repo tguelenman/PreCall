@@ -8,7 +8,7 @@ import Testrange from './Testrange.js'
 
 export default class App extends Component {
 	state = {
-		activeItem: 'optUrlGen',
+		activeItem: 'visualisations',
 		didCallApi: false,
 		oresEnComplete: '',
 	}
@@ -27,8 +27,9 @@ export default class App extends Component {
 	}
 	
 	render() {
-		const { activeItem } = this.state
+		const { activeItem, oresEnComplete } = this.state
 		var optUrlGen = <OptUrlGen/>
+		console.log("hi: ",this.state.oresEnComplete)
 		var visualisations = <Visualisations data={this.state.oresEnComplete}/>
 
 		return (
@@ -39,17 +40,17 @@ export default class App extends Component {
 							<img id='HeaderLogo' src={require('./styling/images/Objective_Revision_Evaluation_Service_logo.svg.png')} alt=''/>
 							ORES
 						</Menu.Item>
+						<Menu.Item 
+							name='Visualisations'
+							active={activeItem === 'visualisations'}
+							activename='visualisations'
+							onClick={this.handleItemClick} />
 						<Menu.Item
 							name='Optimisation Queries'
 							active={activeItem === 'optUrlGen'}
 							activename='optUrlGen'
 							onClick={this.handleItemClick}
 						/>
-						<Menu.Item 
-							name='Visualisations'
-							active={activeItem === 'visualisations'}
-							activename='visualisations'
-							onClick={this.handleItemClick} />
 						<Menu.Item
 							name='Testrange'
 							active={activeItem === 'testrange'}
@@ -60,7 +61,7 @@ export default class App extends Component {
 				</div>
 				<div className="Content">
 					{this.state.activeItem === 'optUrlGen' ? optUrlGen : 
-						this.state.activeItem === 'visualisations' ? visualisations : 
+						this.state.activeItem === 'visualisations' && oresEnComplete ? visualisations : 
 						this.state.activeItem === 'testrange' ? <Testrange /> : ''
 					}
 				</div>

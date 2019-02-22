@@ -80,6 +80,7 @@ div.ui.active.visible.compact.selection.dropdown{
 }
 
 #RadarInformation{
+	display: flex;
 	margin: auto;
 	margin-top: 50px;
 }

@@ -59,6 +59,15 @@ export default class Visualisations extends Component {
 		}*/
 	}
 	
+	adjustValues = (metric, value) => {
+		this.setState({
+			goMetric: metric,
+			metricValue: this.findClosestValue(metric, value)
+		}, () => {
+			this.setNewValues()
+		})
+	}
+	
 	componentDidMount = () => {
 		if(!this.state.didMountOnce) {
 			this.setState({
@@ -136,10 +145,8 @@ export default class Visualisations extends Component {
 			metricValue, 
 		} = this.state
 				
-		/*const t = this.findClosestValue('recall', 1.0)
-		console.log("hi :",t)*/
+		console.log("precision: ",finalValues['precision'])
 		
-		//TODO chosen non existing value text: value changes on input change before pressing the button
 		return (
 
 			<div id='Visualisations'>				
@@ -149,7 +156,7 @@ export default class Visualisations extends Component {
 						<div id='paramsAndThreshold'>
 							<div id='parameters'>
 								<h2 className='title'>Parameters</h2>
-								<RadarGraph finalValues={finalValues}/>						
+								<RadarGraph finalValues={finalValues} adjustValues={this.adjustValues}/>						
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Decision Threshold</h2>

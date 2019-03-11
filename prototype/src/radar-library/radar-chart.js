@@ -2,21 +2,36 @@ import React, {Component} from 'react';
 
 import * as d3 from 'd3'
 
+
 export default class RadarChart extends Component {
 
 	state = {
-		d: this.props.data,
+		finalValues: this.props.finalValues,
+	}
+	
+	d = () => {
+		const finalValues = this.state.finalValues
+		return [
+			{axis: 'false positive rate', value: finalValues['fpr'], order:0}, 
+			{axis: 'recall', value: finalValues['recall'], order:1}, 
+			{axis: 'precision', value: finalValues['precision'], order:2},  
+		]	
 	}
 	
 	componentWillReceiveProps = (nextProps) => {
 		
 		this.setState({
-			d: nextProps.data,
+			finalValues: nextProps.finalValues,
 		})
-		this.draw(this.props.chart,this.state.d)
+		//this.draw(this.props.chart, this.d(), this.adjustValues)
 	}
 	
-  draw = (id, d, options) => {
+	adjustValues = (metric, value) => {
+		console.log("Adjujsting: ",metric,value)
+		this.props.adjustValues(metric,value)
+	}
+	
+  draw = (id, d, adjustValues, options) => {
 	//w should equal h
     var cfg = {
       radius: 6,
@@ -187,6 +202,9 @@ export default class RadarChart extends Component {
           newY = maxY;
         }
         newValue = (newY/oldY) * oldData.value;
+		
+		//ADJUST1
+		adjustValues('fpr',newValue)
       }
       else
       {
@@ -199,6 +217,9 @@ export default class RadarChart extends Component {
 
         var ratio = newX / oldX;
         newValue = ratio * oldData.value;
+		
+		/*console.log("newvalue2: ",newValue)
+		console.log("d[oldData.order]: ",d[oldData.order]['axis'])*/
       }
       
       dragTarget
@@ -207,16 +228,24 @@ export default class RadarChart extends Component {
       d[oldData.order].value=newValue;
       reCalculatePoints();
       drawPoly();
+	  
+	  //ADJUST2
+	  adjustValues(d[oldData.order]['axis'],newValue)
+
     }
 
   }
 	
 	componentDidMount = () => {
-		this.draw(this.props.chart,this.state.d)
+		const finalValues = this.state.finalValues
+
+		this.draw(this.props.chart, this.d(), this.adjustValues)
 		console.log("didmount")
 	}
   
 	render() {
+		this.draw(this.props.chart, this.d(), this.adjustValues)
+
 		return(
 			<div id="chart">
 				

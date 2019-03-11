@@ -21,7 +21,6 @@ export default class RadarGraph extends Component {
 	}
 	
 	componentDidMount = () => {
-		
 		//old radar
 		//this.adjustRadar()
 	}
@@ -56,19 +55,14 @@ export default class RadarGraph extends Component {
 	}*/
 
 	render () {
-		const {finalValues,} = this.state
-		
-		var data = [
-			{axis: 'false positive rate', value: finalValues['fpr'], order:0}, 
-			{axis: 'recall', value: finalValues['recall'], order:1}, 
-			{axis: 'precision', value: finalValues['precision'], order:2},  
-        ]
+		const {finalValues} = this.state
 		
 		return (
 			<div id='visualisationRadar'>
 				{finalValues ? 
-					<RadarChart chart={'#chart'} data={data}/>
-
+					<div>
+						<RadarChart chart={'#chart'} adjustValues={this.props.adjustValues} finalValues={finalValues}/>
+					</div>
 				: ''}
 			</div>
 		)

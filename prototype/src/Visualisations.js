@@ -122,9 +122,10 @@ export default class Visualisations extends Component {
 	}
 	
 	setNewThreshold = (thresholdValue) => {
-		console.log("setNewThreshold: ", thresholdValue)
 		this.setState({
 			goMetric: 'threshold',
+			//TODO this way?
+			//metricValue: this.findClosestValue('threshold',thresholdValue),
 			metricValue: thresholdValue,
 		}, () => {this.setNewValues()})
 	}

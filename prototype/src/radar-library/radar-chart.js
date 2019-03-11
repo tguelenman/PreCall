@@ -4,18 +4,30 @@ import * as d3 from 'd3'
 
 export default class RadarChart extends Component {
 
+	state = {
+		d: this.props.data,
+	}
+	
+	componentWillReceiveProps = (nextProps) => {
+		
+		this.setState({
+			d: nextProps.data,
+		})
+		this.draw(this.props.chart,this.state.d)
+	}
+	
   draw = (id, d, options) => {
 	//w should equal h
     var cfg = {
       radius: 6,
-      w: 600,
-      h: 600,
+      w: 500,
+      h: 500,
       factor: 1,
       factorLegend: .85,
       levels: 3,
-      maxValue: 0,
+      maxValue: 1,
       radians: 2 * Math.PI,
-      opacityArea: 0.5,
+      opacityArea: 0,
       color: d3.scaleOrdinal(d3.schemeCategory10)
     };
     if('undefined' !== typeof options){
@@ -200,15 +212,14 @@ export default class RadarChart extends Component {
   }
 	
 	componentDidMount = () => {
-		this.draw(this.props.chart,this.props.data)
+		this.draw(this.props.chart,this.state.d)
+		console.log("didmount")
 	}
   
 	render() {
 		return(
-			<div>
-				<div id="chart">
-					
-				</div>
+			<div id="chart">
+				
 			</div>
 		)
 	

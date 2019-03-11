@@ -32,3 +32,6 @@
 	stroke-width: 5px;
 	stroke: black;
 }
+
+#chart > svg{
+}

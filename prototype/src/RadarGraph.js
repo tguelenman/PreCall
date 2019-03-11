@@ -59,9 +59,9 @@ export default class RadarGraph extends Component {
 		const {finalValues,} = this.state
 		
 		var data = [
-			{axis: "strength", value: 13, order:0}, 
-			{axis: "intelligence", value: 1, order:1}, 
-			{axis: "charisma", value: 8, order:2},  
+			{axis: 'false positive rate', value: finalValues['fpr'], order:0}, 
+			{axis: 'recall', value: finalValues['recall'], order:1}, 
+			{axis: 'precision', value: finalValues['precision'], order:2},  
         ]
 		
 		return (

@@ -29,7 +29,6 @@ export default class App extends Component {
 	render() {
 		const { activeItem, oresEnComplete } = this.state
 		var optUrlGen = <OptUrlGen/>
-		console.log("hi: ",this.state.oresEnComplete)
 		var visualisations = <Visualisations data={this.state.oresEnComplete}/>
 
 		return (

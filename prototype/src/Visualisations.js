@@ -60,12 +60,19 @@ export default class Visualisations extends Component {
 	}
 	
 	adjustValues = (metric, value) => {
-		this.setState({
+		console.log("OMEGA-Adjust: ",metric,this.findClosestValue(metric,value))
+		/*this.setState({
 			goMetric: metric,
 			metricValue: this.findClosestValue(metric, value)
 		}, () => {
 			this.setNewValues()
-		})
+		})*/
+		this.setState({
+			goMetric: metric,
+			//TODO this way?
+			//metricValue: this.findClosestValue('threshold',thresholdValue),
+			metricValue: this.findClosestValue(metric,value),
+		}, () => {this.setNewValues()})
 	}
 	
 	componentDidMount = () => {

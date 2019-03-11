@@ -39,9 +39,9 @@ export default class RadarChart extends Component {
       h: 500,
       factor: 1,
       factorLegend: .85,
-      levels: 3,
+      levels: 5,
       maxValue: 1,
-      radians: 2 * Math.PI,
+      radians: 4 * Math.PI,
       opacityArea: 0,
       color: d3.scaleOrdinal(d3.schemeCategory10)
     };
@@ -191,17 +191,24 @@ export default class RadarChart extends Component {
 
       var oldData = dragTarget.data()[0];
       var oldX = parseFloat(dragTarget.attr("cx")) - cfg["w"]/2;
-      var oldY = cfg["w"]/2 - parseFloat(dragTarget.attr("cy"));
+      var oldY = cfg["h"]/2 - parseFloat(dragTarget.attr("cy"));
       var newY = 0, newX = 0, newValue = 0;
       var maxX = maxAxisValues[i].x - cfg["w"]/2;
-      var maxY = cfg["w"]/2 - maxAxisValues[i].y;
+      var maxY = cfg["h"]/2 - maxAxisValues[i].y;
 
       if(oldX == 0) {
         newY = oldY - d3.event.dy;
-        if(Math.abs(newY) > Math.abs(maxY)) {
+        /*if(Math.abs(newY) > Math.abs(maxY)) {
           newY = maxY;
-        }
+        }*/
         newValue = (newY/oldY) * oldData.value;
+		
+		//value limits
+		if (newValue < 0){
+			newValue = 0
+		} else if (newValue > 1){
+			newValue = 1
+		}
 		
 		//ADJUST1
 		adjustValues('fpr',newValue)
@@ -210,16 +217,21 @@ export default class RadarChart extends Component {
       {
         var slope = oldY / oldX;    
         newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - cfg["w"]/2;
-        if(Math.abs(newX) > Math.abs(maxX)) {
+        /*if(Math.abs(newX) > Math.abs(maxX)) {
           newX = maxX;
-        }
+        }*/
         newY = newX * slope;
 
         var ratio = newX / oldX;
         newValue = ratio * oldData.value;
 		
-		/*console.log("newvalue2: ",newValue)
-		console.log("d[oldData.order]: ",d[oldData.order]['axis'])*/
+		//value limits
+		if (newValue < 0){
+			newValue = 0
+		} else if (newValue > 1){
+			newValue = 1
+		}
+
       }
       
       dragTarget
@@ -237,15 +249,16 @@ export default class RadarChart extends Component {
   }
 	
 	componentDidMount = () => {
-		const finalValues = this.state.finalValues
-
-		this.draw(this.props.chart, this.d(), this.adjustValues)
-		console.log("didmount")
+		this.setState({
+			didMount: true,
+		})
 	}
   
 	render() {
-		this.draw(this.props.chart, this.d(), this.adjustValues)
-
+		if (this.state.didMount){
+			this.draw(this.props.chart, this.d(), this.adjustValues)
+		}
+			
 		return(
 			<div id="chart">
 				

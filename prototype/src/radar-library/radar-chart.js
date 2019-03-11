@@ -5,6 +5,7 @@ import * as d3 from 'd3'
 export default class RadarChart extends Component {
 
   draw = (id, d, options) => {
+	//w should equal h
     var cfg = {
       radius: 6,
       w: 600,
@@ -162,11 +163,11 @@ export default class RadarChart extends Component {
       var dragTarget = d3.select(this);
 
       var oldData = dragTarget.data()[0];
-      var oldX = parseFloat(dragTarget.attr("cx")) - 300;
-      var oldY = 300 - parseFloat(dragTarget.attr("cy"));
+      var oldX = parseFloat(dragTarget.attr("cx")) - cfg["w"]/2;
+      var oldY = cfg["w"]/2 - parseFloat(dragTarget.attr("cy"));
       var newY = 0, newX = 0, newValue = 0;
-      var maxX = maxAxisValues[i].x - 300;
-      var maxY = 300 - maxAxisValues[i].y;
+      var maxX = maxAxisValues[i].x - cfg["w"]/2;
+      var maxY = cfg["w"]/2 - maxAxisValues[i].y;
 
       if(oldX == 0) {
         newY = oldY - d3.event.dy;
@@ -178,7 +179,7 @@ export default class RadarChart extends Component {
       else
       {
         var slope = oldY / oldX;    
-        newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - 300;
+        newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - cfg["w"]/2;
         if(Math.abs(newX) > Math.abs(maxX)) {
           newX = maxX;
         }
@@ -189,8 +190,8 @@ export default class RadarChart extends Component {
       }
       
       dragTarget
-          .attr("cx", function(){return newX + 300 ;})
-          .attr("cy", function(){return 300 - newY;});
+          .attr("cx", function(){return newX + cfg["w"]/2 ;})
+          .attr("cy", function(){return cfg["w"]/2 - newY;});
       d[oldData.order].value=newValue;
       reCalculatePoints();
       drawPoly();
@@ -199,7 +200,7 @@ export default class RadarChart extends Component {
   }
 	
 	componentDidMount = () => {
-		this.draw(this.props.name,this.props.data)
+		this.draw(this.props.chart,this.props.data)
 	}
   
 	render() {

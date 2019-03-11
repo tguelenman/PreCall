@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import Radar from 'react-d3-radar'
+//old radar
+//import Radar from 'react-d3-radar'
+import RadarChart from './radar-library/radar-chart.js'
 
 import './styling/RadarGraph.css'
 
@@ -12,15 +14,20 @@ export default class RadarGraph extends Component {
 	componentWillReceiveProps = (nextProps) => {
 		this.setState({
 			finalValues: nextProps.finalValues,
-		}, () => { this.adjustRadar() })
+		}
+		//old radar
+		//, () => { this.adjustRadar() })
+		)
 	}
 	
 	componentDidMount = () => {
 		
-		this.adjustRadar()
+		//old radar
+		//this.adjustRadar()
 	}
 	
-	adjustRadar = () => {
+	//old radar
+	/*adjustRadar = () => {
 	
 		//adjust Radar Chart handles
 		var allCircles = document.getElementsByTagName('circle')
@@ -46,12 +53,26 @@ export default class RadarGraph extends Component {
 	coordinates = (circle) => {
 		
 		return circle['cx']['baseVal']['valueAsString']+','+circle['cy']['baseVal']['valueAsString']
-	}
+	}*/
 
 	render () {
 		const {finalValues,} = this.state
-
+		
+		var data = [
+			{axis: "strength", value: 13, order:0}, 
+			{axis: "intelligence", value: 1, order:1}, 
+			{axis: "charisma", value: 8, order:2},  
+        ]
+		
 		return (
+			<div id='visualisationRadar'>
+				{finalValues ? 
+					<RadarChart chart={'#chart'} data={data}/>
+
+				: ''}
+			</div>
+		)
+		/*return (
 			<div id='visualisationRadar'>
 				{finalValues ? 
 					<Radar
@@ -60,13 +81,6 @@ export default class RadarGraph extends Component {
 						padding={70}
 						domainMax={1}
 						highlighted={null}
-						/*onHover={(point) => {
-						if (point) {
-							console.log('hovered over a data point');
-						} else {
-							console.log('not over anything');
-							}
-						}}*/
 						data={{
 							variables: [
 								{key: 'fpr', label: 'false positive rate '+finalValues['fpr']},
@@ -89,6 +103,7 @@ export default class RadarGraph extends Component {
 					/> : ''
 				}
 			</div>
-		)
+		)*/
+		
 	}
 }

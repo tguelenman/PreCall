@@ -11,6 +11,10 @@ export default class RadarChart extends Component {
 	
 	d = () => {
 		const finalValues = this.state.finalValues
+		if (finalValues === undefined){
+			return false
+		}
+		console.log("newThreshold9: ",finalValues)
 		return [
 			{axis: 'false positive rate', value: finalValues['fpr'], order:0}, 
 			{axis: 'recall', value: finalValues['recall'], order:1}, 
@@ -22,12 +26,11 @@ export default class RadarChart extends Component {
 		
 		this.setState({
 			finalValues: nextProps.finalValues,
-		})
-		//this.draw(this.props.chart, this.d(), this.adjustValues)
+		}, () => {this.draw(this.props.chart, this.d(), this.adjustValues)})
+		
 	}
 	
 	adjustValues = (metric, value) => {
-		console.log("Adjujsting: ",metric,value)
 		this.props.adjustValues(metric,value)
 	}
 	
@@ -41,7 +44,7 @@ export default class RadarChart extends Component {
       factorLegend: .85,
       levels: 5,
       maxValue: 1,
-      radians: 4 * Math.PI,
+      radians: 2 * Math.PI,
       opacityArea: 0,
       color: d3.scaleOrdinal(d3.schemeCategory10)
     };
@@ -196,19 +199,20 @@ export default class RadarChart extends Component {
       var maxX = maxAxisValues[i].x - cfg["w"]/2;
       var maxY = cfg["h"]/2 - maxAxisValues[i].y;
 
-      if(oldX == 0) {
+      if(oldX === 0) {
         newY = oldY - d3.event.dy;
-        /*if(Math.abs(newY) > Math.abs(maxY)) {
+        if(Math.abs(newY) > Math.abs(maxY)) {
           newY = maxY;
-        }*/
+        }
         newValue = (newY/oldY) * oldData.value;
 		
+		/*
 		//value limits
 		if (newValue < 0){
 			newValue = 0
 		} else if (newValue > 1){
 			newValue = 1
-		}
+		}*/
 		
 		//ADJUST1
 		adjustValues('fpr',newValue)
@@ -217,20 +221,24 @@ export default class RadarChart extends Component {
       {
         var slope = oldY / oldX;    
         newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - cfg["w"]/2;
-        /*if(Math.abs(newX) > Math.abs(maxX)) {
+        if(Math.abs(newX) > Math.abs(maxX)) {
           newX = maxX;
-        }*/
+        }
         newY = newX * slope;
 
         var ratio = newX / oldX;
         newValue = ratio * oldData.value;
 		
+		/*
 		//value limits
 		if (newValue < 0){
 			newValue = 0
 		} else if (newValue > 1){
 			newValue = 1
-		}
+		}*/
+		
+		//ADJUST2
+	  adjustValues(d[oldData.order]['axis'],newValue)
 
       }
       
@@ -241,8 +249,7 @@ export default class RadarChart extends Component {
       reCalculatePoints();
       drawPoly();
 	  
-	  //ADJUST2
-	  adjustValues(d[oldData.order]['axis'],newValue)
+	  
 
     }
 
@@ -255,7 +262,7 @@ export default class RadarChart extends Component {
 	}
   
 	render() {
-		if (this.state.didMount){
+		if (this.state.didMount && this.d()){
 			this.draw(this.props.chart, this.d(), this.adjustValues)
 		}
 			

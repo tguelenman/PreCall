@@ -36,10 +36,14 @@ export default class Visualisations extends Component {
 
 	setNewValues = () => {
 		const { goMetric, metricValue, data } = this.state
+		console.log(goMetric === 'threshold')
+		console.log("newThreshold3: ",metricValue)
 		
 		//find the closest existing value to the specified one
 		//(metricValue is specified by the User)
 		const definitiveValue = this.findClosestValue(goMetric, metricValue)
+		console.log("----finding closest----")
+		console.log("newThreshold4: ",definitiveValue)
 		
 		//now find the index of an object (set of metric values)
 		//that corresponds to the specified metric and its definitiveValue
@@ -47,6 +51,12 @@ export default class Visualisations extends Component {
 
 		//with that index, get the object
 		const finalValues = data[indexOfDataObject]
+		
+		if (finalValues === undefined) {
+			return false
+		}
+		
+		console.log("newThreshold5: ",finalValues['threshold'])
 		
 		this.setState({
 			finalValues: finalValues,
@@ -59,20 +69,12 @@ export default class Visualisations extends Component {
 		}*/
 	}
 	
-	adjustValues = (metric, value) => {
-		console.log("OMEGA-Adjust: ",metric,this.findClosestValue(metric,value))
-		/*this.setState({
-			goMetric: metric,
-			metricValue: this.findClosestValue(metric, value)
-		}, () => {
-			this.setNewValues()
-		})*/
-		this.setState({
-			goMetric: metric,
-			//TODO this way?
-			//metricValue: this.findClosestValue('threshold',thresholdValue),
-			metricValue: this.findClosestValue(metric,value),
-		}, () => {this.setNewValues()})
+	adjustValues = (metric, metricValue) => {
+
+		const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
+		console.log("newThreshold0: ",newThreshold)
+		this.setNewThreshold(newThreshold)
+		
 	}
 	
 	componentDidMount = () => {
@@ -82,6 +84,17 @@ export default class Visualisations extends Component {
 				metricValue: 0.5,
 				didMountOnce: true,
 			}, () => { this.setNewValues() })
+		}
+	}
+	
+	findThresholdForMetricValue = (metric, metricValue) => {
+		const data = this.state.data
+		const existingValue = this.findClosestValue(metric, metricValue)
+		for (var entry in data){
+			if (existingValue === data[entry][metric]){
+				//TODO slightly different results possible...?
+				return data[entry]['threshold']
+			}
 		}
 	}
 	
@@ -104,7 +117,6 @@ export default class Visualisations extends Component {
 		}
 		
 		for (var i in metricArray){
-			//console.log("hi: ",metricValue, metricArray[i])
 			//the wanted value of the specified metric exists
 			if (metricArray[i] === metricValue) {
 				return metricValue
@@ -138,12 +150,16 @@ export default class Visualisations extends Component {
 	}
 	
 	setNewThreshold = (thresholdValue) => {
+		console.log("newThreshold1: ",thresholdValue)
 		this.setState({
 			goMetric: 'threshold',
 			//TODO this way?
 			//metricValue: this.findClosestValue('threshold',thresholdValue),
 			metricValue: thresholdValue,
-		}, () => {this.setNewValues()})
+		}, () => {
+				this.setNewValues()
+				console.log("newThreshold2: ",thresholdValue)
+			})
 	}
 	
 	render() {
@@ -151,9 +167,8 @@ export default class Visualisations extends Component {
 			finalValues, tellUserAboutChange, goMetric,
 			metricValue, 
 		} = this.state
-				
-		console.log("precision: ",finalValues['precision'])
-		
+						
+		console.log("newThreshold6: ",finalValues['threshold'])
 		return (
 
 			<div id='Visualisations'>				

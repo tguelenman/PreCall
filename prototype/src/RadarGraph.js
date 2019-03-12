@@ -56,7 +56,6 @@ export default class RadarGraph extends Component {
 
 	render () {
 		const {finalValues} = this.state
-		
 		return (
 			<div id='visualisationRadar'>
 				{finalValues ? 

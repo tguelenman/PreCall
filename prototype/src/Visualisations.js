@@ -36,14 +36,10 @@ export default class Visualisations extends Component {
 
 	setNewValues = () => {
 		const { goMetric, metricValue, data } = this.state
-		console.log(goMetric === 'threshold')
-		console.log("newThreshold3: ",metricValue)
 		
 		//find the closest existing value to the specified one
 		//(metricValue is specified by the User)
 		const definitiveValue = this.findClosestValue(goMetric, metricValue)
-		console.log("----finding closest----")
-		console.log("newThreshold4: ",definitiveValue)
 		
 		//now find the index of an object (set of metric values)
 		//that corresponds to the specified metric and its definitiveValue
@@ -56,8 +52,7 @@ export default class Visualisations extends Component {
 			return false
 		}
 		
-		console.log("newThreshold5: ",finalValues['threshold'])
-		
+		console.log("finalValues: ",finalValues)
 		this.setState({
 			finalValues: finalValues,
 			tellUserAboutChange: (definitiveValue !== metricValue),
@@ -72,9 +67,7 @@ export default class Visualisations extends Component {
 	adjustValues = (metric, metricValue) => {
 
 		const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
-		console.log("newThreshold0: ",newThreshold)
-		this.setNewThreshold(newThreshold)
-		
+		this.setNewThreshold(newThreshold)		
 	}
 	
 	componentDidMount = () => {
@@ -150,16 +143,12 @@ export default class Visualisations extends Component {
 	}
 	
 	setNewThreshold = (thresholdValue) => {
-		console.log("newThreshold1: ",thresholdValue)
 		this.setState({
 			goMetric: 'threshold',
 			//TODO this way?
 			//metricValue: this.findClosestValue('threshold',thresholdValue),
 			metricValue: thresholdValue,
-		}, () => {
-				this.setNewValues()
-				console.log("newThreshold2: ",thresholdValue)
-			})
+		}, () => {this.setNewValues()})
 	}
 	
 	render() {
@@ -168,7 +157,6 @@ export default class Visualisations extends Component {
 			metricValue, 
 		} = this.state
 						
-		console.log("newThreshold6: ",finalValues['threshold'])
 		return (
 
 			<div id='Visualisations'>				

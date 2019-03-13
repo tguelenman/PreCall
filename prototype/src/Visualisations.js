@@ -67,7 +67,11 @@ export default class Visualisations extends Component {
 	adjustValues = (metric, metricValue) => {
 
 		const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
-		this.setNewThreshold(newThreshold)		
+		if(newThreshold !== this.state.finalValues['threshold']){
+			//console.log("VS newValue: ",metricValue," -> threshold: ",newThreshold)
+			this.setNewThreshold(newThreshold)		
+		}
+		
 	}
 	
 	componentDidMount = () => {

@@ -207,7 +207,7 @@ export default class RadarChart extends Component {
 				newY = oldY - d3.event.dy
 				//console.log("newY1: ",newY)
 
-				//Workaround for 'jump' behavior of recall
+				//Workaround for 'jump' behavior of fpr
 				if(newY <0){
 					newY = newY+273
 				}

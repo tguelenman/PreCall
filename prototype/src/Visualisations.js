@@ -52,7 +52,6 @@ export default class Visualisations extends Component {
 			return false
 		}
 		
-		console.log("finalValues: ",finalValues)
 		this.setState({
 			finalValues: finalValues,
 			tellUserAboutChange: (definitiveValue !== metricValue),
@@ -68,8 +67,7 @@ export default class Visualisations extends Component {
 
 		const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
 		if(newThreshold !== this.state.finalValues['threshold']){
-			console.log("VS newValue: ",metricValue," -> threshold: ",newThreshold)
-			console.log("METRIK: ",metric)
+			//console.log("VS newValue: ",metricValue," -> threshold: ",newThreshold)
 			this.setNewThreshold(newThreshold)		
 		}
 		
@@ -150,8 +148,6 @@ export default class Visualisations extends Component {
 	setNewThreshold = (thresholdValue) => {
 		this.setState({
 			goMetric: 'threshold',
-			//TODO this way?
-			//metricValue: this.findClosestValue('threshold',thresholdValue),
 			metricValue: thresholdValue,
 		}, () => {this.setNewValues()})
 	}

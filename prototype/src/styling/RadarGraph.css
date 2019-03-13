@@ -4,7 +4,7 @@
 	height: 500px;
 }
 
-#visualisationRadar > svg > g > g > g > text{
+/*#visualisationRadar > svg > g > g > g > text{
 	font-family: Helvetica, Arial;
 	font-size: 15px;
 }
@@ -34,4 +34,22 @@
 }
 
 #chart > svg{
+}*/
+
+circle.radar-chart-serie0{
+	r: 9;
+	stroke-width: 3px;
+	stroke-opacity: 1;
+	opacity: 1;
+	stroke: black;
+	fill: white !important;
+}
+
+polygon.radar-chart-serie0{
+	stroke-width: 4px !important;
+	stroke-color: linear-gradient(red, blue) !important;
+}
+
+#chart > svg > g > g > text{
+	font-size: 12px !important;
 }

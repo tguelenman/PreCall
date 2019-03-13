@@ -205,18 +205,20 @@ export default class RadarChart extends Component {
 			if(oldX === 0) {
 
 				newY = oldY - d3.event.dy
+				//console.log("newY1: ",newY)
 
-				if(Math.abs(newY) > Math.abs(maxY)) {
-					if(newY <0){
-						newY = newY+273
-					} /*else {
-						newY = maxY
-					}*/
+				if(newY <0){
+					newY = newY+273
 				}
-				console.log("newY: ",newY)
-				console.log("maxY: ",maxY)
+				
+				if(Math.abs(newY) > Math.abs(maxY)) {
+					newY = maxY
+				}
+				
+				//console.log("newY2: ",newY)
+				//console.log("maxY: ",maxY)
 				newValue = (newY/oldY) * oldData.value
-				console.log("newValue: ",newValue)
+				//console.log("newValue: ",newValue)
 
 				/*
 				//value limits
@@ -226,8 +228,6 @@ export default class RadarChart extends Component {
 					newValue = 1
 				}*/
 
-				//ADJUST1
-				adjustValues('fpr',newValue)
 			}
 			else{
 				var slope = oldY / oldX;    
@@ -277,7 +277,11 @@ export default class RadarChart extends Component {
 			reCalculatePoints()
 			drawPoly()
 
-			adjustValues(d[oldData.order]['axis'],newValue)
+			if(d[oldData.order]['axis'] === 'false positive rate'){
+				adjustValues('fpr',newValue)
+			} else {
+				adjustValues(d[oldData.order]['axis'],newValue)
+			}
 		}
 	  }
 	

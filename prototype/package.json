@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "chart.js": "^2.7.3",
     "d3": "^5.9.1",
     "d3.js": "0.0.2-security",
     "gradient-barchart": "^1.0.0",

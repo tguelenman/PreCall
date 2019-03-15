@@ -27,7 +27,7 @@ export default class ConfusionDistribution extends Component {
 		
 		if(metricValues) {
 				
-			//Calculate how many TN/FN/TP/FP we have		
+			//Calculate TN/FN/TP/FP	in %	
 			const filters = Math.round(100*metricValues['filter_rate'])
 			const matches = Math.round(100*metricValues['match_rate'])
 			

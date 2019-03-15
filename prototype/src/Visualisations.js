@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { 
 	Select, Button, Input, 
 	} from 'semantic-ui-react'
-import RadarGraph from './RadarGraph.js'
+import RadarChart from './RadarChart.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
 import PreviewLegend from './PreviewLegend.js'
+import ConfusionFilter from './ConfusionFilter.js'
 
 import './styling/Visualisations.css';
 
@@ -21,7 +22,6 @@ export default class Visualisations extends Component {
 	state = {
 		goMetric: 'recall',
 		metricValue: '',
-		data: this.props.data,
 		tellUserAboutChange: false,
 		finalValues: '',
 	}
@@ -35,7 +35,8 @@ export default class Visualisations extends Component {
 	}
 
 	setNewValues = () => {
-		const { goMetric, metricValue, data } = this.state
+		const { goMetric, metricValue } = this.state
+		const data = this.props.data
 		
 		//find the closest existing value to the specified one
 		//(metricValue is specified by the User)
@@ -84,7 +85,7 @@ export default class Visualisations extends Component {
 	}
 	
 	findThresholdForMetricValue = (metric, metricValue) => {
-		const data = this.state.data
+		const data = this.props.data
 		const existingValue = this.findClosestValue(metric, metricValue)
 		for (var entry in data){
 			if (existingValue === data[entry][metric]){
@@ -95,7 +96,7 @@ export default class Visualisations extends Component {
 	}
 	
 	findClosestValue = (metric, metricValue) => {
-		const data = this.state.data
+		const data = this.props.data
 		
 		//create array with all values of specified metric
 		var metricArray = []
@@ -167,7 +168,7 @@ export default class Visualisations extends Component {
 						<div id='paramsAndThreshold'>
 							<div id='parameters'>
 								<h2 className='title'>Parameters</h2>
-								<RadarGraph finalValues={finalValues} adjustValues={this.adjustValues}/>						
+								<RadarChart chart={'#chart'} finalValues={finalValues} adjustValues={this.adjustValues}/>						
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Decision Threshold</h2>
@@ -182,6 +183,9 @@ export default class Visualisations extends Component {
 						
 					</div> : ''
 				}
+				<hr className="dividerClass"/>
+
+				<ConfusionFilter data={this.props.data}/>
 				
 				<hr className="dividerClass"/>
 				

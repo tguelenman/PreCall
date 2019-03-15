@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import * as d3 from 'd3'
+import './styling/RadarGraph.css'
 
 
 export default class RadarChart extends Component {
@@ -22,8 +23,7 @@ export default class RadarChart extends Component {
 	}
 	
 	componentWillReceiveProps = (nextProps) => {
-		
-		
+
 		//only change something if props really have changed
 		//if (this.state.finalValues !== nextProps.finalValues){
 			this.setState({
@@ -102,8 +102,6 @@ export default class RadarChart extends Component {
 					.attr('class', 'radarBackgroundCircle')
 					.style('fill','grey').style('fill-opacity', 0.1)
 			}
-
-			
 		}
 		
 		function drawAxis(){
@@ -217,7 +215,6 @@ export default class RadarChart extends Component {
 			if(oldX === 0) {
 
 				newY = oldY - d3.event.dy
-				//console.log("newY1: ",newY)
 
 				//Workaround for 'jump' behavior of fpr
 				if(newY <0){
@@ -246,7 +243,6 @@ export default class RadarChart extends Component {
 				
 				//Workaround for 'jump' behavior of precision
 				if(maxX > 0 && newX > maxX) {
-					console.log("we here?")
 					if(Math.abs(newX) > 270){
 						newX = newX-298
 					}
@@ -258,14 +254,9 @@ export default class RadarChart extends Component {
 				} 				
 				//Workaround for 'jump' behavior of recall
 				else if (maxX < 0 &&  newX > 0){
-					console.log("newX1: ",newX)
-
 					newX = newX -298
-					
-					console.log("newX2: ",newX)
 				}
 				//Workaround end
-				console.log("newX3: ",newX)
 				newY = newX * slope
 
 				var ratio = newX / oldX
@@ -304,14 +295,24 @@ export default class RadarChart extends Component {
 	}
   
 	render() {
+		
+		const finalValues = this.state.finalValues
+		
 		if (this.state.didMount && this.d()){
 			this.draw(this.props.chart, this.d(), this.adjustValues)
 		}
 			
 		return(
-			<div id="chart">
-				
+			<div id='visualisationRadar'>
+				{finalValues ? 
+					<div id="chart">
+						
+					</div>
+				: ''}
 			</div>
+
+
+
 		)
 	
 

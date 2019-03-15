@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import * as d3 from 'd3'
-import './styling/RadarGraph.css'
+import './styling/RadarChart.css'
 
 
 export default class RadarChart extends Component {
@@ -11,7 +11,7 @@ export default class RadarChart extends Component {
 	}
 	
 	d = () => {
-		const finalValues = this.state.finalValues
+		const finalValues = this.props.finalValues
 		if (finalValues === undefined){
 			return false
 		}
@@ -26,13 +26,18 @@ export default class RadarChart extends Component {
 
 		//only change something if props really have changed
 		//if (this.state.finalValues !== nextProps.finalValues){
-			this.setState({
-				oldFinalValues: this.state.finalValues,
-				finalValues: nextProps.finalValues,
-			},() => {this.draw(this.props.chart, this.d(), this.adjustValues)})
+			
 		//}
 		
-		this.draw(this.props.chart, this.d(), this.adjustValues)
+		//TODO?
+		//this.draw(this.props.chart, this.d(), this.adjustValues)
+
+	}
+	
+	componentDidMount = () => {
+		this.setState({
+			didMount: true,
+		})
 	}
 	
 	adjustValues = (metric, value) => {
@@ -83,15 +88,6 @@ export default class RadarChart extends Component {
 		drawnode()
 
 		function drawFrame(){
-			/*for(var j=0; j<cfg.levels; j++){
-			var levelFactor = cfg.factor*radius*((j+1)/cfg.levels)
-				g.selectAll(".levels").data(allAxis).enter().append("svg:line")
-					.attr("x1", function(d, i){return levelFactor*(1-cfg.factor*Math.sin(i*cfg.radians/total))})
-					.attr("y1", function(d, i){return levelFactor*(1-cfg.factor*Math.cos(i*cfg.radians/total))})
-					.attr("x2", function(d, i){return levelFactor*(1-cfg.factor*Math.sin((i+1)*cfg.radians/total))})
-					.attr("y2", function(d, i){return levelFactor*(1-cfg.factor*Math.cos((i+1)*cfg.radians/total))})
-					.attr("class", "line").style("stroke", "grey").style("stroke-width", "0.5px").attr("transform", "translate(" + (cfg.w/2-levelFactor) + ", " + (cfg.h/2-levelFactor) + ")")
-			}*/
 			
 			const levelFactor = (cfg.w / cfg.levels / 2)
 			for(var i = 1; i <= cfg.levels; i++){
@@ -145,12 +141,12 @@ export default class RadarChart extends Component {
 					.style("stroke-width", "2px")
 					.style("stroke", cfg.color(0))
 					.on('mouseover', function (d){
-					  var z = "polygon."+d3.select(this).attr("class");
-					  g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
-					  g.selectAll(z).transition(200).style("fill-opacity", 0.7)
+						var z = "polygon."+d3.select(this).attr("class");
+						g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
+						g.selectAll(z).transition(200).style("fill-opacity", 0.7)
 					})
 					.on('mouseout', function(){
-					  g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
+						g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
 					})
 					.style("fill", function(j, i){return cfg.color(0)})
 					.style("fill-opacity", cfg.opacityArea)
@@ -167,34 +163,34 @@ export default class RadarChart extends Component {
 		}
 		
 		function drawnode(){    
-		  g.selectAll(".nodes")
-			.data(d).enter()
-			.append("svg:circle").attr("class", "radar-chart-serie0")
-			.attr('r', cfg.radius)
-			.attr("alt", function(j){return Math.max(j.value, 0)})
-			.attr("cx", function(j, i){
-			  return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total))
-			})
-			.attr("cy", function(j, i){
-			  return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-			})
-			.attr("data-id", function(j){return j.axis;})
-			.style("fill", cfg.color(0)).style("fill-opacity", 0.9)
-			.on('mouseover', function (d){
-						var newX =  parseFloat(d3.select(this).attr('cx')) - 10
-						var newY =  parseFloat(d3.select(this).attr('cy')) - 5
-						tooltip.attr('x', newX).attr('y', newY).text(d.value).transition(200).style('opacity', 1)
-						var z = "polygon."+d3.select(this).attr("class")
-						g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
-						g.selectAll(z).transition(200).style("fill-opacity", 0.7)
-			})
-			.on('mouseout', function(){
-						tooltip.transition(200).style('opacity', 0)
-						g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
-			})
-			.call(d3.drag().on("drag", move))// for drag & drop
-			.append("svg:title")
-			.text(function(j){return Math.max(j.value, 0)})
+			g.selectAll(".nodes")
+				.data(d).enter()
+				.append("svg:circle").attr("class", "radar-chart-serie0")
+				.attr('r', cfg.radius)
+				.attr("alt", function(j){return Math.max(j.value, 0)})
+				.attr("cx", function(j, i){
+					return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total))
+				})
+				.attr("cy", function(j, i){
+					return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+				})
+				.attr("data-id", function(j){return j.axis;})
+				.style("fill", cfg.color(0)).style("fill-opacity", 0.9)
+				.on('mouseover', function (d){
+					var newX =  parseFloat(d3.select(this).attr('cx')) - 10
+					var newY =  parseFloat(d3.select(this).attr('cy')) - 5
+					tooltip.attr('x', newX).attr('y', newY).text(d.value).transition(200).style('opacity', 1)
+					var z = "polygon."+d3.select(this).attr("class")
+					g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
+					g.selectAll(z).transition(200).style("fill-opacity", 0.7)
+				})
+				.on('mouseout', function(){
+					tooltip.transition(200).style('opacity', 0)
+					g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
+				})
+				.call(d3.drag().on("drag", move))// for drag & drop
+				.append("svg:title")
+				.text(function(j){return Math.max(j.value, 0)})
 		}
 
 		//Tooltip
@@ -287,16 +283,10 @@ export default class RadarChart extends Component {
 			}
 		}
 	  }
-	
-	componentDidMount = () => {
-		this.setState({
-			didMount: true,
-		})
-	}
   
 	render() {
 		
-		const finalValues = this.state.finalValues
+		const finalValues = this.props.finalValues
 		
 		if (this.state.didMount && this.d()){
 			this.draw(this.props.chart, this.d(), this.adjustValues)

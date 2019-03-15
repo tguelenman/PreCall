@@ -17,10 +17,11 @@ export default class ConfusionFilter extends Component {
 		var allTNs = []
 		var allFNs = []
 		
-		console.log("hi: ",data[0])
+		//console.log("data[0]: ",data[0])
 	}
 	
 	render () {
+		
 		
 		/*const filters = Math.round(100*metricValues['filter_rate'])
 		const matches = Math.round(100*metricValues['match_rate'])

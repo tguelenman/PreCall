@@ -33,8 +33,23 @@
 	stroke: black;
 }
 
-#chart > svg{
+
+#chart{
+	width: 400px;
+	height: 400px;
 }*/
+
+
+#chart{
+	display: flex;
+	justify-content: center;	
+}
+
+#chart > svg{
+	width: 450px;
+	height: 450px;
+	margin-left: 25px;
+}
 
 circle.radar-chart-serie0{
 	r: 9;
@@ -52,4 +67,9 @@ polygon.radar-chart-serie0{
 
 #chart > svg > g > g > text{
 	font-size: 12px !important;
+}
+
+.radarBackgroundCircle{
+	stroke: grey;
+	
 }

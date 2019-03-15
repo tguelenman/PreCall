@@ -43,8 +43,8 @@ export default class RadarChart extends Component {
 		//w should equal h
 		var cfg = {
 			radius: 6,
-			w: 500,
-			h: 500,
+			w: 400,
+			h: 400,
 			factor: 1,
 			factorLegend: .85,
 			levels: 5,
@@ -83,7 +83,7 @@ export default class RadarChart extends Component {
 		drawnode()
 
 		function drawFrame(){
-			for(var j=0; j<cfg.levels; j++){
+			/*for(var j=0; j<cfg.levels; j++){
 			var levelFactor = cfg.factor*radius*((j+1)/cfg.levels)
 				g.selectAll(".levels").data(allAxis).enter().append("svg:line")
 					.attr("x1", function(d, i){return levelFactor*(1-cfg.factor*Math.sin(i*cfg.radians/total))})
@@ -91,7 +91,19 @@ export default class RadarChart extends Component {
 					.attr("x2", function(d, i){return levelFactor*(1-cfg.factor*Math.sin((i+1)*cfg.radians/total))})
 					.attr("y2", function(d, i){return levelFactor*(1-cfg.factor*Math.cos((i+1)*cfg.radians/total))})
 					.attr("class", "line").style("stroke", "grey").style("stroke-width", "0.5px").attr("transform", "translate(" + (cfg.w/2-levelFactor) + ", " + (cfg.h/2-levelFactor) + ")")
+			}*/
+			
+			const levelFactor = (cfg.w / cfg.levels / 2)
+			for(var i = 1; i <= cfg.levels; i++){
+				g.append('svg:circle')
+					.attr('cx', cfg.w/2)
+					.attr('cy', cfg.h/2)
+					.attr('r', i*levelFactor)
+					.attr('class', 'radarBackgroundCircle')
+					.style('fill','grey').style('fill-opacity', 0.1)
 			}
+
+			
 		}
 		
 		function drawAxis(){
@@ -230,13 +242,13 @@ export default class RadarChart extends Component {
 			}
 			else{
 				var slope = oldY / oldX;    
-				newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - cfg["w"]/2
+				newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - cfg.w/2
 				
 				//Workaround for 'jump' behavior of precision
-				if(Math.abs(newX) > Math.abs(maxX)) {
-
+				if(maxX > 0 && newX > maxX) {
+					console.log("we here?")
 					if(Math.abs(newX) > 270){
-						newX = newX-260
+						newX = newX-298
 					}
 				//Workaround end
 				
@@ -246,10 +258,14 @@ export default class RadarChart extends Component {
 				} 				
 				//Workaround for 'jump' behavior of recall
 				else if (maxX < 0 &&  newX > 0){
-					newX = newX -260
+					console.log("newX1: ",newX)
+
+					newX = newX -298
+					
+					console.log("newX2: ",newX)
 				}
 				//Workaround end
-
+				console.log("newX3: ",newX)
 				newY = newX * slope
 
 				var ratio = newX / oldX
@@ -263,8 +279,6 @@ export default class RadarChart extends Component {
 					newValue = 1
 				}*/
 
-				//ADJUST2
-				//adjustValues(d[oldData.order]['axis'],newValue)
 			}
 
 			dragTarget

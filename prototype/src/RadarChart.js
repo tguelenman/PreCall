@@ -212,6 +212,14 @@ export default class RadarChart extends Component {
 				newY = oldY - d3.event.dy
 
 				//Workaround for 'jump' behavior of fpr
+				/*if(Math.abs(newY) > Math.abs(maxY)) {
+					newY = oldY
+				} else if (newY < 0 && Math.abs(newY - oldY) > 10) {
+					newY = oldY
+				} else if (newY < 0) {
+					newY = 0
+				}*/
+				
 				if(newY <0){
 					newY = newY+273
 				}
@@ -223,47 +231,31 @@ export default class RadarChart extends Component {
 				
 				newValue = (newY/oldY) * oldData.value
 
-				/*
-				//value limits
-				if (newValue < 0){
-					newValue = 0
-				} else if (newValue > 1){
-					newValue = 1
-				}*/
 
 			}
 			else{
 				var slope = oldY / oldX;    
 				newX = d3.event.dx + parseFloat(dragTarget.attr("cx")) - cfg.w/2
 				
-				//Workaround for 'jump' behavior of precision
+				//Workaround for 'jump' behavior of precision...
 				if(maxX > 0 && newX > maxX) {
-					if(Math.abs(newX) > 270){
-						newX = newX-298
+					if(Math.abs(newX - maxX) > 10){
+						newX = oldX
 					}
-				//Workaround end
-				
-					else{
-						newX = maxX
-					}
-				} 				
-				//Workaround for 'jump' behavior of recall
+				} 			
+				//... and recall
 				else if (maxX < 0 &&  newX > 0){
-					newX = newX -298
+					if(Math.abs(newX - maxX) > 10){
+						newX = oldX
+					}
 				}
 				//Workaround end
+				
+				
 				newY = newX * slope
 
 				var ratio = newX / oldX
 				newValue = ratio * oldData.value
-
-				/*
-				//value limits
-				if (newValue < 0){
-					newValue = 0
-				} else if (newValue > 1){
-					newValue = 1
-				}*/
 
 			}
 

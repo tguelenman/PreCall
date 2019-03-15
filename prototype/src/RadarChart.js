@@ -7,7 +7,6 @@ import './styling/RadarChart.css'
 export default class RadarChart extends Component {
 
 	state = {
-		finalValues: this.props.finalValues,
 	}
 	
 	d = () => {
@@ -134,22 +133,22 @@ export default class RadarChart extends Component {
 		}
 
 		function initPolygon(){
-		  return g.selectAll("area").data([dataValues])
-					.enter()
-					.append("polygon")
-					.attr("class", "radar-chart-serie0")
-					.style("stroke-width", "2px")
-					.style("stroke", cfg.color(0))
-					.on('mouseover', function (d){
-						var z = "polygon."+d3.select(this).attr("class");
-						g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
-						g.selectAll(z).transition(200).style("fill-opacity", 0.7)
-					})
-					.on('mouseout', function(){
-						g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
-					})
-					.style("fill", function(j, i){return cfg.color(0)})
-					.style("fill-opacity", cfg.opacityArea)
+			return g.selectAll("area").data([dataValues])
+				.enter()
+				.append("polygon")
+				.attr("class", "radar-chart-serie0")
+				.style("stroke-width", "2px")
+				.style("stroke", cfg.color(0))
+				.on('mouseover', function (d){
+					var z = "polygon."+d3.select(this).attr("class");
+					g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
+					g.selectAll(z).transition(200).style("fill-opacity", 0.7)
+				})
+				.on('mouseout', function(){
+					g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
+				})
+				.style("fill", function(j, i){return cfg.color(0)})
+				.style("fill-opacity", cfg.opacityArea)
 		}
 
 		function drawPoly(){

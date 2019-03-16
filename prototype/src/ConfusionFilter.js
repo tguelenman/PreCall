@@ -44,7 +44,7 @@ export default class ConfusionFilter extends Component {
 		}
 		
 		this.setState({
-			'thresholds': thresholds,
+			thresholds: thresholds,
 			'allTPs': allTPs,
 			'allFPs': allFPs,
 			'allTNs': allTNs,
@@ -67,7 +67,6 @@ export default class ConfusionFilter extends Component {
 			
 			//get the maximum and the associated threshold 
 			wantedIndex = fullArray.indexOf(this.arrayMax(fullArray))
-			newThreshold = this.state.thresholds[wantedIndex]
 						
 		} else if (wantedValue === 'min'){
 			
@@ -77,20 +76,23 @@ export default class ConfusionFilter extends Component {
 						
 		
 		} else if (this.isNumber(wantedValue)) {
-			//this part is still buggy
 			//user passed value in %
-			const closestValueToInput = this.props.findClosestValue(false,wantedValue,fullArray)
-			console.log("closestValueToInput: ",closestValueToInput)
-			console.log("All ",sampleValue,": ",fullArray)
-			wantedIndex = fullArray.indexOf(closestValueToInput)
+			var closest = Infinity
+			var wantedIndex = 0
+			for (var i = 0; i < fullArray.length; i++){
+				if (Math.abs(wantedValue - fullArray[i]) < Math.abs(wantedValue - closest)){
+					closest = fullArray[i]
+					wantedIndex = i
+				}
+			}
+
 			newThreshold = this.state.thresholds[wantedIndex]
 			
 		} else {
 			return 
 		}
 		
-		console.log("wantedIndex: ",wantedIndex)
-		console.log("newThreshold: ",newThreshold)
+		newThreshold = this.state.thresholds[wantedIndex]
 		this.props.setNewThreshold(newThreshold)
 		
 	}
@@ -151,12 +153,12 @@ export default class ConfusionFilter extends Component {
 					<Button color='blue' onClick={() => this.setConfusion('FN','min')}>Minimize FNs</Button>
 				</div>
 				<hr className='dividerClass'/>
-				{/*<div>
+				<div>
 					<Button color='blue' onClick={() => this.setConfusion('TN',50)}>50% TNs</Button>
 					<Button color='red' onClick={() => this.setConfusion('FP',50)}>50% FPs</Button>
 					<Button color='red' onClick={() => this.setConfusion('TP',50)}>50% TPs</Button>
 					<Button color='blue' onClick={() => this.setConfusion('FN',50)}>50% FNs</Button>
-				</div>*/}
+				</div>
 			</div>
 		)
 	}

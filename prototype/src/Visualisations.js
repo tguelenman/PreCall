@@ -184,7 +184,7 @@ export default class Visualisations extends Component {
 				}
 				<hr className="dividerClass"/>
 
-				<ConfusionFilter data={this.props.data}/>
+				<ConfusionFilter data={this.props.data} setNewThreshold={this.setNewThreshold}/>
 				
 				<hr className="dividerClass"/>
 				

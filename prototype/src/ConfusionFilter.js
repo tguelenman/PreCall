@@ -22,18 +22,18 @@ export default class ConfusionFilter extends Component {
 		var thresholds = []
 		
 		for (var i=0; i < data.length; i++){
-			
+
 			//save threshold
 			thresholds.push(data[i].threshold)
 
 			//necessary constants
-			const matches = data[i].match_rate
-			const filters = data[i].filter_rate
+			const matches = Math.round(100*data[i]['match_rate'])
+			const filters = Math.round(100*data[i]['filter_rate'])
 
 			//calculate confusion values
-			const tp = matches*data[i].precision
+			const tp = Math.round(matches*data[i]['precision'])
 			const fp = matches-tp
-			const tn = filters*data[i]['!precision']
+			const tn = Math.round(filters*data[i]['!precision'])
 			const fn = filters-tn
 			
 			//fill arrays
@@ -75,8 +75,22 @@ export default class ConfusionFilter extends Component {
 			wantedIndex = fullArray.indexOf(this.arrayMin(fullArray))
 			newThreshold = this.state.thresholds[wantedIndex]
 						
+		
+		} else if (this.isNumber(wantedValue)) {
+			//this part is still buggy
+			//user passed value in %
+			const closestValueToInput = this.props.findClosestValue(false,wantedValue,fullArray)
+			console.log("closestValueToInput: ",closestValueToInput)
+			console.log("All ",sampleValue,": ",fullArray)
+			wantedIndex = fullArray.indexOf(closestValueToInput)
+			newThreshold = this.state.thresholds[wantedIndex]
+			
+		} else {
+			return 
 		}
 		
+		console.log("wantedIndex: ",wantedIndex)
+		console.log("newThreshold: ",newThreshold)
 		this.props.setNewThreshold(newThreshold)
 		
 	}
@@ -101,6 +115,10 @@ export default class ConfusionFilter extends Component {
 		return max
 	}
 	
+	isNumber = (n) => {
+		return !isNaN(parseFloat(n)) && !isNaN(n - 0) 
+	}
+
 	
 	render () {
 		
@@ -113,13 +131,9 @@ export default class ConfusionFilter extends Component {
 		tn = Math.round(filters*metricValues['!precision'])
 		fn = filters-tn*/
 		
-		
-		if(!this.state.allTPs){
+		if (!this.state.allTNs && !this.state.allFPs && !this.state.allTPs && !this.state.allFNs){
 			this.calculateConfusion()	
-		}
-		
-		
-		
+		}		
 		
 		return (
 			<div>
@@ -136,6 +150,13 @@ export default class ConfusionFilter extends Component {
 					<Button color='red' onClick={() => this.setConfusion('TP','min')}>Minimize TPs</Button>
 					<Button color='blue' onClick={() => this.setConfusion('FN','min')}>Minimize FNs</Button>
 				</div>
+				<hr className='dividerClass'/>
+				{/*<div>
+					<Button color='blue' onClick={() => this.setConfusion('TN',50)}>50% TNs</Button>
+					<Button color='red' onClick={() => this.setConfusion('FP',50)}>50% FPs</Button>
+					<Button color='red' onClick={() => this.setConfusion('TP',50)}>50% TPs</Button>
+					<Button color='blue' onClick={() => this.setConfusion('FN',50)}>50% FNs</Button>
+				</div>*/}
 			</div>
 		)
 	}

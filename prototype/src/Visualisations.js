@@ -94,21 +94,15 @@ export default class Visualisations extends Component {
 		}
 	}
 	
-	findClosestValue = (metric, metricValue, useThisArray) => {
+	findClosestValue = (metric, metricValue) => {
 		const data = this.props.data
 		
 		//create array with all values of specified metric
 		var metricArray = []
-		
-		if(useThisArray){
-			metricArray = useThisArray
+		for (var entry in data){
+			metricArray.push(data[entry][metric])
 		}
-		else{
-			for (var entry in data){
-				metricArray.push(data[entry][metric])
-			}
-		}
-		
+				
 		//ascending sort
 		metricArray.sort((a, b) => a - b)
 
@@ -190,7 +184,7 @@ export default class Visualisations extends Component {
 				}
 				<hr className="dividerClass"/>
 
-				<ConfusionFilter data={this.props.data} setNewThreshold={this.setNewThreshold} findClosestValue={this.findClosestValue}/>
+				<ConfusionFilter data={this.props.data} setNewThreshold={this.setNewThreshold}/>
 				
 				<hr className="dividerClass"/>
 				

@@ -130,9 +130,9 @@ export default class OptUrlGen extends Component {
 						<Form.Select name='minMax' fluid value={minMax} options={minMaxOptions} onChange={this.handleChange}/>
 						<Form.Select name='metric1' fluid value={metric1} placeholder='Metric 1' options={metricOptions} onChange={this.handleChange}/>
 						<p id="at">@</p>
-						<Form.Select name='metric2' fluid value={metric2} placeholder='Metric 2' options={metricOptions}  onChange={this.handleChange}/>
+						<Form.Select name='metric2' fluid value={metric2} placeholder='Metric 2' options={metricOptions} onChange={this.handleChange}/>
 						<Form.Select name='lg' fluid value={lg} options={glOptions}  onChange={this.handleChange}/>
-						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0'  onChange={this.handleChange}/>
+						<Form.Input name='metricFloat' fluid value={metricFloat} placeholder='value between 0.0 and 1.0' onChange={this.handleChange}/>
 					</Form.Group>
 					<Input className='outputUrl' name='outputUrl' value={this.state.outputUrl !== '' ? this.state.outputUrl : outputUrl} />
 					

@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Input, Select } from 'semantic-ui-react'
 import './styling/ConfusionFilter.css'
+
+const options = [
+	{ key: 'tn', text: 'TN', value: 'TN' },
+	{ key: 'fp', text: 'FP', value: 'FP' },
+	{ key: 'tp', text: 'TP', value: 'TP' },
+	{ key: 'fn', text: 'FN', value: 'FN' },
+]
 
 export default class ConfusionFilter extends Component {
 	
 	state = {
+		confOptParam: 'TN',
 	}
 
 	calculateConfusion = () => {
@@ -17,7 +25,6 @@ export default class ConfusionFilter extends Component {
 		var allTNs = []
 		var allFNs = []
 		
-		//TODO unnecessary?
 		//thresholds[i] will represent the threshold to obtain allTPs[i], allFPs[i] etc.
 		var thresholds = []
 		
@@ -121,17 +128,11 @@ export default class ConfusionFilter extends Component {
 		return !isNaN(parseFloat(n)) && !isNaN(n - 0) 
 	}
 
-	
+	handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
 	render () {
 		
-		
-		/*const filters = Math.round(100*metricValues['filter_rate'])
-		const matches = Math.round(100*metricValues['match_rate'])
-		
-		tp = Math.round(matches*metricValues['precision'])
-		fp = matches-tp
-		tn = Math.round(filters*metricValues['!precision'])
-		fn = filters-tn*/
+		const {confOptParam, confOptValue} = this.state
 		
 		if (!this.state.allTNs && !this.state.allFPs && !this.state.allTPs && !this.state.allFNs){
 			this.calculateConfusion()	
@@ -154,10 +155,11 @@ export default class ConfusionFilter extends Component {
 				</div>
 				<hr className='dividerClass'/>
 				<div>
-					<Button color='blue' onClick={() => this.setConfusion('TN',50)}>50% TNs</Button>
-					<Button color='red' onClick={() => this.setConfusion('FP',50)}>50% FPs</Button>
-					<Button color='red' onClick={() => this.setConfusion('TP',50)}>50% TPs</Button>
-					<Button color='blue' onClick={() => this.setConfusion('FN',50)}>50% FNs</Button>
+					<Input name='confOptValue' onChange={this.handleChange} type='text' placeholder='Value in %' action>
+						<input/>
+						<Select compact options={options} defaultValue='TN' name='confOptParam' onChange={this.handleChange}/>
+						<Button color='grey' type='submit' onClick={() => this.setConfusion(confOptParam,confOptValue)}>Optimize</Button>
+					</Input>
 				</div>
 			</div>
 		)

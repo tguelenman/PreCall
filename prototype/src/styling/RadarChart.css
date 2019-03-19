@@ -42,13 +42,15 @@
 
 #chart{
 	display: flex;
-	justify-content: center;	
+	justify-content: center;
 }
 
 #chart > svg{
-	width: 450px;
-	height: 450px;
-	margin-left: 25px;
+	width: 500px;
+	height: 500px;
+}
+
+#chart > svg > g {
 }
 
 circle.radar-chart-serie0{
@@ -65,11 +67,10 @@ polygon.radar-chart-serie0{
 	stroke-color: linear-gradient(red, blue) !important;
 }
 
-#chart > svg > g > g > text{
-	font-size: 12px !important;
+.legend{
+	font-size: 19px !important;
 }
 
 .radarBackgroundCircle{
 	stroke: grey;
-	
 }

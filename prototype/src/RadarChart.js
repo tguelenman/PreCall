@@ -50,7 +50,7 @@ export default class RadarChart extends Component {
 			w: 400,
 			h: 400,
 			factor: 1,
-			factorLegend: .85,
+			factorLegend: 0.85,
 			levels: 5,
 			maxValue: 1,
 			radians: 2 * Math.PI,
@@ -71,7 +71,7 @@ export default class RadarChart extends Component {
 		var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2)
 
 		d3.select(id).select("svg").remove()
-		var g = d3.select(id).append("svg").attr("width", cfg.w).attr("height", cfg.h).append("g")
+		var g = d3.select(id).append("svg").attr("width", cfg.w).attr("height", cfg.h).attr('viewBox','-20 -50 450 520').append("g")
 
 		var tooltip
 
@@ -95,13 +95,14 @@ export default class RadarChart extends Component {
 					.attr('cy', cfg.h/2)
 					.attr('r', i*levelFactor)
 					.attr('class', 'radarBackgroundCircle')
-					.style('fill','grey').style('fill-opacity', 0.1)
+					.style('fill','transparent')
+					//.style('fill','grey').style('fill-opacity', 0.1)
 			}
 		}
 		
 		function drawAxis(){
 			var axis = g.selectAll(".axis").data(allAxis).enter().append("g").attr("class", "axis")
-
+			
 			axis.append("line")
 			    .attr("x1", cfg.w/2)
 			    .attr("y1", cfg.h/2)
@@ -114,11 +115,37 @@ export default class RadarChart extends Component {
 					return maxAxisValues[i].y
 			    })
 			    .attr("class", "line").style("stroke", "grey").style("stroke-width", "1px")
-
-			axis.append("text").attr("class", "legend")
+				
+			//old legends
+			/*axis.append("text").attr("class", "legend")
 			    .text(function(d){return d}).style("font-family", "sans-serif").style("font-size", "10px").attr("transform", function(d, i){return "translate(0, -10)"})
 			    .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-20*Math.sin(i*cfg.radians/total)})
 			    .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))+20*Math.cos(i*cfg.radians/total)})
+				
+			//give labels unique classes (legend0, legend1, legend2)
+			var labelsCollection = g.selectAll('.legend')
+			var labels = labelsCollection['_groups'][0]	
+			for(var i=0; i<labels.length; i++){
+				labels[i].className.baseVal += ' legend'+i
+			}*/
+			
+			var svgCollection = d3.select(id).select("svg")
+			var svg = svgCollection['_groups'][0][0]
+						
+			axis.append('text').attr('class','legend')
+				.text('False positive rate')
+				.attr('x', 125)
+				.attr('y', -20)
+				
+			axis.append('text').attr('class','legend')
+				.text('Precision')
+				.attr('x', 380)
+				.attr('y', 330)
+
+			axis.append('text').attr('class','legend')
+				.text('Recall')
+				.attr('x', -30)
+				.attr('y', 330)
 		}
 
 		function reCalculatePoints(){
@@ -139,11 +166,13 @@ export default class RadarChart extends Component {
 				.attr("class", "radar-chart-serie0")
 				.style("stroke-width", "2px")
 				.style("stroke", cfg.color(0))
-				.on('mouseover', function (d){
+				
+				//fill effect on mouse hover
+				/*.on('mouseover', function (d){
 					var z = "polygon."+d3.select(this).attr("class");
 					g.selectAll("polygon").transition(200).style("fill-opacity", 0.1)
 					g.selectAll(z).transition(200).style("fill-opacity", 0.7)
-				})
+				})*/
 				.on('mouseout', function(){
 					g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea)
 				})

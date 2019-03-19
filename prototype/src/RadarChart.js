@@ -129,8 +129,6 @@ export default class RadarChart extends Component {
 				labels[i].className.baseVal += ' legend'+i
 			}*/
 			
-			var svgCollection = d3.select(id).select("svg")
-			var svg = svgCollection['_groups'][0][0]
 						
 			axis.append('text').attr('class','legend')
 				.text('False positive rate')

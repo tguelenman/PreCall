@@ -15,6 +15,10 @@ export default class ConfusionFilter extends Component {
 		confOptParam: 'TN',
 	}
 
+	round = (a) => {
+		return Number(Math.round(a+'e'+2)+'e-'+2)
+	}
+	
 	calculateConfusion = () => {
 		
 		const data = this.props.data
@@ -34,14 +38,14 @@ export default class ConfusionFilter extends Component {
 			thresholds.push(data[i].threshold)
 
 			//necessary constants
-			const matches = Math.round(100*data[i]['match_rate'])
-			const filters = Math.round(100*data[i]['filter_rate'])
-
-			//calculate confusion values
-			const tp = Math.round(matches*data[i]['precision'])
-			const fp = matches-tp
-			const tn = Math.round(filters*data[i]['!precision'])
-			const fn = filters-tn
+			const filters = this.round(100*data[i]['filter_rate'])
+			const matches = this.round(100*data[i]['match_rate'])
+					
+			//calculate confusion values					
+			const tp = this.round(matches*data[i]['precision'])
+			const fp = this.round(matches-tp)
+			const tn = this.round(filters*data[i]['!precision'])
+			const fn = this.round(filters-tn)
 			
 			//fill arrays
 			allTPs.push(tp)
@@ -85,7 +89,7 @@ export default class ConfusionFilter extends Component {
 		} else if (this.isNumber(wantedValue)) {
 			//user passed value in %
 			var closest = Infinity
-			var wantedIndex = 0
+			wantedIndex = 0
 			for (var i = 0; i < fullArray.length; i++){
 				if (Math.abs(wantedValue - fullArray[i]) < Math.abs(wantedValue - closest)){
 					closest = fullArray[i]

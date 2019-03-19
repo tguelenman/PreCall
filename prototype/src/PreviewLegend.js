@@ -9,7 +9,7 @@ export default class PreviewLegend extends React.Component {
 		return (
 			<div id='previewUpper'>
 				<h2 className='title' id='previewTitle'>Expected classification result</h2>
-				<div id='previewLegend'>
+				{/*<div id='previewLegend'>
 					<div className='legendRow'>
 						<div className='legendShapeContainer'>
 							<div className='bubble legendMargin'/>
@@ -24,7 +24,7 @@ export default class PreviewLegend extends React.Component {
 						</div>
 						<p className='legendLabel'>damaging</p>	
 					</div>
-				</div>
+				</div>*/}
 			</div>
 		)
 	}

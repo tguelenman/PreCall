@@ -11,6 +11,10 @@ export default class ConfusionDistribution extends Component {
 		this.setState({ metricValues: nextProps.metricValues })
 	}
 	
+	round = (a) => {
+		return Number(Math.round(a+'e'+2)+'e-'+2)
+	}
+		
 	render() {
 
 		const metricValues = this.state.metricValues
@@ -28,31 +32,66 @@ export default class ConfusionDistribution extends Component {
 		if(metricValues) {
 				
 			//Calculate TN/FN/TP/FP	in %	
-			const filters = Math.round(100*metricValues['filter_rate'])
-			const matches = Math.round(100*metricValues['match_rate'])
+			const filters = this.round(100*metricValues['filter_rate'])
+			const matches = this.round(100*metricValues['match_rate'])
+									
+			tp = this.round(matches*metricValues['precision'])
+			fp = this.round(matches-tp)
+			tn = this.round(filters*metricValues['!precision'])
+			fn = this.round(filters-tn)
 			
-			tp = Math.round(matches*metricValues['precision'])
-			fp = matches-tp
-			tn = Math.round(filters*metricValues['!precision'])
-			fn = filters-tn
-
+			/***fill containers with bubbles and triangles***/
+			//TPs
+			//fill with colored shapes
 			for (var index = 0; index < tp; index++){
 				tPContent.push(<div className='triangle' key={'tp'+ index.toString()}><div className='tp innerTriangle'/></div>)
 			}
-			
+			//fill up the rest with empty shapes			
+			for (index; index < 100; index++){
+				tPContent.push(							
+					<div className='triangle'>
+						<div className='innerTriangle legendTriangle'/>
+					</div>
+				)
+			}
+
+			//FNs
+			//fill with colored shapes
 			for (index = 0; index < fn; index++){
 				fNContent.push(<div className='triangle' key={'fn'+ index.toString()}><div className='fn innerTriangle'/></div>)
 			}
 			
+			//fill up the rest with empty shapes
+			for (index; index < 100; index++){
+				fNContent.push(							
+					<div className='triangle'>
+						<div className='innerTriangle legendTriangle'/>
+					</div>
+				)
+			}
+			
+			//TNs
+			//fill with colored shapes
 			for (index = 0; index < tn; index++){
 				tNContent.push(<div className='bubble tn' key={'tn'+ index.toString()}></div>)
 			}
 			
+			//fill up the rest with empty shapes
+			for (index; index < 100; index++){
+				tNContent.push(<div className='bubble'/>)
+			}
+
+			//FPs
+			//fill with colored shapes			
 			for (index = 0; index < fp; index++){
 				fPContent.push(<div className='bubble fp' key={'fp'+ index.toString()}></div>)
-			}			
+			}
+			
+			//fill up the rest with empty shapes
+			for (index; index < 100; index++){
+				fPContent.push(<div className='bubble'/>)
+			}
 		}
-		
 		
 		return (
 			<div id='DistributionDiv'>

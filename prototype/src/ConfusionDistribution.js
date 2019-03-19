@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import './styling/ConfusionDistribution.css'
-
+import ConfusionFilter from './ConfusionFilter.js'
 
 export default class ConfusionDistribution extends Component {
 	state = {
-		metricValues: this.props.metricValues
 	}
+	
 
 	componentWillReceiveProps = (nextProps) => {
-		this.setState({ metricValues: nextProps.metricValues })
+		this.setState({ finalValues: nextProps.finalValues })
 	}
 	
 	round = (a) => {
@@ -17,7 +17,7 @@ export default class ConfusionDistribution extends Component {
 		
 	render() {
 
-		const metricValues = this.state.metricValues
+		const finalValues = this.props.finalValues
 						
 		var tPContent = []
 		var fNContent = []
@@ -29,15 +29,15 @@ export default class ConfusionDistribution extends Component {
 		var tn
 		var fn
 		
-		if(metricValues) {
+		if(finalValues) {
 				
 			//Calculate TN/FN/TP/FP	in %	
-			const filters = this.round(100*metricValues['filter_rate'])
-			const matches = this.round(100*metricValues['match_rate'])
+			const filters = this.round(100*finalValues['filter_rate'])
+			const matches = this.round(100*finalValues['match_rate'])
 									
-			tp = this.round(matches*metricValues['precision'])
+			tp = this.round(matches*finalValues['precision'])
 			fp = this.round(matches-tp)
-			tn = this.round(filters*metricValues['!precision'])
+			tn = this.round(filters*finalValues['!precision'])
 			fn = this.round(filters-tn)
 			
 			/***fill containers with bubbles and triangles***/
@@ -96,6 +96,12 @@ export default class ConfusionDistribution extends Component {
 		return (
 			<div id='DistributionDiv'>
 				<div className='outerBubbleContainer'>
+					<ConfusionFilter data={this.props.data} 
+						setNewThreshold={this.props.setNewThreshold} 
+						currentThreshold={finalValues['threshold']} 
+						buttonsOnly={true}
+						sampleValue={'TN'}
+					/>
 					<div id='trueNegatives' className='bubbleContainer'>
 						{tNContent}
 						<div className='bubbleLabeling'>
@@ -107,6 +113,12 @@ export default class ConfusionDistribution extends Component {
 					</div>
 				</div>
 				<div className='outerBubbleContainer'>
+					<ConfusionFilter data={this.props.data} 
+						setNewThreshold={this.props.setNewThreshold} 
+						currentThreshold={finalValues['threshold']} 
+						buttonsOnly={true}
+						sampleValue={'FP'}
+					/>
 					<div id='falsePositives' className='bubbleContainer'>
 						{fPContent}
 						<div className='bubbleLabeling'>
@@ -118,6 +130,12 @@ export default class ConfusionDistribution extends Component {
 					</div>
 				</div>
 				<div className='outerBubbleContainer'>
+					<ConfusionFilter data={this.props.data} 
+						setNewThreshold={this.props.setNewThreshold} 
+						currentThreshold={finalValues['threshold']} 
+						buttonsOnly={true}
+						sampleValue={'TP'}
+					/>
 					<div id='truePositives' className='bubbleContainer'>
 						{tPContent}
 						<div className='bubbleLabeling'>
@@ -129,6 +147,12 @@ export default class ConfusionDistribution extends Component {
 					</div>
 				</div>
 				<div className='outerBubbleContainer'>
+					<ConfusionFilter data={this.props.data} 
+						setNewThreshold={this.props.setNewThreshold} 
+						currentThreshold={finalValues['threshold']} 
+						buttonsOnly={true}
+						sampleValue={'FN'}
+					/>
 					<div id='falseNegatives' className='bubbleContainer'>
 						{fNContent}
 						<div className='bubbleLabeling'>

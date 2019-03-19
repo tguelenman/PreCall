@@ -176,7 +176,7 @@ export default class Visualisations extends Component {
 						</div>
 						<div id='preview'>
 							<PreviewLegend/>
-							<ConfusionDistribution metricValues={finalValues}/>
+							<ConfusionDistribution data={this.props.data} finalValues={finalValues} setNewThreshold={this.setNewThreshold}/>
 						</div>
 
 						
@@ -184,7 +184,7 @@ export default class Visualisations extends Component {
 				}
 				<hr className="dividerClass"/>
 
-				<ConfusionFilter data={this.props.data} setNewThreshold={this.setNewThreshold}/>
+				<ConfusionFilter data={this.props.data} setNewThreshold={this.setNewThreshold} currentThreshold={finalValues['threshold']}/>
 				
 				<hr className="dividerClass"/>
 				
@@ -200,7 +200,6 @@ export default class Visualisations extends Component {
 					<p className='automaticValueChange'>Please choose a metric and a value.</p> }
 				
 				<hr className="dividerClass"/>
-
 				<div id='RadarInformation'>
 					<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
 				</div>

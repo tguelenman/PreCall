@@ -69,7 +69,7 @@ export default class ConfusionFilter extends Component {
 		//wantedValue = 'max', 'min', int
 		
 		//get the full array of TPs, FPs, ... from state, depending on what Button has been clicked
-		var fullArray = eval('this.state.' + 'all' + sampleValue +'s')
+		const fullArray = eval('this.state.' + 'all' + sampleValue +'s')
 		
 		var wantedIndex
 		var newThreshold
@@ -105,7 +105,22 @@ export default class ConfusionFilter extends Component {
 		
 		newThreshold = this.state.thresholds[wantedIndex]
 		this.props.setNewThreshold(newThreshold)
+	}
+	
+	pmConfusion = (sampleValue, plusMinus) => {
 		
+		//sampleValue = 'TP', 'FP', 'TN', 'FN'
+
+		const currentThreshold = this.props.currentThreshold
+		const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
+		
+		const fullArray = eval('this.state.' + 'all' + sampleValue +'s')
+		const currentConfusion = fullArray[wantedIndex]
+		if(plusMinus === '+'){
+			this.setConfusion(sampleValue,currentConfusion+1)
+		} else if (plusMinus === '-'){
+			this.setConfusion(sampleValue,currentConfusion-1)	
+		}
 	}
 	
 	arrayMin = (arr) => {
@@ -144,28 +159,67 @@ export default class ConfusionFilter extends Component {
 		
 		return (
 			<div>
-				<div>
-					<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>
-					<Button color='red' onClick={() => this.setConfusion('FP','max')}>Maximize FPs</Button>
-					<Button color='red' onClick={() => this.setConfusion('TP','max')}>Maximize TPs</Button>
-					<Button color='blue' onClick={() => this.setConfusion('FN','max')}>Maximize FNs</Button>
-				</div>
-				<hr className='dividerClass'/>
-				<div>
-					<Button color='blue' onClick={() => this.setConfusion('TN','min')}>Minimize TNs</Button>
-					<Button color='red' onClick={() => this.setConfusion('FP','min')}>Minimize FPs</Button>
-					<Button color='red' onClick={() => this.setConfusion('TP','min')}>Minimize TPs</Button>
-					<Button color='blue' onClick={() => this.setConfusion('FN','min')}>Minimize FNs</Button>
-				</div>
-				<hr className='dividerClass'/>
-				<div>
-					<Input name='confOptValue' onChange={this.handleChange} type='text' placeholder='Value in %' action>
-						<input/>
-						<Select compact options={options} defaultValue='TN' name='confOptParam' onChange={this.handleChange}/>
-						<Button color='grey' type='submit' onClick={() => this.setConfusion(confOptParam,confOptValue)}>Optimize</Button>
-					</Input>
-				</div>
+				{!this.props.buttonsOnly ?
+					<div>
+						<div>
+							<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>
+							<Button color='red' onClick={() => this.setConfusion('FP','max')}>Maximize FPs</Button>
+							<Button color='red' onClick={() => this.setConfusion('TP','max')}>Maximize TPs</Button>
+							<Button color='blue' onClick={() => this.setConfusion('FN','max')}>Maximize FNs</Button>
+						</div>
+						<hr className='dividerClass'/>
+						<div>
+							<Button color='blue' onClick={() => this.setConfusion('TN','min')}>Minimize TNs</Button>
+							<Button color='red' onClick={() => this.setConfusion('FP','min')}>Minimize FPs</Button>
+							<Button color='red' onClick={() => this.setConfusion('TP','min')}>Minimize TPs</Button>
+							<Button color='blue' onClick={() => this.setConfusion('FN','min')}>Minimize FNs</Button>
+						</div>
+						<hr className='dividerClass'/>
+						<div>
+							<Input name='confOptValue' onChange={this.handleChange} type='text' placeholder='Value in %' action>
+								<input/>
+								<Select compact options={options} defaultValue='TN' name='confOptParam' onChange={this.handleChange}/>
+								<Button color='grey' type='submit' onClick={() => this.setConfusion(confOptParam,confOptValue)}>Optimize</Button>
+							</Input>
+						</div>
+					</div>
+					:
+					<div className='plusMinusButtonGroup'>
+						<Button.Group vertical>
+							<Button onClick={() => this.pmConfusion(this.props.sampleValue,'+')}>+</Button>
+							<Button onClick={() => this.pmConfusion(this.props.sampleValue,'-')}>-</Button>
+						</Button.Group>
+						{/*<div>
+							<Button color='blue' onClick={() => this.pmConfusion('TN','+')}>+TN</Button>
+							<Button color='red' onClick={() => this.pmConfusion('FP','+')}>+FP</Button>
+							<Button color='red' onClick={() => this.pmConfusion('TP','+')}>+TP</Button>
+							<Button color='blue' onClick={() => this.pmConfusion('FN','+')}>+FN</Button>
+						</div>
+						<hr className='dividerClass'/>
+						<div>
+							<Button color='blue' onClick={() => this.pmConfusion('TN','-')}>-TN</Button>
+							<Button color='red' onClick={() => this.pmConfusion('FP','-')}>-FP</Button>
+							<Button color='red' onClick={() => this.pmConfusion('TP','-')}>-TP</Button>
+							<Button color='blue' onClick={() => this.pmConfusion('FN','-')}>-FN</Button>
+						</div>*/}
+					</div>
+				}
 			</div>
 		)
 	}
 }
+
+export class ConfusionButtons extends Component {
+	/*props: 
+	sampleValue: 'TN', ...
+	plusMinus: '+', '-'
+	*/
+	
+	render () {
+		return (
+			<div>
+
+			</div>
+		)
+	}
+}	

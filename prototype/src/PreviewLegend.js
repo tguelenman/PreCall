@@ -8,7 +8,7 @@ export default class PreviewLegend extends React.Component {
 		
 		return (
 			<div id='previewUpper'>
-				<h2 className='title' id='previewTitle'>Preview</h2>
+				<h2 className='title' id='previewTitle'>Expected classification result</h2>
 				<div id='previewLegend'>
 					<div className='legendRow'>
 						<div className='legendShapeContainer'>

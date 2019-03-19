@@ -163,14 +163,14 @@ export default class Visualisations extends Component {
 			<div id='Visualisations'>				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-						<h2 className='title' id='mainTitle'>ORES Human-Centered Parameter Optimization</h2>
-						<div id='paramsAndThreshold'>
-							<div id='parameters'>
-								<h2 className='title'>Parameters</h2>
+						<h2 className='title' id='mainTitle'>ORES Human-Centered Model Inspection</h2>
+						<div id='metricsAndThreshold'>
+							<div id='qualityMetrics'>
+								<h2 className='title'>Model quality metrics</h2>
 								<RadarChart chart={'#chart'} finalValues={finalValues} adjustValues={this.adjustValues}/>						
 							</div>
 							<div id='threshold'>
-								<h2 className='title'>Decision Threshold</h2>
+								<h2 className='title'>Threshold good / damaging</h2>
 								<ThresholdBar threshold={finalValues['threshold']} newOverallThreshold={this.setNewThreshold} /> 
 							</div>
 						</div>

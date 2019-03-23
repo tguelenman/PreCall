@@ -266,9 +266,7 @@ export default class RadarChart extends Component {
 					newY = 0
 				}*/
 				
-				if(newY === 0 && oldY === 0){
-					newY = 1
-				} else if(newY <= 0){
+				if(newY < 0 && oldY){
 					newY = oldY
 				}
 				//Workaround end

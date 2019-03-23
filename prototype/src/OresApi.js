@@ -1,7 +1,5 @@
 import Request from 'superagent';
 
-import './styling/MetricsGetRequest.css';
-
 export const OresApi = {
 	getAll: function(cb){
 		Request

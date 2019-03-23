@@ -14,10 +14,28 @@ export default class RadarChart extends Component {
 		if (finalValues === undefined){
 			return false
 		}
+
+		var fpr = finalValues['fpr']
+		var recall = finalValues['recall']
+		var precision = finalValues['precision']
+		
+		/*
+		//TODO experimental
+		if(fpr === null) {
+			fpr = 0
+		}
+		if(recall === null) {
+			recall = 0
+		}
+		if(precision === null) {
+			precision = 0
+		}
+		*/
+		
 		return [
-			{axis: 'false positive rate', value: finalValues['fpr'], order:0}, 
-			{axis: 'recall', value: finalValues['recall'], order:1}, 
-			{axis: 'precision', value: finalValues['precision'], order:2},  
+			{axis: 'false positive rate', value: fpr, order:0}, 
+			{axis: 'recall', value: recall, order:1}, 
+			{axis: 'precision', value: precision, order:2},  
 		]	
 	}
 	
@@ -237,7 +255,8 @@ export default class RadarChart extends Component {
 			if(oldX === 0) {
 
 				newY = oldY - d3.event.dy
-
+				console.log("----------------")
+				console.log("newY1: ",newY)
 				//Workaround for 'jump' behavior of fpr
 				/*if(Math.abs(newY) > Math.abs(maxY)) {
 					newY = oldY
@@ -247,14 +266,19 @@ export default class RadarChart extends Component {
 					newY = 0
 				}*/
 				
-				if(newY <0){
-					newY = newY+273
+				if(newY === 0 && oldY === 0){
+					newY = 1
+				} else if(newY <= 0){
+					newY = oldY
 				}
 				//Workaround end
 				
 				if(Math.abs(newY) > Math.abs(maxY)) {
 					newY = maxY
 				}
+				
+				console.log("newY2: ",newY)
+				console.log("----------------")
 				
 				newValue = (newY/oldY) * oldData.value
 

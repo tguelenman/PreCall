@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import './styling/App.css'
 import OptUrlGen from './OptUrlGen.js'
-import Visualisations from './Visualisations.js'
+import Visualizations from './Visualizations.js'
 import { OresApi } from './OresApi.js'
 import Testrange from './Testrange.js'
 
 export default class App extends Component {
 	state = {
-		activeItem: 'visualisations',
+		activeItem: 'visualizations',
 		didCallApi: false,
 		oresEnComplete: '',
 	}
@@ -28,8 +28,6 @@ export default class App extends Component {
 	
 	render() {
 		const { activeItem, oresEnComplete } = this.state
-		var optUrlGen = <OptUrlGen/>
-		var visualisations = <Visualisations data={this.state.oresEnComplete}/>
 
 		return (
 			<div className="App">
@@ -40,9 +38,9 @@ export default class App extends Component {
 							ORES
 						</Menu.Item>
 						<Menu.Item 
-							name='Visualisations'
-							active={activeItem === 'visualisations'}
-							activename='visualisations'
+							name='Visualizations'
+							active={activeItem === 'visualizations'}
+							activename='visualizations'
 							onClick={this.handleItemClick} />
 						<Menu.Item
 							name='Optimisation Queries'
@@ -59,9 +57,9 @@ export default class App extends Component {
 					</Menu>
 				</div>
 				<div className="Content">
-					{this.state.activeItem === 'optUrlGen' ? optUrlGen : 
-						this.state.activeItem === 'visualisations' && oresEnComplete ? visualisations : 
-						this.state.activeItem === 'testrange' ? <Testrange /> : ''
+					{this.state.activeItem === 'optUrlGen' ? <OptUrlGen/> : 
+						this.state.activeItem === 'visualizations' && oresEnComplete ? <Visualizations data={this.state.oresEnComplete}/> : 
+						this.state.activeItem === 'testrange' ? <Testrange/> : ''
 					}
 				</div>
 				{/*

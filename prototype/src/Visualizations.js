@@ -9,7 +9,7 @@ import ConfusionDistribution from './ConfusionDistribution.js'
 import PreviewLegend from './PreviewLegend.js'
 import ConfusionFilter from './ConfusionFilter.js'
 
-import './styling/Visualisations.css';
+import './styling/Visualizations.css';
 
 const metricOptionsRadar = [
 	{ key: 'fpr', text: 'false positive rate', value: 'fpr'},
@@ -17,7 +17,7 @@ const metricOptionsRadar = [
 	{ key: 'recall', text: 'recall', value: 'recall'},
 ]
 
-export default class Visualisations extends Component {
+export default class Visualizations extends Component {
 
 	state = {
 		goMetric: 'recall',
@@ -160,7 +160,7 @@ export default class Visualisations extends Component {
 						
 		return (
 
-			<div id='Visualisations'>				
+			<div id='Visualizations'>				
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
 						<h2 className='title' id='mainTitle'>ORES Human-Centered Model Inspection</h2>

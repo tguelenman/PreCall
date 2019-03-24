@@ -20,7 +20,7 @@ const metricOptionsRadar = [
 export default class Visualizations extends Component {
 
 	state = {
-		goMetric: 'recall',
+		metric: 'recall',
 		metricValue: '',
 		tellUserAboutChange: false,
 		finalValues: '',
@@ -35,16 +35,16 @@ export default class Visualizations extends Component {
 	}
 
 	setNewValues = () => {
-		const { goMetric, metricValue } = this.state
+		const { metric, metricValue } = this.state
 		const data = this.props.data
 		
 		//find the closest existing value to the specified one
-		//(metricValue is specified by the User)
-		const definitiveValue = this.findClosestValue(goMetric, metricValue)
+		//(metricValue is specified by the user by interacting with the visualizations)
+		const definitiveValue = this.findClosestValue(metric, metricValue)
 		
 		//now find the index of an object (set of metric values)
 		//that corresponds to the specified metric and its definitiveValue
-		const indexOfDataObject = this.findWithAttr(data, goMetric, definitiveValue)
+		const indexOfDataObject = this.findWithAttr(data, metric, definitiveValue)
 
 		//with that index, get the object
 		const finalValues = data[indexOfDataObject]
@@ -66,24 +66,33 @@ export default class Visualizations extends Component {
 	
 	adjustValues = (metric, metricValue) => {
 
-		const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
+		/*const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
+		
+		
 		if(newThreshold !== this.state.finalValues['threshold']){
 			this.setNewThreshold(newThreshold)		
-		}
+		}*/
+		
+		
+		this.setState({
+			metric: metric,
+			metricValue: metricValue,
+		}, () => {this.setNewValues()})
+		
 		
 	}
 	
 	componentDidMount = () => {
 		if(!this.state.didMountOnce) {
 			this.setState({
-				goMetric: 'threshold',
+				metric: 'threshold',
 				metricValue: 0.5,
 				didMountOnce: true,
 			}, () => { this.setNewValues() })
 		}
 	}
 	
-	findThresholdForMetricValue = (metric, metricValue) => {
+	/*findThresholdForMetricValue = (metric, metricValue) => {
 		const data = this.props.data
 		const existingValue = this.findClosestValue(metric, metricValue)
 		for (var entry in data){
@@ -92,7 +101,7 @@ export default class Visualizations extends Component {
 				return data[entry]['threshold']
 			}
 		}
-	}
+	}*/
 	
 	findClosestValue = (metric, metricValue) => {
 		const data = this.props.data
@@ -146,15 +155,12 @@ export default class Visualizations extends Component {
 	}
 	
 	setNewThreshold = (thresholdValue) => {
-		this.setState({
-			goMetric: 'threshold',
-			metricValue: thresholdValue,
-		}, () => {this.setNewValues()})
+		this.adjustValues('threshold', thresholdValue)
 	}
 	
 	render() {
 		const {
-			finalValues, tellUserAboutChange, goMetric,
+			finalValues, tellUserAboutChange, metric,
 			metricValue, 
 		} = this.state
 						
@@ -191,12 +197,12 @@ export default class Visualizations extends Component {
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />
-						<Select compact name='goMetric' options={metricOptionsRadar} value={this.state.goMetric} onChange={this.handleChangeMetric}/>
+						<Select compact name='metric' options={metricOptionsRadar} value={this.state.metric} onChange={this.handleChangeMetric}/>
 						<Button type='submit' onClick={this.setNewValues}>GO!</Button>
 					</Input>
 				</div>
-				{ tellUserAboutChange ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {goMetric}. The next closest possible value has been selected for you: {finalValues[goMetric]}.</p> :
-					metricValue ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {goMetric}.</p> :
+				{ tellUserAboutChange ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {metric}. The next closest possible value has been selected for you: {finalValues[metric]}.</p> :
+					metricValue ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {metric}.</p> :
 					<p className='automaticValueChange'>Please choose a metric and a value.</p> }
 				
 				<hr className="dividerClass"/>

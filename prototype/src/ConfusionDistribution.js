@@ -43,7 +43,7 @@ export default class ConfusionDistribution extends Component {
 			/***fill containers with bubbles and triangles***/
 			//TPs
 			//fill with colored shapes
-			for (var index = 0; index < tp; index++){
+			for (var index = 0; tp-index > 0.5; index++){
 				tPContent.push(<div className='triangle' key={'tp'+ index.toString()}><div className='tp innerTriangle'/></div>)
 			}
 			//fill up the rest with empty shapes			
@@ -57,7 +57,7 @@ export default class ConfusionDistribution extends Component {
 
 			//FNs
 			//fill with colored shapes
-			for (index = 0; index < fn; index++){
+			for (index = 0; fn-index > 0.5; index++){
 				fNContent.push(<div className='triangle' key={'fn'+ index.toString()}><div className='fn innerTriangle'/></div>)
 			}
 			
@@ -72,7 +72,7 @@ export default class ConfusionDistribution extends Component {
 			
 			//TNs
 			//fill with colored shapes
-			for (index = 0; index < tn; index++){
+			for (index = 0; tn-index > 0.5; index++){
 				tNContent.push(<div className='bubble tn' key={'tn'+ index.toString()}></div>)
 			}
 			
@@ -83,7 +83,7 @@ export default class ConfusionDistribution extends Component {
 
 			//FPs
 			//fill with colored shapes			
-			for (index = 0; index < fp; index++){
+			for (index = 0; fp-index > 0.5; index++){
 				fPContent.push(<div className='bubble fp' key={'fp'+ index.toString()}></div>)
 			}
 			

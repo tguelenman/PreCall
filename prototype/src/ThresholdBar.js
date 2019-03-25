@@ -8,11 +8,9 @@ import './styling/ThresholdBar.css'
 export default class ThresholdBar extends Component {
 	
 	state = {
-		threshold: this.props.threshold,
 	}
 	
 	componentWillReceiveProps = (nextProps) => {
-		this.setState({ threshold: nextProps.threshold, })
 	}
 		
 	handleOnChange = (value) => {
@@ -22,10 +20,8 @@ export default class ThresholdBar extends Component {
 			value = 1
 		}
 		
-		this.setState({
-			threshold: value / 1000
-		}, () => { this.props.newOverallThreshold(this.state.threshold) }
-		)
+		this.props.newOverallThreshold(value/1000) 
+		
 	}
 	
 	componentDidMount = () => {
@@ -48,7 +44,7 @@ export default class ThresholdBar extends Component {
 	}*/
 	
 	render () {
-		const threshold = this.state.threshold
+		const threshold = this.props.threshold
 		
 		const labelStyle={ marginTop: 400 - threshold * 400 }
 		const thresholdValueStyle= {marginTop: 410 - threshold * 400}

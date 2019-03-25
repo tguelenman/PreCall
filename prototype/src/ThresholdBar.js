@@ -41,7 +41,7 @@ export default class ThresholdBar extends Component {
 								value={threshold * 1000}
 								orientation="vertical"
 								onChange={this.handleOnChange}
-								min={1}
+								min={0}
 								max={1000}
 								steps={1}
 								tooltip={false}

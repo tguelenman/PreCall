@@ -255,8 +255,7 @@ export default class RadarChart extends Component {
 			if(oldX === 0) {
 
 				newY = oldY - d3.event.dy
-				console.log("----------------")
-				console.log("newY1: ",newY)
+
 				//Workaround for 'jump' behavior of fpr
 				/*if(Math.abs(newY) > Math.abs(maxY)) {
 					newY = oldY
@@ -274,9 +273,6 @@ export default class RadarChart extends Component {
 				if(Math.abs(newY) > Math.abs(maxY)) {
 					newY = maxY
 				}
-				
-				console.log("newY2: ",newY)
-				console.log("----------------")
 				
 				newValue = (newY/oldY) * oldData.value
 

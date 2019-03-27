@@ -63,62 +63,71 @@ export default class ConfusionFilter extends Component {
 		})
 	}
 	
-	setConfusion = (sampleValue, wantedValue) => {
+	setConfusion = (confusionValue, wantedValue) => {
 		
-		//sampleValue = 'TP', 'FP', 'TN', 'FN'
+		//confusionValue = 'TP', 'FP', 'TN', 'FN'
 		//wantedValue = 'max', 'min', int
 		
-		//get the full array of TPs, FPs, ... from state, depending on what Button has been clicked
-		const fullArray = eval('this.state.' + 'all' + sampleValue +'s')
+		//get the full array of TPs, FPs, TNs or FNs from state, depending on what Button has been clicked
+		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
 		
 		var wantedIndex
 		var newThreshold
 		
 		if (wantedValue === 'max'){
 			
-			//get the maximum and the associated threshold 
+			//get the maximum's index
 			wantedIndex = fullArray.indexOf(this.arrayMax(fullArray))
 						
 		} else if (wantedValue === 'min'){
 			
-			//get the minimum and the associated threshold 
+			//get the minimum's index
 			wantedIndex = fullArray.indexOf(this.arrayMin(fullArray))
-			newThreshold = this.state.thresholds[wantedIndex]
 						
 		} else if (this.isNumber(wantedValue)) {
+			
 			//user passed value in %
 			var closest = Infinity
 			wantedIndex = 0
+			
+			//find index of closest existing value to the one specified by user
 			for (var i = 0; i < fullArray.length; i++){
+				
 				if (Math.abs(wantedValue - fullArray[i]) < Math.abs(wantedValue - closest)){
+					
 					closest = fullArray[i]
 					wantedIndex = i
+					
 				}
 			}
-
-			newThreshold = this.state.thresholds[wantedIndex]
 			
 		} else {
+			
 			return 
+			
 		}
 		
 		newThreshold = this.state.thresholds[wantedIndex]
 		this.props.setNewThreshold(newThreshold)
 	}
 	
-	pmConfusion = (sampleValue, plusMinus) => {
+	pmConfusion = (confusionValue, plusMinus) => {
 		
-		//sampleValue = 'TP', 'FP', 'TN', 'FN'
+		//confusionValue = 'TP', 'FP', 'TN', 'FN'
 
 		const currentThreshold = this.props.currentThreshold
 		const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
-		
-		const fullArray = eval('this.state.' + 'all' + sampleValue +'s')
+		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
 		const currentConfusion = fullArray[wantedIndex]
+		
 		if(plusMinus === '+'){
-			this.setConfusion(sampleValue,currentConfusion+1)
+			
+			this.setConfusion(confusionValue,currentConfusion+1)
+			
 		} else if (plusMinus === '-'){
-			this.setConfusion(sampleValue,currentConfusion-1)	
+			
+			this.setConfusion(confusionValue,currentConfusion-1)	
+			
 		}
 	}
 	
@@ -185,8 +194,8 @@ export default class ConfusionFilter extends Component {
 					:
 					<div className='plusMinusButtonGroup'>
 						<Button.Group vertical>
-							<Button onClick={() => this.pmConfusion(this.props.sampleValue,'+')}>+</Button>
-							<Button onClick={() => this.pmConfusion(this.props.sampleValue,'-')}>-</Button>
+							<Button onClick={() => this.pmConfusion(this.props.confusionValue,'+')}>+</Button>
+							<Button onClick={() => this.pmConfusion(this.props.confusionValue,'-')}>-</Button>
 						</Button.Group>
 					</div>
 				}

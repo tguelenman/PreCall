@@ -100,7 +100,7 @@ export default class ConfusionDistribution extends Component {
 						setNewThreshold={this.props.setNewThreshold} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
-						sampleValue={'TN'}
+						confusionValue={'TN'}
 					/>
 					<div id='trueNegatives' className='bubbleContainer'>
 						{tNContent}
@@ -117,7 +117,7 @@ export default class ConfusionDistribution extends Component {
 						setNewThreshold={this.props.setNewThreshold} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
-						sampleValue={'FP'}
+						confusionValue={'FP'}
 					/>
 					<div id='falsePositives' className='bubbleContainer'>
 						{fPContent}
@@ -134,7 +134,7 @@ export default class ConfusionDistribution extends Component {
 						setNewThreshold={this.props.setNewThreshold} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
-						sampleValue={'TP'}
+						confusionValue={'TP'}
 					/>
 					<div id='truePositives' className='bubbleContainer'>
 						{tPContent}
@@ -151,7 +151,7 @@ export default class ConfusionDistribution extends Component {
 						setNewThreshold={this.props.setNewThreshold} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
-						sampleValue={'FN'}
+						confusionValue={'FN'}
 					/>
 					<div id='falseNegatives' className='bubbleContainer'>
 						{fNContent}

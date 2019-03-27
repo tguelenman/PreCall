@@ -57,8 +57,11 @@ export default class RadarChart extends Component {
 		})
 	}
 	
+	//calling the parent component's function
 	adjustValues = (metric, value) => {
+		
 		this.props.adjustValues(metric,value)
+		
 	}
 	
 	draw = (id, d, adjustValues, options) => {
@@ -312,13 +315,14 @@ export default class RadarChart extends Component {
 			reCalculatePoints()
 			drawPoly()
 
+			//call parent component function 
 			if(d[oldData.order]['axis'] === 'false positive rate'){
 				adjustValues('fpr',newValue)
 			} else {
 				adjustValues(d[oldData.order]['axis'],newValue)
 			}
 		}
-	  }
+	}
   
 	render() {
 		

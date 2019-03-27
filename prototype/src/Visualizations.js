@@ -66,6 +66,7 @@ export default class Visualizations extends Component {
 	
 	adjustValues = (metric, metricValue) => {
 
+		console.log("adjusting ",metric,": ",metricValue)
 		/*const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
 		
 		
@@ -159,6 +160,7 @@ export default class Visualizations extends Component {
 	}
 	
 	render() {
+		
 		const {
 			finalValues, tellUserAboutChange, metric,
 			metricValue, 

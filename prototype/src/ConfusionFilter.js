@@ -85,7 +85,6 @@ export default class ConfusionFilter extends Component {
 			wantedIndex = fullArray.indexOf(this.arrayMin(fullArray))
 			newThreshold = this.state.thresholds[wantedIndex]
 						
-		
 		} else if (this.isNumber(wantedValue)) {
 			//user passed value in %
 			var closest = Infinity
@@ -189,37 +188,9 @@ export default class ConfusionFilter extends Component {
 							<Button onClick={() => this.pmConfusion(this.props.sampleValue,'+')}>+</Button>
 							<Button onClick={() => this.pmConfusion(this.props.sampleValue,'-')}>-</Button>
 						</Button.Group>
-						{/*<div>
-							<Button color='blue' onClick={() => this.pmConfusion('TN','+')}>+TN</Button>
-							<Button color='red' onClick={() => this.pmConfusion('FP','+')}>+FP</Button>
-							<Button color='red' onClick={() => this.pmConfusion('TP','+')}>+TP</Button>
-							<Button color='blue' onClick={() => this.pmConfusion('FN','+')}>+FN</Button>
-						</div>
-						<hr className='dividerClass'/>
-						<div>
-							<Button color='blue' onClick={() => this.pmConfusion('TN','-')}>-TN</Button>
-							<Button color='red' onClick={() => this.pmConfusion('FP','-')}>-FP</Button>
-							<Button color='red' onClick={() => this.pmConfusion('TP','-')}>-TP</Button>
-							<Button color='blue' onClick={() => this.pmConfusion('FN','-')}>-FN</Button>
-						</div>*/}
 					</div>
 				}
 			</div>
 		)
 	}
 }
-
-export class ConfusionButtons extends Component {
-	/*props: 
-	sampleValue: 'TN', ...
-	plusMinus: '+', '-'
-	*/
-	
-	render () {
-		return (
-			<div>
-
-			</div>
-		)
-	}
-}	

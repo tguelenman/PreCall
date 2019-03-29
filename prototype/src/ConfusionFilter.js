@@ -114,17 +114,23 @@ export default class ConfusionFilter extends Component {
 	pmConfusion = (confusionValue, plusMinus) => {
 		
 		//confusionValue = 'TP', 'FP', 'TN', 'FN'
-
+		//plusMinus = '+', '-'
+		
+		//calculate current % of confusion value...
 		const currentThreshold = this.props.currentThreshold
 		const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
 		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
 		const currentConfusion = fullArray[wantedIndex]
 		
+		//...and either add 1 to it
 		if(plusMinus === '+'){
 			
 			this.setConfusion(confusionValue,currentConfusion+1)
 			
-		} else if (plusMinus === '-'){
+		} 
+		
+		//...or subtract 1 from it
+		else if (plusMinus === '-'){
 			
 			this.setConfusion(confusionValue,currentConfusion-1)	
 			

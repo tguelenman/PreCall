@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { 
 	Form, Input, Label, 
+	Select,
 } from 'semantic-ui-react'
 
 import MetricsGetRequest from './MetricsGetRequest.js';
@@ -141,7 +142,7 @@ export default class OptUrlGen extends Component {
 						(<div><Form.Button color='red' id='wikimediaSourceButton' content='Open Wikimedia Source' onClick={() => window.open(outputUrl, '_blank')}/>
 						<hr className="dividerClass"/>
 						<MetricsGetRequest getUrl={outputUrl} requestHandler={this.getRequestMetrics}/>
-							{this.state.getResultChanged ? <MetricsShow numberOfColumns={1} styling={'MediumLabels'} metricValues={getResult}/> : ''}
+							{this.state.getResultChanged ? <MetricsShow numberOfColumns={1} styling={'MediumLabels'} finalValues={getResult}/> : ''}
 						</div>) :
 						
 						<Form.Button color='red' id='disabledButton' content='Please fill out empty fields'/>

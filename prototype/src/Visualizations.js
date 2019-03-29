@@ -209,7 +209,7 @@ export default class Visualizations extends Component {
 				
 				<hr className="dividerClass"/>
 				<div id='RadarInformation'>
-					<MetricsShow metricValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
+					<MetricsShow finalValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
 				</div>
 			</div>
 		)

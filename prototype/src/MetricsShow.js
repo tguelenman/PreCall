@@ -16,39 +16,33 @@ const secondColumnNoT = ['!recall', '!precision', 'match_rate', 'accuracy', '!f1
 export default class MetricsGetRequest extends Component {
 
 	state = {
-		metricValues: this.props.metricValues
-	}
-	
-	componentWillReceiveProps  = (nextProps) => {
-		this.setState({ metricValues: nextProps.metricValues })
 	}
 	
 	render() {
-		const { metricValues, } = this.state
-		const styling = this.props.styling
-		const numberOfColumns = this.props.numberOfColumns
-		const thresholdWithout = this.props.thresholdWithout
+		const { finalValues, styling, numberOfColumns,
+				thresholdWithout,
+		} = this.props
 		
-		var metricValuesSorted = {
-			'recall': metricValues['recall'],
-			'!recall': metricValues['!recall'],
-			'precision': metricValues['precision'],
-			'!precision': metricValues['!precision'],
-			'filter_rate': metricValues['filter_rate'],
-			'match_rate': metricValues['match_rate'],
-			'fpr': metricValues['fpr'],
-			'accuracy': metricValues['accuracy'],
-			'f1': metricValues['f1'],
-			'!f1': metricValues['!f1']
+		var finalValuesSorted = {
+			'recall': finalValues['recall'],
+			'!recall': finalValues['!recall'],
+			'precision': finalValues['precision'],
+			'!precision': finalValues['!precision'],
+			'filter_rate': finalValues['filter_rate'],
+			'match_rate': finalValues['match_rate'],
+			'fpr': finalValues['fpr'],
+			'accuracy': finalValues['accuracy'],
+			'f1': finalValues['f1'],
+			'!f1': finalValues['!f1']
 		}
 		
 		//listing the metrics in 1 column
 		var output = []
 		if (numberOfColumns === 1){
-			Object.keys(metricValuesSorted).forEach((key) => {
+			Object.keys(finalValuesSorted).forEach((key) => {
 				output.push(
 					<Form.Field>
-						<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
+						<Input className={styling} label={key} value={finalValues[key] ? finalValues[key] : "null"} />
 					</Form.Field>
 				)
 			})
@@ -72,20 +66,20 @@ export default class MetricsGetRequest extends Component {
 				secondColumnOutput = secondColumn
 			}
 			
-			Object.keys(metricValuesSorted).forEach((key) => {
+			Object.keys(finalValuesSorted).forEach((key) => {
 				
 				//metric is to be shown in the first Column
 				if (firstColumnOutput.indexOf(key) !== -1){
 					firstOutput.push(
 						<Form.Field>
-							<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
+							<Input className={styling} label={key} value={finalValues[key] ? finalValues[key] : "null"} />
 						</Form.Field>
 					)
 				}
 				else if (secondColumnOutput.indexOf(key) !== -1){
 					secondOutput.push(
 						<Form.Field>
-							<Input className={styling} label={key} value={metricValues[key] ? metricValues[key] : "null"} />
+							<Input className={styling} label={key} value={finalValues[key] ? finalValues[key] : "null"} />
 						</Form.Field>
 					)
 				}
@@ -94,7 +88,7 @@ export default class MetricsGetRequest extends Component {
 		
 		return (
 			<div id='MetricsShowDiv'>
-				{metricValues ?
+				{finalValues ?
 					(numberOfColumns === 1 ? 
 						(<Form className='MetricLabels'>
 							{output}

@@ -63,30 +63,23 @@ export default class Visualizations extends Component {
 	
 	adjustValues = (metric, metricValue) => {
 
-		console.log("adjusting ",metric,": ",metricValue)
-		/*const newThreshold = this.findThresholdForMetricValue(metric, metricValue)
-		
-		
-		if(newThreshold !== this.state.finalValues['threshold']){
-			this.setNewThreshold(newThreshold)		
-		}*/
-		
-		
 		this.setState({
 			metric: metric,
 			metricValue: metricValue,
 		}, () => {this.setNewValues()})
 		
-		
 	}
 	
 	componentDidMount = () => {
+		
 		if(!this.state.didMountOnce) {
+			
 			this.setState({
 				metric: 'threshold',
 				metricValue: 0.5,
 				didMountOnce: true,
 			}, () => { this.setNewValues() })
+			
 		}
 	}
 	
@@ -197,16 +190,12 @@ export default class Visualizations extends Component {
 							<PreviewLegend/>
 							<ConfusionDistribution data={this.props.data} finalValues={finalValues} setNewThreshold={this.setNewThreshold}/>
 						</div>
-
-						
 					</div> : ''
 				}
+				
 				<hr className="dividerClass"/>
-
 				<ConfusionFilter data={this.props.data} setNewThreshold={this.setNewThreshold} currentThreshold={finalValues['threshold']}/>
-				
 				<hr className="dividerClass"/>
-				
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />
@@ -216,8 +205,8 @@ export default class Visualizations extends Component {
 				</div>
 				{ tellUserAboutChange ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {metric}. The next closest possible value has been selected for you: {finalValues[metric]}.</p> :
 					metricValue ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {metric}.</p> :
-					<p className='automaticValueChange'>Please choose a metric and a value.</p> }
-				
+					<p className='automaticValueChange'>Please choose a metric and a value.</p> 
+				}
 				<hr className="dividerClass"/>
 				<div id='RadarInformation'>
 					<MetricsShow finalValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>

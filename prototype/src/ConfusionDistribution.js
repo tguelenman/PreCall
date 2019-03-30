@@ -5,7 +5,6 @@ import ConfusionFilter from './ConfusionFilter.js'
 export default class ConfusionDistribution extends Component {
 	state = {
 	}
-	
 
 	componentWillReceiveProps = (nextProps) => {
 		this.setState({ finalValues: nextProps.finalValues })

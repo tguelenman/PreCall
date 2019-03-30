@@ -9,7 +9,7 @@ export default class ThresholdBar extends Component {
 	handleOnChange = (value) => {
 
 		//set the new threshold in parent
-		this.props.newOverallThreshold(value/1000) 
+		this.props.setNewThreshold(value/1000) 
 		
 	}
 	
@@ -58,6 +58,5 @@ export default class ThresholdBar extends Component {
 			</div>
 		)
 	}
-
 }
 

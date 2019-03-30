@@ -7,27 +7,34 @@ import { OresApi } from './OresApi.js'
 import Testrange from './Testrange.js'
 
 export default class App extends Component {
+	
 	state = {
 		activeItem: 'visualizations',
 		didCallApi: false,
-		oresEnComplete: '',
+		oresComplete: '',
 	}
 
 	handleItemClick = (e, { activename }) => this.setState({ activeItem: activename })
 	
+	
 	componentWillMount = () => {
+		
+		//call API once on start
 		if (!this.state.didCallApi) {
+			
+			//and save result to state (currently only enwiki)
 			OresApi.getAll(
 				(result) => this.setState({
 					didCallApi: true,
-					oresEnComplete: result['enwiki']['models']['damaging']['statistics']['thresholds']['true'],
+					oresComplete: result['enwiki']['models']['damaging']['statistics']['thresholds']['true'],
 				})
 			)
 		}
 	}
 	
 	render() {
-		const { activeItem, oresEnComplete } = this.state
+		
+		const { activeItem, oresComplete } = this.state
 
 		return (
 			<div className="App">
@@ -57,9 +64,9 @@ export default class App extends Component {
 					</Menu>
 				</div>
 				<div className="Content">
-					{this.state.activeItem === 'optUrlGen' ? <OptUrlGen/> : 
-						this.state.activeItem === 'visualizations' && oresEnComplete ? <Visualizations data={this.state.oresEnComplete}/> : 
-						this.state.activeItem === 'testrange' ? <Testrange/> : ''
+					{activeItem === 'optUrlGen' ? <OptUrlGen/> : 
+						activeItem === 'visualizations' && oresComplete ? <Visualizations data={oresComplete}/> : 
+						activeItem === 'testrange' ? <Testrange/> : ''
 					}
 				</div>
 				{/*

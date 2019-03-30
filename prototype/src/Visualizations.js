@@ -35,6 +35,7 @@ export default class Visualizations extends Component {
 	}
 
 	setNewValues = () => {
+		
 		const { metric, metricValue } = this.state
 		const data = this.props.data
 		
@@ -53,15 +54,11 @@ export default class Visualizations extends Component {
 			return false
 		}
 		
+		//and save it to the state
 		this.setState({
 			finalValues: finalValues,
 			tellUserAboutChange: (definitiveValue !== metricValue),
 		})
-		
-		/*TODO
-		if definitiveValue !== metricValue{
-			this.setState({tellUserAboutChange: true,})
-		}*/
 	}
 	
 	adjustValues = (metric, metricValue) => {
@@ -105,12 +102,15 @@ export default class Visualizations extends Component {
 	}*/
 	
 	findClosestValue = (metric, metricValue) => {
+		
 		const data = this.props.data
 		
 		//create array with all values of specified metric
 		var metricArray = []
 		for (var entry in data){
+			
 			metricArray.push(data[entry][metric])
+			
 		}
 				
 		//ascending sort
@@ -119,13 +119,18 @@ export default class Visualizations extends Component {
 		/**** //find the closest value of the metric to the specified value ****/
 		const lastElem = metricArray[metricArray.length-1]
 		if (lastElem <= metricValue){
+			
 			return lastElem
+			
 		}
 		
 		for (var i in metricArray){
+			
 			//the wanted value of the specified metric exists
 			if (metricArray[i] === metricValue) {
+				
 				return metricValue
+				
 			}
 			
 			//the wanted value does not exist
@@ -133,13 +138,19 @@ export default class Visualizations extends Component {
 				
 				//find its closest neighbour and return it
 				if (metricArray[i-1] !== 'undefined'){
+					
 					return metricArray[i]
+					
 				}
 				else if (Math.abs(metricArray[i]-metricValue) <= Math.abs(metricArray[i-1]-metricValue)){
+					
 					return metricArray[i]
+					
 				}
 				else{
+					
 					return metricArray[i-1]
+					
 				}
 			}
 		}
@@ -179,7 +190,7 @@ export default class Visualizations extends Component {
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Threshold good / damaging</h2>
-								<ThresholdBar threshold={finalValues['threshold']} newOverallThreshold={this.setNewThreshold} /> 
+								<ThresholdBar threshold={finalValues['threshold']} setNewThreshold={this.setNewThreshold} /> 
 							</div>
 						</div>
 						<div id='preview'>

@@ -32,9 +32,9 @@
 
 /*precision*/
 .axis1Slider{
-	width: 250px;
-	left: 234px;
-	top: 274px;
+	width: 200px;
+	left: 237px;
+	top: 262px;
 	-webkit-transform: rotate(30deg); /* Chrome & Safari */
     -moz-transform: rotate(30deg); /* Firefox */
     -ms-transform: rotate(30deg); /* IE 9+ */
@@ -45,9 +45,9 @@
 
 /*recall*/
 .axis2Slider{
-	width: 250px;
-	left: 16px;
-	top: 188px;
+	width: 200px;
+	left: 62px;
+	top: 177px;
 	-webkit-transform: rotate(150deg) scaleX(-1); /* Chrome & Safari */
     -moz-transform: rotate(150deg) scaleX(-1); /* Firefox */
     -ms-transform: rotate(150deg) scaleX(-1); /* IE 9+ */
@@ -57,9 +57,9 @@
 
 /*fpr*/
 .axis3Slider{
-	width: 250px;
-	bottom: 75px;
-	left: 124px;
+	width: 200px;
+	bottom: 50px;
+	left: 148px;
 	-webkit-transform: rotate(90deg); /* Chrome & Safari */
     -moz-transform: rotate(90deg); /* Firefox */
     -ms-transform: rotate(90deg); /* IE 9+ */
@@ -68,19 +68,24 @@
 }
 
 .slider1Rail{
-	width: 250px;
+	width: 200px;
 }
 
 .slider2Rail{
-	width: 250px;
+	width: 200px;
 }
 
 .slider3Rail{
-	width: 250px;
+	width: 200px;
 }
 
 .radarCircle{
 	fill: transparent;
 	stroke: #989898;
 	stroke-width: 2px;
+}
+
+.svgText{
+	font-family: Arial;
+	font-size: 19px;
 }

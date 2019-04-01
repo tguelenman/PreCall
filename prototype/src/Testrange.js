@@ -52,14 +52,12 @@ function Track({ source, target, getTrackProps }) { // your own track component
   )
 }
 
-const axis1 = 51
-
 export default class Testrange extends React.Component {
 
 	state = {
-		axis1: axis1,
-		axis2: 13,
-		axis3: 99,
+		axis1: 0.3,
+		axis2: 0.6,
+		axis3: 0.9,
 	}
 
 	componentWillReceiveProps = (nextProps) => {
@@ -263,11 +261,14 @@ export default class Testrange extends React.Component {
 					{slider3}	
 				</div>
 				<svg width='500' height='500' id='customRadarSvg'>
-					<circle cx='250' cy='250' r='50' className='radarCircle'/>
-					<circle cx='250' cy='250' r='100' className='radarCircle'/>
-					<circle cx='250' cy='250' r='150' className='radarCircle'/>
+					<circle cx='250' cy='250' r='40' className='radarCircle'/>
+					<circle cx='250' cy='250' r='80' className='radarCircle'/>
+					<circle cx='250' cy='250' r='120' className='radarCircle'/>
+					<circle cx='250' cy='250' r='160' className='radarCircle'/>
 					<circle cx='250' cy='250' r='200' className='radarCircle'/>
-					<circle cx='250' cy='250' r='250' className='radarCircle'/>
+					<text className='svgText' x='415' y='380'>Precision {this.state.axis1}</text>
+					<text className='svgText' x='25' y='380'>Recall {this.state.axis2}</text>
+					<text className='svgText' x='175' y='35'>False positive rate {this.state.axis3}</text>
 				</svg>
 				{JSON.stringify(this.state)}
 			</div>

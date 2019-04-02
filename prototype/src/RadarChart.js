@@ -220,6 +220,9 @@ export default class RadarChart2 extends Component {
 					)}
 				</Tracks>
 			</Slider>
+			
+		//for the path: center = (250,250)
+		//axis1 handle max = center + (sin(30)*length(center-to-max),cos(30)*length(...)) = center + (sin(30)*200,cos(30)*200) = (350,423)
 		
 		return (
 			<div id='customRadar'>

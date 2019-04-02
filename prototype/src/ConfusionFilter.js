@@ -108,7 +108,7 @@ export default class ConfusionFilter extends Component {
 		}
 		
 		newThreshold = this.state.thresholds[wantedIndex]
-		this.props.setNewThreshold(newThreshold)
+		this.props.callback('threshold',newThreshold)
 	}
 	
 	pmConfusion = (confusionValue, plusMinus) => {

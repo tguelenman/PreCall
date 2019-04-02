@@ -3,13 +3,7 @@ import './styling/ConfusionDistribution.css'
 import ConfusionFilter from './ConfusionFilter.js'
 
 export default class ConfusionDistribution extends Component {
-	state = {
-	}
 
-	componentWillReceiveProps = (nextProps) => {
-		this.setState({ finalValues: nextProps.finalValues })
-	}
-	
 	round = (a) => {
 		return Number(Math.round(a+'e'+2)+'e-'+2)
 	}
@@ -96,7 +90,7 @@ export default class ConfusionDistribution extends Component {
 			<div id='DistributionDiv'>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
-						setNewThreshold={this.props.setNewThreshold} 
+						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
 						confusionValue={'TN'}
@@ -113,7 +107,7 @@ export default class ConfusionDistribution extends Component {
 				</div>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
-						setNewThreshold={this.props.setNewThreshold} 
+						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
 						confusionValue={'FP'}
@@ -130,7 +124,7 @@ export default class ConfusionDistribution extends Component {
 				</div>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
-						setNewThreshold={this.props.setNewThreshold} 
+						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
 						confusionValue={'TP'}
@@ -147,7 +141,7 @@ export default class ConfusionDistribution extends Component {
 				</div>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
-						setNewThreshold={this.props.setNewThreshold} 
+						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						buttonsOnly={true}
 						confusionValue={'FN'}

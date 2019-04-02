@@ -68,25 +68,21 @@ export default class RadarChart2 extends Component {
 	onUpdate1 = axis1 => {
 		const newVal = this.round(axis1[0])
 		if(this.props.finalValues['precision'] !== newVal){
-			//console.log("props: ",this.props.finalValues['precision'],", new: ",newVal)
-			/*this.setState({
-				axis1: newVal,
-			}, () => {this.props.adjustValues('precision', newVal, true)})*/
-			this.props.adjustValues('precision', newVal, true)
+			this.props.callback('precision', newVal, true)
 		}
 	}
 	
 	onUpdate2 = axis2 => {
 		const newVal = this.round(axis2[0])
 		if(this.props.finalValues['recall'] !== newVal){
-			this.props.adjustValues('recall', newVal, true)
+			this.props.callback('recall', newVal, true)
 		}
 	}
 	
 	onUpdate3 = axis3 => {
 		const newVal = this.round(axis3[0])
 		if(this.props.finalValues['fpr'] !== newVal){
-			this.props.adjustValues('fpr', newVal, true)
+			this.props.callback('fpr', newVal, true)
 		}
 	}
 	

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Select, Button, Input, } from 'semantic-ui-react'
-import RadarChart2 from './RadarChart2.js'
+import RadarChart from './RadarChart.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
@@ -195,7 +195,7 @@ export default class Visualizations extends Component {
 						<div id='metricsAndThreshold'>
 							<div id='qualityMetrics'>
 								<h2 className='title'>Model quality metrics</h2>
-								<RadarChart2 finalValuesRadar={finalValuesRadar} displayValues={finalValues} callback={this.setNewValues}/>						
+								<RadarChart finalValuesRadar={finalValuesRadar} displayValues={finalValues} callback={this.setNewValues}/>						
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Threshold good / damaging</h2>

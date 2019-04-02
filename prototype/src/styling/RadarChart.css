@@ -1,76 +1,96 @@
-#visualisationRadar{
-	margin: auto;
+#customRadar{
+	margin-left: 30px;
+	height: 500px;
+	width: 500px;
+}
+
+#customRadarSvg{
+	margin-top: -241px;
 	width: 500px;
 	height: 500px;
 }
 
-/*#visualisationRadar > svg > g > g > g > text{
-	font-family: Helvetica, Arial;
-	font-size: 15px;
+.slider{
+	position: relative;
+	height: 80px;
 }
 
-#visualisationRadar > svg > g > g > g > path{
-	fill-opacity: 0;
-	stroke: grey;
-	stroke-opacity: 0.5;
-	stroke-width: 5px;
+.sliderRail{
+	position: absolute;
+	height: 3px;
+	margin-top: 35px;
+	border-radius: 5px;
+	background-color: #989898;
 }
 
-#visualisationRadar > svg > g > g > g > circle{
+.slider-tracks{
+	
 }
 
-.connectTheseCircles{
-	r: 9;
-	stroke-width: 3px;
-	stroke-opacity: 1;
-	opacity: 1;
-	stroke: black;
-	fill: white;
+.slider-handles{
 }
 
-.radarLines{
-	stroke-width: 5px;
-	stroke: black;
+/*precision*/
+.axis1Slider{
+	width: 200px;
+	left: 237px;
+	top: 262px;
+	-webkit-transform: rotate(30deg); /* Chrome & Safari */
+    -moz-transform: rotate(30deg); /* Firefox */
+    -ms-transform: rotate(30deg); /* IE 9+ */
+    -o-transform: rotate(30deg); /* Opera */
+    transform: rotate(30deg); /* CSS3 */
+    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678, sizingMethod='auto expand'); /* IE 7-8 */
 }
 
-
-#chart{
-	width: 400px;
-	height: 400px;
-}*/
-
-
-#chart{
-	display: flex;
-	justify-content: center;
+/*recall*/
+.axis2Slider{
+	width: 200px;
+	left: 61px;
+	top: 176px;
+	-webkit-transform: rotate(150deg) scaleX(-1); /* Chrome & Safari */
+    -moz-transform: rotate(150deg) scaleX(-1); /* Firefox */
+    -ms-transform: rotate(150deg) scaleX(-1); /* IE 9+ */
+    -o-transform: rotate(150deg) scaleX(-1); /* Opera */
+    transform: rotate(150deg) scaleX(-1); /* CSS3 */
 }
 
-#chart > svg{
-	width: 500px;
-	height: 500px;
+/*fpr*/
+.axis3Slider{
+	width: 200px;
+	bottom: 50px;
+	left: 148px;
+	-webkit-transform: rotate(90deg); /* Chrome & Safari */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -ms-transform: rotate(90deg); /* IE 9+ */
+    -o-transform: rotate(90deg); /* Opera */
+    transform: rotate(90deg); /* CSS3 */
 }
 
-#chart > svg > g {
+.slider1Rail{
+	width: 200px;
 }
 
-circle.radar-chart-serie0{
-	r: 9;
-	stroke-width: 3px;
-	stroke-opacity: 1;
-	opacity: 1;
-	stroke: black;
-	fill: white !important;
+.slider2Rail{
+	width: 200px;
 }
 
-polygon.radar-chart-serie0{
-	stroke-width: 4px !important;
-	stroke-color: linear-gradient(red, blue) !important;
+.slider3Rail{
+	width: 200px;
 }
 
-.legend{
-	font-size: 19px !important;
+.radarCircle{
+	fill: transparent;
+	stroke: #989898;
+	stroke-width: 2px;
 }
 
-.radarBackgroundCircle{
-	stroke: grey;
+.svgText{
+	font-family: Arial;
+	font-size: 19px;
+}
+
+.svgTextSmaller{
+	font-family: Arial;
+	font-size: 14px;
 }

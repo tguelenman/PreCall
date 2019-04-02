@@ -67,21 +67,21 @@ export default class RadarChart2 extends Component {
 	
 	onUpdate1 = axis1 => {
 		const newVal = this.round(axis1[0])
-		if(this.props.finalValues['precision'] !== newVal){
+		if(this.props.finalValuesRadar['precision'] !== newVal){
 			this.props.callback('precision', newVal, true)
 		}
 	}
 	
 	onUpdate2 = axis2 => {
 		const newVal = this.round(axis2[0])
-		if(this.props.finalValues['recall'] !== newVal){
+		if(this.props.finalValuesRadar['recall'] !== newVal){
 			this.props.callback('recall', newVal, true)
 		}
 	}
 	
 	onUpdate3 = axis3 => {
 		const newVal = this.round(axis3[0])
-		if(this.props.finalValues['fpr'] !== newVal){
+		if(this.props.finalValuesRadar['fpr'] !== newVal){
 			this.props.callback('fpr', newVal, true)
 		}
 	}
@@ -89,14 +89,14 @@ export default class RadarChart2 extends Component {
 	
 	render() {
 		
-		const finalValues = this.props.finalValues
+		const { finalValuesRadar, displayValues, } = this.props
 		
 		const slider1 = 
 			<Slider className='slider axis1Slider'
 				domain={[0, 1]}
 				step={0.001}
 				mode={2}
-				values={[finalValues['precision']]}
+				values={[finalValuesRadar['precision']]}
 				onUpdate={this.onUpdate1}
 			>
 				<Rail>
@@ -139,7 +139,7 @@ export default class RadarChart2 extends Component {
 				domain={[0, 1]}
 				step={0.001}
 				mode={2}
-				values={[finalValues['recall']]}
+				values={[finalValuesRadar['recall']]}
 				onUpdate={this.onUpdate2}
 			>
 				<Rail>
@@ -183,7 +183,7 @@ export default class RadarChart2 extends Component {
 				domain={[0, 1]}
 				step={0.001}
 				mode={2}
-				values={[finalValues['fpr']]}
+				values={[finalValuesRadar['fpr']]}
 				onUpdate={this.onUpdate3}
 			>
 				<Rail>
@@ -237,9 +237,12 @@ export default class RadarChart2 extends Component {
 					<circle cx='250' cy='250' r='120' className='radarCircle'/>
 					<circle cx='250' cy='250' r='160' className='radarCircle'/>
 					<circle cx='250' cy='250' r='200' className='radarCircle'/>
-					{/*<text className='svgText' x='415' y='380'>Precision {this.state.axis1}</text>
-					<text className='svgText' x='25' y='380'>Recall {this.state.axis2}</text>
-					<text className='svgText' x='175' y='35'>False positive rate {this.state.axis3}</text>*/}
+					<text className='svgText' x='415' y='380'>Precision</text>
+					<text className='svgTextSmaller' x='415' y='400'>{displayValues['precision']}</text>					
+					<text className='svgText' x='25' y='380'>Recall</text>
+					<text className='svgTextSmaller' x='25' y='400'>{displayValues['recall']}</text>
+					<text className='svgText' x='175' y='20'>False positive rate {this.state.axis3}</text>
+					<text className='svgTextSmaller' x='232' y='40'>{displayValues['fpr']}</text>					
 				</svg>
 				{JSON.stringify(this.state)}
 			</div>

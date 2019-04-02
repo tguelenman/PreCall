@@ -52,6 +52,7 @@ export default class Visualizations extends Component {
 			return false
 		}
 
+		//sometimes we might not need to rerender - that case gets catched here
 		if(definitiveValue !== this.state.finalValues[metric]){
 			
 			//and save it to the state
@@ -194,7 +195,7 @@ export default class Visualizations extends Component {
 						<div id='metricsAndThreshold'>
 							<div id='qualityMetrics'>
 								<h2 className='title'>Model quality metrics</h2>
-								<RadarChart2 finalValues={finalValuesRadar} callback={this.setNewValues}/>						
+								<RadarChart2 finalValuesRadar={finalValuesRadar} displayValues={finalValues} callback={this.setNewValues}/>						
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Threshold good / damaging</h2>

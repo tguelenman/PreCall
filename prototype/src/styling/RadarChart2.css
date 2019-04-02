@@ -1,7 +1,7 @@
 #customRadar{
+	margin-left: 30px;
 	height: 500px;
 	width: 500px;
-	border: 1px solid grey;
 }
 
 #customRadarSvg{
@@ -46,8 +46,8 @@
 /*recall*/
 .axis2Slider{
 	width: 200px;
-	left: 62px;
-	top: 177px;
+	left: 61px;
+	top: 176px;
 	-webkit-transform: rotate(150deg) scaleX(-1); /* Chrome & Safari */
     -moz-transform: rotate(150deg) scaleX(-1); /* Firefox */
     -ms-transform: rotate(150deg) scaleX(-1); /* IE 9+ */

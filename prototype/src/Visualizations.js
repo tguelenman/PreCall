@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { 
 	Select, Button, Input, 
 	} from 'semantic-ui-react'
-import RadarChart from './RadarChart.js'
+import RadarChart2 from './RadarChart2.js'
 import MetricsShow from './MetricsShow.js'
 import ThresholdBar from './ThresholdBar.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
@@ -43,9 +43,12 @@ export default class Visualizations extends Component {
 		//(metricValue is specified by the user by interacting with the visualizations)
 		const definitiveValue = this.findClosestValue(metric, metricValue)
 		
+
 		//now find the index of an object (set of metric values)
 		//that corresponds to the specified metric and its definitiveValue
 		const indexOfDataObject = this.findWithAttr(data, metric, definitiveValue)
+
+		//console.log(definitiveValue, metric)
 
 		//with that index, get the object
 		const finalValues = data[indexOfDataObject]
@@ -54,6 +57,7 @@ export default class Visualizations extends Component {
 			return false
 		}
 		
+		
 		//and save it to the state
 		this.setState({
 			finalValues: finalValues,
@@ -61,13 +65,24 @@ export default class Visualizations extends Component {
 		})
 	}
 	
-	adjustValues = (metric, metricValue) => {
+	adjustValues = (metric, metricValue, changeByRadar) => {
 
-		this.setState({
-			metric: metric,
-			metricValue: metricValue,
-		}, () => {this.setNewValues()})
+		if(changeByRadar){
+
+			this.setState({
+				lastChangeByRadar: true,
+				metric: metric,
+				metricValue: metricValue,
+			}, () => {this.setNewValues()})
 		
+		} else {
+			
+			this.setState({
+				lastChangeByRadar: false,
+				metric: metric,
+				metricValue: metricValue,
+			}, () => {this.setNewValues()})
+		}
 	}
 	
 	componentDidMount = () => {
@@ -151,7 +166,9 @@ export default class Visualizations extends Component {
 	
 	//find index of an object, in an array of objects, by the value of an attribute
 	findWithAttr = (array, attr, value) => {
+		//console.log(attr, value)
 		for(var i = 0; i < array.length; i += 1) {
+			//console.log(array[i][attr])
 			if(array[i][attr] === value) {
 				return i;
 			}
@@ -165,11 +182,37 @@ export default class Visualizations extends Component {
 	
 	render() {
 		
+		//note: metricValue does not contain a necessarily *existing* value for metric
+		//the existing value is calculated in setNewValues() and then saved as part of finalValues
+		
 		const {
 			finalValues, tellUserAboutChange, metric,
-			metricValue, 
+			metricValue, lastChangeByRadar, 
 		} = this.state
+		
+		var finalValuesRadar = finalValues
+		console.log(finalValues)
+		if(lastChangeByRadar && finalValues[metric] !== metricValue){
+			
+			//TODO functional
+			finalValuesRadar = {}
+			finalValuesRadar[metric] = metricValue
+
+			for (var m in finalValues){
+				if(m !== metric){
+					finalValuesRadar[m] = finalValues[m]
+				}
+			}
+			
+			/*finalValuesRadar['fpr'] = finalValues['fpr']
+			finalValuesRadar['recall'] = finalValues['recall']*/
+			
 						
+			console.log("changed to: ",finalValuesRadar)
+
+		}
+		//console.log(finalValues['recall'])
+		
 		return (
 
 			<div id='Visualizations'>				
@@ -179,7 +222,7 @@ export default class Visualizations extends Component {
 						<div id='metricsAndThreshold'>
 							<div id='qualityMetrics'>
 								<h2 className='title'>Model quality metrics</h2>
-								<RadarChart chart={'#chart'} finalValues={finalValues} adjustValues={this.adjustValues}/>						
+								<RadarChart2 finalValues={finalValuesRadar} adjustValues={this.adjustValues}/>						
 							</div>
 							<div id='threshold'>
 								<h2 className='title'>Threshold good / damaging</h2>

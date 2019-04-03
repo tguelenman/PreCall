@@ -1,7 +1,32 @@
+.thresholdSlider{
+	position: relative;
+	height: 400px;
+	width: 50px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	padding-left: 25px;
+}	
+	
 .thresholdRail{
 	position: absolute;
-	height: 15px;
-	margin-top: 35px;
-	border-radius: 5px;
-	background-color: #989898;
+	height: 396px;
+	width: 35px;
+	transform: translate(-50%, 0%);
+	pointer-events: none;
+	background-color: blue;
+	border-left: 1px solid #989898;
+	border-right: 1px solid #989898;
+	
 }
+
+.thresholdTrack{
+	position: absolute;
+	z-index: 1;
+	background-color: red;
+	cursor: pointer;
+	width: 35px;			
+	border-left: 1px solid #989898;
+	border-right: 1px solid #989898;
+	transform: translate(-50%, 0%);
+}
+

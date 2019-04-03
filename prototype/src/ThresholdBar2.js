@@ -1,24 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import './styling/ThresholdBar2.css'
 
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
 
-const sliderStyle = {  // Give the slider some width
-	position: 'relative',
-	width: 80,
-	height: '100%',
-	border: '1px solid steelblue',
-}
-
-const railStyle = { 
-	position: 'absolute',
-	width: 10,
-	height: '100%',
-	borderRadius: 5,
-	backgroundColor: '#8B9CB6',
-}
-
-export function Handle({ // your handle component
+function Handle({
 	handle: { id, value, percent }, 
 	getHandleProps
 }) {
@@ -27,24 +12,22 @@ export function Handle({ // your handle component
 			style={{
 				top: `${percent}%`,
 				position: 'absolute',
-				          transform: 'translate(-50%, -50%)',
-
-				marginLeft: 5,
-				
 				zIndex: 2,
-				width: 30,
-				height: 30,
-				border: 0,
+				width: 21,
+				height: 21,
+				border: '3px solid black',
 				textAlign: 'center',
 				cursor: 'pointer',
 				borderRadius: '50%',
-				backgroundColor: '#2C4870',
-				color: '#333',
+				backgroundColor: 'white',
+				transform: 'translate(-50%, -50%)',
+				zIndex: 5,
+				marginLeft: -35,
 			}}
 			{...getHandleProps(id)}
 		>
-			<div style={{ fontFamily: 'Roboto', fontSize: 11, marginTop: -35 }}>
-				{value}
+			<div style={{ fontFamily: 'Arial', fontSize: 11, marginTop: -35 }}>
+					{value}
 			</div>
 		</div>
 	)
@@ -52,29 +35,24 @@ export function Handle({ // your handle component
 
 function Track({ source, target, getTrackProps }) {
 	return (
-		<div
+		<div className='thresholdTrack'
 			style={{
-			position: 'absolute',
-			height: 300,
-			zIndex: 1,
-			marginTop: 35,
-			backgroundColor: '#546C91',
-			borderRadius: 5,
-			cursor: 'pointer',
-			left: `${source.percent}%`,
-			height: `${target.percent - source.percent}%`,
+					top: '${source.percent}%',
+					height: `${target.percent - source.percent}%`,
+					pointerEvents: 'none',
 			}}
-			{...getTrackProps()}
+			{...getTrackProps()} // this will set up events if you want it to be clickeable (optional)
 		/>
 	)
 }
+
 
 export default class ThresholdBar2 extends Component {
 		
 	onUpdate = (value) => {
 
 		//set the new threshold in parent
-		this.props.callback('threshold',value/1000) 
+		//this.props.callback('threshold',value/1000) 
 		
 	}
 	
@@ -83,49 +61,50 @@ export default class ThresholdBar2 extends Component {
 		const threshold = this.props.threshold
 		//const labelStyle={ marginTop: 400 - threshold * 400 }
 		//const thresholdValueStyle= {marginTop: 410 - threshold * 400}
-		
+
 		const slider = 
-			<Slider
-				vertical
-				rootStyle={sliderStyle}
-				domain={[0, 100]}
-				step={1}
-				mode={2}
-				values={[30]}
-			>
-				<Rail>
-					{({ getRailProps }) => (
-						<div style={railStyle} {...getRailProps()} /> 
-					)}
-				</Rail>
-				<Handles>
-					{({ handles, getHandleProps }) => (
-						<div className="slider-handles">
-							{handles.map(handle => (
-								<Handle
-									key={handle.id}
-									handle={handle}
-									getHandleProps={getHandleProps}
-								/>
-							))}
-						</div>
-					)}
-				</Handles>
-				<Tracks right={false}>
-					{({ tracks, getTrackProps }) => (
-						<div className="slider-tracks">
-							{tracks.map(({ id, source, target }) => (
-								<Track
-									key={id}
-									source={source}
-									target={target}
-									getTrackProps={getTrackProps}
-								/>
-							))}
-						</div>
-					)}
-				</Tracks>
-			</Slider>
+		<Slider className='thresholdSlider'
+			vertical
+			reversed
+			domain={[0, 1]}
+			step={0.001}
+			mode={2}
+			values={[0.5]}
+			onUpdate={this.onUpdate1}
+		>
+			<Rail>
+				{({ getRailProps }) => (  // adding the rail props sets up events on the rail
+					<div className='thresholdRail' {...getRailProps()} /> 
+				)}
+			</Rail>
+			<Handles>
+				{({ handles, getHandleProps }) => (
+					<div className='slider-handles'>
+						{handles.map(handle => (
+							<Handle
+								key={handle.id}
+								handle={handle}
+								getHandleProps={getHandleProps}
+							/>
+						))}
+					</div>
+				)}
+			</Handles>
+			<Tracks right={false}>
+				{({ tracks, getTrackProps }) => (
+					<div className="slider-tracks">
+						{tracks.map(({ id, source, target }) => (
+							<Track
+								key={id}
+								source={source}
+								target={target}
+								getTrackProps={getTrackProps}
+							/>
+						))}
+					</div>
+				)}
+			</Tracks>
+		</Slider>
 			
 		return (
 			<div>

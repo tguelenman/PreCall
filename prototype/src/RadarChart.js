@@ -12,24 +12,24 @@ function Handle({
 	return (
 		<div
 			style={{
-			left: `${percent}%`,
-			position: 'absolute',
-			marginLeft: -15,
-			marginTop: 25,
-			zIndex: 2,
-			width: 21,
-			height: 21,
-			border: '3px solid black',
-			textAlign: 'center',
-			cursor: 'pointer',
-			borderRadius: '50%',
-			backgroundColor: 'white',
+				left: `${percent}%`,
+				position: 'absolute',
+				marginLeft: -15,
+				marginTop: 25,
+				zIndex: 2,
+				width: 21,
+				height: 21,
+				border: '3px solid black',
+				textAlign: 'center',
+				cursor: 'pointer',
+				borderRadius: '50%',
+				backgroundColor: 'white',
 			}}
 			{...getHandleProps(id)}
 		>
-			<div style={{ fontFamily: 'Arial', fontSize: 11, marginTop: -35 }}>
-				{value}
-			</div>
+			{/*<div style={{ fontFamily: 'Arial', fontSize: 11, marginTop: -35 }}>
+					{value}
+			</div>*/}
 		</div>
 	)
 }

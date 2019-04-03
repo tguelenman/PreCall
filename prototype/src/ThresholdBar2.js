@@ -8,7 +8,7 @@ function Handle({
 	getHandleProps
 }) {
 	return (
-		<div
+		<div id='thresholdHandle'
 			style={{
 				top: `${percent}%`,
 				position: 'absolute',
@@ -26,7 +26,7 @@ function Handle({
 			}}
 			{...getHandleProps(id)}
 		>
-			<div style={{ fontFamily: 'Arial', fontSize: 11, marginTop: -35 }}>
+			<div id='thresholdLabel'>
 					{value}
 			</div>
 		</div>
@@ -56,11 +56,34 @@ export default class ThresholdBar2 extends Component {
 		
 	}
 	
+	componentDidMount = () => {
+		
+		//dynamically set blue to white background for bottom part of slider
+		var rail = document.getElementById('thresholdRail')
+		rail.style['background'] = 'linear-gradient(to top, #0083ca, white) bottom center/50px '+this.props.threshold*100+'% no-repeat'
+		
+		//attach "stick" to handle circle
+		var handle = document.getElementById('thresholdHandle')
+		var handleStick = document.createElement('div')
+		handleStick.className = 'handleStick'
+		handle.appendChild(handleStick)
+		
+		//position damaging / good labels
+		var good = document.createElement('p')
+		var damaging = document.createElement('p')
+		good.className = 'good gd'
+		damaging.className = 'damaging gd'
+		good.innerHTML = 'good'
+		damaging.innerHTML = 'damaging'
+		handle.appendChild(damaging)
+		handle.appendChild(good)
+
+	}
+	
 	render () {
 		
 		const threshold = this.props.threshold
-		//const labelStyle={ marginTop: 400 - threshold * 400 }
-		//const thresholdValueStyle= {marginTop: 410 - threshold * 400}
+		const labelStyle={ marginTop: 400 - threshold * 400 }
 
 		const slider = 
 		<Slider className='thresholdSlider'
@@ -74,7 +97,7 @@ export default class ThresholdBar2 extends Component {
 		>
 			<Rail>
 				{({ getRailProps }) => (  // adding the rail props sets up events on the rail
-					<div className='thresholdRail' {...getRailProps()} /> 
+					<div id='thresholdRail' {...getRailProps()} /> 
 				)}
 			</Rail>
 			<Handles>
@@ -104,6 +127,9 @@ export default class ThresholdBar2 extends Component {
 					</div>
 				)}
 			</Tracks>
+			<div id='zeroToOneLabel'>
+				<p>1.0</p><p>0.0</p>
+			</div>
 		</Slider>
 			
 		return (

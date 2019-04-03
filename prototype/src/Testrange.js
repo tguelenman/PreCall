@@ -23,7 +23,7 @@ export default class Testrange extends React.Component {
 
 		return (
 			<div>
-				<ThresholdBar2 threshold={0.5}/>
+				<ThresholdBar2 threshold={0.2}/>
 			</div>
 		)
 	}

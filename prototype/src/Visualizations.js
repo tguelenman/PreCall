@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Select, Button, Input, } from 'semantic-ui-react'
 import RadarChart from './RadarChart.js'
 import MetricsShow from './MetricsShow.js'
-import ThresholdBar from './ThresholdBar.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
 import PreviewLegend from './PreviewLegend.js'
 import ConfusionFilter from './ConfusionFilter.js'
+import ThresholdBar from './ThresholdBar.js'
 
 import './styling/Visualizations.css';
 

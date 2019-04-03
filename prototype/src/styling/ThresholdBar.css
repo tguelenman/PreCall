@@ -1,102 +1,69 @@
-#thresholdBar{
-	height: 400px;
-	margin: auto;
-	width: 100%;
-}
-
-#sliderContainer{
-	display: flex;
-	justify-content: left;
-	height: 460px;
-	font-family: Helvetica;
-	margin-left: 50px;
-	/*margin-left: -30px;*/
-}
-
-#thresholdTitle{
-	margin-bottom: 20px;
-}
-	
-.rangeslider{
-	margin: auto 0 !important;
-	box-sizing: content-box !important;
-	width: 20px !important;
-	max-width: 20px !important;
-	height: 400px !important;
-	/*background-image: url('images/redToGrey.png');*/
-	background-image: linear-gradient(to bottom, #cd3048, #dfdfdf) !important;
-	background-repeat: no-repeat;
-	opacity: 1 !important;
-	border: 1px solid #8f8f8f !important;
-	border-top: 2px solid black !important;
-	border-bottom: 2px solid black !important;
-	border-radius: 0 !important;
-}
-
-.rangeslider__fill{
-	/*width: 20px !important;*/
-	box-sizing: content-box !important;
-	background-image: linear-gradient(to top, #0083ca, #dfdfdf) !important;
-	/*border: 2px solid #4c524f !important;
-	border-radius: 0 !important;
-	border-left: none !important;
-	border-top: none !important;*/
-}
-
-.rangeslider__handle{
-	bottom: -5px !important;
-	left: -35px !important;
-	height: 3px !important;
-	width: 70px !important;
-	border: none !important;
-	background-color: black !important;
-}
-
-.rangeslider__handle::after{
-	/*width: 0 !important;
-	height: 0 !important;*/
-}
-
-#sliderHandleCircle{
-	margin-right: 50px;
+.thresholdSlider{
 	position: relative;
-	transform: translateY(-50%);
-	top: 1.5px;
-	width: 20px;
-	height: 20px;
-	border: 3px solid black;
-	border-radius: 50%;
-	background-color: white;
+	height: 400px;
+	width: 32px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	padding-left: 13px;
+	margin-left: 150px;
+	margin-top: 30px;
+}	
+	
+#thresholdRail{
+	position: absolute;
+	height: 396px;
+	width: 25px;
+	transform: translate(-50%, 0%);
+	pointer-events: none;
+	/*background-image: linear-gradient(to top, #0083ca, #dfdfdf) left center/10px 10px no-repeat !important;*/
+	border-left: 1px solid #989898;
+	border-right: 1px solid #989898;
 }
 
-#thresholdValue{
-	text-align: left;
+.thresholdTrack{
+	position: absolute;
+	z-index: 1;
+	background-image: linear-gradient(to bottom, #cd3048, white);	
+	cursor: pointer;
+	width: 25px;			
+	border-left: 1px solid #989898;
+	border-right: 1px solid #989898;
+	transform: translate(-50%, 0%);
+}
+
+#thresholdLabel{
+	font-family: Arial;
 	font-size: 19px;
-	margin-right: 50px;
-	padding-top: 10px;
-	height: 50px;
-}
+	margin-top: -2px;
+	margin-left: -80px;
+}	
 
-#thresholdValueP{
-	width: 50px;
-}
-
-#goodToDamagingLabel{
-	text-align: left;
-	font-size: 19px;
-	margin-left: 5px;
-	height: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+.handleStick{
+	width: 55px;
+	height: 3px;
+	border-bottom: 3px solid black;
+	margin-top: -11px;
+	margin-left: 18px;
 }
 
 #zeroToOneLabel{
-	height: 430px;
+	height: 425px;
 	font-size: 19px;
+	font-family: Arial;
 	margin: auto 0;
-	padding-left: 5px;
+	margin-top: -15px;
+	padding-left: 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+.gd{
+	font-family: Arial;
+	font-size: 19px;
+	margin-left: 110px;
+}
+
+.damaging{
+	margin-top: -40px;
 }

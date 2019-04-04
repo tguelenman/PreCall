@@ -1,3 +1,2 @@
 https://semantic-ui.mit-license.org/
-https://www.chartjs.org/docs/latest/notes/license.html
 https://github.com/sghall/react-compound-slider/blob/master/LICENSE

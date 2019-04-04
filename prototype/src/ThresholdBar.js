@@ -10,42 +10,7 @@ function round(val){
 
 }
 	
-function Handle({
-	
-	handle: { id, value, percent }, 
-	getHandleProps
-	
-}) {
-	return (
-	
-		<div id='thresholdHandle'
-			style={{
-				top: `${percent}%`,
-				position: 'absolute',
-				zIndex: 2,
-				width: 21,
-				height: 21,
-				border: '3px solid black',
-				textAlign: 'center',
-				cursor: 'pointer',
-				borderRadius: '50%',
-				backgroundColor: 'white',
-				transform: 'translate(-50%, -50%)',
-				zIndex: 5,
-				marginLeft: -35,
-			}}
-			{...getHandleProps(id)}
-		>
-			<div id='thresholdLabel'>
-					{round(value)}
-			</div>
-			<div className='handleStick'/>
-			<p className='damaging gd'>damaging</p>
-			<p className='good gd'>good</p>
-		</div>
-		
-	)
-}
+
 
 function Track({ source, target, getTrackProps }) {
 	
@@ -71,6 +36,43 @@ export default class ThresholdBar2 extends Component {
 		//set the new threshold in parent
 		this.props.callback('threshold',round(value[0])) 
 		
+	}
+
+	Handle = ({
+	
+		handle: { id, value, percent }, 
+		getHandleProps
+		
+	}) => {
+		return (
+		
+			<div id='thresholdHandle'
+				style={{
+					top: `${percent}%`,
+					position: 'absolute',
+					zIndex: 2,
+					width: 21,
+					height: 21,
+					border: '3px solid black',
+					textAlign: 'center',
+					cursor: 'pointer',
+					borderRadius: '50%',
+					backgroundColor: 'white',
+					transform: 'translate(-50%, -50%)',
+					zIndex: 5,
+					marginLeft: -35,
+				}}
+				{...getHandleProps(id)}
+			>
+				<div id='thresholdLabel'>
+						{this.props.threshold}
+				</div>
+				<div className='handleStick'/>
+				<p className='damaging gd'>damaging</p>
+				<p className='good gd'>good</p>
+			</div>
+			
+		)
 	}
 
 	render () {
@@ -99,7 +101,7 @@ export default class ThresholdBar2 extends Component {
 					{({ handles, getHandleProps }) => (
 						<div className='slider-handles'>
 							{handles.map(handle => (
-								<Handle
+								<this.Handle
 									key={handle.id}
 									handle={handle}
 									getHandleProps={getHandleProps}

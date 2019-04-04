@@ -224,23 +224,52 @@ export default class RadarChart2 extends Component {
 		//for the path: center = (250,250)
 		//axis1 handle max = center + (sin(30)*length(center-to-max),cos(30)*length(...)) = center + (sin(30)*200,cos(30)*200) = (350,423)
 		
+		//differences between center and max
+		//axis1
+		const ax1DifX = 173
+		const ax1DifY = 100
+		
+		//axis2
+		const ax2DifX = -173
+		const ax2DifY = ax1DifY
+		
+		//axis3
+		const ax3DifX = 0
+		const ax3DifY = -200
+		
+		const centerX = 250
+		const centerY = centerX
+		
+		const pre = finalValuesRadar['precision']
+		const rec = finalValuesRadar['recall']
+		const fpr = finalValuesRadar['fpr']
+		
 		return (
 			<div id='customRadar'>
-				<div id='axis1'>
+				<div className='axisSliderContainer'>
 					{slider1}
 				</div>
-				<div id='axis2'>
+				<div className='axisSliderContainer'>
 					{slider2}
 				</div>
-				<div id='axis3'>
+				<div className='axisSliderContainer'>
 					{slider3}	
 				</div>
-				<svg width='500' height='500' id='customRadarSvg'>
+				<svg width='500' height='500' className='customRadarSvg'>
 					<circle cx='250' cy='250' r='40' className='radarCircle'/>
 					<circle cx='250' cy='250' r='80' className='radarCircle'/>
 					<circle cx='250' cy='250' r='120' className='radarCircle'/>
 					<circle cx='250' cy='250' r='160' className='radarCircle'/>
 					<circle cx='250' cy='250' r='200' className='radarCircle'/>
+					
+					<path id='radarPath' 
+						d={
+							'M'+(centerX+pre*ax1DifX)+' '+(centerY+pre*ax1DifY)+' '+
+								(centerX+rec*ax2DifX)+' '+(centerY+rec*ax2DifY)+' '+
+								(centerX+fpr*ax3DifX)+' '+(centerY+fpr*ax3DifY)+' Z'
+						}
+					/>
+					
 					<text className='svgText' x='415' y='380'>Precision</text>
 					<text className='svgTextSmaller' x='415' y='400'>{displayValues['precision']}</text>					
 					<text className='svgText' x='25' y='380'>Recall</text>

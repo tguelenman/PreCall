@@ -4,10 +4,13 @@
 	width: 500px;
 }
 
-#customRadarSvg{
+.customRadarSvg{
 	margin-top: -241px;
 	width: 500px;
 	height: 500px;
+}
+
+.axisSliderContainer{
 }
 
 .slider{
@@ -52,7 +55,7 @@
 .axis3Slider{
 	width: 200px;
 	bottom: 50px;
-	left: 148px;
+	left: 147px;
 	-webkit-transform: rotate(90deg); /* Chrome & Safari */
     -moz-transform: rotate(90deg); /* Firefox */
     -ms-transform: rotate(90deg); /* IE 9+ */
@@ -76,6 +79,13 @@
 	fill: transparent;
 	stroke: #989898;
 	stroke-width: 2px;
+}
+
+#radarPath{
+	stroke: #5e5e5e;
+	stroke-width: 5px;
+	z-index: 3;
+	fill: none;
 }
 
 .svgText{

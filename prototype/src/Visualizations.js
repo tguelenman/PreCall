@@ -169,7 +169,7 @@ export default class Visualizations extends Component {
 		
 		/*We need finalValues, but with the currently handled value not changed to an actually existing one.
 		This means that on the radar chart, we want to keep e.g. precision 0.349, even if the closest existing value
-		is 0.35, because it would cause the handle to jump around a little bit on the radar otherwise.
+		is 0.35, because it would cause the handle to jump around a little on the radar otherwise.
 		This does not influence the actual result or other values, as the original finalValues remains intact.*/
 		
 		var finalValuesRadar = finalValues

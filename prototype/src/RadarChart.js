@@ -6,9 +6,12 @@ import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
 
 //export function Handle({
 function Handle({
+	
 	handle: { id, value, percent }, 
 	getHandleProps
+	
 }) {
+	
 	return (
 		<div
 			style={{
@@ -35,6 +38,7 @@ function Handle({
 }
 
 function Track({ source, target, getTrackProps }) { // your own track component
+
 	return (
 		<div
 			style={{
@@ -55,9 +59,7 @@ function Track({ source, target, getTrackProps }) { // your own track component
 
 export default class RadarChart2 extends Component {
 
-	state = {
-
-	}
+	state = {}
 	
 	round = (val) => {
 		
@@ -67,23 +69,35 @@ export default class RadarChart2 extends Component {
 	}
 	
 	onUpdate1 = axis1 => {
+		
 		const newVal = this.round(axis1[0])
+		//check if a rerender is necessary
 		if(this.props.finalValuesRadar['precision'] !== newVal){
+			
 			this.props.callback('precision', newVal, true)
+			
 		}
 	}
 	
 	onUpdate2 = axis2 => {
+		
 		const newVal = this.round(axis2[0])
+		//check if a rerender is necessary
 		if(this.props.finalValuesRadar['recall'] !== newVal){
+			
 			this.props.callback('recall', newVal, true)
+			
 		}
 	}
 	
 	onUpdate3 = axis3 => {
+		
 		const newVal = this.round(axis3[0])
+		//check if a rerender is necessary
 		if(this.props.finalValuesRadar['fpr'] !== newVal){
+			
 			this.props.callback('fpr', newVal, true)
+			
 		}
 	}
 	
@@ -246,13 +260,13 @@ export default class RadarChart2 extends Component {
 		
 		return (
 			<div id='customRadar'>
-				<div className='axisSliderContainer'>
+				<div>
 					{slider1}
 				</div>
-				<div className='axisSliderContainer'>
+				<div>
 					{slider2}
 				</div>
-				<div className='axisSliderContainer'>
+				<div>
 					{slider3}	
 				</div>
 				<svg width='500' height='500' className='customRadarSvg'>

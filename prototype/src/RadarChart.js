@@ -291,7 +291,6 @@ export default class RadarChart2 extends Component {
 					<text className='svgText' x='175' y='20'>False positive rate {this.state.axis3}</text>
 					<text className='svgTextSmaller' x='232' y='40'>{displayValues['fpr']}</text>					
 				</svg>
-				{JSON.stringify(this.state)}
 			</div>
 		)
 	}

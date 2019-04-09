@@ -79,7 +79,7 @@ export default class ThresholdBar2 extends Component {
 		
 		const threshold = this.props.threshold
 		const railStyle = {
-			background: 'linear-gradient(to top, #0083ca, white) bottom center/50px '+this.props.threshold*100+'% no-repeat',
+			background: 'linear-gradient(to top, #0083ca, white) bottom center/50px '+threshold*100+'% no-repeat',
 		}
 		
 		const slider = 

@@ -1,3 +1,9 @@
-.plusMinusButtonGroup{
-	padding-top: 33px;
+.pmButtonGroup{
+	padding-top: 20px;
+}
+
+.pmButton{
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	background-color: #d8d9d8 !important;
 }

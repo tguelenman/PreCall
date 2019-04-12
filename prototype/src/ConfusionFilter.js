@@ -198,10 +198,10 @@ export default class ConfusionFilter extends Component {
 						</div>
 					</div>
 					:
-					<div className='plusMinusButtonGroup'>
+					<div className='pmButtonGroup'>
 						<Button.Group vertical>
-							<Button onClick={() => this.pmConfusion(this.props.confusionValue,'+')}>+</Button>
-							<Button onClick={() => this.pmConfusion(this.props.confusionValue,'-')}>-</Button>
+							<Button className='pmButton' onClick={() => this.pmConfusion(this.props.confusionValue,'+')}>+</Button>
+							<Button className='pmButton' onClick={() => this.pmConfusion(this.props.confusionValue,'-')}>-</Button>
 						</Button.Group>
 					</div>
 				}

@@ -3,7 +3,6 @@ import { Select, Button, Input, } from 'semantic-ui-react'
 import RadarChart from './RadarChart.js'
 import MetricsShow from './MetricsShow.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
-import PreviewLegend from './PreviewLegend.js'
 import ConfusionFilter from './ConfusionFilter.js'
 import ThresholdBar from './ThresholdBar.js'
 
@@ -203,7 +202,7 @@ export default class Visualizations extends Component {
 							</div>
 						</div>
 						<div id='preview'>
-							<PreviewLegend/>
+							<h2 className='title'>Expected classification result</h2>
 							<ConfusionDistribution data={this.props.data} finalValues={finalValues} callback={this.setNewValues}/>
 						</div>
 					</div> : ''

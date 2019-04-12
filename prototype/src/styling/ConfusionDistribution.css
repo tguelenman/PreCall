@@ -47,7 +47,7 @@
 }
 
 .bubble{
-	border: 1px solid black;
+	background-color: #d8d9d8;
 	width: 10px;
 	height: 10px;
 	margin: 0;
@@ -60,7 +60,7 @@
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 11.5px solid #505050;
+    border-bottom: 11.5px solid #d8d9d8;
 }
 
 .innerTriangle {
@@ -71,6 +71,10 @@
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
+}
+
+.legendTriangle{
+	border-bottom: 8.5px solid #d8d9d8;
 }
 
 .tp{

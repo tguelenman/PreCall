@@ -64,9 +64,6 @@ export default class Visualizations extends Component {
 			})
 			
 		}
-		else{
-			console.log("def: ",definitiveValue,", state: ",this.state.finalValues[metric],", metric: ",metric)
-		}
 	}
 	
 	componentDidMount = () => {

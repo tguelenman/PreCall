@@ -126,7 +126,8 @@ export default class ConfusionFilter extends Component {
 		
 		var newThreshold = currentThreshold
 		
-		while(newThreshold === currentThreshold){
+		//two extra conditions needed not to get stuck in an infinite loop when max or min has been reached
+		while(newThreshold === currentThreshold && currentConfusion >= this.arrayMin(fullArray) && currentConfusion <= this.arrayMax(fullArray)){
 			//...and either add 1 to it
 			if(plusMinus === '+'){
 				

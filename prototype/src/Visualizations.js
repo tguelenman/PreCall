@@ -209,8 +209,6 @@ export default class Visualizations extends Component {
 				}
 				
 				<hr className="dividerClass"/>
-				<ConfusionFilter data={this.props.data} callback={this.setNewValues} currentThreshold={finalValues['threshold']}/>
-				<hr className="dividerClass"/>
 				<div id='ParameterSelection'>
 					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
 						<input />

@@ -92,7 +92,6 @@ export default class ConfusionDistribution extends Component {
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
-						buttonsOnly={true}
 						confusionValue={'TN'}
 					/>
 					<div id='trueNegatives' className='bubbleContainer'>
@@ -109,7 +108,6 @@ export default class ConfusionDistribution extends Component {
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
-						buttonsOnly={true}
 						confusionValue={'FP'}
 					/>
 					<div id='falsePositives' className='bubbleContainer'>
@@ -126,7 +124,6 @@ export default class ConfusionDistribution extends Component {
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
-						buttonsOnly={true}
 						confusionValue={'TP'}
 					/>
 					<div id='truePositives' className='bubbleContainer'>
@@ -143,7 +140,6 @@ export default class ConfusionDistribution extends Component {
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
-						buttonsOnly={true}
 						confusionValue={'FN'}
 					/>
 					<div id='falseNegatives' className='bubbleContainer'>

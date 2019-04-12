@@ -184,40 +184,16 @@ export default class ConfusionFilter extends Component {
 		}		
 		
 		return (
-			<div>
-				{!this.props.buttonsOnly ?
-					<div>
-						<div>
-							<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>
-							<Button color='red' onClick={() => this.setConfusion('FP','max')}>Maximize FPs</Button>
-							<Button color='red' onClick={() => this.setConfusion('TP','max')}>Maximize TPs</Button>
-							<Button color='blue' onClick={() => this.setConfusion('FN','max')}>Maximize FNs</Button>
-						</div>
-						<hr className='dividerClass'/>
-						<div>
-							<Button color='blue' onClick={() => this.setConfusion('TN','min')}>Minimize TNs</Button>
-							<Button color='red' onClick={() => this.setConfusion('FP','min')}>Minimize FPs</Button>
-							<Button color='red' onClick={() => this.setConfusion('TP','min')}>Minimize TPs</Button>
-							<Button color='blue' onClick={() => this.setConfusion('FN','min')}>Minimize FNs</Button>
-						</div>
-						<hr className='dividerClass'/>
-						<div>
-							<Input name='confOptValue' onChange={this.handleChange} type='text' placeholder='Value in %' action>
-								<input/>
-								<Select compact options={options} defaultValue='TN' name='confOptParam' onChange={this.handleChange}/>
-								<Button color='grey' type='submit' onClick={() => this.setConfusion(confOptParam,confOptValue)}>Optimize</Button>
-							</Input>
-						</div>
-					</div>
-					:
-					<div className='pmButtonGroup'>
-						<Button.Group vertical>
-							<Button className='pmButton' onClick={() => this.pmConfusion(this.props.confusionValue,'+')}>+</Button>
-							<Button className='pmButton' onClick={() => this.pmConfusion(this.props.confusionValue,'-')}>-</Button>
-						</Button.Group>
-					</div>
-				}
+		
+
+			<div className='pmButtonGroup'>
+				{/*<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>*/}
+				<Button.Group vertical>
+					<Button className='pmButton' onClick={() => this.pmConfusion(this.props.confusionValue,'+')}>+</Button>
+					<Button className='pmButton' onClick={() => this.pmConfusion(this.props.confusionValue,'-')}>-</Button>
+				</Button.Group>
 			</div>
+			
 		)
 	}
 }

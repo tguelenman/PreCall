@@ -67,6 +67,8 @@ export default class ConfusionFilter extends Component {
 		
 		//confusionValue = 'TP', 'FP', 'TN', 'FN'
 		//wantedValue = 'max', 'min', int
+		const thresholds = this.state.thresholds
+		const currentThreshold = this.props.currentThreshold
 		
 		//get the full array of TPs, FPs, TNs or FNs from state, depending on what Button has been clicked
 		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
@@ -93,7 +95,7 @@ export default class ConfusionFilter extends Component {
 			//find index of closest existing value to the one specified by user
 			for (var i = 0; i < fullArray.length; i++){
 				
-				if (Math.abs(wantedValue - fullArray[i]) < Math.abs(wantedValue - closest)){
+				if (Math.abs(wantedValue - fullArray[i]) < Math.abs(wantedValue - closest) ){
 					
 					closest = fullArray[i]
 					wantedIndex = i
@@ -107,8 +109,8 @@ export default class ConfusionFilter extends Component {
 			
 		}
 		
-		newThreshold = this.state.thresholds[wantedIndex]
-		this.props.callback('threshold',newThreshold)
+		return thresholds[wantedIndex]
+		
 	}
 	
 	pmConfusion = (confusionValue, plusMinus) => {
@@ -120,21 +122,31 @@ export default class ConfusionFilter extends Component {
 		const currentThreshold = this.props.currentThreshold
 		const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
 		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
-		const currentConfusion = fullArray[wantedIndex]
+		let currentConfusion = fullArray[wantedIndex]
 		
-		//...and either add 1 to it
-		if(plusMinus === '+'){
-			
-			this.setConfusion(confusionValue,currentConfusion+1)
-			
-		} 
+		var newThreshold = currentThreshold
 		
-		//...or subtract 1 from it
-		else if (plusMinus === '-'){
+		while(newThreshold === currentThreshold){
+			//...and either add 1 to it
+			if(plusMinus === '+'){
+				
+				currentConfusion = currentConfusion+0.1
+				newThreshold = this.setConfusion(confusionValue,currentConfusion)
+				
+			} 
 			
-			this.setConfusion(confusionValue,currentConfusion-1)	
-			
+			//...or subtract 1 from it
+			else if (plusMinus === '-'){
+				
+				currentConfusion = currentConfusion-0.1
+				newThreshold = this.setConfusion(confusionValue,currentConfusion)	
+				
+			}
 		}
+		
+		//new threshold is determined, pass it
+		this.props.callback('threshold',newThreshold)
+
 	}
 	
 	arrayMin = (arr) => {

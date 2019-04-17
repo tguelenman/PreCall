@@ -29,7 +29,7 @@
 /*precision*/
 .axis1Slider{
 	width: 200px;
-	left: 237px;
+	left: 236px;
 	top: 262px;
 	-webkit-transform: rotate(30deg); /* Chrome & Safari */
     -moz-transform: rotate(30deg); /* Firefox */
@@ -54,7 +54,7 @@
 /*fpr*/
 .axis3Slider{
 	width: 200px;
-	bottom: 50px;
+	bottom: 52px;
 	left: 147px;
 	-webkit-transform: rotate(90deg); /* Chrome & Safari */
     -moz-transform: rotate(90deg); /* Firefox */

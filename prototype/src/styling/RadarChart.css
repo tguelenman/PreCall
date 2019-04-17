@@ -29,7 +29,7 @@
 /*precision*/
 .axis1Slider{
 	width: 200px;
-	left: 236px;
+	left: 235px;
 	top: 262px;
 	-webkit-transform: rotate(30deg); /* Chrome & Safari */
     -moz-transform: rotate(30deg); /* Firefox */
@@ -42,7 +42,7 @@
 /*recall*/
 .axis2Slider{
 	width: 200px;
-	left: 61px;
+	left: 62px;
 	top: 176px;
 	-webkit-transform: rotate(150deg) scaleX(-1); /* Chrome & Safari */
     -moz-transform: rotate(150deg) scaleX(-1); /* Firefox */
@@ -54,7 +54,7 @@
 /*fpr*/
 .axis3Slider{
 	width: 200px;
-	bottom: 52px;
+	bottom: 51px;
 	left: 147px;
 	-webkit-transform: rotate(90deg); /* Chrome & Safari */
     -moz-transform: rotate(90deg); /* Firefox */
@@ -78,12 +78,12 @@
 .radarCircle{
 	fill: transparent;
 	stroke: #989898;
-	stroke-width: 2px;
+	stroke-width: 1px;
 }
 
 #radarPath{
 	stroke: #5e5e5e;
-	stroke-width: 5px;
+	stroke-width: 2px;
 	z-index: 3;
 	fill: none;
 }

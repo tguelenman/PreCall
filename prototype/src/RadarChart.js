@@ -22,7 +22,7 @@ function Handle({
 				zIndex: 2,
 				width: 21,
 				height: 21,
-				border: '3px solid black',
+				border: '2px solid black',
 				textAlign: 'center',
 				cursor: 'pointer',
 				borderRadius: '50%',

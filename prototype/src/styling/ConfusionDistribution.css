@@ -35,7 +35,14 @@
 	font-size: 19px;
 	line-height: 20px;
 	font-family: Helvetica;
-	
+}
+
+.bubblePGood{
+	color: #0083ca;
+}
+
+.bubblePDamaging{
+	color: #d82d48;
 }
 
 .bubbleValueP{
@@ -43,7 +50,6 @@
 	font-size: 25px !important;
 	line-height: 25px;
 	font-weight: 100;
-
 }
 
 .bubble{

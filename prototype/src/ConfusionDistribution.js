@@ -100,7 +100,7 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubbleValueP'>{tn}%</p>
 							<p className='bubbleP'>correctly</p>
 							<p className='bubbleP'>detected as</p>
-							<p className='bubbleP'>good</p>
+							<p className='bubbleP bubblePGood'>good</p>
 						</div>
 					</div>
 				</div>
@@ -116,7 +116,7 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubbleValueP'>{fp}%</p>
 							<p className='bubbleP'>wrongly</p>
 							<p className='bubbleP'>detected as</p>
-							<p className='bubbleP'>damaging</p>
+							<p className='bubbleP bubblePDamaging'>damaging</p>
 						</div>
 					</div>
 				</div>
@@ -132,7 +132,7 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubbleValueP'>{tp}%</p>
 							<p className='bubbleP'>correctly</p>
 							<p className='bubbleP'>detected as</p>
-							<p className='bubbleP'>damaging</p>
+							<p className='bubbleP bubblePDamaging'>damaging</p>
 						</div>
 					</div>
 				</div>
@@ -148,7 +148,7 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubbleValueP'>{fn}%</p>
 							<p className='bubbleP'>wrongly</p>
 							<p className='bubbleP'>detected as</p>
-							<p className='bubbleP'>good</p>
+							<p className='bubbleP bubblePGood'>good</p>
 						</div>
 					</div>	
 				</div>

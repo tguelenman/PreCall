@@ -93,6 +93,7 @@ export default class ConfusionDistribution extends Component {
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						confusionValue={'TN'}
+						buttonType={'-'}
 					/>
 					<div id='trueNegatives' className='bubbleContainer'>
 						{tNContent}
@@ -103,12 +104,19 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubblePGood'>good</p>
 						</div>
 					</div>
+					<ConfusionFilter data={this.props.data} 
+						callback={this.props.callback} 
+						currentThreshold={finalValues['threshold']} 
+						confusionValue={'TN'}
+						buttonType={'+'}
+					/>
 				</div>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						confusionValue={'FP'}
+						buttonType={'-'}
 					/>
 					<div id='falsePositives' className='bubbleContainer'>
 						{fPContent}
@@ -119,12 +127,19 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubblePDamaging'>damaging</p>
 						</div>
 					</div>
+					<ConfusionFilter data={this.props.data} 
+						callback={this.props.callback} 
+						currentThreshold={finalValues['threshold']} 
+						confusionValue={'FP'}
+						buttonType={'+'}
+					/>
 				</div>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						confusionValue={'TP'}
+						buttonType={'-'}
 					/>
 					<div id='truePositives' className='bubbleContainer'>
 						{tPContent}
@@ -135,12 +150,19 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP bubblePDamaging'>damaging</p>
 						</div>
 					</div>
+					<ConfusionFilter data={this.props.data} 
+						callback={this.props.callback} 
+						currentThreshold={finalValues['threshold']} 
+						confusionValue={'TP'}
+						buttonType={'+'}
+					/>
 				</div>
 				<div className='outerBubbleContainer'>
 					<ConfusionFilter data={this.props.data} 
 						callback={this.props.callback} 
 						currentThreshold={finalValues['threshold']} 
 						confusionValue={'FN'}
+						buttonType={'-'}
 					/>
 					<div id='falseNegatives' className='bubbleContainer'>
 						{fNContent}
@@ -150,7 +172,13 @@ export default class ConfusionDistribution extends Component {
 							<p className='bubbleP'>detected as</p>
 							<p className='bubbleP bubblePGood'>good</p>
 						</div>
-					</div>	
+					</div>
+					<ConfusionFilter data={this.props.data} 
+						callback={this.props.callback} 
+						currentThreshold={finalValues['threshold']} 
+						confusionValue={'FN'}
+						buttonType={'+'}
+					/>
 				</div>
 			</div>
 		)

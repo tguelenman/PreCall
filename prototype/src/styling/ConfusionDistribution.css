@@ -66,7 +66,7 @@
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 11.5px solid #d8d9d8;
+    border-bottom: 10px solid #d8d9d8;
 }
 
 .innerTriangle {
@@ -79,17 +79,12 @@
     border-right: 4px solid transparent;
 }
 
-.legendTriangle{
-	border-bottom: 8.5px solid #d8d9d8;
-}
-
 .tp{
-	border-bottom: 9.5px solid #d82d48;
+	border-bottom: 8px solid #d82d48;
 }
-
 
 .fn{
-	border-bottom: 9.5px solid #0083ca;
+	border-bottom: 8px solid #0083ca;
 }
 
 .tn{

@@ -1,9 +1,27 @@
-.pmButtonGroup{
-	padding-top: 20px;
+.pmButtons{
+	padding-top: 135px;
 }
 
 .pmButton{
-	padding-left: 15px !important;
-	padding-right: 15px !important;
-	background-color: #d8d9d8 !important;
+	font-size: 25px !important;
+	font-weight: 100 !important;
+	height: 25px !important;
+	width: 25px !important;
+	padding: 0 !important;
+	background-color: white !important;
+	border: 1px solid black !important;
+	border-radius: 50% !important;
+	color: black !important;
+}
+
+.pmButton1{
+	margin-right: -10px !important;
+}
+
+.pmButton2{
+	margin-left: -25px !important;
+}
+
+.pmButton1 > p {
+	margin-top: -8px !important;
 }

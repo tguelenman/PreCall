@@ -193,10 +193,21 @@ export default class ConfusionFilter extends Component {
 		return (
 		
 
-			<div className='pmButtonGroup'>
+			<div className='pmButtons'>
 				{/*<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>*/}
-				<Button.Group vertical>
-					<Button className='pmButton'
+				{ this.props.buttonType === '-' ?
+					<Button className='pmButton pmButton1'
+						onMouseDown={() => {
+							this.startTimer('-')
+							this.pmConfusion(this.props.confusionValue,'-')
+						}}
+						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+						<p>
+							-
+						</p>
+					</Button>
+					:
+					<Button className='pmButton pmButton2'
 						onMouseDown={() => {
 							this.startTimer('+')
 							this.pmConfusion(this.props.confusionValue,'+')
@@ -204,15 +215,7 @@ export default class ConfusionFilter extends Component {
 						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
 						+
 					</Button>
-					<Button className='pmButton'
-						onMouseDown={() => {
-							this.startTimer('-')
-							this.pmConfusion(this.props.confusionValue,'-')
-						}}
-						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
-						-
-					</Button>
-				</Button.Group>
+				}
 			</div>
 			
 		)

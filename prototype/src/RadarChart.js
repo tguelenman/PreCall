@@ -43,7 +43,7 @@ function Track({ source, target, getTrackProps }) { // your own track component
 		<div
 			style={{
 				position: 'absolute',
-				height: 2,
+				height: 1,
 				zIndex: 1,
 				marginTop: 35,
 				backgroundColor: '#989898',

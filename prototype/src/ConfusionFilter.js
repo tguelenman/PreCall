@@ -190,8 +190,38 @@ export default class ConfusionFilter extends Component {
 			this.calculateConfusion()	
 		}		
 		
-		return (
+		//#50 part 2
+		//TODO buttons add: style={additionalStyle1}
+		//TODO try this in didMount
+
+		/*const fullArray = eval('this.state.' + 'all' + this.props.confusionValue +'s')
 		
+		//check if max or min has been reached to grey out corresponding button
+		var additionalStyle1 = {}
+		let additionalStyle2 = {}
+		
+		if(fullArray){
+			
+			const min = this.arrayMin(fullArray)
+			const max = this.arrayMax(fullArray)
+			const currentThreshold = this.props.currentThreshold
+			const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
+			const currentConfusion = fullArray[wantedIndex]
+			
+			if(currentConfusion <= min){
+				console.log("<= min")
+				additionalStyle1 = {
+					backgroundColor: 'pink !important',
+				}
+			} else if (currentConfusion >= max){
+				additionalStyle2 = {
+					backgroundColor: 'black !important',					
+				}
+			}
+
+		}*/
+				
+		return (
 
 			<div className='pmButtons'>
 				{/*<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>*/}

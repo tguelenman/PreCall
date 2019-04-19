@@ -26,6 +26,10 @@
 	margin-top: -8px !important;
 }
 
+.pmButton2 > p {
+	margin-top: -6.5px !important;
+}
+
 .pmButton:hover{
 	border: 1px solid #0083ca !important;
 	color: #0083ca !important;

@@ -232,9 +232,7 @@ export default class ConfusionFilter extends Component {
 							this.pmConfusion(this.props.confusionValue,'-')
 						}}
 						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
-						<p>
-							-
-						</p>
+						<p>-</p>
 					</Button>
 					:
 					<Button className='pmButton pmButton2'
@@ -243,7 +241,7 @@ export default class ConfusionFilter extends Component {
 							this.pmConfusion(this.props.confusionValue,'+')
 						}}
 						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
-						+
+						<p>+</p>
 					</Button>
 				}
 			</div>

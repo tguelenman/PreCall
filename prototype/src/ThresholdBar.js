@@ -91,7 +91,7 @@ export default class ThresholdBar2 extends Component {
 				onUpdate={this.onUpdate}
 			>
 				<Rail>
-					{({ getRailProps }) => (  // adding the rail props sets up events on the rail
+					{({ getRailProps }) => (
 						<div id='thresholdRail' style={railStyle} {...getRailProps()} /> 
 					)}
 				</Rail>
@@ -133,6 +133,7 @@ export default class ThresholdBar2 extends Component {
 				{ threshold ? 
 					<div id='thresholdBar'>
 						{slider}
+						<div id='limitMarks'/>
 					</div>
 				: '' }
 			</div>

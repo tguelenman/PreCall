@@ -191,58 +191,70 @@ export default class ConfusionFilter extends Component {
 		}		
 		
 		//#50 part 2
-		//TODO buttons add: style={additionalStyle1}
-		//TODO try this in didMount
 
-		/*const fullArray = eval('this.state.' + 'all' + this.props.confusionValue +'s')
+		const fullArray = eval('this.state.' + 'all' + this.props.confusionValue +'s')
+		let currentConfusion, min, max
 		
 		//check if max or min has been reached to grey out corresponding button
-		var additionalStyle1 = {}
-		let additionalStyle2 = {}
-		
 		if(fullArray){
 			
-			const min = this.arrayMin(fullArray)
-			const max = this.arrayMax(fullArray)
+			min = this.arrayMin(fullArray)
+			max = this.arrayMax(fullArray)
 			const currentThreshold = this.props.currentThreshold
 			const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
-			const currentConfusion = fullArray[wantedIndex]
-			
-			if(currentConfusion <= min){
-				console.log("<= min")
-				additionalStyle1 = {
-					backgroundColor: 'pink !important',
-				}
-			} else if (currentConfusion >= max){
-				additionalStyle2 = {
-					backgroundColor: 'black !important',					
-				}
-			}
+			currentConfusion = fullArray[wantedIndex]
 
-		}*/
+		}
 				
+		
 		return (
 
 			<div className='pmButtons'>
 				{/*<Button color='blue' onClick={() => this.setConfusion('TN','max')}>Maximize TNs</Button>*/}
 				{ this.props.buttonType === '-' ?
-					<Button className='pmButton pmButton1'
-						onMouseDown={() => {
-							this.startTimer('-')
-							this.pmConfusion(this.props.confusionValue,'-')
-						}}
-						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
-						<p>-</p>
-					</Button>
+					(currentConfusion > min ?
+						<Button
+							className='pmButton pmButton1'
+							onMouseDown={() => {
+								this.startTimer('-')
+								this.pmConfusion(this.props.confusionValue,'-')
+							}}
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							<p>-</p>
+						</Button>
+						: 
+						<Button
+							className='pmButton pmButton1 greyButton'
+							onMouseDown={() => {
+								this.startTimer('-')
+								this.pmConfusion(this.props.confusionValue,'-')
+							}}
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							<p>-</p>
+						</Button>
+					)
 					:
-					<Button className='pmButton pmButton2'
-						onMouseDown={() => {
-							this.startTimer('+')
-							this.pmConfusion(this.props.confusionValue,'+')
-						}}
-						onMouseUp={() => clearInterval(this.buttonPressTimer)}>
-						<p>+</p>
-					</Button>
+					(currentConfusion < max ?
+						<Button
+							className='pmButton pmButton2'
+							onMouseDown={() => {
+								this.startTimer('+')
+								this.pmConfusion(this.props.confusionValue,'+')
+							}}
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							<p>+</p>
+						</Button>
+						: 
+						<Button
+							className='pmButton pmButton2 greyButton'
+							onMouseDown={() => {
+								this.startTimer('+')
+								this.pmConfusion(this.props.confusionValue,'+')
+							}}
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							<p>+</p>
+						</Button>
+					)
 				}
 			</div>
 			

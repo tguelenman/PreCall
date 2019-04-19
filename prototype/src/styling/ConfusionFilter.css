@@ -34,3 +34,9 @@
 	border: 1px solid #0083ca !important;
 	color: #0083ca !important;
 }
+
+.greyButton{
+	pointer-events:none;
+	color: rgba(0,0,0,0.3) !important;
+	border: 1px solid rgba(0,0,0,0.3) !important;
+}

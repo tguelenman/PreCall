@@ -29,8 +29,8 @@
 /*precision*/
 .axis1Slider{
 	width: 200px;
-	left: 235px;
-	top: 262px;
+	left: 234.5px;
+	top: 263px;
 	-webkit-transform: rotate(30deg); /* Chrome & Safari */
     -moz-transform: rotate(30deg); /* Firefox */
     -ms-transform: rotate(30deg); /* IE 9+ */
@@ -42,8 +42,8 @@
 /*recall*/
 .axis2Slider{
 	width: 200px;
-	left: 62px;
-	top: 176px;
+	left: 61.5px;
+	top: 175px;
 	-webkit-transform: rotate(150deg) scaleX(-1); /* Chrome & Safari */
     -moz-transform: rotate(150deg) scaleX(-1); /* Firefox */
     -ms-transform: rotate(150deg) scaleX(-1); /* IE 9+ */
@@ -55,7 +55,7 @@
 .axis3Slider{
 	width: 200px;
 	bottom: 51px;
-	left: 147px;
+	left: 145.5px;
 	-webkit-transform: rotate(90deg); /* Chrome & Safari */
     -moz-transform: rotate(90deg); /* Firefox */
     -ms-transform: rotate(90deg); /* IE 9+ */

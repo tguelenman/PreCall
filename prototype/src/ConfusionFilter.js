@@ -123,11 +123,13 @@ export default class ConfusionFilter extends Component {
 		const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
 		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
 		let currentConfusion = fullArray[wantedIndex]
+		const min = this.arrayMin(fullArray)
+		const max = this.arrayMax(fullArray)
 		
 		var newThreshold = currentThreshold
 		
 		//two extra conditions needed not to get stuck in an infinite loop when max or min has been reached
-		while(newThreshold === currentThreshold && currentConfusion >= this.arrayMin(fullArray) && currentConfusion <= this.arrayMax(fullArray)){
+		while(newThreshold === currentThreshold && currentConfusion >= min && currentConfusion <= max){
 			//...and either add 1 to it
 			if(plusMinus === '+'){
 				
@@ -143,6 +145,11 @@ export default class ConfusionFilter extends Component {
 				newThreshold = this.setConfusion(confusionValue,currentConfusion)	
 				
 			}
+		}
+		
+		//stop the hold effect on - / + buttons
+		if(currentConfusion >= max || currentConfusion <= min){
+			clearInterval(this.buttonPressTimer)
 		}
 		
 		//new threshold is determined, pass it
@@ -205,7 +212,6 @@ export default class ConfusionFilter extends Component {
 			currentConfusion = fullArray[wantedIndex]
 
 		}
-				
 		
 		return (
 
@@ -225,10 +231,6 @@ export default class ConfusionFilter extends Component {
 						: 
 						<Button
 							className='pmButton pmButton1 greyButton'
-							onMouseDown={() => {
-								this.startTimer('-')
-								this.pmConfusion(this.props.confusionValue,'-')
-							}}
 							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
 							<p>-</p>
 						</Button>
@@ -247,10 +249,6 @@ export default class ConfusionFilter extends Component {
 						: 
 						<Button
 							className='pmButton pmButton2 greyButton'
-							onMouseDown={() => {
-								this.startTimer('+')
-								this.pmConfusion(this.props.confusionValue,'+')
-							}}
 							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
 							<p>+</p>
 						</Button>

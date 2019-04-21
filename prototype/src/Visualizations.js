@@ -205,21 +205,6 @@ export default class Visualizations extends Component {
 					</div> : ''
 				}
 				
-				<hr className="dividerClass"/>
-				<div id='ParameterSelection'>
-					<Input id='ParameterSelectionInput' name='metricValue' onChange={this.handleChangeMetricValue} placeholder='Value between 0.0 and 1.0' action>
-						<input />
-						<Select compact name='metric' options={metricOptionsRadar} value={this.state.metric} onChange={this.handleChangeMetric}/>
-						<Button type='submit' onClick={this.setNewValues}>GO!</Button>
-					</Input>
-				</div>
-				
-				{ tellUserAboutChange ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {metric}. The next closest possible value has been selected for you: {finalValues[metric]}.</p> :
-					metricValue ? <p className='automaticValueChange'>You have chosen a value of {metricValue} for {metric}.</p> :
-					<p className='automaticValueChange'>Please choose a metric and a value.</p> 
-				}
-				
-				<hr className="dividerClass"/>
 				<div id='RadarInformation'>
 					<MetricsShow finalValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
 				</div>

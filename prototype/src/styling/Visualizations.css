@@ -17,11 +17,6 @@ div.ui.active.visible.compact.selection.dropdown{
 	width: 100%;
 }
 
-.automaticValueChange{
-	margin: auto;
-	margin-top: 30px;
-}
-
 #BottomFlexContainer{
 	display: flex;
 	flex-direction: column;
@@ -39,8 +34,6 @@ div.ui.active.visible.compact.selection.dropdown{
 	padding-top: 30px;
 	padding-left: 15px;
 }
-
-
 
 #mainTitle{
 	padding-left: 15px !important;

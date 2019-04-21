@@ -128,7 +128,7 @@ export default class ConfusionFilter extends Component {
 		
 		var newThreshold = currentThreshold
 		
-		//two extra conditions needed not to get stuck in an infinite loop when max or min has been reached
+		//two extra conditions needed, not to get stuck in an infinite loop when max or min has been reached
 		while(newThreshold === currentThreshold && currentConfusion >= min && currentConfusion <= max){
 			//...and either add 1 to it
 			if(plusMinus === '+'){
@@ -185,6 +185,7 @@ export default class ConfusionFilter extends Component {
 
 	startTimer = (pm) => {
 	
+		//button hold effect: call pmConfusion every 75ms
 		this.buttonPressTimer = setInterval(() => this.pmConfusion(this.props.confusionValue,pm), 75)
 		
 	}
@@ -197,8 +198,6 @@ export default class ConfusionFilter extends Component {
 			this.calculateConfusion()	
 		}		
 		
-		//#50 part 2
-
 		const fullArray = eval('this.state.' + 'all' + this.props.confusionValue +'s')
 		let currentConfusion, min, max
 		
@@ -225,13 +224,15 @@ export default class ConfusionFilter extends Component {
 								this.startTimer('-')
 								this.pmConfusion(this.props.confusionValue,'-')
 							}}
-							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}
+							onMouseLeave={() => clearInterval(this.buttonPressTimer)}>
 							<p>-</p>
 						</Button>
 						: 
 						<Button
 							className='pmButton pmButton1 greyButton'
-							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}
+							onMouseLeave={() => clearInterval(this.buttonPressTimer)}>
 							<p>-</p>
 						</Button>
 					)
@@ -243,13 +244,15 @@ export default class ConfusionFilter extends Component {
 								this.startTimer('+')
 								this.pmConfusion(this.props.confusionValue,'+')
 							}}
-							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}
+							onMouseLeave={() => clearInterval(this.buttonPressTimer)}>							
 							<p>+</p>
 						</Button>
 						: 
 						<Button
 							className='pmButton pmButton2 greyButton'
-							onMouseUp={() => clearInterval(this.buttonPressTimer)}>
+							onMouseUp={() => clearInterval(this.buttonPressTimer)}
+							onMouseLeave={() => clearInterval(this.buttonPressTimer)}>							
 							<p>+</p>
 						</Button>
 					)

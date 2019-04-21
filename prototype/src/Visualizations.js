@@ -51,7 +51,7 @@ export default class Visualizations extends Component {
 			return false
 		}
 
-		//sometimes we might not need to rerender - that case gets catched here
+		//sometimes we might not need to rerender - that case gets intercepted here
 		if(definitiveValue !== this.state.finalValues[metric]){
 			
 			//and save it to the state
@@ -82,8 +82,8 @@ export default class Visualizations extends Component {
 		const data = this.props.data
 		
 		//create array with all values of specified metric
-		var metricArray = []
-		for (var entry in data){
+		let metricArray = []
+		for (let entry in data){
 			
 			metricArray.push(data[entry][metric])
 			
@@ -99,7 +99,7 @@ export default class Visualizations extends Component {
 			
 		}
 		
-		for (var i in metricArray){
+		for (let i in metricArray){
 			
 			//the wanted value of the specified metric exists
 			if (metricArray[i] === metricValue) {
@@ -134,7 +134,7 @@ export default class Visualizations extends Component {
 	//find index of an object, in an array of objects, by the value of an attribute
 	findWithAttr = (array, attr, value) => {
 		
-		for(var i = 0; i < array.length; i += 1) {
+		for(let i = 0; i < array.length; i += 1) {
 			
 			if(array[i][attr] === value) {
 				
@@ -168,13 +168,13 @@ export default class Visualizations extends Component {
 		is 0.35, because it would cause the handle to jump around a little on the radar otherwise.
 		This does not influence the actual result or other values, as the original finalValues remains intact.*/
 		
-		var finalValuesRadar = finalValues
+		let finalValuesRadar = finalValues
 		if(lastChangeByRadar && finalValues[metric] !== metricValue){
 			
 			finalValuesRadar = {}
 			finalValuesRadar[metric] = metricValue
 
-			for (var m in finalValues){
+			for (let m in finalValues){
 				if(m !== metric){
 					finalValuesRadar[m] = finalValues[m]
 				}

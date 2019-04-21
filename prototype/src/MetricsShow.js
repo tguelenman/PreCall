@@ -23,7 +23,7 @@ export default class MetricsGetRequest extends Component {
 				thresholdWithout,
 		} = this.props
 		
-		var finalValuesSorted = {
+		let finalValuesSorted = {
 			'recall': finalValues['recall'],
 			'!recall': finalValues['!recall'],
 			'precision': finalValues['precision'],
@@ -37,7 +37,7 @@ export default class MetricsGetRequest extends Component {
 		}
 		
 		//listing the metrics in 1 column
-		var output = []
+		let output = []
 		if (numberOfColumns === 1){
 			Object.keys(finalValuesSorted).forEach((key) => {
 				output.push(
@@ -49,13 +49,13 @@ export default class MetricsGetRequest extends Component {
 		}
 		
 		//listing the metrics in 2 columns
-		var firstOutput = []
-		var secondOutput = []
+		let firstOutput = []
+		let secondOutput = []
 				
 		if (numberOfColumns === 2){
 			
-			var firstColumnOutput = []
-			var secondColumnOutput = []
+			let firstColumnOutput = []
+			let secondColumnOutput = []
 			
 			//check if we are to display the threshold or not
 			if (thresholdWithout) {

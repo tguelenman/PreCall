@@ -24,15 +24,15 @@ export default class ConfusionFilter extends Component {
 		const data = this.props.data
 		
 		//arrays that will be saved to the state (once!)
-		var allTPs = []
-		var allFPs = []
-		var allTNs = []
-		var allFNs = []
+		let allTPs = []
+		let allFPs = []
+		let allTNs = []
+		let allFNs = []
 		
 		//thresholds[i] will represent the threshold to obtain allTPs[i], allFPs[i] etc.
-		var thresholds = []
+		let thresholds = []
 		
-		for (var i=0; i < data.length; i++){
+		for (let i=0; i < data.length; i++){
 
 			//save threshold
 			thresholds.push(data[i].threshold)
@@ -73,8 +73,8 @@ export default class ConfusionFilter extends Component {
 		//get the full array of TPs, FPs, TNs or FNs from state, depending on what Button has been clicked
 		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
 		
-		var wantedIndex
-		var newThreshold
+		let wantedIndex
+		let newThreshold
 		
 		if (wantedValue === 'max'){
 			
@@ -89,11 +89,11 @@ export default class ConfusionFilter extends Component {
 		} else if (this.isNumber(wantedValue)) {
 			
 			//user passed value in %
-			var closest = Infinity
+			let closest = Infinity
 			wantedIndex = 0
 			
 			//find index of closest existing value to the one specified by user
-			for (var i = 0; i < fullArray.length; i++){
+			for (let i = 0; i < fullArray.length; i++){
 				
 				if (Math.abs(wantedValue - fullArray[i]) < Math.abs(wantedValue - closest) ){
 					
@@ -126,7 +126,7 @@ export default class ConfusionFilter extends Component {
 		const min = this.arrayMin(fullArray)
 		const max = this.arrayMax(fullArray)
 		
-		var newThreshold = currentThreshold
+		let newThreshold = currentThreshold
 		
 		//two extra conditions needed, not to get stuck in an infinite loop when max or min has been reached
 		while(newThreshold === currentThreshold && currentConfusion >= min && currentConfusion <= max){
@@ -158,7 +158,7 @@ export default class ConfusionFilter extends Component {
 	}
 	
 	arrayMin = (arr) => {
-		var len = arr.length, min = Infinity
+		let len = arr.length, min = Infinity
 			while (len--) {
 				if (arr[len] < min) {
 					min = arr[len]
@@ -168,7 +168,7 @@ export default class ConfusionFilter extends Component {
 	}
 	
 	arrayMax = (arr) => {
-		var len = arr.length, max = -Infinity
+		let len = arr.length, max = -Infinity
 			while (len--) {
 				if (arr[len] > max) {
 					max = arr[len]

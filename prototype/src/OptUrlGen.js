@@ -96,7 +96,7 @@ export default class OptUrlGen extends Component {
 	getRequestMetrics = (getResultComplete) => {
 
 		//this is the Object that looks like this: {!f1: x, !precision: y, ...}
-		var metricsObject = getResultComplete[this.state.wiki]['models']['damaging']['statistics']['thresholds']['true'][0]
+		let metricsObject = getResultComplete[this.state.wiki]['models']['damaging']['statistics']['thresholds']['true'][0]
 		
 		this.setState({
 			//getResultComplete: getResultComplete,
@@ -115,7 +115,7 @@ export default class OptUrlGen extends Component {
 		} = this.state
 		
 
-		var outputUrl = "https://ores.wikimedia.org/v3/scores/"+wiki+"/?models=damaging&model_info=statistics.thresholds.true.'"+minMax+" "+metric1+" @ "+metric2+" "+lg+" "+metricFloat+"'"
+		let outputUrl = "https://ores.wikimedia.org/v3/scores/"+wiki+"/?models=damaging&model_info=statistics.thresholds.true.'"+minMax+" "+metric1+" @ "+metric2+" "+lg+" "+metricFloat+"'"
 		if(this.state.outputUrl !== outputUrl){
 			this.setState({ outputUrl: outputUrl })
 		}

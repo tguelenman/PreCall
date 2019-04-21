@@ -12,15 +12,15 @@ export default class ConfusionDistribution extends Component {
 
 		const finalValues = this.props.finalValues
 						
-		var tPContent = []
-		var fNContent = []
-		var tNContent = []
-		var fPContent = []
+		let tPContent = []
+		let fNContent = []
+		let tNContent = []
+		let fPContent = []
 
-		var tp
-		var fp
-		var tn
-		var fn
+		let tp
+		let fp
+		let tn
+		let fn
 		
 		if(finalValues) {
 				

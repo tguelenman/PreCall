@@ -130,7 +130,7 @@ export default class ConfusionFilter extends Component {
 		
 		//two extra conditions needed, not to get stuck in an infinite loop when max or min has been reached
 		while(newThreshold === currentThreshold && currentConfusion >= min && currentConfusion <= max){
-			//...and either add 1 to it
+			//...and either add 0.1 to it
 			if(plusMinus === '+'){
 				
 				currentConfusion = currentConfusion+0.1
@@ -138,7 +138,7 @@ export default class ConfusionFilter extends Component {
 				
 			} 
 			
-			//...or subtract 1 from it
+			//...or subtract 0.1 from it
 			else if (plusMinus === '-'){
 				
 				currentConfusion = currentConfusion-0.1

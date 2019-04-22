@@ -22,14 +22,6 @@ export default class Visualizations extends Component {
 		tellUserAboutChange: false,
 		finalValues: '',
 	}
-	
-	handleChangeMetric = (e, { name, value }) => {
-		this.setState({ [name]: value })
-	}
-	
-	handleChangeMetricValue = (e, { name, value }) => {
-		this.setState({ [name]: parseFloat(value) })
-	}
 
 	setNewValues = (metric, metricValue, lastChangeByRadar) => {
 		//lastChangeByRadar = true, false

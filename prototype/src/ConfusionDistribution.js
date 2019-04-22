@@ -17,11 +17,8 @@ export default class ConfusionDistribution extends Component {
 		let tNContent = []
 		let fPContent = []
 
-		let tp
-		let fp
-		let tn
-		let fn
-		
+		let tp, fp, tn ,fn
+
 		if(finalValues) {
 				
 			//Calculate TN/FN/TP/FP	in %	
@@ -39,6 +36,7 @@ export default class ConfusionDistribution extends Component {
 			for (var index = 0; tp-index > 0.5; index++){
 				tPContent.push(<div className='triangle' key={'tp'+ index.toString()}><div className='tp innerTriangle'/></div>)
 			}
+
 			//fill up the rest with empty shapes			
 			for (index; index < 100; index++){
 				tPContent.push(							

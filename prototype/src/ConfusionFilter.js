@@ -11,9 +11,7 @@ const options = [
 
 export default class ConfusionFilter extends Component {
 	
-	state = {
-		confOptParam: 'TN',
-	}
+	state = {}
 
 	round = (a) => {
 		return Number(Math.round(a+'e'+2)+'e-'+2)
@@ -191,9 +189,7 @@ export default class ConfusionFilter extends Component {
 	}
 	
 	render () {
-		
-		const {confOptParam, confOptValue} = this.state
-		
+				
 		if (!this.state.allTNs && !this.state.allFPs && !this.state.allTPs && !this.state.allFNs){
 			this.calculateConfusion()	
 		}		

@@ -179,7 +179,7 @@ export default class Visualizations extends Component {
 			
 				{ finalValues ?
 					<div id='BottomFlexContainer'>
-						<h2 className='title' id='mainTitle'>ORES Human-Centered Model Inspection</h2>
+						<h2 className='title' id='mainTitle'>ORES Human-Centered Model Selection</h2>
 						<div id='metricsAndThreshold'>
 							<div id='qualityMetrics'>
 								<h2 className='title'>Model quality metrics</h2>

@@ -58,6 +58,11 @@ div.ui.active.visible.compact.selection.dropdown{
 	color: #a3a3a3 !important;
 }
 
+#tutorialButton:hover{
+	color: #0083ca !important;
+	border-color: #0083ca !important;
+}
+
 #metricsAndThreshold{
 	display: flex;
 	width: 100%;

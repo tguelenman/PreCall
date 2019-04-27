@@ -5,6 +5,8 @@ import MetricsShow from './MetricsShow.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
 import ConfusionFilter from './ConfusionFilter.js'
 import ThresholdBar from './ThresholdBar.js'
+import { Steps } from 'intro.js-react'
+import 'intro.js/introjs.css'
 
 import './styling/Visualizations.css';
 
@@ -21,6 +23,23 @@ export default class Visualizations extends Component {
 		metricValue: '',
 		tellUserAboutChange: false,
 		finalValues: '',
+		stepsEnabled: false,
+		initialStep: 0,
+		steps: [
+			{
+				element: '#qualityMetrics',
+				intro: 'The model quality metrics section will help you keep track of the interdependencies between recall, precision and false positive rate. Handle dragging interaction is supported.',
+			},
+			{
+				element: '#threshold',
+				intro: "The model's current threshold for classifying edits as damaging or not.",
+			},
+			{
+				element: '#preview',
+				intro: "This section visualizes the classifier's performance by specifying the confusion matrix outputs. Increase and decrease directly by clicking and holding the buttons.",
+			},
+		],
+		hintsEnabled: false,
 	}
 
 	setNewValues = (metric, metricValue, lastChangeByRadar) => {
@@ -145,6 +164,18 @@ export default class Visualizations extends Component {
 		
 	}
 	
+	startTutorial = () => {
+		this.setState({
+			stepsEnabled: true,
+		})
+	}
+	
+	closeTutorial = () => {
+		this.setState({
+			stepsEnabled: false,
+		})
+	}
+	
 	render() {
 		
 		//note: metricValue does not contain a necessarily *existing* value for metric
@@ -152,7 +183,9 @@ export default class Visualizations extends Component {
 		
 		const {
 			finalValues, tellUserAboutChange, metric,
-			metricValue, lastChangeByRadar, 
+			metricValue, lastChangeByRadar, stepsEnabled, 
+			steps, initialStep, hintsEnabled, 
+			hints
 		} = this.state
 		
 		/*We need finalValues, but with the currently handled value not changed to an actually existing one.
@@ -176,10 +209,20 @@ export default class Visualizations extends Component {
 		return (
 
 			<div id='Visualizations'>
-			
+				
 				{ finalValues ?
+					
 					<div id='BottomFlexContainer'>
-						<h2 className='title' id='mainTitle'>ORES Human-Centered Model Selection</h2>
+						<Steps
+							enabled={stepsEnabled}
+							steps={steps}
+							initialStep={initialStep}
+							onExit={() => this.closeTutorial()}
+						/>
+						<div id='mainTitleAndButton'>
+							<h2 className='title' id='mainTitle'>ORES Human-Centered Model Selection</h2>
+							<Button id='tutorialButton' onClick={() => this.startTutorial()}>i</Button>
+						</div>
 						<div id='metricsAndThreshold'>
 							<div id='qualityMetrics'>
 								<h2 className='title'>Model quality metrics</h2>

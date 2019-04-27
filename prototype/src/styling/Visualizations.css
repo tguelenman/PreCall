@@ -35,10 +35,27 @@ div.ui.active.visible.compact.selection.dropdown{
 	padding-left: 15px;
 }
 
+#mainTitleAndButton{
+	display: flex;
+	
+}
+
 #mainTitle{
 	padding-left: 15px !important;
 	padding-top: 0 !important;
 	margin-bottom: 30px;
+}
+
+#tutorialButton{
+	font-size: 25px !important;
+	font-weight: 100 !important;
+	height: 35px !important;
+	width: 35px !important;
+	padding: 0 !important;
+	background-color: white !important;
+	border: 3px solid #a3a3a3 !important;
+	border-radius: 50% !important;
+	color: #a3a3a3 !important;
 }
 
 #metricsAndThreshold{

@@ -5,6 +5,8 @@
   "dependencies": {
     "d3.js": "0.0.2-security",
     "gradient-barchart": "^1.0.0",
+    "intro.js": "^2.9.3",
+    "intro.js-react": "^0.2.0",
     "react": "^16.7.0",
     "react-compound-slider": "^1.2.1",
     "react-dom": "^16.7.0",

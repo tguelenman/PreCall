@@ -1,4 +1,5 @@
 # PreCall
+![alt text](./iterationFinal2.png)
 
 PreCall examines ORES, Wikimedia's Machine Learning service for quality control, and helps users determine metrics settings and decision thresholds tailored to their personal requirements, as those vary on a case-to-case basis.
 PreCall currently makes use of english Wikipedia and the ORES damaging model, that predicts a damaging probability score for every edit on a wiki.

@@ -31,8 +31,8 @@
 }
 
 .pmButton:hover{
-	border: 1px solid #0083ca !important;
-	color: #0083ca !important;
+	border-color: lightgrey !important;
+	color: lightgrey !important;
 }
 
 .greyButton{

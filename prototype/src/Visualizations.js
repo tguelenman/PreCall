@@ -27,12 +27,12 @@ export default class Visualizations extends Component {
 		initialStep: 0,
 		steps: [
 			{
-				element: '#qualityMetrics',
-				intro: 'The model quality metrics section will help you keep track of the interdependencies between recall, precision and false positive rate. Handle dragging interaction is supported.',
+				element: '#threshold',
+				intro: "The model's current threshold for classifying edits as damaging or not. Move the handle and see the other visualizations change.",
 			},
 			{
-				element: '#threshold',
-				intro: "The model's current threshold for classifying edits as damaging or not.",
+				element: '#qualityMetrics',
+				intro: 'The model quality metrics section will help you keep track of the interdependencies between recall, precision and false positive rate. Handle dragging interaction is supported.',
 			},
 			{
 				element: '#preview',

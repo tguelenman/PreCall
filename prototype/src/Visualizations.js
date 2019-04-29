@@ -39,7 +39,6 @@ export default class Visualizations extends Component {
 				intro: "This section visualizes the classifier's performance by specifying the confusion matrix outputs. Increase and decrease directly by clicking and holding the buttons.",
 			},
 		],
-		hintsEnabled: false,
 	}
 
 	setNewValues = (metric, metricValue, lastChangeByRadar) => {
@@ -220,7 +219,7 @@ export default class Visualizations extends Component {
 							onExit={() => this.closeTutorial()}
 						/>
 						<div id='mainTitleAndButton'>
-							<h2 className='title' id='mainTitle'>ORES Human-Centered Model Selection</h2>
+							<h2 className='title' id='mainTitle'>PreCall: ORES Human-Centered Model Selection</h2>
 							<Button id='tutorialButton' onClick={() => this.startTutorial()}>i</Button>
 						</div>
 						<div id='metricsAndThreshold'>

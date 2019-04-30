@@ -239,9 +239,9 @@ export default class Visualizations extends Component {
 					</div> : ''
 				}
 				
-				<div id='RadarInformation'>
+				{/*<div id='RadarInformation'>
 					<MetricsShow finalValues={finalValues} numberOfColumns={2} styling={'SmallLabels'} thresholdWithout={true}/>
-				</div>
+				</div>*/}
 			</div>
 		)
 	}

@@ -1,27 +1,17 @@
 import React, { Component } from 'react'
-import { Select, Button, Input, } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import RadarChart from './RadarChart.js'
-import MetricsShow from './MetricsShow.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
-import ConfusionFilter from './ConfusionFilter.js'
 import ThresholdBar from './ThresholdBar.js'
 import { Steps } from 'intro.js-react'
 import 'intro.js/introjs.css'
-
 import './styling/Visualizations.css';
-
-const metricOptionsRadar = [
-	{ key: 'fpr', text: 'false positive rate', value: 'fpr'},
-	{ key: 'precision', text: 'precision', value: 'precision'},
-	{ key: 'recall', text: 'recall', value: 'recall'},
-]
 
 export default class Visualizations extends Component {
 
 	state = {
 		metric: 'recall',
 		metricValue: '',
-		tellUserAboutChange: false,
 		finalValues: '',
 		stepsEnabled: false,
 		initialStep: 0,
@@ -67,7 +57,6 @@ export default class Visualizations extends Component {
 			//and save it to the state
 			this.setState({
 				finalValues: finalValues,
-				tellUserAboutChange: (definitiveValue !== metricValue),
 				metric: metric,
 				metricValue: metricValue,
 				lastChangeByRadar: lastChangeByRadar,
@@ -181,10 +170,9 @@ export default class Visualizations extends Component {
 		//the existing value is calculated in setNewValues() and then saved as part of finalValues
 		
 		const {
-			finalValues, tellUserAboutChange, metric,
+			finalValues, metric,
 			metricValue, lastChangeByRadar, stepsEnabled, 
-			steps, initialStep, hintsEnabled, 
-			hints
+			steps, initialStep, 
 		} = this.state
 		
 		/*We need finalValues, but with the currently handled value not changed to an actually existing one.

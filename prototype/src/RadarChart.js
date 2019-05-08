@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './styling/RadarChart.css';
 
-import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
+import { Slider, Rail, Handles, Tracks } from 'react-compound-slider'
 
 //export function Handle({
 function Handle({

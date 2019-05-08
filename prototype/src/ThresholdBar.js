@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import './styling/ThresholdBar.css'
 
-import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
+import { Slider, Rail, Handles, Tracks } from 'react-compound-slider'
 
 function round(val){
 	
@@ -57,7 +57,6 @@ export default class ThresholdBar2 extends Component {
 					borderRadius: '50%',
 					backgroundColor: 'white',
 					transform: 'translate(-50%, -50%)',
-					zIndex: 5,
 					marginLeft: -35,
 				}}
 				{...getHandleProps(id)}

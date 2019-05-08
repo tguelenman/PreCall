@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Input, Select } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import './styling/ConfusionFilter.css'
-
-const options = [
-	{ key: 'tn', text: 'TN', value: 'TN' },
-	{ key: 'fp', text: 'FP', value: 'FP' },
-	{ key: 'tp', text: 'TP', value: 'TP' },
-	{ key: 'fn', text: 'FN', value: 'FN' },
-]
 
 export default class ConfusionFilter extends Component {
 	
@@ -66,13 +59,11 @@ export default class ConfusionFilter extends Component {
 		//confusionValue = 'TP', 'FP', 'TN', 'FN'
 		//wantedValue = 'max', 'min', int
 		const thresholds = this.state.thresholds
-		const currentThreshold = this.props.currentThreshold
 		
 		//get the full array of TPs, FPs, TNs or FNs from state, depending on what Button has been clicked
 		const fullArray = eval('this.state.' + 'all' + confusionValue +'s')
 		
 		let wantedIndex
-		let newThreshold
 		
 		if (wantedValue === 'max'){
 			

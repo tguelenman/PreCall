@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { 
-	Form, Input, Label, 
-	Select,
-} from 'semantic-ui-react'
+import { Form, Input, Label, } from 'semantic-ui-react'
 
 import MetricsGetRequest from './MetricsGetRequest.js';
 import MetricsShow from './MetricsShow.js'

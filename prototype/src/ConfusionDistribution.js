@@ -34,14 +34,14 @@ export default class ConfusionDistribution extends Component {
 			//TPs
 			//fill with colored shapes
 			for (var index = 0; tp-index > 0.5; index++){
-				tPContent.push(<div className='triangle' key={'tp'+ index.toString()}><div className='tp innerTriangle'/></div>)
+				tPContent.push(<div className='triangle' key={'tp'+index.toString()}><div className='tp innerTriangle'/></div>)
 			}
 
 			//fill up the rest with empty shapes			
 			for (index; index < 100; index++){
 				tPContent.push(							
 					<div className='triangle'>
-						<div className='innerTriangle legendTriangle'/>
+						<div className='innerTriangle legendTriangle' key={'tp'+index.toString()+'empty'}/>
 					</div>
 				)
 			}
@@ -49,14 +49,14 @@ export default class ConfusionDistribution extends Component {
 			//FNs
 			//fill with colored shapes
 			for (index = 0; fn-index > 0.5; index++){
-				fNContent.push(<div className='triangle' key={'fn'+ index.toString()}><div className='fn innerTriangle'/></div>)
+				fNContent.push(<div className='triangle' key={'fn'+index.toString()}><div className='fn innerTriangle'/></div>)
 			}
 			
 			//fill up the rest with empty shapes
 			for (index; index < 100; index++){
 				fNContent.push(							
 					<div className='triangle'>
-						<div className='innerTriangle legendTriangle'/>
+						<div className='innerTriangle legendTriangle' key={'fn'+index.toString()+'empty'}/>
 					</div>
 				)
 			}
@@ -64,23 +64,23 @@ export default class ConfusionDistribution extends Component {
 			//TNs
 			//fill with colored shapes
 			for (index = 0; tn-index > 0.5; index++){
-				tNContent.push(<div className='bubble tn' key={'tn'+ index.toString()}></div>)
+				tNContent.push(<div className='bubble tn' key={'tn'+index.toString()}></div>)
 			}
 			
 			//fill up the rest with empty shapes
 			for (index; index < 100; index++){
-				tNContent.push(<div className='bubble'/>)
+				tNContent.push(<div className='bubble' key={'tn'+index.toString()+'empty'}/>)
 			}
 
 			//FPs
 			//fill with colored shapes			
 			for (index = 0; fp-index > 0.5; index++){
-				fPContent.push(<div className='bubble fp' key={'fp'+ index.toString()}></div>)
+				fPContent.push(<div className='bubble fp' key={'fp'+index.toString()}></div>)
 			}
 			
 			//fill up the rest with empty shapes
 			for (index; index < 100; index++){
-				fPContent.push(<div className='bubble'/>)
+				fPContent.push(<div className='bubble' key={'fp'+index.toString()+'empty'}/>)
 			}
 		}
 		

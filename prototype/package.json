@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@data-ui/histogram": "0.0.84",
     "d3.js": "0.0.2-security",
     "gradient-barchart": "^1.0.0",
     "intro.js": "^2.9.3",

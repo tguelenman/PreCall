@@ -3,6 +3,7 @@ import { Button } from 'semantic-ui-react'
 import RadarChart from './RadarChart.js'
 import ConfusionDistribution from './ConfusionDistribution.js'
 import ThresholdBar from './ThresholdBar.js'
+import Histogram from './Histogram.js'
 import { Steps } from 'intro.js-react'
 import 'intro.js/introjs.css'
 import './styling/Visualizations.css';
@@ -200,6 +201,7 @@ export default class Visualizations extends Component {
 				{ finalValues ?
 					
 					<div id='BottomFlexContainer'>
+						<div id='histogram'><Histogram/></div>
 						<Steps
 							enabled={stepsEnabled}
 							steps={steps}

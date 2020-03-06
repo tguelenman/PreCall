@@ -1,42 +1,70 @@
-import React, { Component } from 'react'
-import { Histogram, DensitySeries, BarSeries, withParentSize, XAxis, YAxis } from '@data-ui/histogram';
+import React, {Component} from 'react'
+import {
+    Chart,
+    Series,
+    CommonSeriesSettings,
+    Legend,
+    ValueAxis,
+    Title,
+    Export,
+    Tooltip,
+    Border
+} from 'devextreme-react/chart';
 
-const ResponsiveHistogram = withParentSize(({ parentWidth, parentHeight, ...rest}) => (
-  <Histogram
-    width={parentWidth}
-    height={200}
-    {...rest}
-  />
-));
-
-const rawData = Array(100).fill().map(Math.random);
+const mockData = [
+    {threshold: 0.56, true_positive: 500, false_positive: 60, false_negative: -400},
+    {threshold: 0.79, true_positive: 250, false_positive: 20, false_negative: -700},
+    {threshold: 0.26, true_positive: 850, false_positive: 140, false_negative: -160}
+];
 
 export default class Histogram2 extends Component {
-  render () {
-    return (
-      <ResponsiveHistogram
-        ariaLabel="My histogram of ..."
-        orientation="vertical"
-        cumulative={false}
-        normalized={true}
-        binCount={25}
-        valueAccessor={datum => datum}
-        binType="numeric"
-        renderTooltip={({ event, datum, data, color }) => (
-          <div>
-            <strong style={{ color }}>{datum.bin0} to {datum.bin1}</strong>
-            <div><strong>count </strong>{datum.count}</div>
-            <div><strong>cumulative </strong>{datum.cumulative}</div>
-            <div><strong>density </strong>{datum.density}</div>
-          </div>
-        )}
-      >
-        <BarSeries
-          rawData={rawData /* or binnedData={...} */}
-        />
-        <XAxis />
-        <YAxis />
-      </ResponsiveHistogram>
-    );
-  }
+
+    render() {
+        return (
+            <Chart
+                id="chart"
+                title="Histogram"
+                dataSource={mockData}
+            >
+                <CommonSeriesSettings argumentField="threshold" type="stackedBar"/>
+                <Series
+                    valueField="true_positive"
+                    name="TP"
+                    stack="damaging"
+                />
+                <Series
+                    valueField="false_negative"
+                    name="False Negative"
+                    stack="damaging"
+                />
+                <Series
+                    valueField="false_positive"
+                    name="False Positive"
+                    stack="good"
+                />
+                <ValueAxis>
+                    <Title text="Threshold"/>
+                </ValueAxis>
+                <Legend position="inside"
+                        columnCount={2}
+                        //customizeItems={customizeItems}
+                        horizontalAlignment="right">
+                    <Border visible={true}/>
+                </Legend>
+                <Export enabled={true}/>
+                <Tooltip enabled={true}/>
+            </Chart>
+        );
+    }
 }
+
+function customizeItems(items) {
+    var sortedItems = [];
+
+    items.forEach(function (item) {
+        var startIndex = item.series.stack === 'damaging' ? 0 : 3;
+        sortedItems.splice(startIndex, 0, item);
+    });
+    return sortedItems;
+}
+

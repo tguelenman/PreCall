@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@data-ui/histogram": "0.0.84",
     "d3.js": "0.0.2-security",
+    "devextreme": "19.2.6",
+    "devextreme-react": "19.2.6",
     "gradient-barchart": "^1.0.0",
     "intro.js": "^2.9.3",
     "intro.js-react": "^0.2.0",

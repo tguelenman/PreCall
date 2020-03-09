@@ -1,23 +1,67 @@
 import React, {Component} from 'react'
 import {Slider} from 'devextreme-react/slider';
 import {
-    Chart, Series, CommonSeriesSettings, Legend, ValueAxis, Title, Export, Tooltip, Border
+    Chart, Series, CommonSeriesSettings, Legend, ValueAxis, ArgumentAxis, Title, Export, Tooltip, Border
 } from 'devextreme-react/chart';
 
-const mockData = [
-    {threshold: 0.56, true_positive: 500, false_positive: 60, false_negative: -400},
-    {threshold: 0.79, true_positive: 250, false_positive: 20, false_negative: -700},
-    {threshold: 0.26, true_positive: 850, false_positive: 140, false_negative: -160}
-];
+function round(a) {
+    return Number(Math.round(a + 'e' + 2) + 'e-' + 2);
+}
+
+// Take a data point from the ORES API (match_rate, filter_rate, etc.)
+// and calculate the Confusion Matrix.
+function calculate_confusion_matrix(data_point) {
+    let tp, fp, tn, fn;
+
+    //Calculate TN/FN/TP/FP	in %
+    const filters = round(100 * data_point['filter_rate']);
+    const matches = round(100 * data_point['match_rate']);
+
+    tp = round(matches * data_point['precision']);
+    fp = round(matches - tp);
+    tn = round(filters * data_point['!precision']);
+    fn = round(filters - tn);
+
+    // negatives have a "-" sign, so that they are stacked in the opposite direction in the histogram
+    return {threshold: data_point['threshold'], tp: tp, fp: fp, tn: -tn, fn: -fn};
+}
+
+function calculate_everything(data) {
+    let temp = [];
+    let point;
+
+    for (point of data) {
+        temp.push(calculate_confusion_matrix(point));
+    }
+
+    return temp;
+}
+
+// Choose how many data points to remove from the Histogram dataset in order
+// to make the visualization more clear. For example if factor=5,
+// then the returned array will contain every 5th element.
+function thin_histogram(factor, data) {
+    let temp = [];
+
+    for (let i = 0; i < data.length; i++) {
+        if (i % factor === 0) {
+            temp.push(data[i]);
+        }
+    }
+    return temp;
+}
 
 export default class Histogram2 extends Component {
     constructor(props) {
         super(props);
         this.state = {sliderValue: 20};
         this.setSliderValue = this.setSliderValue.bind(this);
+        this.histogram_data = calculate_everything(this.props.data);
     }
 
     render() {
+        let data = thin_histogram(this.props.reduce ? this.props.reduce : 1, this.histogram_data);
+
         return (
             <div className="dx-form">
                 <div className="dx-field custom-height-slider">
@@ -33,27 +77,31 @@ export default class Histogram2 extends Component {
                 <Chart
                     id="chart"
                     title="Histogram"
-                    dataSource={mockData}
+                    dataSource={this.props.remove_first ? data.slice(1, -1) : data}
                 >
                     <CommonSeriesSettings argumentField="threshold" type="stackedBar"/>
                     <Series
-                        valueField="true_positive"
-                        name="TP"
+                        valueField="tp"
+                        name="True Positive"
                         stack="damaging"
                     />
                     <Series
-                        valueField="false_negative"
+                        valueField="fn"
                         name="False Negative"
                         stack="damaging"
                     />
                     <Series
-                        valueField="false_positive"
+                        valueField="fp"
                         name="False Positive"
                         stack="good"
+                        color="#444444"
                     />
                     <ValueAxis>
                         <Title text="Percent of all edits"/>
                     </ValueAxis>
+                    <ArgumentAxis>
+                        <Title text="Threshold required for an edit to be classified as damaging"/>
+                    </ArgumentAxis>
                     <Legend position="inside"
                             columnCount={2}
                             customizeItems={customizeItems}

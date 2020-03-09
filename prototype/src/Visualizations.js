@@ -201,7 +201,7 @@ export default class Visualizations extends Component {
 				{ finalValues ?
 					
 					<div id='BottomFlexContainer'>
-						<div id='histogram'><Histogram/></div>
+						<div id='histogram'><Histogram data={this.props.data} reduce={15} remove_first={true}/></div>
 						<Steps
 							enabled={stepsEnabled}
 							steps={steps}

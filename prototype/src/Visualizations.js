@@ -166,6 +166,11 @@ export default class Visualizations extends Component {
         })
     }
 
+    // update
+    update_everything = () => {
+
+    };
+
     render() {
 
         //note: metricValue does not contain a necessarily *existing* value for metric
@@ -212,7 +217,7 @@ export default class Visualizations extends Component {
                             initialStep={initialStep}
                             onExit={() => this.closeTutorial()}
                         />
-                        <div><SelectorBars/>></div>
+                        <div><SelectorBars data={this.props.data} callback={this.setNewValues}/>></div>
                     </div> : ''
                 }
 

@@ -1,5 +1,6 @@
 .grid_display {
     display: grid;
+    padding-top: 50px;
 }
 
 .grid_container {

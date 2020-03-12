@@ -32,7 +32,8 @@ export default class SelectorSlider2 extends Component {
     onUpdate = (value) => {
 
         //set the new threshold in parent
-        this.props.callback('threshold', round(value[0]))
+        console.log(this.props.id + ": " + this.props.threshold)
+        this.props.callback(this.props.id, round(value[0]))
 
     }
 
@@ -62,29 +63,29 @@ export default class SelectorSlider2 extends Component {
                  {...getHandleProps(id)}
             >
                 <div id='thresholdLabel'>
-                    {this.props.threshold}
+                    {'-'}
                 </div>
                 <div className='handleStick'/>
-                <p className='damaging gd'>damaging</p>
-                <p className='good gd'>good</p>
+                <p className='damaging gd'>{this.props.top_label}</p>
+                <p className='good gd'>{this.props.bottom_label}</p>
             </div>
 
         )
     }
 
     render() {
-
+        // #1db1f5 - blue for the track
         const threshold = this.props.threshold;
         const railStyle = {
-            background: '#8888ff',
+            background: this.props.color_bottom,
         };
 
         const slider =
             <Slider className='selectorSlider'
                     vertical
-                    reversed
-                    domain={[0, 1]}
-                    step={0.001}
+                    //reversed
+                    domain={[0, 100]}
+                    step={0.1}
                     mode={2}
                     values={[threshold]}
                     onUpdate={this.onUpdate}
@@ -101,6 +102,7 @@ export default class SelectorSlider2 extends Component {
                                 <this.Handle
                                     key={handle.id}
                                     handle={handle}
+                                    percent={this.props.threshold}
                                     getHandleProps={getHandleProps}
                                 />
                             ))}
@@ -122,7 +124,8 @@ export default class SelectorSlider2 extends Component {
                     )}
                 </Tracks>
                 <div id='zeroToOneLabel'>
-                    <p>1.0</p><p>0.0</p>
+                    <p>{round(this.props.threshold)}</p>
+                    <p>{round(100 - this.props.threshold)}</p>
                 </div>
             </Slider>
 

@@ -10,7 +10,7 @@ function round(a) {
 
 // Take a data point from the ORES API (match_rate, filter_rate, etc.)
 // and calculate the Confusion Matrix.
-function calculate_confusion_matrix(data_point) {
+export function calculate_confusion_matrix(data_point) {
     let tp, fp, tn, fn;
 
     //Calculate TN/FN/TP/FP	in %

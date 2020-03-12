@@ -21,12 +21,19 @@
     margin-top: 1px;
     position: absolute;
     z-index: 1;
-    background-image: linear-gradient(to bottom, #cd3048, white);
     cursor: pointer;
     width: 25px;
     border-left: 1px solid #989898;
     border-right: 1px solid #989898;
     transform: translate(-50%, 0%);
+}
+
+.good{
+    background: #1db1f5;
+}
+
+.bad{
+    background: #444444;
 }
 
 #selectorLabel{

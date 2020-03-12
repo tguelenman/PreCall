@@ -64,16 +64,6 @@ export default class Histogram2 extends Component {
 
         return (
             <div className="dx-form">
-                <div className="dx-field custom-height-slider">
-                    <div className="dx-field-value">
-                        <Slider flex={1} min={0} max={100} defaultValue={65} tooltip={{
-                            enabled: true,
-                            showMode: 'always',
-                            position: 'bottom',
-                            format
-                        }}/>
-                    </div>
-                </div>
                 <Chart
                     id="chart"
                     title="Histogram"

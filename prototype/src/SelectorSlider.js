@@ -10,11 +10,13 @@ function round(val) {
 
 }
 
-function Track({source, target, getTrackProps}) {
+function Track({source, target, classname, getTrackProps}) {
+
+    console.log(classname);
 
     return (
 
-        <div className='thresholdTrack'
+        <div className={'selectorTrack '+ classname}
              style={{
                  top: '${source.percent}%',
                  height: `${target.percent - source.percent}%`,
@@ -117,6 +119,7 @@ export default class SelectorSlider2 extends Component {
                                     key={id}
                                     source={source}
                                     target={target}
+                                    classname={this.props.id === "positive_selector" ? 'good' : 'bad'}
                                     getTrackProps={getTrackProps}
                                 />
                             ))}

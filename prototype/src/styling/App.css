@@ -56,13 +56,13 @@ a.item{
 
 .Content{
 	flex: 2;
-	width: 1000px;
-	background-color: white; 
+	width: 1500px;
+	background-color: white;
 	margin: 40px auto;
 	margin-bottom: 0;
+	margin-top: 20px;
 	/*min-height: 800px;*/
 	padding: 30px;
-	border: 1px solid grey;
 	border-radius: 7px;
 }
 

@@ -1,0 +1,76 @@
+.selectorSlider{
+    position: relative;
+    height: 400px;
+    width: 32px;
+    padding-left: 13px;
+    margin-left: 15px;
+    margin-top: 30px;
+    border: 1px solid transparent;
+}
+
+#selectorRail{
+    position: absolute;
+    height: 396px;
+    width: 25px;
+    transform: translate(-50%, 0%);
+    pointer-events: none;
+    border: 1px solid #989898;
+}
+
+.selectorTrack{
+    margin-top: 1px;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, #cd3048, white);
+    cursor: pointer;
+    width: 25px;
+    border-left: 1px solid #989898;
+    border-right: 1px solid #989898;
+    transform: translate(-50%, 0%);
+}
+
+#selectorLabel{
+    font-family: Arial;
+    font-size: 19px;
+    margin-top: -2px;
+    margin-left: -80px;
+}
+
+.handleStick{
+    width: 55px;
+    height: 3px;
+    border-bottom: 3px solid black;
+    margin-top: -11px;
+    margin-left: 18px;
+}
+
+#zeroToOneLabel{
+    height: 425px;
+    font-size: 19px;
+    font-family: Arial;
+    margin: auto 0;
+    margin-top: -15px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#limitMarks{
+    height: 396px;
+    width: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: -399px;
+    margin-left: 175px;
+}
+
+.gd{
+    font-family: Arial;
+    font-size: 19px;
+    margin-left: 110px;
+}
+
+.damaging{
+    margin-top: -40px;
+}

@@ -54,7 +54,7 @@ function thin_histogram(factor, data) {
 export default class Histogram2 extends Component {
     constructor(props) {
         super(props);
-        this.state = {sliderValue: 20};
+        this.state = {threshold: 0.5};
         this.setSliderValue = this.setSliderValue.bind(this);
         this.histogram_data = calculate_everything(this.props.data);
     }
@@ -85,6 +85,12 @@ export default class Histogram2 extends Component {
                         name="False Positive"
                         stack="good"
                         color="#444444"
+                    />
+                    <Series
+                        valueField="tn"
+                        name="True Negative"
+                        stack="good"
+                        color="#aaaaaa"
                     />
                     <ValueAxis>
                         <Title text="Percent of all edits"/>

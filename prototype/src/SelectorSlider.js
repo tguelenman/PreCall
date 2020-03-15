@@ -12,8 +12,6 @@ function round(val) {
 
 function Track({source, target, classname, getTrackProps}) {
 
-    console.log(classname);
-
     return (
 
         <div className={'selectorTrack '+ classname}
@@ -34,10 +32,9 @@ export default class SelectorSlider2 extends Component {
     onUpdate = (value) => {
 
         //set the new threshold in parent
-        console.log(this.props.id + ": " + this.props.threshold)
         this.props.callback(this.props.id, round(value[0]))
 
-    }
+    };
 
     Handle = ({
 
@@ -86,7 +83,7 @@ export default class SelectorSlider2 extends Component {
             <Slider className='selectorSlider'
                     vertical
                     //reversed
-                    domain={[0, 100]}
+                    domain={this.props.domain}
                     step={0.1}
                     mode={2}
                     values={[threshold]}
@@ -127,8 +124,8 @@ export default class SelectorSlider2 extends Component {
                     )}
                 </Tracks>
                 <div id='zeroToOneLabel'>
-                    <p>{round(this.props.threshold)}</p>
-                    <p>{round(100 - this.props.threshold)}</p>
+                    <p>{"".concat(round(this.props.threshold), " \%")}</p>
+                    <p>{round(this.props.domain[1] - this.props.threshold)}</p>
                 </div>
             </Slider>
 

@@ -27,7 +27,7 @@ export default class SelectorBars2 extends Component {
         this.setState({TP_value: util.allTPs[index], FP_value: util.allFPs[index]});
 
         console.log("Update everything: " + id + ", " + target_value + ". Found index: " + index);
-        console.log(this.state.TP_value);
+        console.log(["Index", index, util.allTPs[index], util.allTNs[index], util.allFPs[index], util.allFNs[index]].join(" - "));
     }
 
     render() {
@@ -41,12 +41,14 @@ export default class SelectorBars2 extends Component {
                     <div className='slider_layout_a'>
                         <SelectorSlider id='positive_selector' threshold={this.state.TP_value}
                                         callback={this.update_everything} top_label='true positive'
-                                        bottom_label='false negative' color_bottom='#f5564a'/>
+                                        bottom_label='false negative' color_bottom='#f5564a'
+                                        domain={[0, util.allTPs[1] + util.allFNs[1]]}/>
                     </div>
                     <div className='slider_layout_b'>
                         <SelectorSlider id='negative_selector' threshold={this.state.FP_value}
                                         callback={this.update_everything} top_label='false positive'
-                                        bottom_label='true negative' color_bottom='#aaaaaa'/>
+                                        bottom_label='true negative' color_bottom='#aaaaaa'
+                                        domain={[0, util.allFPs[1] + util.allTNs[1]]}/>
                     </div>
                 </div>
             </div>

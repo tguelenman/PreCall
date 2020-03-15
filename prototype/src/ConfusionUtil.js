@@ -2,6 +2,15 @@ export class ConfusionUtil {
 
     constructor(data) {
         this.calculateConfusion(data);
+        ConfusionUtil.self = this;
+    }
+
+    // Singleton structure so we don't calculate unnecessary stuff multiple times
+    get_instance(data){
+        if (ConfusionUtil.self == null){
+            ConfusionUtil.self = new ConfusionUtil(data);
+        }
+        return ConfusionUtil.self;
     }
 
 // arrays that will be saved to the state (once!)

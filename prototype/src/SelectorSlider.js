@@ -29,6 +29,12 @@ function Track({source, target, classname, getTrackProps}) {
 
 export default class SelectorSlider2 extends Component {
 
+    // Hacky solution to easily check if the current class instance is the
+    // slider on the right. Useful for CSS formatting and colors
+    isSliderOnTheLeft(){
+        return this.props.id === "positive_selector";
+    }
+
     onUpdate = (value) => {
 
         //set the new threshold in parent
@@ -57,16 +63,18 @@ export default class SelectorSlider2 extends Component {
                      borderRadius: '50%',
                      backgroundColor: 'white',
                      transform: 'translate(-50%, -50%)',
-                     marginLeft: -35,
+                     marginLeft: this.isSliderOnTheLeft() ? -35 : 35,
                  }}
                  {...getHandleProps(id)}
             >
-                <div id='thresholdLabel'>
+                <div id='selectorLabel'>
                     {'-'}
                 </div>
-                <div className='handleStick'/>
-                <p className='damaging gd'>{this.props.top_label}</p>
-                <p className='good gd'>{this.props.bottom_label}</p>
+                <div className={'handleStick'.concat(this.isSliderOnTheLeft() ? "Good" : "Bad")}/>
+                <div className={'sideLabels '.concat(this.isSliderOnTheLeft() ? '' : 'rightSideLabel')}>
+                    <p className='gd'>{this.props.top_label}</p>
+                    <p className='gd'>{this.props.bottom_label}</p>
+                </div>
             </div>
 
         )
@@ -116,16 +124,16 @@ export default class SelectorSlider2 extends Component {
                                     key={id}
                                     source={source}
                                     target={target}
-                                    classname={this.props.id === "positive_selector" ? 'good' : 'bad'}
+                                    classname={this.isSliderOnTheLeft() ? 'good' : 'bad'}
                                     getTrackProps={getTrackProps}
                                 />
                             ))}
                         </div>
                     )}
                 </Tracks>
-                <div id='zeroToOneLabel'>
+                <div id='zeroToOneLabel' className={this.isSliderOnTheLeft() ? '' : 'rightNumber'}>
                     <p>{"".concat(round(this.props.threshold), " \%")}</p>
-                    <p>{round(this.props.domain[1] - this.props.threshold)}</p>
+                    <p>{"".concat(round(this.props.domain[1] - this.props.threshold), " \%")}</p>
                 </div>
             </Slider>
 
@@ -135,7 +143,6 @@ export default class SelectorSlider2 extends Component {
                 {threshold ?
                     <div id='thresholdBar'>
                         {slider}
-                        <div id='limitMarks'/>
                     </div>
                     : ''}
             </div>

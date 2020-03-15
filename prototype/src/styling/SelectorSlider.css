@@ -36,19 +36,41 @@
     background: #444444;
 }
 
+.rightNumber{
+    transform: translate(-120%, 0px);
+}
+
+.rightSideLabel{
+    transform: translate(85%, 0px);
+}
+
+.sideLabels{
+    position: absolute;
+    margin-top: -35px;
+    margin-left: -250px;
+}
+
 #selectorLabel{
     font-family: Arial;
-    font-size: 19px;
+    font-size: 1px;
     margin-top: -2px;
     margin-left: -80px;
 }
 
-.handleStick{
+.handleStickGood{
     width: 55px;
     height: 3px;
     border-bottom: 3px solid black;
     margin-top: -11px;
     margin-left: 18px;
+}
+
+.handleStickBad{
+    width: 55px;
+    height: 3px;
+    border-bottom: 3px solid black;
+    margin-top: -11px;
+    margin-left: -55px;
 }
 
 #zeroToOneLabel{

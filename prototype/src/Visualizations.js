@@ -217,7 +217,7 @@ export default class Visualizations extends Component {
                             initialStep={initialStep}
                             onExit={() => this.closeTutorial()}
                         />
-                        <div><SelectorBars data={this.props.data} callback={this.setNewValues}/>></div>
+                        <div id='selectorBarSpace'><SelectorBars data={this.props.data} callback={this.setNewValues}/></div>
                     </div> : ''
                 }
 

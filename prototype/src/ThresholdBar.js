@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './styling/ThresholdBar.css'
 
 import { Slider, Rail, Handles, Tracks } from 'react-compound-slider'
 

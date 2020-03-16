@@ -8,6 +8,9 @@ import SelectorBars from "./SelectorBars.js";
 import {Steps} from 'intro.js-react'
 import 'intro.js/introjs.css'
 import './styling/Visualizations.css';
+import {ConfusionUtil} from "./ConfusionUtil";
+
+let util = [];
 
 export default class Visualizations extends Component {
 
@@ -15,6 +18,7 @@ export default class Visualizations extends Component {
         metric: 'recall',
         metricValue: '',
         finalValues: '',
+        confusion: '',
         stepsEnabled: false,
         initialStep: 0,
         steps: [
@@ -31,7 +35,7 @@ export default class Visualizations extends Component {
                 intro: "This section visualizes the classifier's performance by specifying the confusion matrix outputs. Increase and decrease directly by clicking and holding the buttons.",
             },
         ],
-    }
+    };
 
     setNewValues = (metric, metricValue, lastChangeByRadar) => {
         //lastChangeByRadar = true, false
@@ -40,14 +44,14 @@ export default class Visualizations extends Component {
 
         //find the closest existing value to the specified one
         //(metricValue is specified by the user by interacting with the visualizations)
-        const definitiveValue = this.findClosestValue(metric, metricValue)
+        const definitiveValue = this.findClosestValue(metric, metricValue);
 
         //now find the index of an object (set of metric values)
         //that corresponds to the specified metric and its definitiveValue
-        const indexOfDataObject = this.findWithAttr(data, metric, definitiveValue)
+        const indexOfDataObject = this.findWithAttr(data, metric, definitiveValue);
 
         //with that index, get the object
-        const finalValues = data[indexOfDataObject]
+        const finalValues = data[indexOfDataObject];
 
         if (finalValues === undefined) {
             return false
@@ -65,7 +69,25 @@ export default class Visualizations extends Component {
             })
 
         }
-    }
+    };
+
+    update_everything = (metric, metric_value) => {
+        if (metric === 'TP' || metric === 'FP'){
+            const index = util.setConfusion(metric, metric_value);
+
+            this.setState({confusion: {
+                        tp: util.allTPs[index],
+                        tn: util.allTNs[index],
+                        fp: util.allFPs[index],
+                        fn: util.allFNs[index]},
+                                finalValues: {
+                        threshold: util.thresholds[index]}});
+        }
+        else{
+            // when the threshold is updated we need to find the index in util.thresholds
+            // so we can set the whole confusion matrix
+        }
+    };
 
     componentDidMount = () => {
 
@@ -166,18 +188,19 @@ export default class Visualizations extends Component {
         })
     }
 
-    // update
-    update_everything = () => {
-
-    };
-
     render() {
+
+        if (util.length === 0){
+            util = new ConfusionUtil(this.props.data);
+            this.update_everything("FP", 35);
+            console.log(this.state.confusion);
+        }
 
         //note: metricValue does not contain a necessarily *existing* value for metric
         //the existing value is calculated in setNewValues() and then saved as part of finalValues
 
         const {
-            finalValues, metric,
+            finalValues, metric, confusion,
             metricValue, lastChangeByRadar, stepsEnabled,
             steps, initialStep,
         } = this.state
@@ -210,14 +233,15 @@ export default class Visualizations extends Component {
                         <div id='mainTitleAndButton'>
                             <h2 className='title' id='mainTitle'>PreCall: ORES Human-Centered Model Selection</h2>
                         </div>
-                        <div id='histogram'><Histogram data={this.props.data} reduce={18} remove_first={true}/></div>
+                        <div id='histogram'><Histogram threshold={finalValues['threshold']} data={this.props.data} reduce={18} remove_first={true}/></div>
                         <Steps
                             enabled={stepsEnabled}
                             steps={steps}
                             initialStep={initialStep}
                             onExit={() => this.closeTutorial()}
                         />
-                        <div id='selectorBarSpace'><SelectorBars data={this.props.data} callback={this.setNewValues}/></div>
+                        <div id='selectorBarSpace'><SelectorBars threshold={finalValues['threshold']} data={this.props.data}
+                                                                 callback={this.update_everything} confusion={confusion}/></div>
                     </div> : ''
                 }
 

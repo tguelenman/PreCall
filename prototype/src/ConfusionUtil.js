@@ -6,7 +6,7 @@ export class ConfusionUtil {
     }
 
     // Singleton structure so we don't calculate unnecessary stuff multiple times
-    get_instance(data){
+    static get_instance(data){
         if (ConfusionUtil.self == null){
             ConfusionUtil.self = new ConfusionUtil(data);
         }

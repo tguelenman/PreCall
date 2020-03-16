@@ -9,7 +9,7 @@ let util;
 export default class SelectorBars2 extends Component {
     constructor(props) {
         super(props);
-        this.state = {TP_value: 0.4, FP_value: 0.6};
+        this.state = {TP_value: 0.4, FP_value: 0.6, threshold: 0.5};
         this.update_everything = this.update_everything.bind(this);
     }
 
@@ -21,13 +21,15 @@ export default class SelectorBars2 extends Component {
             target_value = 0.1;
 
         const to_get = id === "positive_selector" ? "TP" : "FP";
+        this.props.callback(to_get, target_value);
 
+        /*
         const index = util.setConfusion(to_get, target_value);
-
         this.setState({TP_value: util.allTPs[index], FP_value: util.allFPs[index]});
-
+        this.props.callback('threshold', util.threshold[index]);
         console.log("Update everything: " + id + ", " + target_value + ". Found index: " + index);
         console.log(["Index", index, util.allTPs[index], util.allTNs[index], util.allFPs[index], util.allFNs[index]].join(" - "));
+         */
     }
 
     render() {
@@ -39,13 +41,13 @@ export default class SelectorBars2 extends Component {
                 <h2>Selector View</h2>
                 <div className='grid_container'>
                     <div className='slider_layout_a'>
-                        <SelectorSlider id='positive_selector' threshold={this.state.TP_value}
+                        <SelectorSlider id='positive_selector' threshold={this.props.confusion.tp}
                                         callback={this.update_everything} top_label='true positive'
                                         bottom_label='false negative' color_bottom='#f5564a'
                                         domain={[0, util.allTPs[1] + util.allFNs[1]]}/>
                     </div>
                     <div className='slider_layout_b'>
-                        <SelectorSlider id='negative_selector' threshold={this.state.FP_value}
+                        <SelectorSlider id='negative_selector' threshold={this.props.confusion.fp}
                                         callback={this.update_everything} top_label='false positive'
                                         bottom_label='true negative' color_bottom='#aaaaaa'
                                         domain={[0, util.allFPs[1] + util.allTNs[1]]}/>

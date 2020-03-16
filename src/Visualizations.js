@@ -5,6 +5,7 @@ import ConfusionDistribution from './ConfusionDistribution.js'
 import ThresholdBar from './ThresholdBar.js'
 import Histogram from './Histogram.js'
 import SelectorBars from "./SelectorBars.js";
+import ConfusionMatrix from "./ConfusionMatrix.js";
 import {Steps} from 'intro.js-react'
 import 'intro.js/introjs.css'
 import './styling/Visualizations.css';
@@ -72,18 +73,21 @@ export default class Visualizations extends Component {
     };
 
     update_everything = (metric, metric_value) => {
-        if (metric === 'TP' || metric === 'FP'){
+        if (metric === 'TP' || metric === 'FP') {
             const index = util.setConfusion(metric, metric_value);
 
-            this.setState({confusion: {
-                        tp: util.allTPs[index],
-                        tn: util.allTNs[index],
-                        fp: util.allFPs[index],
-                        fn: util.allFNs[index]},
-                                finalValues: {
-                        threshold: util.thresholds[index]}});
-        }
-        else{
+            this.setState({
+                confusion: {
+                    tp: util.allTPs[index],
+                    tn: util.allTNs[index],
+                    fp: util.allFPs[index],
+                    fn: util.allFNs[index]
+                },
+                finalValues: {
+                    threshold: util.thresholds[index]
+                }
+            });
+        } else {
             // when the threshold is updated we need to find the index in util.thresholds
             // so we can set the whole confusion matrix
         }
@@ -190,7 +194,7 @@ export default class Visualizations extends Component {
 
     render() {
 
-        if (util.length === 0){
+        if (util.length === 0) {
             util = new ConfusionUtil(this.props.data);
             this.update_everything("FP", 35);
             console.log(this.state.confusion);
@@ -233,15 +237,20 @@ export default class Visualizations extends Component {
                         <div id='mainTitleAndButton'>
                             <h2 className='title' id='mainTitle'>PreCall: ORES Human-Centered Model Selection</h2>
                         </div>
-                        <div id='histogram'><Histogram threshold={finalValues['threshold']} data={this.props.data} reduce={18} remove_first={true}/></div>
-                        <Steps
-                            enabled={stepsEnabled}
-                            steps={steps}
-                            initialStep={initialStep}
-                            onExit={() => this.closeTutorial()}
-                        />
-                        <div id='selectorBarSpace'><SelectorBars threshold={finalValues['threshold']} data={this.props.data}
-                                                                 callback={this.update_everything} confusion={confusion}/></div>
+                        <div id='histogram'>
+                            <Histogram threshold={finalValues['threshold']} data={this.props.data} reduce={18}
+                                       remove_first={true}/>
+                        </div>
+                        <div className='grid_container'>
+                            <div id='selectorBars'>
+                                <SelectorBars threshold={finalValues['threshold']}
+                                              data={this.props.data} callback={this.update_everything}
+                                              confusion={confusion}/>
+                            </div>
+                            <div id='confusionMatrix'>
+                                <ConfusionMatrix />
+                            </div>
+                        </div>
                     </div> : ''
                 }
 

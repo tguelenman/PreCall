@@ -92,7 +92,7 @@ export default class SelectorSlider2 extends Component {
                     vertical
                     //reversed
                     domain={this.props.domain}
-                    step={0.1}
+                    step={0.05}
                     mode={2}
                     values={[threshold]}
                     onUpdate={this.onUpdate}

@@ -11,6 +11,22 @@ div.ui.active.visible.compact.selection.dropdown{
 	width: 100px;
 }
 
+.grid_container{
+	display: grid;
+	grid-template-columns: 20% 50% 30%;
+	grid-template-rows: 80px 500px auto;
+	padding-top: 60px;
+}
+
+#selectorBars{
+	grid-row: 1;
+	grid-column: 2;
+}
+
+#confusionMatrix{
+	grid-row: 2;
+	grid-column: 3;
+}
 
 #Visualisations{
 	height: 100%;

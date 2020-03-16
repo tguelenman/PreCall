@@ -2,6 +2,9 @@
   "name": "PreCall",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.16.1"
+  },
   "dependencies": {
     "d3.js": "0.0.2-security",
     "devextreme": "19.2.6",

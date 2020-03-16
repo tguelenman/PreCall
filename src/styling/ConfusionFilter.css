@@ -1,5 +1,7 @@
 .pmButtons{
-	padding-top: 135px;
+	grid-row: 3;
+	grid-column: span 3;
+	padding-bottom: 35px;
 }
 
 .pmButton{
@@ -15,7 +17,7 @@
 }
 
 .pmButton1{
-	margin-right: -10px !important;
+	margin-right: 85px !important;
 }
 
 .pmButton2{

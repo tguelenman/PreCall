@@ -90,6 +90,20 @@ export default class Visualizations extends Component {
         } else {
             // when the threshold is updated we need to find the index in util.thresholds
             // so we can set the whole confusion matrix
+            const index = util.thresholds.indexOf(metric_value);
+            console.log(index);
+
+            this.setState({
+                confusion: {
+                    tp: util.allTPs[index],
+                    tn: util.allTNs[index],
+                    fp: util.allFPs[index],
+                    fn: util.allFNs[index]
+                },
+                finalValues: {
+                    threshold: metric_value
+                }
+            });
         }
     };
 
@@ -248,7 +262,8 @@ export default class Visualizations extends Component {
                                               confusion={confusion}/>
                             </div>
                             <div id='confusionMatrix'>
-                                <ConfusionMatrix />
+                                <ConfusionMatrix callback={this.update_everything} threshold={finalValues['threshold']}
+                                                 data={this.props.data} confusion={confusion}/>
                             </div>
                         </div>
                     </div> : ''

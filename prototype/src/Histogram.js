@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Slider} from 'devextreme-react/slider';
 import {
-    Chart, Series, CommonSeriesSettings, Legend, ValueAxis, ArgumentAxis, Title, Export, Tooltip, Border
+    Chart, Series, CommonSeriesSettings, Legend, ValueAxis, ArgumentAxis, Title, Export, Tooltip, Border, ConstantLine
 } from 'devextreme-react/chart';
 
 function round(a) {
@@ -55,9 +55,22 @@ export default class Histogram2 extends Component {
     constructor(props) {
         super(props);
         this.state = {threshold: 0.5};
-        this.setSliderValue = this.setSliderValue.bind(this);
         this.histogram_data = calculate_everything(this.props.data);
     }
+
+    /*
+    customizeLabel(arg) {
+    if (arg.value > this.state.highAverage) {
+      return {
+        visible: true,
+        backgroundColor: '#ff7c7c',
+        customizeText: function(e) {
+          return `${e.valueText }&#176F`;
+        }
+      };
+    }
+  }
+     */
 
     render() {
         let data = thin_histogram(this.props.reduce ? this.props.reduce : 1, this.histogram_data);
@@ -97,6 +110,7 @@ export default class Histogram2 extends Component {
                     </ValueAxis>
                     <ArgumentAxis>
                         <Title text="Threshold required for an edit to be classified as damaging"/>
+                        <ConstantLine width={2} value={this.props.threshold} />
                     </ArgumentAxis>
                     <Legend position="inside"
                             columnCount={2}
@@ -109,10 +123,6 @@ export default class Histogram2 extends Component {
                 </Chart>
             </div>
         );
-    }
-
-    setSliderValue({value}) {
-        this.setState({sliderValue: value});
     }
 }
 

@@ -1,0 +1,22 @@
+.confusionMatrixGrid{
+    display: grid;
+    grid-template-columns: 20% 20% 30% 30%;
+    grid-template-rows: 20% 20% 30% 30%;
+    margin-right: 10%;
+}
+
+.frame{
+    background: #5e5e5e;
+    border: thin solid black;
+}
+
+.topRight{
+    grid-row: 4;
+    grid-column: 3;
+}
+
+.topLeft{
+    grid-row: 3;
+    grid-column: 3;
+    background-color: #1db1f5;
+}

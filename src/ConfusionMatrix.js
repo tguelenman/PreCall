@@ -11,6 +11,10 @@ export default class ConfusionMatrix2 extends Component {
                 <div className='confusionHeading'>
                     <h2>Confusion Matrix</h2>
                 </div>
+                <div id='predictedPositive'>predicted positive</div>
+                <div id='predictedNegative'>predicted negative</div>
+                <div id='actualPositive'>actual positive</div>
+                <div id='actualNegative'>actual negative</div>
                 <div className='frame topLeft'>
                     <div className='confusionLabel'>
                         {this.props.confusion.tp}

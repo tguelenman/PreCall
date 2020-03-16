@@ -52,3 +52,20 @@
     grid-column: 4;
     background-color: #aaaaaa;
 }
+
+#predictedPositive{
+    grid-row: 3;
+    grid-column: 2;
+}
+#predictedNegative{
+    grid-row: 4;
+    grid-column: 2;
+}
+#actualPositive{
+    grid-row: 2;
+    grid-column: 3;
+}
+#actualNegative{
+    grid-row: 2;
+    grid-column: 4;
+}

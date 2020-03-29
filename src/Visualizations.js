@@ -36,12 +36,20 @@ export default class Visualizations extends Component {
                 intro: "This section visualizes the classifier's performance by specifying the confusion matrix outputs. Increase and decrease directly by clicking and holding the buttons.",
             },
         ],
+        svgLine: {
+            x1: null,
+            x2: null,
+            y1: null,
+            y2: null,
+            offset_x: 178,
+            offset_y: 109
+        }
     };
 
     setNewValues = (metric, metricValue, lastChangeByRadar) => {
         //lastChangeByRadar = true, false
 
-        const data = this.props.data
+        const data = this.props.data;
 
         //find the closest existing value to the specified one
         //(metricValue is specified by the user by interacting with the visualizations)
@@ -91,7 +99,6 @@ export default class Visualizations extends Component {
             // when the threshold is updated we need to find the index in util.thresholds
             // so we can set the whole confusion matrix
             const index = util.thresholds.indexOf(metric_value);
-            console.log(index);
 
             this.setState({
                 confusion: {
@@ -218,7 +225,7 @@ export default class Visualizations extends Component {
         //the existing value is calculated in setNewValues() and then saved as part of finalValues
 
         const {
-            finalValues, metric, confusion,
+            finalValues, metric, confusion, svgLine,
             metricValue, lastChangeByRadar, stepsEnabled,
             steps, initialStep,
         } = this.state
@@ -241,6 +248,25 @@ export default class Visualizations extends Component {
             }
         }
 
+
+        // Get the x positions of both sliders (once!)
+        if (svgLine.x1 == null) {
+            let elem = document.querySelector('.handleStickGood');
+            if (elem != null) {
+                svgLine.x1 = elem.getBoundingClientRect().x - svgLine.offset_x;
+            }
+        }
+        if (svgLine.x2 == null) {
+            let elem = document.querySelector('.handleStickBad');
+            if (elem != null) {
+                svgLine.x2 = elem.getBoundingClientRect().x - svgLine.offset_x;
+            }
+        }
+
+        // calculate the slider domain ( tp + fn ) then do slider_height * tp / domain
+        svgLine.y1 = svgLine.offset_y + (400 * confusion.tp / (confusion.tp + confusion.fn));
+        svgLine.y2 = svgLine.offset_y + (400 * confusion.fp / (confusion.fp + confusion.tn));
+
         return (
 
             <div id='Visualizations'>
@@ -256,6 +282,9 @@ export default class Visualizations extends Component {
                                        remove_first={true}/>
                         </div>
                         <div className='grid_container'>
+                            <svg width="1000" height="1000">
+                                <line id="line1" x1={svgLine.x1} y1={svgLine.y1} x2={svgLine.x2 - 50} y2={svgLine.y2}/>
+                            </svg>
                             <div id='selectorBars'>
                                 <SelectorBars threshold={finalValues['threshold']}
                                               data={this.props.data} callback={this.update_everything}

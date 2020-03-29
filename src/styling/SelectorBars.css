@@ -18,3 +18,8 @@
     grid-column: 3;
     grid-row: 2;
 }
+
+#line1{
+    stroke-width: 4px;
+    stroke: #444444;
+}

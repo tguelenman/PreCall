@@ -28,6 +28,11 @@ div.ui.active.visible.compact.selection.dropdown{
 	grid-column: 3;
 }
 
+.editViewerContainer{
+	grid-row: 3;
+	grid-column: 3;
+}
+
 #Visualisations{
 	height: 100%;
 	width: 100%;

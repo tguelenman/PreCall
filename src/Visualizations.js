@@ -6,6 +6,7 @@ import ThresholdBar from './ThresholdBar.js'
 import Histogram from './Histogram.js'
 import SelectorBars from "./SelectorBars.js";
 import ConfusionMatrix from "./ConfusionMatrix.js";
+import EditViewer from "./EditViewer.js";
 import {Steps} from 'intro.js-react'
 import 'intro.js/introjs.css'
 import './styling/Visualizations.css';
@@ -293,6 +294,9 @@ export default class Visualizations extends Component {
                             <div id='confusionMatrix'>
                                 <ConfusionMatrix callback={this.update_everything} threshold={finalValues['threshold']}
                                                  data={this.props.data} confusion={confusion}/>
+                            </div>
+                            <div className='editViewerContainer'>
+                                <EditViewer threshold={finalValues['threshold']}/>
                             </div>
                         </div>
                     </div> : ''

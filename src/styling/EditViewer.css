@@ -1,0 +1,11 @@
+.editViewer{
+    border: 3px solid #444444;
+}
+
+.diff-addedline{
+    background-color: #b7e1f7;
+}
+
+.diff-deletedline{
+    background-color: #f7b7b9;
+}

@@ -1,15 +1,19 @@
 import React, {Component} from 'react'
-import Request from 'superagent';
 import "./styling/EditViewer.css"
 
 export default class EditViewer2 extends Component {
     constructor(props) {
         super(props);
         this.populate_array();
-        this.tempBool = false;
+        this.currentIndex = '';
+
         this.state = {
-            display: 'nothing right now'
-        }
+            display: 'nothing'
+        };
+
+        // timeout handler so that we can reset it, and a call which tracks who is triggering the state update
+        this.timeout = '';
+        this.internal_call = false;
     }
 
     // Fill two arrays, so that revid[index] has the threshold[index]
@@ -35,9 +39,6 @@ export default class EditViewer2 extends Component {
     // TODO: Fetch edit from Wikipedia. Start a timer, so that we make a request after no sliders have been
     // moved for at least a second.
     fetch_edit(ref_id) {
-        if (this.tempBool)
-            return <p>{ref_id}</p>;
-
         // Get the target revision and it's previous one. The & char must be encoded
         let url2 = 'https://api.allorigins.win/get?url=https://en.wikipedia.org/w/index.php?diff=next%26oldid=' + ref_id;
         fetch(url2) //{headers: new Headers({'Origin': 'https://en.wikipedia.org', 'UserAgent': 'Mozilla/5.0 (X11; Linux x86_64)'})})
@@ -45,7 +46,6 @@ export default class EditViewer2 extends Component {
                 return response.json()
             })
             .then(data => this.parse_html(data.contents));
-        this.tempBool = true;
     }
 
     parse_html(content) {
@@ -53,8 +53,9 @@ export default class EditViewer2 extends Component {
         el.innerHTML = content;
 
         let diff = el.getElementsByClassName('diff diff-contentalign-left').item(0).childNodes[2].innerHTML;
-        console.log(diff);
 
+        // Request state update internally. Don't trigger the timer.
+        this.internal_call = true;
         this.setState({display: <tbody dangerouslySetInnerHTML={{__html: diff}}/>});
     }
 
@@ -86,18 +87,37 @@ export default class EditViewer2 extends Component {
                 end = mid - 1;
         }
 
+        this.currentIndex = wantedIndex;
         return this.revids[wantedIndex];
     }
 
+
     render() {
 
-        this.fetch_edit(this.find_edit_id(this.props.threshold));
+        // Everytime 'render()' is called from outside, reset the timeout
+        if (!this.internal_call) {
+            if (this.timeout != null) {
+                window.clearTimeout(this.timeout);
+            }
+
+            // Set a timeout, so that the edit viewer is updated 1,5 seconds after the user
+            // has last made an acton which would change the program's state. (e.g moving the sliders)
+            this.timeout = window.setTimeout(() => {
+                this.fetch_edit(this.find_edit_id(this.props.threshold));
+            }, 1500);
+        }else{
+            this.internal_call = false;
+        }
 
         return (
-            <div className='editViewer'>
-                <table>
-                    {this.state.display}
-                </table>
+            <div className='ev_wrapper'>
+                <h2>Edit Viewer</h2>
+                <p>{'This edit\'s damaging probability: ' + this.probabilities[this.currentIndex]}</p>
+                <div className='editViewer'>
+                    <table>
+                        {this.state.display}
+                    </table>
+                </div>
             </div>
         );
     }

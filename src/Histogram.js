@@ -1,12 +1,23 @@
 import React, {Component} from 'react'
 import {Slider} from 'devextreme-react/slider';
+import DraggableHistogramLine from "./DraggableHistogramLine.js"
 import {
     Chart, Series, CommonSeriesSettings, Legend, ValueAxis, ArgumentAxis, Title, Export, Tooltip, Border, ConstantLine
 } from 'devextreme-react/chart';
+import Draggable from "react-draggable";
 
 function round(a) {
     return Number(Math.round(a + 'e' + 2) + 'e-' + 2);
 }
+
+// data structure containing important values for the slider handle
+let slider = {
+    min: 50, max: 1420,
+    offset_x: 40, offset_y: 55,
+    controlled_pos: {x: 300, y: 55},
+    last_call: 0,
+    threshold: 0.5
+};
 
 // Take a data point from the ORES API (match_rate, filter_rate, etc.)
 // and calculate the Confusion Matrix.
@@ -56,27 +67,74 @@ export default class Histogram2 extends Component {
         super(props);
         this.state = {threshold: 0.5};
         this.histogram_data = calculate_everything(this.props.data);
+        this.histogram_element = null;
+        this.internal_call = false; // track who calls for state update
     }
 
-    /*
-    customizeLabel(arg) {
-    if (arg.value > this.state.highAverage) {
-      return {
-        visible: true,
-        backgroundColor: '#ff7c7c',
-        customizeText: function(e) {
-          return `${e.valueText }&#176F`;
+    // Use arrow functions so that we can access the outer if
+    handleStart = (event, data) => {
+        slider.last_call = 0;
+        console.log("Start drag")
+    };
+
+    handleDrag = (event, data) => {
+        let milis = new Date().getTime();
+        this.internal_call = true;
+
+        if (slider.last_call === 0 || slider.last_call + 50 < milis) {
+            slider.last_call = milis;
+
+            let threshold = (data.x - slider.offset_x) / (slider.max + slider.min);
+            slider.controlled_pos = {x: data.x, y: slider.offset_y};
+            this.props.callback("threshold", threshold);
         }
-      };
-    }
-  }
-     */
+    };
+
+    handleStop = (event, data) => {
+        this.internal_call = false;
+    };
 
     render() {
         let data = thin_histogram(this.props.reduce ? this.props.reduce : 1, this.histogram_data);
 
+        if (this.histogram_element == null) {
+            this.histogram_element = document.getElementById('chart');
+        }
+
+        // If called from the outside, calculate where the slider handle should be positioned
+        if (!this.internal_call){
+            slider.controlled_pos.x = this.props.threshold * (slider.max + slider.min) + slider.offset_x;
+        }
+
         return (
             <div className="dx-form">
+                <Draggable
+                    axis="x"
+                    handle=".handle"
+                    defaultPosition={{x: (slider.max + slider.min) * this.state.threshold + 40, y: 55}}
+                    position={slider.controlled_pos}
+                    grid={[3, 3]}
+                    scale={1}
+                    onStart={this.handleStart}
+                    onDrag={this.handleDrag}
+                    onStop={this.handleStop}
+                    bounds={{right: slider.max, left: slider.min}}
+                    margin-left={1000}
+                >
+                    <div className='handle'
+                         style={{
+                             width: 21,
+                             height: 21,
+                             border: '2px solid black',
+                             textAlign: 'center',
+                             cursor: 'pointer',
+                             borderRadius: '50%',
+                             backgroundColor: 'white',
+                             zIndex: 5
+                         }}
+                    >
+                    </div>
+                </Draggable>
                 <Chart
                     id="chart"
                     title="Histogram"
@@ -110,7 +168,7 @@ export default class Histogram2 extends Component {
                     </ValueAxis>
                     <ArgumentAxis>
                         <Title text="Threshold required for an edit to be classified as damaging"/>
-                        <ConstantLine width={2} value={this.props.threshold} />
+                        <ConstantLine width={2} value={this.props.threshold}/>
                     </ArgumentAxis>
                     <Legend position="inside"
                             columnCount={2}

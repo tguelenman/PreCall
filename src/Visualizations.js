@@ -83,6 +83,12 @@ export default class Visualizations extends Component {
 
     update_everything = (metric, metric_value) => {
         if (metric === 'TP' || metric === 'FP') {
+            // If the metrics are equal, then there is no need to update the state
+            if (this.state.confusion !== '' && this.state.confusion[metric.toLowerCase()] === metric_value) {
+                console.log("not updating state for " + metric);
+                return;
+            }
+
             const index = util.setConfusion(metric, metric_value);
 
             this.setState({
@@ -97,9 +103,15 @@ export default class Visualizations extends Component {
                 }
             });
         } else {
+            // if the metrics are equal, then there is no need to update the state
+            if (this.state.finalValues !== '' && this.state.finalValues.threshold === metric_value) {
+                console.log("not updating state for " + metric);
+                return;
+            }
+
             // when the threshold is updated we need to find the index in util.thresholds
             // so we can set the whole confusion matrix
-            const index = util.thresholds.indexOf(metric_value);
+            const index = util.bin_search(metric_value, util.thresholds);
 
             this.setState({
                 confusion: {
@@ -113,6 +125,7 @@ export default class Visualizations extends Component {
                 }
             });
         }
+        console.log(metric);
     };
 
     componentDidMount = () => {
@@ -126,7 +139,7 @@ export default class Visualizations extends Component {
             })
 
         }
-    }
+    };
 
     findClosestValue = (metric, metricValue) => {
 
@@ -269,12 +282,12 @@ export default class Visualizations extends Component {
                             <h2 className='title' id='mainTitle'>PreCall: ORES Human-Centered Model Selection</h2>
                         </div>
                         <div id='histogram'>
-                            <Histogram threshold={finalValues['threshold']} data={this.props.data} reduce={18}
-                                       remove_first={true}/>
+                            <Histogram threshold={finalValues['threshold']} data={this.props.data}
+                                       callback={this.update_everything} reduce={18} remove_first={true}/>
                         </div>
                         <div className='grid_container'>
                             <svg width="1000" height="1000">
-                                <line id="line1" x1={194} y1={svgLine.y1} x2={194+353} y2={svgLine.y2}/>
+                                <line id="line1" x1={194} y1={svgLine.y1} x2={194 + 353} y2={svgLine.y2}/>
                             </svg>
                             <div id='selectorBars'>
                                 <SelectorBars threshold={finalValues['threshold']}

@@ -3,11 +3,12 @@ import './styling/SelectorSlider.css'
 
 import {Slider, Rail, Handles, Tracks} from 'react-compound-slider'
 
-function round(val) {
+// use as a timer so that we update the sliders less frequently
+let last_call = 0;
 
+function round(val) {
     //round to 3 digits
     return Math.round(val * 1000) / 1000
-
 }
 
 function Track({source, target, classname, getTrackProps}) {
@@ -36,10 +37,15 @@ export default class SelectorSlider2 extends Component {
     }
 
     onUpdate = (value) => {
+        let milis = new Date().getTime();
 
-        //set the new threshold in parent
-        this.props.callback(this.props.id, round(value[0]))
+        // update only every 50ms
+        if (last_call === 0 || last_call + 50 < milis) {
+            last_call = milis;
 
+            //set the new threshold in parent
+            this.props.callback(this.props.id, round(value[0]))
+        }
     };
 
     Handle = ({

@@ -35,7 +35,7 @@ export default class ThresholdBar2 extends Component {
 		
 	}
 
-	Handle = ({
+	static Handle = ({
 	
 		handle: { id, value, percent }, 
 		getHandleProps

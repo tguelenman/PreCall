@@ -6,8 +6,8 @@ export class ConfusionUtil {
     }
 
     // Singleton structure so we don't calculate unnecessary stuff multiple times
-    static get_instance(data){
-        if (ConfusionUtil.self == null){
+    static get_instance(data) {
+        if (ConfusionUtil.self == null) {
             ConfusionUtil.self = new ConfusionUtil(data);
         }
         return ConfusionUtil.self;
@@ -119,5 +119,35 @@ export class ConfusionUtil {
             }
         }
         return max
+    }
+
+    // FINDS THE CLOSEST VALUE. Works only for sorted arrays. TPs and FPs are not sorted!!!
+    bin_search(value, arr) {
+        let start = 0;
+        let end = arr.length - 1;
+        let mid;
+
+        let wantedIndex;
+        let closest = Infinity;
+
+        while (start <= end) {
+            mid = Math.floor((start + end) / 2);
+
+            // find the closest value
+            if (Math.abs(value - arr[mid]) < Math.abs(value - closest)) {
+                closest = arr[mid];
+                wantedIndex = mid;
+            }
+
+            // find which way to continue the bin search
+            if (arr[mid] === value)
+                return mid;
+            else if (arr[mid] < value)
+                start = mid + 1;
+            else
+                end = mid - 1;
+        }
+
+        return wantedIndex;
     }
 }

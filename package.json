@@ -16,6 +16,7 @@
     "react": "^16.7.0",
     "react-compound-slider": "^1.2.1",
     "react-dom": "^16.7.0",
+    "react-draggable": "^4.2.0",
     "react-scripts": "^2.1.8",
     "semantic-ui-react": "^0.84.0",
     "superagent": "^4.1.0"

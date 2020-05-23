@@ -122,7 +122,7 @@ export class ConfusionUtil {
     }
 
     // FINDS THE CLOSEST VALUE. Works only for sorted arrays. TPs and FPs are not sorted!!!
-    bin_search(value, arr) {
+    static bin_search(value, arr) {
         let start = 0;
         let end = arr.length - 1;
         let mid;

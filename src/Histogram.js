@@ -12,11 +12,12 @@ function round(a) {
 
 // data structure containing important values for the slider handle
 let slider = {
-    min: 50, max: 1420,
-    offset_x: 40, offset_y: 55,
-    controlled_pos: {x: 300, y: 55},
+    min: 60, max: 1420,
+    offset_x: 60, offset_y: 60,
+    controlled_pos: {x: 300, y: 60},
     last_call: 0,
-    threshold: 0.5
+    threshold: 0.5,
+    max_threshold: 0.981
 };
 
 // Take a data point from the ORES API (match_rate, filter_rate, etc.)
@@ -55,7 +56,7 @@ function thin_histogram(factor, data) {
     let temp = [];
 
     for (let i = 0; i < data.length; i++) {
-        if (i % factor === 0) {
+        if (i % factor === 0 || i === data.length - 1) {
             temp.push(data[i]);
         }
     }
@@ -69,6 +70,7 @@ export default class Histogram2 extends Component {
         this.histogram_data = calculate_everything(this.props.data);
         this.histogram_element = null;
         this.internal_call = false; // track who calls for state update
+        this.thinned_data = thin_histogram(this.props.reduce ? this.props.reduce : 1, this.histogram_data);
     }
 
     // Use arrow functions so that we can access the outer if
@@ -77,17 +79,13 @@ export default class Histogram2 extends Component {
         console.log("Start drag")
     };
 
+    // Top achievable threshold is 0.981 and not 1, so we need to adjust our formula a bit,
+    // otherwise the handle position is off
     handleDrag = (event, data) => {
-        let milis = new Date().getTime();
-        this.internal_call = true;
-
-        if (slider.last_call === 0 || slider.last_call + 50 < milis) {
-            slider.last_call = milis;
-
-            let threshold = (data.x - slider.offset_x) / (slider.max + slider.min);
+            let threshold = (data.x - slider.min) / (slider.max/slider.max_threshold - slider.min);
             slider.controlled_pos = {x: data.x, y: slider.offset_y};
-            this.props.callback("threshold", threshold);
-        }
+            this.props.callback("threshold", threshold, "histogram");
+       // }
     };
 
     handleStop = (event, data) => {
@@ -95,15 +93,13 @@ export default class Histogram2 extends Component {
     };
 
     render() {
-        let data = thin_histogram(this.props.reduce ? this.props.reduce : 1, this.histogram_data);
-
         if (this.histogram_element == null) {
             this.histogram_element = document.getElementById('chart');
         }
 
         // If called from the outside, calculate where the slider handle should be positioned
         if (!this.internal_call){
-            slider.controlled_pos.x = this.props.threshold * (slider.max + slider.min) + slider.offset_x;
+            slider.controlled_pos.x = this.props.threshold * (slider.max/slider.max_threshold - slider.min) + slider.min;
         }
 
         return (
@@ -111,7 +107,7 @@ export default class Histogram2 extends Component {
                 <Draggable
                     axis="x"
                     handle=".handle"
-                    defaultPosition={{x: (slider.max + slider.min) * this.state.threshold + 40, y: 55}}
+                    defaultPosition={{x: (slider.max - slider.min) * this.state.threshold + slider.min, y: slider.offset_y}}
                     position={slider.controlled_pos}
                     grid={[3, 3]}
                     scale={1}
@@ -138,7 +134,7 @@ export default class Histogram2 extends Component {
                 <Chart
                     id="chart"
                     title="Histogram"
-                    dataSource={this.props.remove_first ? data.slice(1, -1) : data}
+                    dataSource={this.props.remove_first ? this.thinned_data.slice(1, -1) : this.thinned_data}
                 >
                     <CommonSeriesSettings argumentField="threshold" type="stackedBar"/>
                     <Series

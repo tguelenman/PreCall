@@ -37,15 +37,7 @@ export default class SelectorSlider2 extends Component {
     }
 
     onUpdate = (value) => {
-        let milis = new Date().getTime();
-
-        // update only every 50ms
-        if (last_call === 0 || last_call + 50 < milis) {
-            last_call = milis;
-
-            //set the new threshold in parent
-            this.props.callback(this.props.id, round(value[0]))
-        }
+        this.props.callback(this.props.id, round(value[0]))
     };
 
     Handle = ({
@@ -87,8 +79,8 @@ export default class SelectorSlider2 extends Component {
     }
 
     render() {
-        // #1db1f5 - blue for the track
-        const threshold = this.props.threshold;
+        // Set the slider display value so that the slider doesn't disappear
+        const threshold = this.props.threshold === 0 ? 0.0001 : this.props.threshold;
         const railStyle = {
             background: this.props.color_bottom,
         };

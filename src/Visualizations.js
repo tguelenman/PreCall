@@ -13,6 +13,8 @@ import './styling/Visualizations.css';
 import {ConfusionUtil} from "./ConfusionUtil";
 
 let util = [];
+let last_call = 0;
+let last_caller = "";
 
 export default class Visualizations extends Component {
 
@@ -81,11 +83,27 @@ export default class Visualizations extends Component {
         }
     };
 
-    update_everything = (metric, metric_value) => {
+    update_everything = (metric, metric_value, caller=null) => {
+        let milis = new Date().getTime();
+
+        // trigger an update only every 35 ms.
+        if (last_call + 25 > milis){
+            return;
+        }
+
         if (metric === 'TP' || metric === 'FP') {
             // If the metrics are equal, then there is no need to update the state
             if (this.state.confusion !== '' && this.state.confusion[metric.toLowerCase()] === metric_value) {
                 console.log("not updating state for " + metric);
+                return;
+            }
+
+            // If last update was triggered by the histogram in the last 100 ms, don't update the state.
+            // Because otherwise every time the user interacts with the histogram, the Selector Sliders
+            // call the update method as well. So essentially for a single interaction the update function
+            // is being called twice.
+            if ((last_caller === "histogram" || last_caller === "confusionfilter")
+                && last_call + 200 > milis){
                 return;
             }
 
@@ -111,7 +129,7 @@ export default class Visualizations extends Component {
 
             // when the threshold is updated we need to find the index in util.thresholds
             // so we can set the whole confusion matrix
-            const index = util.bin_search(metric_value, util.thresholds);
+            const index = ConfusionUtil.bin_search(metric_value, util.thresholds);
 
             this.setState({
                 confusion: {
@@ -121,11 +139,15 @@ export default class Visualizations extends Component {
                     fn: util.allFNs[index]
                 },
                 finalValues: {
-                    threshold: metric_value
+                    threshold: util.thresholds[index]
                 }
             });
         }
-        console.log(metric);
+
+        last_call = milis;
+        last_caller = caller;
+        console.log(this.state.finalValues.threshold);
+        console.log(util.thresholds);
     };
 
     componentDidMount = () => {
@@ -242,7 +264,7 @@ export default class Visualizations extends Component {
             finalValues, metric, confusion, svgLine,
             metricValue, lastChangeByRadar, stepsEnabled,
             steps, initialStep,
-        } = this.state
+        } = this.state;
 
         /*We need finalValues, but with the currently handled value not changed to an actually existing one.
         This means that on the radar chart, we want to keep e.g. precision 0.349, even if the closest existing value
@@ -283,7 +305,7 @@ export default class Visualizations extends Component {
                         </div>
                         <div id='histogram'>
                             <Histogram threshold={finalValues['threshold']} data={this.props.data}
-                                       callback={this.update_everything} reduce={18} remove_first={true}/>
+                                       callback={this.update_everything} reduce={15} remove_first={false}/>
                         </div>
                         <div className='grid_container'>
                             <svg width="1000" height="1000">

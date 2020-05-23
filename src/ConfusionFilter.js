@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 import './styling/ConfusionFilter.css'
+import {ConfusionUtil} from "./ConfusionUtil";
 
 export default class ConfusionFilter extends Component {
 	
@@ -118,11 +119,15 @@ export default class ConfusionFilter extends Component {
 		let newThreshold = currentThreshold
 		
 		//two extra conditions needed, not to get stuck in an infinite loop when max or min has been reached
-		while(newThreshold === currentThreshold && currentConfusion >= min && currentConfusion <= max){
+		while(newThreshold === currentThreshold && currentConfusion >= min && currentConfusion <= max)
+		{
+			// TPs and FNs have a smaller domain and we want more precision when incrementing or decrementing
+			const increment = confusionValue === "TP" || confusionValue === "FN" ? 0.02 : 0.3;
+
 			//...and either add 0.1 to it
 			if(plusMinus === '+'){
 				
-				currentConfusion = currentConfusion+0.1
+				currentConfusion = currentConfusion + increment;
 				newThreshold = this.setConfusion(confusionValue,currentConfusion)
 				
 			} 
@@ -130,7 +135,7 @@ export default class ConfusionFilter extends Component {
 			//...or subtract 0.1 from it
 			else if (plusMinus === '-'){
 				
-				currentConfusion = currentConfusion-0.1
+				currentConfusion = currentConfusion - increment;
 				newThreshold = this.setConfusion(confusionValue,currentConfusion)	
 				
 			}
@@ -142,7 +147,7 @@ export default class ConfusionFilter extends Component {
 		}
 		
 		//new threshold is determined, pass it
-		this.props.callback('threshold',newThreshold)
+		this.props.callback('threshold', newThreshold, "confusionfilter")
 
 	}
 	
@@ -193,12 +198,15 @@ export default class ConfusionFilter extends Component {
 			
 			min = this.arrayMin(fullArray)
 			max = this.arrayMax(fullArray)
+
+			// currentThreshold might be a value which is not included in the all thresholds array,
+			// so we need to set it manually
 			const currentThreshold = this.props.currentThreshold
-			const wantedIndex = this.state.thresholds.indexOf(currentThreshold)
+			const wantedIndex = ConfusionUtil.bin_search(currentThreshold, this.state.thresholds);
 			currentConfusion = fullArray[wantedIndex]
 
 		}
-		
+
 		return (
 
 			<div className='pmButtons'>

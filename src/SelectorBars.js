@@ -17,10 +17,6 @@ export default class SelectorBars2 extends Component {
     // Given a percentage of True Positives for example it will set another threshold value and new confusion values
     // ID is the ID of the slider, so we know whether we're updating TPs or FNs
     update_everything(id, target_value) {
-        // limit the minimal value, otherwise both bars disappear for some reason
-        if (target_value === 0)
-            target_value = 0.05;
-
         const to_get = id === "positive_selector" ? "TP" : "FP";
         this.props.callback(to_get, target_value);
     }

@@ -1,0 +1,3739 @@
+{
+  "array": [
+    {
+      "rev_id": 638181419,
+      "damaging": true,
+      "probability": 0.9402718708837841
+    },
+    {
+      "rev_id": 655710468,
+      "damaging": true,
+      "probability": 0.8571550064152529
+    },
+    {
+      "rev_id": 653953942,
+      "damaging": true,
+      "probability": 0.8571629874216463
+    },
+    {
+      "rev_id": 606198493,
+      "damaging": true,
+      "probability": 0.9563684449070067
+    },
+    {
+      "rev_id": 641378615,
+      "damaging": true,
+      "probability": 0.8628228475576386
+    },
+    {
+      "rev_id": 612764376,
+      "damaging": true,
+      "probability": 0.7969803728442955
+    },
+    {
+      "rev_id": 609176295,
+      "damaging": true,
+      "probability": 0.8581460934428191
+    },
+    {
+      "rev_id": 611099282,
+      "damaging": true,
+      "probability": 0.8766977796852913
+    },
+    {
+      "rev_id": 623818349,
+      "damaging": true,
+      "probability": 0.7000379042518301
+    },
+    {
+      "rev_id": 623179929,
+      "damaging": true,
+      "probability": 0.7952710744367694
+    },
+    {
+      "rev_id": 644403084,
+      "damaging": true,
+      "probability": 0.6029007590126794
+    },
+    {
+      "rev_id": 622300612,
+      "damaging": true,
+      "probability": 0.6241336118498021
+    },
+    {
+      "rev_id": 616404139,
+      "damaging": true,
+      "probability": 0.9255168472513655
+    },
+    {
+      "rev_id": 622974427,
+      "damaging": true,
+      "probability": 0.9371745879720157
+    },
+    {
+      "rev_id": 632958337,
+      "damaging": true,
+      "probability": 0.8972828952131744
+    },
+    {
+      "rev_id": 637329379,
+      "damaging": true,
+      "probability": 0.7404933357035803
+    },
+    {
+      "rev_id": 611836276,
+      "damaging": true,
+      "probability": 0.7190501164079715
+    },
+    {
+      "rev_id": 616573654,
+      "damaging": true,
+      "probability": 0.571604096427448
+    },
+    {
+      "rev_id": 653125483,
+      "damaging": true,
+      "probability": 0.5717350782844217
+    },
+    {
+      "rev_id": 639210119,
+      "damaging": true,
+      "probability": 0.9195527783822419
+    },
+    {
+      "rev_id": 647651486,
+      "damaging": true,
+      "probability": 0.49816790287234664
+    },
+    {
+      "rev_id": 625824192,
+      "damaging": true,
+      "probability": 0.8764815588287365
+    },
+    {
+      "rev_id": 605651771,
+      "damaging": true,
+      "probability": 0.9054397778408576
+    },
+    {
+      "rev_id": 647187131,
+      "damaging": true,
+      "probability": 0.7821377549496236
+    },
+    {
+      "rev_id": 628495237,
+      "damaging": true,
+      "probability": 0.821523427423254
+    },
+    {
+      "rev_id": 628854373,
+      "damaging": true,
+      "probability": 0.8179690675942637
+    },
+    {
+      "rev_id": 649208191,
+      "damaging": true,
+      "probability": 0.8469915561904574
+    },
+    {
+      "rev_id": 626849707,
+      "damaging": true,
+      "probability": 0.7391861158522712
+    },
+    {
+      "rev_id": 623470472,
+      "damaging": true,
+      "probability": 0.8579267173130765
+    },
+    {
+      "rev_id": 637571720,
+      "damaging": true,
+      "probability": 0.8490604852108267
+    },
+    {
+      "rev_id": 640480610,
+      "damaging": true,
+      "probability": 0.836149806730464
+    },
+    {
+      "rev_id": 645082950,
+      "damaging": true,
+      "probability": 0.8992408039592762
+    },
+    {
+      "rev_id": 649964898,
+      "damaging": true,
+      "probability": 0.9040654321109488
+    },
+    {
+      "rev_id": 643884206,
+      "damaging": true,
+      "probability": 0.8983597777551132
+    },
+    {
+      "rev_id": 655035918,
+      "damaging": true,
+      "probability": 0.5358702594133825
+    },
+    {
+      "rev_id": 612101794,
+      "damaging": true,
+      "probability": 0.952645901763837
+    },
+    {
+      "rev_id": 613080707,
+      "damaging": true,
+      "probability": 0.8547119138616897
+    },
+    {
+      "rev_id": 624735218,
+      "damaging": true,
+      "probability": 0.965756450970333
+    },
+    {
+      "rev_id": 620720442,
+      "damaging": true,
+      "probability": 0.9204520939927737
+    },
+    {
+      "rev_id": 632091886,
+      "damaging": true,
+      "probability": 0.9694929839304969
+    },
+    {
+      "rev_id": 607488985,
+      "damaging": true,
+      "probability": 0.8840863918918783
+    },
+    {
+      "rev_id": 635983882,
+      "damaging": true,
+      "probability": 0.8550147109674433
+    },
+    {
+      "rev_id": 608900711,
+      "damaging": true,
+      "probability": 0.9046012352004372
+    },
+    {
+      "rev_id": 642345005,
+      "damaging": true,
+      "probability": 0.7839155153823215
+    },
+    {
+      "rev_id": 627749232,
+      "damaging": true,
+      "probability": 0.9136348120702463
+    },
+    {
+      "rev_id": 624536453,
+      "damaging": true,
+      "probability": 0.9558723620046643
+    },
+    {
+      "rev_id": 628679266,
+      "damaging": true,
+      "probability": 0.9748063924466582
+    },
+    {
+      "rev_id": 627858170,
+      "damaging": true,
+      "probability": 0.9601671610235618
+    },
+    {
+      "rev_id": 651213277,
+      "damaging": true,
+      "probability": 0.8569513542984584
+    },
+    {
+      "rev_id": 605843328,
+      "damaging": true,
+      "probability": 0.820604733787154
+    },
+    {
+      "rev_id": 621666815,
+      "damaging": true,
+      "probability": 0.39186511987812733
+    },
+    {
+      "rev_id": 617197822,
+      "damaging": true,
+      "probability": 0.942536961914112
+    },
+    {
+      "rev_id": 655745013,
+      "damaging": true,
+      "probability": 0.7474912121256782
+    },
+    {
+      "rev_id": 644274923,
+      "damaging": true,
+      "probability": 0.7948010224476517
+    },
+    {
+      "rev_id": 615100451,
+      "damaging": true,
+      "probability": 0.9250137437841505
+    },
+    {
+      "rev_id": 626024652,
+      "damaging": true,
+      "probability": 0.553544225453471
+    },
+    {
+      "rev_id": 640455338,
+      "damaging": true,
+      "probability": 0.7944026438788067
+    },
+    {
+      "rev_id": 615092229,
+      "damaging": true,
+      "probability": 0.9572151682761657
+    },
+    {
+      "rev_id": 632569723,
+      "damaging": true,
+      "probability": 0.4650167178101396
+    },
+    {
+      "rev_id": 620913540,
+      "damaging": true,
+      "probability": 0.7823583683792497
+    },
+    {
+      "rev_id": 626411564,
+      "damaging": true,
+      "probability": 0.58204849298453
+    },
+    {
+      "rev_id": 607062903,
+      "damaging": true,
+      "probability": 0.7127185162575865
+    },
+    {
+      "rev_id": 628381102,
+      "damaging": true,
+      "probability": 0.7304060532795827
+    },
+    {
+      "rev_id": 649181769,
+      "damaging": true,
+      "probability": 0.9491210161169116
+    },
+    {
+      "rev_id": 619505555,
+      "damaging": true,
+      "probability": 0.5977169139093599
+    },
+    {
+      "rev_id": 630728711,
+      "damaging": true,
+      "probability": 0.8918330501822935
+    },
+    {
+      "rev_id": 637955662,
+      "damaging": true,
+      "probability": 0.7640676880825046
+    },
+    {
+      "rev_id": 651809739,
+      "damaging": true,
+      "probability": 0.9665733502962925
+    },
+    {
+      "rev_id": 628757039,
+      "damaging": true,
+      "probability": 0.8750255321774867
+    },
+    {
+      "rev_id": 644578174,
+      "damaging": true,
+      "probability": 0.9366943907448266
+    },
+    {
+      "rev_id": 625613555,
+      "damaging": true,
+      "probability": 0.6281770177840503
+    },
+    {
+      "rev_id": 634323410,
+      "damaging": true,
+      "probability": 0.8892975664550146
+    },
+    {
+      "rev_id": 638518044,
+      "damaging": true,
+      "probability": 0.9581541828979853
+    },
+    {
+      "rev_id": 634539756,
+      "damaging": true,
+      "probability": 0.8367851262577245
+    },
+    {
+      "rev_id": 654258748,
+      "damaging": true,
+      "probability": 0.7989747129784831
+    },
+    {
+      "rev_id": 650569796,
+      "damaging": true,
+      "probability": 0.88684698396064
+    },
+    {
+      "rev_id": 629089660,
+      "damaging": true,
+      "probability": 0.9692038398637041
+    },
+    {
+      "rev_id": 642618993,
+      "damaging": true,
+      "probability": 0.34310887133335766
+    },
+    {
+      "rev_id": 607139849,
+      "damaging": true,
+      "probability": 0.9437208158163565
+    },
+    {
+      "rev_id": 610013579,
+      "damaging": true,
+      "probability": 0.5299320237930687
+    },
+    {
+      "rev_id": 613528448,
+      "damaging": true,
+      "probability": 0.9613807998847167
+    },
+    {
+      "rev_id": 628409174,
+      "damaging": true,
+      "probability": 0.6914316061121333
+    },
+    {
+      "rev_id": 637779340,
+      "damaging": true,
+      "probability": 0.8586010234300828
+    },
+    {
+      "rev_id": 607600285,
+      "damaging": true,
+      "probability": 0.9807937540720809
+    },
+    {
+      "rev_id": 654235100,
+      "damaging": true,
+      "probability": 0.9556757371647064
+    },
+    {
+      "rev_id": 656314483,
+      "damaging": true,
+      "probability": 0.6514084479034751
+    },
+    {
+      "rev_id": 625658329,
+      "damaging": true,
+      "probability": 0.8508253762621812
+    },
+    {
+      "rev_id": 631156746,
+      "damaging": true,
+      "probability": 0.7082320405679519
+    },
+    {
+      "rev_id": 627373786,
+      "damaging": true,
+      "probability": 0.7471371924145622
+    },
+    {
+      "rev_id": 648909264,
+      "damaging": true,
+      "probability": 0.9237927268474068
+    },
+    {
+      "rev_id": 614972500,
+      "damaging": true,
+      "probability": 0.8231572883593143
+    },
+    {
+      "rev_id": 607084058,
+      "damaging": true,
+      "probability": 0.9163302364137837
+    },
+    {
+      "rev_id": 636834299,
+      "damaging": true,
+      "probability": 0.9492178263615453
+    },
+    {
+      "rev_id": 609985812,
+      "damaging": true,
+      "probability": 0.7727983020772776
+    },
+    {
+      "rev_id": 633643021,
+      "damaging": true,
+      "probability": 0.9708287403049992
+    },
+    {
+      "rev_id": 614916632,
+      "damaging": true,
+      "probability": 0.8540079057449362
+    },
+    {
+      "rev_id": 629865957,
+      "damaging": true,
+      "probability": 0.9708742239108067
+    },
+    {
+      "rev_id": 652735334,
+      "damaging": true,
+      "probability": 0.8838802564350039
+    },
+    {
+      "rev_id": 608867531,
+      "damaging": true,
+      "probability": 0.7629706217069044
+    },
+    {
+      "rev_id": 651428917,
+      "damaging": true,
+      "probability": 0.8479046575907083
+    },
+    {
+      "rev_id": 625863168,
+      "damaging": true,
+      "probability": 0.9218886770588955
+    },
+    {
+      "rev_id": 634849402,
+      "damaging": true,
+      "probability": 0.6100360998113623
+    },
+    {
+      "rev_id": 656132533,
+      "damaging": true,
+      "probability": 0.42985631911979905
+    },
+    {
+      "rev_id": 639473916,
+      "damaging": true,
+      "probability": 0.7606885075798583
+    },
+    {
+      "rev_id": 654560501,
+      "damaging": true,
+      "probability": 0.9380355214004394
+    },
+    {
+      "rev_id": 642804350,
+      "damaging": true,
+      "probability": 0.4673689436229284
+    },
+    {
+      "rev_id": 637127363,
+      "damaging": true,
+      "probability": 0.8270898505492833
+    },
+    {
+      "rev_id": 631208728,
+      "damaging": true,
+      "probability": 0.8240862860268122
+    },
+    {
+      "rev_id": 613722226,
+      "damaging": true,
+      "probability": 0.7678147909853766
+    },
+    {
+      "rev_id": 613052657,
+      "damaging": true,
+      "probability": 0.9230743270002573
+    },
+    {
+      "rev_id": 618695642,
+      "damaging": true,
+      "probability": 0.9525282933774961
+    },
+    {
+      "rev_id": 619834274,
+      "damaging": true,
+      "probability": 0.8859799835279633
+    },
+    {
+      "rev_id": 656204583,
+      "damaging": true,
+      "probability": 0.6815224469580634
+    },
+    {
+      "rev_id": 606786863,
+      "damaging": true,
+      "probability": 0.7176944578536973
+    },
+    {
+      "rev_id": 654204016,
+      "damaging": true,
+      "probability": 0.4972840827191218
+    },
+    {
+      "rev_id": 649939989,
+      "damaging": true,
+      "probability": 0.8149462049516613
+    },
+    {
+      "rev_id": 634628259,
+      "damaging": true,
+      "probability": 0.8137722951477164
+    },
+    {
+      "rev_id": 637437812,
+      "damaging": true,
+      "probability": 0.9358099934024378
+    },
+    {
+      "rev_id": 638228635,
+      "damaging": true,
+      "probability": 0.5702462857340282
+    },
+    {
+      "rev_id": 636611260,
+      "damaging": true,
+      "probability": 0.8031917995018093
+    },
+    {
+      "rev_id": 616108638,
+      "damaging": true,
+      "probability": 0.7857060867345615
+    },
+    {
+      "rev_id": 629640491,
+      "damaging": true,
+      "probability": 0.7919986101791937
+    },
+    {
+      "rev_id": 613662098,
+      "damaging": true,
+      "probability": 0.8382796817659282
+    },
+    {
+      "rev_id": 631400586,
+      "damaging": true,
+      "probability": 0.8026913433132451
+    },
+    {
+      "rev_id": 655970607,
+      "damaging": true,
+      "probability": 0.790767606713831
+    },
+    {
+      "rev_id": 608706647,
+      "damaging": true,
+      "probability": 0.7999382487321727
+    },
+    {
+      "rev_id": 635825044,
+      "damaging": true,
+      "probability": 0.8522720493310326
+    },
+    {
+      "rev_id": 615191935,
+      "damaging": true,
+      "probability": 0.9359908999448189
+    },
+    {
+      "rev_id": 613552709,
+      "damaging": true,
+      "probability": 0.9399143699986015
+    },
+    {
+      "rev_id": 631806387,
+      "damaging": true,
+      "probability": 0.9579343746164534
+    },
+    {
+      "rev_id": 612646894,
+      "damaging": true,
+      "probability": 0.9083830658545717
+    },
+    {
+      "rev_id": 650086871,
+      "damaging": true,
+      "probability": 0.6885507024516994
+    },
+    {
+      "rev_id": 634726523,
+      "damaging": true,
+      "probability": 0.6994157366644931
+    },
+    {
+      "rev_id": 649037691,
+      "damaging": true,
+      "probability": 0.8257890243320253
+    },
+    {
+      "rev_id": 645907785,
+      "damaging": true,
+      "probability": 0.9163767002176454
+    },
+    {
+      "rev_id": 611447748,
+      "damaging": true,
+      "probability": 0.927989752181177
+    },
+    {
+      "rev_id": 610635821,
+      "damaging": true,
+      "probability": 0.9726487646498019
+    },
+    {
+      "rev_id": 646066126,
+      "damaging": true,
+      "probability": 0.7988656005398072
+    },
+    {
+      "rev_id": 636481410,
+      "damaging": true,
+      "probability": 0.8062647156968267
+    },
+    {
+      "rev_id": 627704477,
+      "damaging": true,
+      "probability": 0.731348456056724
+    },
+    {
+      "rev_id": 634594551,
+      "damaging": true,
+      "probability": 0.8156183381026437
+    },
+    {
+      "rev_id": 628866295,
+      "damaging": true,
+      "probability": 0.8435706294248799
+    },
+    {
+      "rev_id": 647908053,
+      "damaging": true,
+      "probability": 0.8291139758422803
+    },
+    {
+      "rev_id": 649909843,
+      "damaging": true,
+      "probability": 0.9228806453097605
+    },
+    {
+      "rev_id": 635143851,
+      "damaging": true,
+      "probability": 0.8352160295687083
+    },
+    {
+      "rev_id": 604614437,
+      "damaging": true,
+      "probability": 0.739015144124058
+    },
+    {
+      "rev_id": 610023266,
+      "damaging": true,
+      "probability": 0.9663584613367662
+    },
+    {
+      "rev_id": 650548432,
+      "damaging": true,
+      "probability": 0.8263466317191794
+    },
+    {
+      "rev_id": 651113395,
+      "damaging": true,
+      "probability": 0.7997284642079375
+    },
+    {
+      "rev_id": 612392595,
+      "damaging": true,
+      "probability": 0.7318071272777674
+    },
+    {
+      "rev_id": 645979588,
+      "damaging": true,
+      "probability": 0.6496162087604622
+    },
+    {
+      "rev_id": 641676930,
+      "damaging": true,
+      "probability": 0.6822320172273811
+    },
+    {
+      "rev_id": 655700238,
+      "damaging": true,
+      "probability": 0.8014251085444547
+    },
+    {
+      "rev_id": 647014684,
+      "damaging": true,
+      "probability": 0.8055807918409676
+    },
+    {
+      "rev_id": 606680541,
+      "damaging": true,
+      "probability": 0.5747250623188269
+    },
+    {
+      "rev_id": 607528419,
+      "damaging": true,
+      "probability": 0.8759987038048492
+    },
+    {
+      "rev_id": 648116163,
+      "damaging": true,
+      "probability": 0.8902916446181472
+    },
+    {
+      "rev_id": 644664561,
+      "damaging": true,
+      "probability": 0.7274773826264084
+    },
+    {
+      "rev_id": 608416388,
+      "damaging": true,
+      "probability": 0.7472265398211074
+    },
+    {
+      "rev_id": 628704860,
+      "damaging": true,
+      "probability": 0.2582432705263508
+    },
+    {
+      "rev_id": 619861485,
+      "damaging": true,
+      "probability": 0.6067575568357744
+    },
+    {
+      "rev_id": 613206096,
+      "damaging": true,
+      "probability": 0.9333000516434734
+    },
+    {
+      "rev_id": 637178362,
+      "damaging": true,
+      "probability": 0.885820454229628
+    },
+    {
+      "rev_id": 640111969,
+      "damaging": true,
+      "probability": 0.9079937583240606
+    },
+    {
+      "rev_id": 647312231,
+      "damaging": true,
+      "probability": 0.5330866207025073
+    },
+    {
+      "rev_id": 619783963,
+      "damaging": true,
+      "probability": 0.9186139939771545
+    },
+    {
+      "rev_id": 636633217,
+      "damaging": true,
+      "probability": 0.7630042260692108
+    },
+    {
+      "rev_id": 644139288,
+      "damaging": true,
+      "probability": 0.6505388044974432
+    },
+    {
+      "rev_id": 614296478,
+      "damaging": true,
+      "probability": 0.7217821872879758
+    },
+    {
+      "rev_id": 641550282,
+      "damaging": true,
+      "probability": 0.8452140545707416
+    },
+    {
+      "rev_id": 622695531,
+      "damaging": true,
+      "probability": 0.8770724947644498
+    },
+    {
+      "rev_id": 641686118,
+      "damaging": true,
+      "probability": 0.8012846220618898
+    },
+    {
+      "rev_id": 630584953,
+      "damaging": true,
+      "probability": 0.8877188836387458
+    },
+    {
+      "rev_id": 632637244,
+      "damaging": true,
+      "probability": 0.8520171707013068
+    },
+    {
+      "rev_id": 606524930,
+      "damaging": true,
+      "probability": 0.8300606991766168
+    },
+    {
+      "rev_id": 642209972,
+      "damaging": true,
+      "probability": 0.8391616195723496
+    },
+    {
+      "rev_id": 610086861,
+      "damaging": true,
+      "probability": 0.967542570486645
+    },
+    {
+      "rev_id": 620083402,
+      "damaging": true,
+      "probability": 0.7322928766986191
+    },
+    {
+      "rev_id": 633561562,
+      "damaging": true,
+      "probability": 0.9632332072523536
+    },
+    {
+      "rev_id": 608502114,
+      "damaging": true,
+      "probability": 0.637799776258888
+    },
+    {
+      "rev_id": 614798594,
+      "damaging": true,
+      "probability": 0.737783444582385
+    },
+    {
+      "rev_id": 641983240,
+      "damaging": true,
+      "probability": 0.5654673816084794
+    },
+    {
+      "rev_id": 645243181,
+      "damaging": true,
+      "probability": 0.9723397905438178
+    },
+    {
+      "rev_id": 614955518,
+      "damaging": true,
+      "probability": 0.9254295879921811
+    },
+    {
+      "rev_id": 635249721,
+      "damaging": true,
+      "probability": 0.887438012159567
+    },
+    {
+      "rev_id": 656068880,
+      "damaging": true,
+      "probability": 0.8164276998285909
+    },
+    {
+      "rev_id": 638435243,
+      "damaging": true,
+      "probability": 0.4279179900711251
+    },
+    {
+      "rev_id": 621670671,
+      "damaging": true,
+      "probability": 0.8144230133863364
+    },
+    {
+      "rev_id": 654685720,
+      "damaging": true,
+      "probability": 0.852752898746985
+    },
+    {
+      "rev_id": 636645346,
+      "damaging": true,
+      "probability": 0.7455036960701646
+    },
+    {
+      "rev_id": 650218359,
+      "damaging": true,
+      "probability": 0.4976003485709868
+    },
+    {
+      "rev_id": 651764327,
+      "damaging": true,
+      "probability": 0.8065628167990662
+    },
+    {
+      "rev_id": 631365926,
+      "damaging": true,
+      "probability": 0.9103814880723153
+    },
+    {
+      "rev_id": 628118185,
+      "damaging": true,
+      "probability": 0.6909904135884329
+    },
+    {
+      "rev_id": 621749682,
+      "damaging": true,
+      "probability": 0.8558522282571603
+    },
+    {
+      "rev_id": 605408970,
+      "damaging": true,
+      "probability": 0.8200817323700673
+    },
+    {
+      "rev_id": 619478391,
+      "damaging": true,
+      "probability": 0.801207272283626
+    },
+    {
+      "rev_id": 611146672,
+      "damaging": true,
+      "probability": 0.9477220711955935
+    },
+    {
+      "rev_id": 637559166,
+      "damaging": true,
+      "probability": 0.9504825146328609
+    },
+    {
+      "rev_id": 619554755,
+      "damaging": true,
+      "probability": 0.8416021876754272
+    },
+    {
+      "rev_id": 608774067,
+      "damaging": true,
+      "probability": 0.8792726161653232
+    },
+    {
+      "rev_id": 620594910,
+      "damaging": true,
+      "probability": 0.976460054823121
+    },
+    {
+      "rev_id": 656080564,
+      "damaging": true,
+      "probability": 0.7104962197116169
+    },
+    {
+      "rev_id": 640127045,
+      "damaging": true,
+      "probability": 0.5316775475101385
+    },
+    {
+      "rev_id": 628240165,
+      "damaging": true,
+      "probability": 0.732926404457773
+    },
+    {
+      "rev_id": 654566028,
+      "damaging": true,
+      "probability": 0.7804076756710685
+    },
+    {
+      "rev_id": 612683464,
+      "damaging": true,
+      "probability": 0.6307848846671257
+    },
+    {
+      "rev_id": 610718692,
+      "damaging": true,
+      "probability": 0.887707193501024
+    },
+    {
+      "rev_id": 642191177,
+      "damaging": true,
+      "probability": 0.8826750785189403
+    },
+    {
+      "rev_id": 614625030,
+      "damaging": true,
+      "probability": 0.917176741546223
+    },
+    {
+      "rev_id": 627663967,
+      "damaging": true,
+      "probability": 0.9170038806450685
+    },
+    {
+      "rev_id": 610862969,
+      "damaging": true,
+      "probability": 0.8201812060241521
+    },
+    {
+      "rev_id": 612467283,
+      "damaging": true,
+      "probability": 0.9731612519755897
+    },
+    {
+      "rev_id": 616058409,
+      "damaging": true,
+      "probability": 0.581192748649562
+    },
+    {
+      "rev_id": 644795145,
+      "damaging": true,
+      "probability": 0.6709762593793918
+    },
+    {
+      "rev_id": 649690550,
+      "damaging": true,
+      "probability": 0.8778710312307643
+    },
+    {
+      "rev_id": 641784370,
+      "damaging": true,
+      "probability": 0.9383702171338588
+    },
+    {
+      "rev_id": 620614731,
+      "damaging": true,
+      "probability": 0.9349902896710756
+    },
+    {
+      "rev_id": 644290533,
+      "damaging": true,
+      "probability": 0.6128507243611963
+    },
+    {
+      "rev_id": 629536982,
+      "damaging": true,
+      "probability": 0.8276572622027707
+    },
+    {
+      "rev_id": 611892758,
+      "damaging": true,
+      "probability": 0.9732960567324789
+    },
+    {
+      "rev_id": 633682634,
+      "damaging": true,
+      "probability": 0.9221976606271037
+    },
+    {
+      "rev_id": 604527664,
+      "damaging": true,
+      "probability": 0.9107980415596173
+    },
+    {
+      "rev_id": 616008822,
+      "damaging": true,
+      "probability": 0.8141162506942984
+    },
+    {
+      "rev_id": 615180964,
+      "damaging": true,
+      "probability": 0.8338546245000398
+    },
+    {
+      "rev_id": 630845945,
+      "damaging": true,
+      "probability": 0.6361173521406017
+    },
+    {
+      "rev_id": 608371849,
+      "damaging": true,
+      "probability": 0.8099194782328448
+    },
+    {
+      "rev_id": 649141005,
+      "damaging": true,
+      "probability": 0.5463386387875808
+    },
+    {
+      "rev_id": 638257565,
+      "damaging": true,
+      "probability": 0.8820007919153782
+    },
+    {
+      "rev_id": 627197001,
+      "damaging": true,
+      "probability": 0.8537128449021192
+    },
+    {
+      "rev_id": 632660053,
+      "damaging": true,
+      "probability": 0.7758631528312805
+    },
+    {
+      "rev_id": 614754807,
+      "damaging": true,
+      "probability": 0.9550526051344687
+    },
+    {
+      "rev_id": 653385353,
+      "damaging": true,
+      "probability": 0.9539899470444368
+    },
+    {
+      "rev_id": 633891782,
+      "damaging": true,
+      "probability": 0.9141724415139324
+    },
+    {
+      "rev_id": 645578705,
+      "damaging": true,
+      "probability": 0.8199899243943213
+    },
+    {
+      "rev_id": 655658594,
+      "damaging": true,
+      "probability": 0.899112723743064
+    },
+    {
+      "rev_id": 617810243,
+      "damaging": true,
+      "probability": 0.43698744375260706
+    },
+    {
+      "rev_id": 613243051,
+      "damaging": true,
+      "probability": 0.7475844051982713
+    },
+    {
+      "rev_id": 628800360,
+      "damaging": true,
+      "probability": 0.9422300039642524
+    },
+    {
+      "rev_id": 630738390,
+      "damaging": true,
+      "probability": 0.9611965702830175
+    },
+    {
+      "rev_id": 637144557,
+      "damaging": true,
+      "probability": 0.9284627757676507
+    },
+    {
+      "rev_id": 608652025,
+      "damaging": true,
+      "probability": 0.5613122537930545
+    },
+    {
+      "rev_id": 608186060,
+      "damaging": true,
+      "probability": 0.8787835273645299
+    },
+    {
+      "rev_id": 619243911,
+      "damaging": true,
+      "probability": 0.9609792443800408
+    },
+    {
+      "rev_id": 622370451,
+      "damaging": true,
+      "probability": 0.5842043880342886
+    },
+    {
+      "rev_id": 628979674,
+      "damaging": true,
+      "probability": 0.5800085468153245
+    },
+    {
+      "rev_id": 636384589,
+      "damaging": true,
+      "probability": 0.4712189915498843
+    },
+    {
+      "rev_id": 644168027,
+      "damaging": true,
+      "probability": 0.9383129536444184
+    },
+    {
+      "rev_id": 638214571,
+      "damaging": true,
+      "probability": 0.8442799423646834
+    },
+    {
+      "rev_id": 636229067,
+      "damaging": true,
+      "probability": 0.8686317171350376
+    },
+    {
+      "rev_id": 608159311,
+      "damaging": true,
+      "probability": 0.5639283763831677
+    },
+    {
+      "rev_id": 614002947,
+      "damaging": true,
+      "probability": 0.42091858623367445
+    },
+    {
+      "rev_id": 608616496,
+      "damaging": true,
+      "probability": 0.966233786056798
+    },
+    {
+      "rev_id": 637906142,
+      "damaging": true,
+      "probability": 0.6972658240019406
+    },
+    {
+      "rev_id": 628851595,
+      "damaging": true,
+      "probability": 0.9487227631469741
+    },
+    {
+      "rev_id": 644289774,
+      "damaging": true,
+      "probability": 0.88279898509485
+    },
+    {
+      "rev_id": 655016805,
+      "damaging": true,
+      "probability": 0.9509048248251212
+    },
+    {
+      "rev_id": 621737290,
+      "damaging": true,
+      "probability": 0.9628412957671053
+    },
+    {
+      "rev_id": 636965795,
+      "damaging": true,
+      "probability": 0.8674316752883646
+    },
+    {
+      "rev_id": 641300995,
+      "damaging": true,
+      "probability": 0.8023407132783317
+    },
+    {
+      "rev_id": 631277651,
+      "damaging": true,
+      "probability": 0.9302122725532088
+    },
+    {
+      "rev_id": 623260136,
+      "damaging": true,
+      "probability": 0.8666794827016565
+    },
+    {
+      "rev_id": 606353022,
+      "damaging": true,
+      "probability": 0.7141282727434577
+    },
+    {
+      "rev_id": 654694787,
+      "damaging": true,
+      "probability": 0.45641237666921747
+    },
+    {
+      "rev_id": 630690961,
+      "damaging": true,
+      "probability": 0.9084091046052626
+    },
+    {
+      "rev_id": 606796785,
+      "damaging": true,
+      "probability": 0.921825800292767
+    },
+    {
+      "rev_id": 647628890,
+      "damaging": true,
+      "probability": 0.8180018899838969
+    },
+    {
+      "rev_id": 631209401,
+      "damaging": true,
+      "probability": 0.5360300572021807
+    },
+    {
+      "rev_id": 625766465,
+      "damaging": true,
+      "probability": 0.9525971104197701
+    },
+    {
+      "rev_id": 636891607,
+      "damaging": true,
+      "probability": 0.5277823035616601
+    },
+    {
+      "rev_id": 623673262,
+      "damaging": true,
+      "probability": 0.9305183767363817
+    },
+    {
+      "rev_id": 611650273,
+      "damaging": true,
+      "probability": 0.7322267833146829
+    },
+    {
+      "rev_id": 643655042,
+      "damaging": true,
+      "probability": 0.8022640283738536
+    },
+    {
+      "rev_id": 638887685,
+      "damaging": true,
+      "probability": 0.7259670827448448
+    },
+    {
+      "rev_id": 609345625,
+      "damaging": true,
+      "probability": 0.42472810615755907
+    },
+    {
+      "rev_id": 628495495,
+      "damaging": true,
+      "probability": 0.8086418324791824
+    },
+    {
+      "rev_id": 626074500,
+      "damaging": true,
+      "probability": 0.4374609447676852
+    },
+    {
+      "rev_id": 649003593,
+      "damaging": true,
+      "probability": 0.9435697264396569
+    },
+    {
+      "rev_id": 629438214,
+      "damaging": true,
+      "probability": 0.8670636414242823
+    },
+    {
+      "rev_id": 620429645,
+      "damaging": true,
+      "probability": 0.6564018081611679
+    },
+    {
+      "rev_id": 643885063,
+      "damaging": true,
+      "probability": 0.5900305212534039
+    },
+    {
+      "rev_id": 630000070,
+      "damaging": true,
+      "probability": 0.8904621483082454
+    },
+    {
+      "rev_id": 655582347,
+      "damaging": true,
+      "probability": 0.9832474588323057
+    },
+    {
+      "rev_id": 624191681,
+      "damaging": true,
+      "probability": 0.7118676415777279
+    },
+    {
+      "rev_id": 636119575,
+      "damaging": true,
+      "probability": 0.8755323958033031
+    },
+    {
+      "rev_id": 606954069,
+      "damaging": true,
+      "probability": 0.9139422640472101
+    },
+    {
+      "rev_id": 649263724,
+      "damaging": true,
+      "probability": 0.9493085705594512
+    },
+    {
+      "rev_id": 639625677,
+      "damaging": true,
+      "probability": 0.6719337065606295
+    },
+    {
+      "rev_id": 654667374,
+      "damaging": true,
+      "probability": 0.897791768517046
+    },
+    {
+      "rev_id": 655306759,
+      "damaging": true,
+      "probability": 0.7162590192564481
+    },
+    {
+      "rev_id": 634146511,
+      "damaging": true,
+      "probability": 0.9208801182523975
+    },
+    {
+      "rev_id": 644570050,
+      "damaging": true,
+      "probability": 0.9654384715997701
+    },
+    {
+      "rev_id": 639268826,
+      "damaging": true,
+      "probability": 0.9655519522447917
+    },
+    {
+      "rev_id": 614595176,
+      "damaging": true,
+      "probability": 0.8724379235350734
+    },
+    {
+      "rev_id": 623195045,
+      "damaging": true,
+      "probability": 0.8021570288954437
+    },
+    {
+      "rev_id": 628428752,
+      "damaging": true,
+      "probability": 0.8200105071501991
+    },
+    {
+      "rev_id": 646385203,
+      "damaging": true,
+      "probability": 0.9659059558497249
+    },
+    {
+      "rev_id": 627066289,
+      "damaging": true,
+      "probability": 0.8290755265401871
+    },
+    {
+      "rev_id": 635693243,
+      "damaging": true,
+      "probability": 0.9304995339505963
+    },
+    {
+      "rev_id": 619187579,
+      "damaging": true,
+      "probability": 0.8137706428729231
+    },
+    {
+      "rev_id": 651602794,
+      "damaging": true,
+      "probability": 0.923679218338898
+    },
+    {
+      "rev_id": 624003235,
+      "damaging": true,
+      "probability": 0.9453682688200843
+    },
+    {
+      "rev_id": 636721706,
+      "damaging": true,
+      "probability": 0.8858245720994429
+    },
+    {
+      "rev_id": 649696205,
+      "damaging": true,
+      "probability": 0.5356839234654547
+    },
+    {
+      "rev_id": 624943177,
+      "damaging": true,
+      "probability": 0.8443964791515536
+    },
+    {
+      "rev_id": 632588897,
+      "damaging": true,
+      "probability": 0.5503727837712241
+    },
+    {
+      "rev_id": 611657697,
+      "damaging": true,
+      "probability": 0.8973338878582189
+    },
+    {
+      "rev_id": 635594543,
+      "damaging": true,
+      "probability": 0.7729806643801008
+    },
+    {
+      "rev_id": 641326413,
+      "damaging": true,
+      "probability": 0.9615277309272348
+    },
+    {
+      "rev_id": 618807019,
+      "damaging": true,
+      "probability": 0.939358017071784
+    },
+    {
+      "rev_id": 607633098,
+      "damaging": true,
+      "probability": 0.9564198752469415
+    },
+    {
+      "rev_id": 637084785,
+      "damaging": true,
+      "probability": 0.7792515715574954
+    },
+    {
+      "rev_id": 634753196,
+      "damaging": true,
+      "probability": 0.9513005105334685
+    },
+    {
+      "rev_id": 616552536,
+      "damaging": true,
+      "probability": 0.5728858562162914
+    },
+    {
+      "rev_id": 629696618,
+      "damaging": true,
+      "probability": 0.9750732076532455
+    },
+    {
+      "rev_id": 655198204,
+      "damaging": true,
+      "probability": 0.9334131713756769
+    },
+    {
+      "rev_id": 614325184,
+      "damaging": true,
+      "probability": 0.8041720092462091
+    },
+    {
+      "rev_id": 655169169,
+      "damaging": true,
+      "probability": 0.641434494483852
+    },
+    {
+      "rev_id": 608342638,
+      "damaging": true,
+      "probability": 0.8739490030360471
+    },
+    {
+      "rev_id": 608884880,
+      "damaging": true,
+      "probability": 0.9308565061855094
+    },
+    {
+      "rev_id": 649614719,
+      "damaging": true,
+      "probability": 0.9703752099282212
+    },
+    {
+      "rev_id": 610069627,
+      "damaging": true,
+      "probability": 0.8936937134254676
+    },
+    {
+      "rev_id": 639469579,
+      "damaging": true,
+      "probability": 0.8890484441446032
+    },
+    {
+      "rev_id": 641364491,
+      "damaging": true,
+      "probability": 0.5008058722985095
+    },
+    {
+      "rev_id": 627712294,
+      "damaging": true,
+      "probability": 0.9426844162654403
+    },
+    {
+      "rev_id": 639053206,
+      "damaging": true,
+      "probability": 0.6076349794855179
+    },
+    {
+      "rev_id": 609670113,
+      "damaging": true,
+      "probability": 0.9611093511891635
+    },
+    {
+      "rev_id": 644971893,
+      "damaging": true,
+      "probability": 0.6336192109717208
+    },
+    {
+      "rev_id": 638283775,
+      "damaging": true,
+      "probability": 0.8874044107557868
+    },
+    {
+      "rev_id": 637200668,
+      "damaging": true,
+      "probability": 0.8752597190832205
+    },
+    {
+      "rev_id": 638038798,
+      "damaging": true,
+      "probability": 0.9603399460073335
+    },
+    {
+      "rev_id": 627060115,
+      "damaging": true,
+      "probability": 0.925157703978154
+    },
+    {
+      "rev_id": 617592952,
+      "damaging": true,
+      "probability": 0.8301506058699376
+    },
+    {
+      "rev_id": 656226263,
+      "damaging": true,
+      "probability": 0.966139642569534
+    },
+    {
+      "rev_id": 640131776,
+      "damaging": true,
+      "probability": 0.8113893673435446
+    },
+    {
+      "rev_id": 615305280,
+      "damaging": true,
+      "probability": 0.764289536273607
+    },
+    {
+      "rev_id": 615771603,
+      "damaging": true,
+      "probability": 0.809327268912722
+    },
+    {
+      "rev_id": 607476283,
+      "damaging": true,
+      "probability": 0.8942507519729143
+    },
+    {
+      "rev_id": 618150318,
+      "damaging": true,
+      "probability": 0.6917318079561402
+    },
+    {
+      "rev_id": 607014808,
+      "damaging": true,
+      "probability": 0.7242677306338497
+    },
+    {
+      "rev_id": 647732802,
+      "damaging": true,
+      "probability": 0.9105646847888879
+    },
+    {
+      "rev_id": 645488208,
+      "damaging": true,
+      "probability": 0.9302234466037901
+    },
+    {
+      "rev_id": 620747083,
+      "damaging": true,
+      "probability": 0.8787445665335845
+    },
+    {
+      "rev_id": 608812894,
+      "damaging": true,
+      "probability": 0.6701826268759213
+    },
+    {
+      "rev_id": 653608831,
+      "damaging": true,
+      "probability": 0.7847099667228037
+    },
+    {
+      "rev_id": 608772476,
+      "damaging": true,
+      "probability": 0.8237464271694782
+    },
+    {
+      "rev_id": 631252367,
+      "damaging": true,
+      "probability": 0.8695417253161634
+    },
+    {
+      "rev_id": 623393942,
+      "damaging": true,
+      "probability": 0.8935354785358645
+    },
+    {
+      "rev_id": 608459095,
+      "damaging": true,
+      "probability": 0.6251670471774816
+    },
+    {
+      "rev_id": 632833696,
+      "damaging": true,
+      "probability": 0.9038073335616587
+    },
+    {
+      "rev_id": 654926706,
+      "damaging": true,
+      "probability": 0.7960818622804539
+    },
+    {
+      "rev_id": 630418101,
+      "damaging": true,
+      "probability": 0.8846408757280151
+    },
+    {
+      "rev_id": 626435349,
+      "damaging": true,
+      "probability": 0.924551762489316
+    },
+    {
+      "rev_id": 630442084,
+      "damaging": true,
+      "probability": 0.5995209386467588
+    },
+    {
+      "rev_id": 652084215,
+      "damaging": true,
+      "probability": 0.8432631855906594
+    },
+    {
+      "rev_id": 633473444,
+      "damaging": true,
+      "probability": 0.9340213221235351
+    },
+    {
+      "rev_id": 628371520,
+      "damaging": true,
+      "probability": 0.7935840811354022
+    },
+    {
+      "rev_id": 647439672,
+      "damaging": true,
+      "probability": 0.8342992138988256
+    },
+    {
+      "rev_id": 638510963,
+      "damaging": true,
+      "probability": 0.7185152313628747
+    },
+    {
+      "rev_id": 624887177,
+      "damaging": true,
+      "probability": 0.4875261769419954
+    },
+    {
+      "rev_id": 648786691,
+      "damaging": true,
+      "probability": 0.5745277386386697
+    },
+    {
+      "rev_id": 624156301,
+      "damaging": true,
+      "probability": 0.38251791213166786
+    },
+    {
+      "rev_id": 631497465,
+      "damaging": true,
+      "probability": 0.5142382298851093
+    },
+    {
+      "rev_id": 653178568,
+      "damaging": true,
+      "probability": 0.8554948660756515
+    },
+    {
+      "rev_id": 654053335,
+      "damaging": true,
+      "probability": 0.9385188927636002
+    },
+    {
+      "rev_id": 617886291,
+      "damaging": true,
+      "probability": 0.949162852896396
+    },
+    {
+      "rev_id": 619160323,
+      "damaging": true,
+      "probability": 0.709656838516029
+    },
+    {
+      "rev_id": 641425022,
+      "damaging": true,
+      "probability": 0.9750996471070905
+    },
+    {
+      "rev_id": 639450588,
+      "damaging": true,
+      "probability": 0.9103325315436609
+    },
+    {
+      "rev_id": 655232539,
+      "damaging": true,
+      "probability": 0.6983442192622135
+    },
+    {
+      "rev_id": 632059797,
+      "damaging": true,
+      "probability": 0.6844844387033421
+    },
+    {
+      "rev_id": 649403212,
+      "damaging": true,
+      "probability": 0.8738569316981358
+    },
+    {
+      "rev_id": 632429712,
+      "damaging": true,
+      "probability": 0.9632442221554455
+    },
+    {
+      "rev_id": 631295193,
+      "damaging": true,
+      "probability": 0.8773278204784442
+    },
+    {
+      "rev_id": 630848505,
+      "damaging": true,
+      "probability": 0.969976692874644
+    },
+    {
+      "rev_id": 620148547,
+      "damaging": true,
+      "probability": 0.6767858723022042
+    },
+    {
+      "rev_id": 613804200,
+      "damaging": true,
+      "probability": 0.8917556487554978
+    },
+    {
+      "rev_id": 634829425,
+      "damaging": true,
+      "probability": 0.8467306928744628
+    },
+    {
+      "rev_id": 607582500,
+      "damaging": true,
+      "probability": 0.9655073045197002
+    },
+    {
+      "rev_id": 652919734,
+      "damaging": true,
+      "probability": 0.8672871229708969
+    },
+    {
+      "rev_id": 629448871,
+      "damaging": true,
+      "probability": 0.9592607859804985
+    },
+    {
+      "rev_id": 638118739,
+      "damaging": true,
+      "probability": 0.6436732270763764
+    },
+    {
+      "rev_id": 637160429,
+      "damaging": true,
+      "probability": 0.8197600526984122
+    },
+    {
+      "rev_id": 610127006,
+      "damaging": true,
+      "probability": 0.6791367841267905
+    },
+    {
+      "rev_id": 639604481,
+      "damaging": true,
+      "probability": 0.684121134037278
+    },
+    {
+      "rev_id": 610410759,
+      "damaging": true,
+      "probability": 0.9071059747537408
+    },
+    {
+      "rev_id": 641131382,
+      "damaging": true,
+      "probability": 0.8367273831249058
+    },
+    {
+      "rev_id": 644770342,
+      "damaging": true,
+      "probability": 0.6256614643937655
+    },
+    {
+      "rev_id": 612086964,
+      "damaging": true,
+      "probability": 0.9167280428887722
+    },
+    {
+      "rev_id": 630612331,
+      "damaging": true,
+      "probability": 0.8006833601149642
+    },
+    {
+      "rev_id": 609894799,
+      "damaging": true,
+      "probability": 0.9299330511663515
+    },
+    {
+      "rev_id": 655514638,
+      "damaging": true,
+      "probability": 0.974550547964282
+    },
+    {
+      "rev_id": 615984260,
+      "damaging": true,
+      "probability": 0.493524201071786
+    },
+    {
+      "rev_id": 609081311,
+      "damaging": true,
+      "probability": 0.9157940137901303
+    },
+    {
+      "rev_id": 606273663,
+      "damaging": true,
+      "probability": 0.7915476247893252
+    },
+    {
+      "rev_id": 605100968,
+      "damaging": true,
+      "probability": 0.7590500713546517
+    },
+    {
+      "rev_id": 609609142,
+      "damaging": true,
+      "probability": 0.5954830721427341
+    },
+    {
+      "rev_id": 632565556,
+      "damaging": true,
+      "probability": 0.8833681961292841
+    },
+    {
+      "rev_id": 606330425,
+      "damaging": true,
+      "probability": 0.6099183898778465
+    },
+    {
+      "rev_id": 607962279,
+      "damaging": true,
+      "probability": 0.8316384382204369
+    },
+    {
+      "rev_id": 654987218,
+      "damaging": true,
+      "probability": 0.5543865596850749
+    },
+    {
+      "rev_id": 624925206,
+      "damaging": true,
+      "probability": 0.8363224766960534
+    },
+    {
+      "rev_id": 643542714,
+      "damaging": true,
+      "probability": 0.8447285074246403
+    },
+    {
+      "rev_id": 639444144,
+      "damaging": true,
+      "probability": 0.7621319688129807
+    },
+    {
+      "rev_id": 633201798,
+      "damaging": true,
+      "probability": 0.7800458687226675
+    },
+    {
+      "rev_id": 655220494,
+      "damaging": true,
+      "probability": 0.934437705597188
+    },
+    {
+      "rev_id": 631335206,
+      "damaging": true,
+      "probability": 0.964909273170142
+    },
+    {
+      "rev_id": 637785687,
+      "damaging": true,
+      "probability": 0.9237079744337413
+    },
+    {
+      "rev_id": 638988336,
+      "damaging": true,
+      "probability": 0.8045126489059002
+    },
+    {
+      "rev_id": 630061479,
+      "damaging": true,
+      "probability": 0.7570704297426241
+    },
+    {
+      "rev_id": 613992778,
+      "damaging": true,
+      "probability": 0.9817544226228777
+    },
+    {
+      "rev_id": 626017152,
+      "damaging": true,
+      "probability": 0.7241707640412904
+    },
+    {
+      "rev_id": 619029635,
+      "damaging": true,
+      "probability": 0.7046946336244547
+    },
+    {
+      "rev_id": 614725127,
+      "damaging": true,
+      "probability": 0.6831200595618927
+    },
+    {
+      "rev_id": 607337922,
+      "damaging": true,
+      "probability": 0.9119212046912302
+    },
+    {
+      "rev_id": 640674993,
+      "damaging": true,
+      "probability": 0.9477897573966777
+    },
+    {
+      "rev_id": 620903578,
+      "damaging": true,
+      "probability": 0.9261858999348231
+    },
+    {
+      "rev_id": 618442432,
+      "damaging": true,
+      "probability": 0.8769381978530203
+    },
+    {
+      "rev_id": 629546293,
+      "damaging": true,
+      "probability": 0.6793449487146952
+    },
+    {
+      "rev_id": 630869042,
+      "damaging": true,
+      "probability": 0.9206013871004963
+    },
+    {
+      "rev_id": 629875562,
+      "damaging": true,
+      "probability": 0.9371521394377265
+    },
+    {
+      "rev_id": 654441067,
+      "damaging": true,
+      "probability": 0.8972766405444947
+    },
+    {
+      "rev_id": 627849298,
+      "damaging": true,
+      "probability": 0.8211259065440406
+    },
+    {
+      "rev_id": 633713446,
+      "damaging": true,
+      "probability": 0.6913718728971889
+    },
+    {
+      "rev_id": 616773598,
+      "damaging": true,
+      "probability": 0.6602188219808186
+    },
+    {
+      "rev_id": 647945746,
+      "damaging": true,
+      "probability": 0.9042512441058135
+    },
+    {
+      "rev_id": 642870161,
+      "damaging": true,
+      "probability": 0.8042415663775273
+    },
+    {
+      "rev_id": 608066696,
+      "damaging": true,
+      "probability": 0.97142126500195
+    },
+    {
+      "rev_id": 625235411,
+      "damaging": true,
+      "probability": 0.8571051823279687
+    },
+    {
+      "rev_id": 647384822,
+      "damaging": true,
+      "probability": 0.826496419149376
+    },
+    {
+      "rev_id": 604664032,
+      "damaging": true,
+      "probability": 0.8087544657400599
+    },
+    {
+      "rev_id": 615431536,
+      "damaging": true,
+      "probability": 0.8812805923339666
+    },
+    {
+      "rev_id": 635808666,
+      "damaging": true,
+      "probability": 0.8251299883948175
+    },
+    {
+      "rev_id": 608352478,
+      "damaging": true,
+      "probability": 0.49160807936357515
+    },
+    {
+      "rev_id": 622032732,
+      "damaging": true,
+      "probability": 0.8076617195082046
+    },
+    {
+      "rev_id": 622660375,
+      "damaging": true,
+      "probability": 0.5605457595425056
+    },
+    {
+      "rev_id": 627865280,
+      "damaging": true,
+      "probability": 0.9091809195795509
+    },
+    {
+      "rev_id": 608757170,
+      "damaging": true,
+      "probability": 0.7514413104480919
+    },
+    {
+      "rev_id": 629416230,
+      "damaging": true,
+      "probability": 0.9110245923998652
+    },
+    {
+      "rev_id": 618447653,
+      "damaging": true,
+      "probability": 0.6561150868672869
+    },
+    {
+      "rev_id": 624298361,
+      "damaging": true,
+      "probability": 0.9044019293131211
+    },
+    {
+      "rev_id": 645930242,
+      "damaging": true,
+      "probability": 0.8815164187462288
+    },
+    {
+      "rev_id": 607676646,
+      "damaging": true,
+      "probability": 0.8874352752070414
+    },
+    {
+      "rev_id": 630967876,
+      "damaging": true,
+      "probability": 0.9332400510639681
+    },
+    {
+      "rev_id": 626974512,
+      "damaging": true,
+      "probability": 0.9162717875897014
+    },
+    {
+      "rev_id": 655651591,
+      "damaging": true,
+      "probability": 0.779466855310116
+    },
+    {
+      "rev_id": 646992964,
+      "damaging": true,
+      "probability": 0.7346118946340467
+    },
+    {
+      "rev_id": 634389408,
+      "damaging": true,
+      "probability": 0.8604643314100385
+    },
+    {
+      "rev_id": 651774502,
+      "damaging": true,
+      "probability": 0.8982554686557035
+    },
+    {
+      "rev_id": 649790133,
+      "damaging": true,
+      "probability": 0.8132809105279174
+    },
+    {
+      "rev_id": 615227864,
+      "damaging": true,
+      "probability": 0.9689799498040547
+    },
+    {
+      "rev_id": 623665038,
+      "damaging": true,
+      "probability": 0.9493893441132888
+    },
+    {
+      "rev_id": 621948524,
+      "damaging": true,
+      "probability": 0.7850517300937104
+    },
+    {
+      "rev_id": 630318865,
+      "damaging": true,
+      "probability": 0.8513300758839396
+    },
+    {
+      "rev_id": 649827738,
+      "damaging": true,
+      "probability": 0.9361479763269623
+    },
+    {
+      "rev_id": 646429132,
+      "damaging": true,
+      "probability": 0.9101450426710622
+    },
+    {
+      "rev_id": 613922215,
+      "damaging": true,
+      "probability": 0.7628362799345608
+    },
+    {
+      "rev_id": 649225676,
+      "damaging": true,
+      "probability": 0.8155367087982731
+    },
+    {
+      "rev_id": 609856163,
+      "damaging": true,
+      "probability": 0.28638596639248465
+    },
+    {
+      "rev_id": 650233597,
+      "damaging": true,
+      "probability": 0.9461766848963055
+    },
+    {
+      "rev_id": 606506366,
+      "damaging": true,
+      "probability": 0.5594113275502232
+    },
+    {
+      "rev_id": 642011388,
+      "damaging": true,
+      "probability": 0.757646949032195
+    },
+    {
+      "rev_id": 646448284,
+      "damaging": true,
+      "probability": 0.8983879763019194
+    },
+    {
+      "rev_id": 654842904,
+      "damaging": true,
+      "probability": 0.6143208209893146
+    },
+    {
+      "rev_id": 606611372,
+      "damaging": true,
+      "probability": 0.9553874612182807
+    },
+    {
+      "rev_id": 637130135,
+      "damaging": true,
+      "probability": 0.7860792345532237
+    },
+    {
+      "rev_id": 643877193,
+      "damaging": true,
+      "probability": 0.7635235895607188
+    },
+    {
+      "rev_id": 628589933,
+      "damaging": true,
+      "probability": 0.914686173257974
+    },
+    {
+      "rev_id": 649111906,
+      "damaging": true,
+      "probability": 0.9400172294452047
+    },
+    {
+      "rev_id": 615475429,
+      "damaging": true,
+      "probability": 0.9551827832661772
+    },
+    {
+      "rev_id": 619753903,
+      "damaging": true,
+      "probability": 0.8722840286105364
+    },
+    {
+      "rev_id": 649686143,
+      "damaging": true,
+      "probability": 0.9262235626340014
+    },
+    {
+      "rev_id": 651817134,
+      "damaging": true,
+      "probability": 0.6019164826778646
+    },
+    {
+      "rev_id": 645186930,
+      "damaging": true,
+      "probability": 0.6703160024207285
+    },
+    {
+      "rev_id": 649198172,
+      "damaging": true,
+      "probability": 0.8193224055775462
+    },
+    {
+      "rev_id": 626605647,
+      "damaging": true,
+      "probability": 0.8750263880363132
+    },
+    {
+      "rev_id": 620692706,
+      "damaging": true,
+      "probability": 0.6361086100148314
+    },
+    {
+      "rev_id": 618046655,
+      "damaging": true,
+      "probability": 0.8388726420935205
+    },
+    {
+      "rev_id": 618525862,
+      "damaging": true,
+      "probability": 0.956799008417234
+    },
+    {
+      "rev_id": 649475394,
+      "damaging": true,
+      "probability": 0.9402340126766359
+    },
+    {
+      "rev_id": 631883384,
+      "damaging": true,
+      "probability": 0.7124848883205488
+    },
+    {
+      "rev_id": 619084609,
+      "damaging": true,
+      "probability": 0.7899407612796854
+    },
+    {
+      "rev_id": 638138803,
+      "damaging": true,
+      "probability": 0.8385505324497462
+    },
+    {
+      "rev_id": 634720659,
+      "damaging": true,
+      "probability": 0.8833491405652193
+    },
+    {
+      "rev_id": 635722737,
+      "damaging": true,
+      "probability": 0.8124373575140134
+    },
+    {
+      "rev_id": 610222087,
+      "damaging": true,
+      "probability": 0.6737815532543853
+    },
+    {
+      "rev_id": 650317408,
+      "damaging": true,
+      "probability": 0.9300576163020103
+    },
+    {
+      "rev_id": 639976129,
+      "damaging": true,
+      "probability": 0.5738656595331577
+    },
+    {
+      "rev_id": 617227190,
+      "damaging": true,
+      "probability": 0.8827278638708399
+    },
+    {
+      "rev_id": 642145186,
+      "damaging": true,
+      "probability": 0.9451124180961383
+    },
+    {
+      "rev_id": 651307379,
+      "damaging": true,
+      "probability": 0.723879118457986
+    },
+    {
+      "rev_id": 649188756,
+      "damaging": true,
+      "probability": 0.6674029858075456
+    },
+    {
+      "rev_id": 605505799,
+      "damaging": true,
+      "probability": 0.8537500375497875
+    },
+    {
+      "rev_id": 629566973,
+      "damaging": true,
+      "probability": 0.705106135715901
+    },
+    {
+      "rev_id": 638111041,
+      "damaging": true,
+      "probability": 0.7869737310925793
+    },
+    {
+      "rev_id": 632720607,
+      "damaging": true,
+      "probability": 0.9608224772992333
+    },
+    {
+      "rev_id": 654193410,
+      "damaging": true,
+      "probability": 0.7878991689600371
+    },
+    {
+      "rev_id": 630597093,
+      "damaging": true,
+      "probability": 0.8908493421151878
+    },
+    {
+      "rev_id": 624217491,
+      "damaging": true,
+      "probability": 0.9044605867219785
+    },
+    {
+      "rev_id": 607655526,
+      "damaging": true,
+      "probability": 0.9780696550432371
+    },
+    {
+      "rev_id": 654620441,
+      "damaging": true,
+      "probability": 0.48889235179958646
+    },
+    {
+      "rev_id": 608658901,
+      "damaging": true,
+      "probability": 0.8880220016443806
+    },
+    {
+      "rev_id": 612416800,
+      "damaging": true,
+      "probability": 0.8255972362224084
+    },
+    {
+      "rev_id": 617098251,
+      "damaging": true,
+      "probability": 0.7863660511406374
+    },
+    {
+      "rev_id": 649065885,
+      "damaging": true,
+      "probability": 0.8188218691019394
+    },
+    {
+      "rev_id": 648122357,
+      "damaging": true,
+      "probability": 0.8404535638773634
+    },
+    {
+      "rev_id": 606514815,
+      "damaging": true,
+      "probability": 0.9422071832154113
+    },
+    {
+      "rev_id": 613162047,
+      "damaging": true,
+      "probability": 0.7036883007083301
+    },
+    {
+      "rev_id": 632137454,
+      "damaging": true,
+      "probability": 0.8872142643253893
+    },
+    {
+      "rev_id": 639468811,
+      "damaging": true,
+      "probability": 0.6077021729942758
+    },
+    {
+      "rev_id": 627908602,
+      "damaging": true,
+      "probability": 0.7645647910623058
+    },
+    {
+      "rev_id": 635749807,
+      "damaging": true,
+      "probability": 0.9631246205670982
+    },
+    {
+      "rev_id": 651588030,
+      "damaging": true,
+      "probability": 0.3386936835798731
+    },
+    {
+      "rev_id": 631751454,
+      "damaging": true,
+      "probability": 0.9003404559951963
+    },
+    {
+      "rev_id": 650308837,
+      "damaging": true,
+      "probability": 0.8564352754638928
+    },
+    {
+      "rev_id": 655544287,
+      "damaging": true,
+      "probability": 0.8608752782381229
+    },
+    {
+      "rev_id": 633973939,
+      "damaging": true,
+      "probability": 0.8473928608090867
+    },
+    {
+      "rev_id": 647800743,
+      "damaging": true,
+      "probability": 0.9083322437542711
+    },
+    {
+      "rev_id": 641059131,
+      "damaging": true,
+      "probability": 0.5755781975460103
+    },
+    {
+      "rev_id": 627147445,
+      "damaging": true,
+      "probability": 0.6078860624936103
+    },
+    {
+      "rev_id": 626230685,
+      "damaging": true,
+      "probability": 0.7159102942665045
+    },
+    {
+      "rev_id": 638283927,
+      "damaging": true,
+      "probability": 0.8456877375690353
+    },
+    {
+      "rev_id": 645028233,
+      "damaging": true,
+      "probability": 0.9200493321154379
+    },
+    {
+      "rev_id": 642391697,
+      "damaging": true,
+      "probability": 0.9235068663769168
+    },
+    {
+      "rev_id": 627446103,
+      "damaging": true,
+      "probability": 0.8890790293273341
+    },
+    {
+      "rev_id": 605373107,
+      "damaging": true,
+      "probability": 0.8617465173386516
+    },
+    {
+      "rev_id": 628943929,
+      "damaging": true,
+      "probability": 0.6224959041343379
+    },
+    {
+      "rev_id": 613267419,
+      "damaging": true,
+      "probability": 0.8012348368130933
+    },
+    {
+      "rev_id": 654047318,
+      "damaging": true,
+      "probability": 0.9241827164510222
+    },
+    {
+      "rev_id": 606655668,
+      "damaging": true,
+      "probability": 0.9604884732016696
+    },
+    {
+      "rev_id": 613084538,
+      "damaging": true,
+      "probability": 0.9492059818772471
+    },
+    {
+      "rev_id": 621347268,
+      "damaging": true,
+      "probability": 0.8571915793270818
+    },
+    {
+      "rev_id": 624349041,
+      "damaging": true,
+      "probability": 0.8827269331520551
+    },
+    {
+      "rev_id": 637939527,
+      "damaging": true,
+      "probability": 0.431205064049538
+    },
+    {
+      "rev_id": 656386865,
+      "damaging": true,
+      "probability": 0.5872329664484645
+    },
+    {
+      "rev_id": 631809240,
+      "damaging": true,
+      "probability": 0.7319784560879261
+    },
+    {
+      "rev_id": 623702826,
+      "damaging": true,
+      "probability": 0.9150403589532297
+    },
+    {
+      "rev_id": 632247257,
+      "damaging": true,
+      "probability": 0.8121598378509972
+    },
+    {
+      "rev_id": 605070017,
+      "damaging": true,
+      "probability": 0.8309399207936435
+    },
+    {
+      "rev_id": 607418931,
+      "damaging": true,
+      "probability": 0.7804541505802076
+    },
+    {
+      "rev_id": 608320706,
+      "damaging": true,
+      "probability": 0.5446397574872898
+    },
+    {
+      "rev_id": 649253804,
+      "damaging": true,
+      "probability": 0.9472068213355164
+    },
+    {
+      "rev_id": 637455841,
+      "damaging": true,
+      "probability": 0.9702532871197632
+    },
+    {
+      "rev_id": 615485331,
+      "damaging": true,
+      "probability": 0.8267653163473103
+    },
+    {
+      "rev_id": 652795705,
+      "damaging": true,
+      "probability": 0.6643157657938071
+    },
+    {
+      "rev_id": 655861108,
+      "damaging": true,
+      "probability": 0.8282192938532132
+    },
+    {
+      "rev_id": 623988160,
+      "damaging": true,
+      "probability": 0.9451840402845199
+    },
+    {
+      "rev_id": 631220099,
+      "damaging": true,
+      "probability": 0.9682332312305805
+    },
+    {
+      "rev_id": 633005782,
+      "damaging": true,
+      "probability": 0.891812497337179
+    },
+    {
+      "rev_id": 633027706,
+      "damaging": true,
+      "probability": 0.4765187941937434
+    },
+    {
+      "rev_id": 611877714,
+      "damaging": true,
+      "probability": 0.9226256304096151
+    },
+    {
+      "rev_id": 632543184,
+      "damaging": true,
+      "probability": 0.6850726337965567
+    },
+    {
+      "rev_id": 613502073,
+      "damaging": true,
+      "probability": 0.8219942416709086
+    },
+    {
+      "rev_id": 611050103,
+      "damaging": true,
+      "probability": 0.9479394259927266
+    },
+    {
+      "rev_id": 606052421,
+      "damaging": true,
+      "probability": 0.7226468219792611
+    },
+    {
+      "rev_id": 627654566,
+      "damaging": true,
+      "probability": 0.7789940399221117
+    },
+    {
+      "rev_id": 644150283,
+      "damaging": true,
+      "probability": 0.718439092548175
+    },
+    {
+      "rev_id": 630778967,
+      "damaging": true,
+      "probability": 0.7583050537784178
+    },
+    {
+      "rev_id": 623230438,
+      "damaging": true,
+      "probability": 0.8909838894444956
+    },
+    {
+      "rev_id": 637600969,
+      "damaging": true,
+      "probability": 0.12959548337912272
+    },
+    {
+      "rev_id": 623126662,
+      "damaging": true,
+      "probability": 0.8077085969170598
+    },
+    {
+      "rev_id": 629011360,
+      "damaging": true,
+      "probability": 0.6638082515748548
+    },
+    {
+      "rev_id": 615366008,
+      "damaging": true,
+      "probability": 0.875298512409229
+    },
+    {
+      "rev_id": 626004911,
+      "damaging": true,
+      "probability": 0.9541879955850949
+    },
+    {
+      "rev_id": 649064897,
+      "damaging": true,
+      "probability": 0.9408990430659343
+    },
+    {
+      "rev_id": 626457645,
+      "damaging": true,
+      "probability": 0.9802197166883746
+    },
+    {
+      "rev_id": 656074966,
+      "damaging": true,
+      "probability": 0.9267303230616006
+    },
+    {
+      "rev_id": 618398846,
+      "damaging": true,
+      "probability": 0.7108115357162483
+    },
+    {
+      "rev_id": 609355416,
+      "damaging": true,
+      "probability": 0.6828951675627348
+    },
+    {
+      "rev_id": 656446824,
+      "damaging": true,
+      "probability": 0.9100825134809492
+    },
+    {
+      "rev_id": 617949545,
+      "damaging": true,
+      "probability": 0.8653821706221958
+    },
+    {
+      "rev_id": 654404071,
+      "damaging": true,
+      "probability": 0.3122599853018852
+    },
+    {
+      "rev_id": 649663139,
+      "damaging": true,
+      "probability": 0.5877282685709851
+    },
+    {
+      "rev_id": 653070231,
+      "damaging": true,
+      "probability": 0.8492968457288165
+    },
+    {
+      "rev_id": 636061384,
+      "damaging": true,
+      "probability": 0.9686648092004724
+    },
+    {
+      "rev_id": 634007604,
+      "damaging": true,
+      "probability": 0.9771222391356743
+    },
+    {
+      "rev_id": 634173814,
+      "damaging": true,
+      "probability": 0.8872794105738935
+    },
+    {
+      "rev_id": 633642374,
+      "damaging": true,
+      "probability": 0.8833064491372125
+    },
+    {
+      "rev_id": 625453607,
+      "damaging": true,
+      "probability": 0.4730221277057435
+    },
+    {
+      "rev_id": 637546530,
+      "damaging": true,
+      "probability": 0.973488420252679
+    },
+    {
+      "rev_id": 614954613,
+      "damaging": true,
+      "probability": 0.8647688476355917
+    },
+    {
+      "rev_id": 642125047,
+      "damaging": true,
+      "probability": 0.5168123597191524
+    },
+    {
+      "rev_id": 625274430,
+      "damaging": true,
+      "probability": 0.561218722049657
+    },
+    {
+      "rev_id": 641297582,
+      "damaging": true,
+      "probability": 0.950921518999264
+    },
+    {
+      "rev_id": 622480807,
+      "damaging": true,
+      "probability": 0.6588226931638763
+    },
+    {
+      "rev_id": 634757306,
+      "damaging": true,
+      "probability": 0.8668685892849084
+    },
+    {
+      "rev_id": 608922065,
+      "damaging": true,
+      "probability": 0.8159034646846028
+    },
+    {
+      "rev_id": 625791104,
+      "damaging": true,
+      "probability": 0.8069170998286382
+    },
+    {
+      "rev_id": 616416863,
+      "damaging": true,
+      "probability": 0.9157344354018382
+    },
+    {
+      "rev_id": 607579174,
+      "damaging": true,
+      "probability": 0.9074201539484282
+    },
+    {
+      "rev_id": 629402686,
+      "damaging": true,
+      "probability": 0.6369313547900087
+    },
+    {
+      "rev_id": 641982090,
+      "damaging": true,
+      "probability": 0.8091570446026025
+    },
+    {
+      "rev_id": 610859641,
+      "damaging": true,
+      "probability": 0.9159880383542288
+    },
+    {
+      "rev_id": 615433389,
+      "damaging": true,
+      "probability": 0.6979793658611645
+    },
+    {
+      "rev_id": 620109650,
+      "damaging": true,
+      "probability": 0.9516754489321576
+    },
+    {
+      "rev_id": 632821603,
+      "damaging": true,
+      "probability": 0.6822025791326369
+    },
+    {
+      "rev_id": 646959133,
+      "damaging": true,
+      "probability": 0.9481098769747006
+    },
+    {
+      "rev_id": 630942515,
+      "damaging": true,
+      "probability": 0.9602976733262771
+    },
+    {
+      "rev_id": 649304346,
+      "damaging": true,
+      "probability": 0.8821931000637344
+    },
+    {
+      "rev_id": 612736324,
+      "damaging": true,
+      "probability": 0.9025418863371385
+    },
+    {
+      "rev_id": 619687633,
+      "damaging": true,
+      "probability": 0.8660641167355629
+    },
+    {
+      "rev_id": 624824451,
+      "damaging": true,
+      "probability": 0.8853760170071413
+    },
+    {
+      "rev_id": 645715841,
+      "damaging": true,
+      "probability": 0.8947872882949969
+    },
+    {
+      "rev_id": 630111810,
+      "damaging": true,
+      "probability": 0.8672256418228738
+    },
+    {
+      "rev_id": 652696843,
+      "damaging": true,
+      "probability": 0.4695639446733628
+    },
+    {
+      "rev_id": 628972285,
+      "damaging": true,
+      "probability": 0.7741738994719114
+    },
+    {
+      "rev_id": 649859867,
+      "damaging": true,
+      "probability": 0.8574929930764614
+    },
+    {
+      "rev_id": 612853274,
+      "damaging": true,
+      "probability": 0.7704018629657134
+    },
+    {
+      "rev_id": 640281986,
+      "damaging": true,
+      "probability": 0.9172830277645799
+    },
+    {
+      "rev_id": 609390186,
+      "damaging": true,
+      "probability": 0.7748580676745189
+    },
+    {
+      "rev_id": 606670753,
+      "damaging": true,
+      "probability": 0.901799328276071
+    },
+    {
+      "rev_id": 611563070,
+      "damaging": true,
+      "probability": 0.9562600327277191
+    },
+    {
+      "rev_id": 629618318,
+      "damaging": true,
+      "probability": 0.9528080289918178
+    },
+    {
+      "rev_id": 654585563,
+      "damaging": true,
+      "probability": 0.8372778975733987
+    },
+    {
+      "rev_id": 643253584,
+      "damaging": true,
+      "probability": 0.7059435121379377
+    },
+    {
+      "rev_id": 617183421,
+      "damaging": true,
+      "probability": 0.9223828567980414
+    },
+    {
+      "rev_id": 604316446,
+      "damaging": true,
+      "probability": 0.861954228820379
+    },
+    {
+      "rev_id": 643219648,
+      "damaging": true,
+      "probability": 0.797917080450207
+    },
+    {
+      "rev_id": 606839986,
+      "damaging": true,
+      "probability": 0.9356078821527585
+    },
+    {
+      "rev_id": 609734936,
+      "damaging": true,
+      "probability": 0.7453716604885595
+    },
+    {
+      "rev_id": 614756280,
+      "damaging": true,
+      "probability": 0.9226523264526271
+    },
+    {
+      "rev_id": 618756070,
+      "damaging": true,
+      "probability": 0.7854689361634046
+    },
+    {
+      "rev_id": 606754466,
+      "damaging": true,
+      "probability": 0.7565712206045193
+    },
+    {
+      "rev_id": 618148282,
+      "damaging": true,
+      "probability": 0.7136997982868484
+    },
+    {
+      "rev_id": 642948458,
+      "damaging": true,
+      "probability": 0.7562821406440654
+    },
+    {
+      "rev_id": 638287582,
+      "damaging": true,
+      "probability": 0.7054986373661357
+    },
+    {
+      "rev_id": 611342549,
+      "damaging": true,
+      "probability": 0.6593134018577366
+    },
+    {
+      "rev_id": 608691356,
+      "damaging": true,
+      "probability": 0.8919087272269444
+    },
+    {
+      "rev_id": 655824194,
+      "damaging": true,
+      "probability": 0.863643136815402
+    },
+    {
+      "rev_id": 618454806,
+      "damaging": true,
+      "probability": 0.8672105795343187
+    },
+    {
+      "rev_id": 655469023,
+      "damaging": true,
+      "probability": 0.8283828511444534
+    },
+    {
+      "rev_id": 626824496,
+      "damaging": true,
+      "probability": 0.9490299147000908
+    },
+    {
+      "rev_id": 632471818,
+      "damaging": true,
+      "probability": 0.97900328166665
+    },
+    {
+      "rev_id": 644041628,
+      "damaging": true,
+      "probability": 0.8608064385452907
+    },
+    {
+      "rev_id": 644686881,
+      "damaging": true,
+      "probability": 0.8096136369934446
+    },
+    {
+      "rev_id": 643726456,
+      "damaging": true,
+      "probability": 0.8761997541792548
+    },
+    {
+      "rev_id": 608569166,
+      "damaging": true,
+      "probability": 0.8291242087921786
+    },
+    {
+      "rev_id": 605396280,
+      "damaging": true,
+      "probability": 0.7739757700491686
+    },
+    {
+      "rev_id": 640692392,
+      "damaging": true,
+      "probability": 0.5684797242968244
+    },
+    {
+      "rev_id": 606226032,
+      "damaging": true,
+      "probability": 0.7626320638764799
+    },
+    {
+      "rev_id": 646306666,
+      "damaging": true,
+      "probability": 0.9443623337927444
+    },
+    {
+      "rev_id": 631747102,
+      "damaging": true,
+      "probability": 0.8569476749724453
+    },
+    {
+      "rev_id": 639158509,
+      "damaging": true,
+      "probability": 0.6275152590711743
+    },
+    {
+      "rev_id": 645604843,
+      "damaging": true,
+      "probability": 0.9757754815086526
+    },
+    {
+      "rev_id": 648279922,
+      "damaging": true,
+      "probability": 0.8466456102991496
+    },
+    {
+      "rev_id": 618974148,
+      "damaging": true,
+      "probability": 0.9574440848941715
+    },
+    {
+      "rev_id": 611109140,
+      "damaging": true,
+      "probability": 0.7525681430551149
+    },
+    {
+      "rev_id": 606475647,
+      "damaging": true,
+      "probability": 0.6859580182508118
+    },
+    {
+      "rev_id": 626183637,
+      "damaging": true,
+      "probability": 0.8649241591464462
+    },
+    {
+      "rev_id": 648904003,
+      "damaging": true,
+      "probability": 0.7814369932516196
+    },
+    {
+      "rev_id": 621838690,
+      "damaging": true,
+      "probability": 0.8080441760206789
+    },
+    {
+      "rev_id": 627196180,
+      "damaging": true,
+      "probability": 0.9376156378242831
+    },
+    {
+      "rev_id": 635696324,
+      "damaging": true,
+      "probability": 0.7495081829975108
+    },
+    {
+      "rev_id": 619630279,
+      "damaging": true,
+      "probability": 0.8587330976999211
+    },
+    {
+      "rev_id": 631475755,
+      "damaging": true,
+      "probability": 0.4957730510729986
+    },
+    {
+      "rev_id": 656526485,
+      "damaging": true,
+      "probability": 0.9830557091103655
+    },
+    {
+      "rev_id": 655945296,
+      "damaging": true,
+      "probability": 0.9276996368216838
+    },
+    {
+      "rev_id": 632690559,
+      "damaging": true,
+      "probability": 0.9698104327682057
+    },
+    {
+      "rev_id": 640139890,
+      "damaging": true,
+      "probability": 0.9578257098059203
+    },
+    {
+      "rev_id": 648452378,
+      "damaging": true,
+      "probability": 0.965557201472904
+    },
+    {
+      "rev_id": 640883753,
+      "damaging": true,
+      "probability": 0.8654043504530693
+    },
+    {
+      "rev_id": 633386017,
+      "damaging": true,
+      "probability": 0.891028304663512
+    },
+    {
+      "rev_id": 641711323,
+      "damaging": true,
+      "probability": 0.865617328221294
+    },
+    {
+      "rev_id": 655168687,
+      "damaging": true,
+      "probability": 0.9011639238500612
+    },
+    {
+      "rev_id": 633403438,
+      "damaging": true,
+      "probability": 0.8082080601162647
+    },
+    {
+      "rev_id": 605630161,
+      "damaging": true,
+      "probability": 0.7850273611927004
+    },
+    {
+      "rev_id": 614765235,
+      "damaging": true,
+      "probability": 0.17026866063336574
+    },
+    {
+      "rev_id": 625519736,
+      "damaging": true,
+      "probability": 0.9405185897541289
+    },
+    {
+      "rev_id": 623651693,
+      "damaging": true,
+      "probability": 0.777367164882643
+    },
+    {
+      "rev_id": 644063460,
+      "damaging": true,
+      "probability": 0.9398713296130394
+    },
+    {
+      "rev_id": 612612769,
+      "damaging": true,
+      "probability": 0.525379000306038
+    },
+    {
+      "rev_id": 607405600,
+      "damaging": true,
+      "probability": 0.917040625577627
+    },
+    {
+      "rev_id": 635445002,
+      "damaging": true,
+      "probability": 0.9551938791292025
+    },
+    {
+      "rev_id": 613012245,
+      "damaging": true,
+      "probability": 0.6928542584708387
+    },
+    {
+      "rev_id": 610703467,
+      "damaging": true,
+      "probability": 0.761475078041846
+    },
+    {
+      "rev_id": 649882834,
+      "damaging": true,
+      "probability": 0.8689629882945415
+    },
+    {
+      "rev_id": 622931389,
+      "damaging": true,
+      "probability": 0.8404446635212239
+    },
+    {
+      "rev_id": 621355063,
+      "damaging": true,
+      "probability": 0.6860997186847928
+    },
+    {
+      "rev_id": 653184092,
+      "damaging": true,
+      "probability": 0.6597857179408819
+    },
+    {
+      "rev_id": 611159289,
+      "damaging": true,
+      "probability": 0.592336524169419
+    },
+    {
+      "rev_id": 646555981,
+      "damaging": true,
+      "probability": 0.82971330157993
+    },
+    {
+      "rev_id": 636328755,
+      "damaging": true,
+      "probability": 0.8369583598886635
+    },
+    {
+      "rev_id": 631261340,
+      "damaging": true,
+      "probability": 0.965464566004779
+    },
+    {
+      "rev_id": 623158324,
+      "damaging": true,
+      "probability": 0.9291845674360512
+    },
+    {
+      "rev_id": 634604057,
+      "damaging": true,
+      "probability": 0.7862641380051756
+    },
+    {
+      "rev_id": 645372285,
+      "damaging": true,
+      "probability": 0.7696457239574824
+    },
+    {
+      "rev_id": 644963549,
+      "damaging": true,
+      "probability": 0.9230224992328545
+    },
+    {
+      "rev_id": 649957339,
+      "damaging": true,
+      "probability": 0.6046322681378562
+    },
+    {
+      "rev_id": 653620745,
+      "damaging": true,
+      "probability": 0.8434529020657636
+    },
+    {
+      "rev_id": 646010837,
+      "damaging": true,
+      "probability": 0.8967398356490051
+    },
+    {
+      "rev_id": 650441889,
+      "damaging": true,
+      "probability": 0.9206606403909283
+    },
+    {
+      "rev_id": 647848420,
+      "damaging": true,
+      "probability": 0.8084089440344895
+    },
+    {
+      "rev_id": 629366993,
+      "damaging": true,
+      "probability": 0.8850314246911194
+    },
+    {
+      "rev_id": 624926001,
+      "damaging": true,
+      "probability": 0.5673469628493201
+    },
+    {
+      "rev_id": 630519615,
+      "damaging": true,
+      "probability": 0.5883852559901964
+    },
+    {
+      "rev_id": 617312547,
+      "damaging": true,
+      "probability": 0.91023103015748
+    },
+    {
+      "rev_id": 632071105,
+      "damaging": true,
+      "probability": 0.7883897261302089
+    },
+    {
+      "rev_id": 614412150,
+      "damaging": true,
+      "probability": 0.9865438872829819
+    },
+    {
+      "rev_id": 612287681,
+      "damaging": true,
+      "probability": 0.9373569049590834
+    },
+    {
+      "rev_id": 639946079,
+      "damaging": true,
+      "probability": 0.9134963256452411
+    },
+    {
+      "rev_id": 637620591,
+      "damaging": true,
+      "probability": 0.3789566831446792
+    },
+    {
+      "rev_id": 639014904,
+      "damaging": true,
+      "probability": 0.8454443200323479
+    },
+    {
+      "rev_id": 620783533,
+      "damaging": true,
+      "probability": 0.8599536809082077
+    },
+    {
+      "rev_id": 650599222,
+      "damaging": true,
+      "probability": 0.8482782285500021
+    },
+    {
+      "rev_id": 641260068,
+      "damaging": true,
+      "probability": 0.7774262675744092
+    },
+    {
+      "rev_id": 610902200,
+      "damaging": true,
+      "probability": 0.8782449831101837
+    },
+    {
+      "rev_id": 634419517,
+      "damaging": true,
+      "probability": 0.9717131826017716
+    },
+    {
+      "rev_id": 632481995,
+      "damaging": true,
+      "probability": 0.9759630463806594
+    },
+    {
+      "rev_id": 634442687,
+      "damaging": true,
+      "probability": 0.8686478541220242
+    },
+    {
+      "rev_id": 628776447,
+      "damaging": true,
+      "probability": 0.8246128077597195
+    },
+    {
+      "rev_id": 647358024,
+      "damaging": true,
+      "probability": 0.8409560834515458
+    },
+    {
+      "rev_id": 650477949,
+      "damaging": true,
+      "probability": 0.7498966641906606
+    },
+    {
+      "rev_id": 614183137,
+      "damaging": true,
+      "probability": 0.7427975066126775
+    },
+    {
+      "rev_id": 610345226,
+      "damaging": true,
+      "probability": 0.8278293457154069
+    },
+    {
+      "rev_id": 627858690,
+      "damaging": true,
+      "probability": 0.9314300177339542
+    },
+    {
+      "rev_id": 621204624,
+      "damaging": true,
+      "probability": 0.9555980515196714
+    },
+    {
+      "rev_id": 628215149,
+      "damaging": true,
+      "probability": 0.8316685147710675
+    },
+    {
+      "rev_id": 651119630,
+      "damaging": true,
+      "probability": 0.8350498338898379
+    },
+    {
+      "rev_id": 606731282,
+      "damaging": true,
+      "probability": 0.8637111250388166
+    },
+    {
+      "rev_id": 632093040,
+      "damaging": true,
+      "probability": 0.9624940893143585
+    },
+    {
+      "rev_id": 651539687,
+      "damaging": true,
+      "probability": 0.6009059237202782
+    },
+    {
+      "rev_id": 648070799,
+      "damaging": true,
+      "probability": 0.6930376945788277
+    },
+    {
+      "rev_id": 656174772,
+      "damaging": true,
+      "probability": 0.8015677334044436
+    },
+    {
+      "rev_id": 606227832,
+      "damaging": true,
+      "probability": 0.9093415320187274
+    },
+    {
+      "rev_id": 618526992,
+      "damaging": true,
+      "probability": 0.8910905896626266
+    },
+    {
+      "rev_id": 631357968,
+      "damaging": true,
+      "probability": 0.9019943968369162
+    },
+    {
+      "rev_id": 629531982,
+      "damaging": true,
+      "probability": 0.7684188674984612
+    },
+    {
+      "rev_id": 613604201,
+      "damaging": true,
+      "probability": 0.8816656775498096
+    },
+    {
+      "rev_id": 644745145,
+      "damaging": true,
+      "probability": 0.6961993285002166
+    },
+    {
+      "rev_id": 604279698,
+      "damaging": true,
+      "probability": 0.878196303290083
+    },
+    {
+      "rev_id": 645695239,
+      "damaging": true,
+      "probability": 0.9053240912262361
+    },
+    {
+      "rev_id": 622248692,
+      "damaging": true,
+      "probability": 0.7614383356955353
+    },
+    {
+      "rev_id": 644436259,
+      "damaging": true,
+      "probability": 0.9127771279969552
+    },
+    {
+      "rev_id": 645339962,
+      "damaging": true,
+      "probability": 0.9306172659108503
+    },
+    {
+      "rev_id": 645379723,
+      "damaging": true,
+      "probability": 0.5887493669100046
+    },
+    {
+      "rev_id": 633177131,
+      "damaging": true,
+      "probability": 0.969021945852308
+    },
+    {
+      "rev_id": 606878467,
+      "damaging": true,
+      "probability": 0.8577930556336286
+    },
+    {
+      "rev_id": 623746350,
+      "damaging": true,
+      "probability": 0.8415183439891056
+    },
+    {
+      "rev_id": 633612155,
+      "damaging": true,
+      "probability": 0.7192855993911762
+    },
+    {
+      "rev_id": 642681983,
+      "damaging": true,
+      "probability": 0.7869783974526854
+    },
+    {
+      "rev_id": 613222635,
+      "damaging": true,
+      "probability": 0.9066547519752279
+    },
+    {
+      "rev_id": 653661364,
+      "damaging": true,
+      "probability": 0.9086756857022597
+    },
+    {
+      "rev_id": 641619212,
+      "damaging": true,
+      "probability": 0.878544438158153
+    },
+    {
+      "rev_id": 615313234,
+      "damaging": true,
+      "probability": 0.826308564335122
+    },
+    {
+      "rev_id": 623577974,
+      "damaging": true,
+      "probability": 0.8208264488351543
+    },
+    {
+      "rev_id": 634174615,
+      "damaging": true,
+      "probability": 0.581721618131963
+    },
+    {
+      "rev_id": 644863569,
+      "damaging": true,
+      "probability": 0.9452592454990056
+    }
+  ]
+}

@@ -18,7 +18,7 @@ export default class EditViewer2 extends Component {
 
     // Fill two arrays, so that revid[index] has the threshold[index]
     populate_array() {
-        const dataset = require("./resources/dataset.json");
+        const dataset = require("./resources/dataset_damaging_only.json");
 
         this.revids = [];
         this.probabilities = [];
@@ -40,7 +40,7 @@ export default class EditViewer2 extends Component {
     // moved for at least a second.
     fetch_edit(ref_id) {
         // Get the target revision and it's previous one. The & char must be encoded
-        let url2 = 'https://api.allorigins.win/get?url=https://en.wikipedia.org/w/index.php?diff=next%26oldid=' + ref_id;
+        let url2 = 'https://api.allorigins.win/get?url=https://en.wikipedia.org/w/index.php?diff=prev%26oldid=' + ref_id;
         fetch(url2) //{headers: new Headers({'Origin': 'https://en.wikipedia.org', 'UserAgent': 'Mozilla/5.0 (X11; Linux x86_64)'})})
             .then(response => {
                 return response.json()

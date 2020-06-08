@@ -1,7 +1,6 @@
 .selector_grid_container {
     display: grid;
-    grid-template-columns: 50px 350px 50px;
-    grid-template-rows: 80px 500px auto;
+    grid-template-columns: 50px 350px 30px;
 }
 
 .selectorHeading{
@@ -10,7 +9,7 @@
 }
 
 .slider_layout_a {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 2;
 }
 
@@ -20,6 +19,6 @@
 }
 
 #line1{
-    stroke-width: 4px;
-    stroke: #444444;
+    stroke-width: 2px;
+    stroke: #000;
 }

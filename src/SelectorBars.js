@@ -27,9 +27,6 @@ export default class SelectorBars2 extends Component {
 
         return (
             <div className='selector_grid_container'>
-                <div className='selectorHeading'>
-                    <h2> Selector View</h2>
-                </div>
                 <div className='slider_layout_a'>
                     <SelectorSlider id='positive_selector' threshold={this.props.confusion.tp}
                                     callback={this.update_everything} top_label='correctly predicted damaging'

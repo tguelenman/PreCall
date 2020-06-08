@@ -45,7 +45,7 @@ export default class Visualizations extends Component {
             y1: null,
             y2: null,
             offset_x: 178,
-            offset_y: 109
+            offset_y: 74
         }
     };
 
@@ -303,15 +303,16 @@ export default class Visualizations extends Component {
                         <div id='mainTitleAndButton'>
                             <h2 className='title' id='mainTitle'>PreCall: ORES Human-Centered Model Selection</h2>
                         </div>
-                        <div id='histogram'>
-                            <Histogram threshold={finalValues['threshold']} data={this.props.data}
-                                       callback={this.update_everything} reduce={15} remove_first={false}/>
-                        </div>
                         <div className='grid_container'>
+                            <div id='histogram'>
+                                <Histogram threshold={finalValues['threshold']} data={this.props.data}
+                                           callback={this.update_everything} reduce={15} remove_first={false}/>
+                            </div>
                             <svg width="1000" height="1000">
-                                <line id="line1" x1={194} y1={svgLine.y1} x2={194 + 353} y2={svgLine.y2}/>
+                                <line id="line1" x1={154} y1={svgLine.y1} x2={154 + 300} y2={svgLine.y2}/>
                             </svg>
                             <div id='selectorBars'>
+                                <h2> Selector View</h2>
                                 <SelectorBars threshold={finalValues['threshold']}
                                               data={this.props.data} callback={this.update_everything}
                                               confusion={confusion}/>

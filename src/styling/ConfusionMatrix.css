@@ -1,9 +1,8 @@
 .confusionMatrixGrid{
     display: grid;
-    grid-template-columns: 20% 20% 30% 30%;
+    grid-template-columns: 20% auto 2px auto;
     grid-template-rows: 20% 20% 30% 30%;
-    margin-right: 10%;
-    margin-top: -20%;
+    margin-left: 25px;
 }
 
 .frame{
@@ -14,7 +13,7 @@
 
 .confusionHeading{
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 1;
     width: 300px;
     alignment: center;
     padding-bottom: 70px;
@@ -35,13 +34,13 @@
 
 .topLeft{
     grid-row: 3;
-    grid-column: 3;
+    grid-column: 2;
     color: #1db1f5;
 }
 
 .bottomLeft{
     grid-row: 4;
-    grid-column: 3;
+    grid-column: 2;
     color: #f5564a;
 }
 
@@ -53,15 +52,15 @@
 
 #predictedPositive{
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
 }
 #predictedNegative{
     grid-row: 4;
-    grid-column: 2;
+    grid-column: 1;
 }
 #actualPositive{
     grid-row: 2;
-    grid-column: 3;
+    grid-column: 2;
 }
 #actualNegative{
     grid-row: 2;

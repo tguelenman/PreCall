@@ -13,24 +13,30 @@ div.ui.active.visible.compact.selection.dropdown{
 
 .grid_container{
 	display: grid;
-	grid-template-columns: 10% 50% 40%;
-	grid-template-rows: 80px 500px auto;
+	grid-template-columns: 30% 25% 15% 30%;
+	grid-template-rows: 500px 0 300px auto;
 	padding-top: 60px;
 }
 
 #selectorBars{
-	grid-row: 1;
-	grid-column: 2;
+	grid-row: span 2;
+	grid-column: 1;
+	margin-left: 50px;
 }
 
 #confusionMatrix{
-	grid-row: 2;
-	grid-column: 3;
+	grid-row: 1;
+	grid-column: 4;
+}
+
+#histogram{
+	grid-row: 1;
+	grid-column: 1 / 4;
 }
 
 .editViewerContainer{
 	grid-row: 3;
-	grid-column: 3;
+	grid-column: 3/5;
 }
 
 #Visualisations{

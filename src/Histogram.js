@@ -12,7 +12,7 @@ function round(a) {
 
 // data structure containing important values for the slider handle
 let slider = {
-    min: 60, max: 1420,
+    min: 60, max: 1090,
     offset_x: 60, offset_y: 90,
     controlled_pos: {x: 300, y: 90},
     last_call: 0,
@@ -104,6 +104,7 @@ export default class Histogram2 extends Component {
 
         return (
             <div className="dx-form">
+                <h2>Histogram</h2>
                 <Draggable
                     axis="x"
                     handle=".handle"
@@ -133,7 +134,6 @@ export default class Histogram2 extends Component {
                 </Draggable>
                 <Chart
                     id="chart"
-                    title="Histogram"
                     dataSource={this.props.remove_first ? this.thinned_data.slice(1, -1) : this.thinned_data}
                 >
                     <CommonSeriesSettings argumentField="threshold" type="stackedBar"/>

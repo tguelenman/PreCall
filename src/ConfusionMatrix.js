@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {ConfusionUtil} from "./ConfusionUtil";
 import "./styling/ConfusionMatrix.css"
 import ConfusionFilter from "./ConfusionFilter";
 
@@ -11,20 +10,20 @@ export default class ConfusionMatrix2 extends Component {
                 <div className='confusionHeading'>
                     <h2>Confusion Matrix</h2>
                 </div>
-                <div id='predictedPositive'>predicted positive</div>
-                <div id='predictedNegative'>predicted negative</div>
-                <div id='actualPositive'>actual positive</div>
-                <div id='actualNegative'>actual negative</div>
+                <div id='predictedPositive' className='frame'>Predicted damaging</div>
+                <div id='predictedNegative' className='frame'>Predicted good</div>
+                <div id='actualPositive'>Actually damaging</div>
+                <div id='actualNegative'>Actually good</div>
                 <div className='frame topLeft'>
-                    <div className='confusionLabel'>
-                        {this.props.confusion.tp}
-                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
                                      confusionValue={'TP'}
                                      buttonType={'-'}
                     />
+                    <div className='confusionLabel'>
+                        {this.props.confusion.tp}
+                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
@@ -33,15 +32,15 @@ export default class ConfusionMatrix2 extends Component {
                     />
                 </div>
                 <div className='frame topRight'>
-                    <div className='confusionLabel'>
-                        {this.props.confusion.fp}
-                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
                                      confusionValue={'FP'}
                                      buttonType={'-'}
                     />
+                    <div className='confusionLabel'>
+                        {this.props.confusion.fp}
+                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
@@ -50,15 +49,15 @@ export default class ConfusionMatrix2 extends Component {
                     />
                 </div>
                 <div className='frame bottomLeft'>
-                    <div className='confusionLabel'>
-                        {this.props.confusion.fn}
-                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
                                      confusionValue={'FN'}
                                      buttonType={'-'}
                     />
+                    <div className='confusionLabel'>
+                        {this.props.confusion.fn}
+                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
@@ -67,15 +66,15 @@ export default class ConfusionMatrix2 extends Component {
                     />
                 </div>
                 <div className='frame bottomRight'>
-                    <div className='confusionLabel'>
-                        {this.props.confusion.tn}
-                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}
                                      confusionValue={'TN'}
                                      buttonType={'-'}
                     />
+                    <div className='confusionLabel'>
+                        {this.props.confusion.tn}
+                    </div>
                     <ConfusionFilter data={this.props.data}
                                      callback={this.props.callback}
                                      currentThreshold={this.props.threshold}

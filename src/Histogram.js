@@ -13,8 +13,8 @@ function round(a) {
 // data structure containing important values for the slider handle
 let slider = {
     min: 60, max: 1420,
-    offset_x: 60, offset_y: 60,
-    controlled_pos: {x: 300, y: 60},
+    offset_x: 60, offset_y: 90,
+    controlled_pos: {x: 300, y: 90},
     last_call: 0,
     threshold: 0.5,
     max_threshold: 0.981
@@ -139,23 +139,23 @@ export default class Histogram2 extends Component {
                     <CommonSeriesSettings argumentField="threshold" type="stackedBar"/>
                     <Series
                         valueField="tp"
-                        name="True Positive"
+                        name="Correctly classified as damaging"
                         stack="damaging"
                     />
                     <Series
                         valueField="fn"
-                        name="False Negative"
+                        name="Missed damaging edits"
                         stack="damaging"
                     />
                     <Series
                         valueField="fp"
-                        name="False Positive"
+                        name="Good edits incorrectly classified as damaging"
                         stack="good"
                         color="#444444"
                     />
                     <Series
                         valueField="tn"
-                        name="True Negative"
+                        name="Correctly classified as good"
                         stack="good"
                         color="#aaaaaa"
                     />
@@ -164,10 +164,10 @@ export default class Histogram2 extends Component {
                     </ValueAxis>
                     <ArgumentAxis>
                         <Title text="Threshold required for an edit to be classified as damaging"/>
-                        <ConstantLine width={2} value={this.props.threshold}/>
+                        <ConstantLine width={2} value={this.props.threshold} label={{position: "outside"}}/>
                     </ArgumentAxis>
                     <Legend position="inside"
-                            columnCount={2}
+                            columnCount={1}
                             customizeItems={customizeItems}
                             horizontalAlignment="right">
                         <Border visible={true}/>

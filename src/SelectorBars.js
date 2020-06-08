@@ -32,14 +32,14 @@ export default class SelectorBars2 extends Component {
                 </div>
                 <div className='slider_layout_a'>
                     <SelectorSlider id='positive_selector' threshold={this.props.confusion.tp}
-                                    callback={this.update_everything} top_label='true positive'
-                                    bottom_label='false negative' color_bottom='#f5564a'
+                                    callback={this.update_everything} top_label='correctly predicted damaging'
+                                    bottom_label='falsely predicted good' color_bottom='#f5564a'
                                     domain={[0, util.allTPs[1] + util.allFNs[1]]}/>
                 </div>
                 <div className='slider_layout_b'>
                     <SelectorSlider id='negative_selector' threshold={this.props.confusion.fp}
-                                    callback={this.update_everything} top_label='false positive'
-                                    bottom_label='true negative' color_bottom='#aaaaaa'
+                                    callback={this.update_everything} top_label='falsely predicted damaging'
+                                    bottom_label='correctly predicted good' color_bottom='#aaaaaa'
                                     domain={[0, util.allFPs[1] + util.allTNs[1]]}/>
                 </div>
             </div>

@@ -41,13 +41,14 @@
 }
 
 .rightSideLabel{
-    transform: translate(85%, 0px);
+    transform: translate(70%, 0px);
 }
 
 .sideLabels{
     position: absolute;
-    margin-top: -35px;
-    margin-left: -250px;
+    margin-top: -65px;
+    margin-left: -300px;
+    margin-right: 25px;
 }
 
 #selectorLabel{

@@ -7,11 +7,9 @@
 }
 
 .frame{
-    background: #5e5e5e;
-    border: thin solid black;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 33% 33% 33%;
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 5px 17px;
 }
 
 .confusionHeading{
@@ -24,33 +22,33 @@
 }
 
 .confusionLabel{
-    grid-row: 2;
-    grid-column: 2;
-    font-size: 20px;
+    width: auto;
+    font-size: 30px;
+    align-content: center;
 }
 
 .topRight{
     grid-row: 3;
     grid-column: 4;
-    background-color: #444444;
+    color: #444444;
 }
 
 .topLeft{
     grid-row: 3;
     grid-column: 3;
-    background-color: #1db1f5;
+    color: #1db1f5;
 }
 
 .bottomLeft{
     grid-row: 4;
     grid-column: 3;
-    background-color: #f5564a;
+    color: #f5564a;
 }
 
 .bottomRight{
     grid-row: 4;
     grid-column: 4;
-    background-color: #aaaaaa;
+    color: #aaaaaa;
 }
 
 #predictedPositive{

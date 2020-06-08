@@ -3,6 +3,19 @@
     margin-top: 20px;
 }
 
+.evInfo{
+    display: inline-block;
+}
+
+.info{
+    text-align: left;
+}
+
+#btnGoodOrBad{
+    float: right;
+    transform: translate(-75%, -125%);
+}
+
 .diff-addedline{
     background-color: #b7e1f7;
 }

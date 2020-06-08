@@ -113,13 +113,13 @@ export default class EditViewer2 extends Component {
         let currentState = this.state.editClass;
 
         if (currentState === "damaging") {
-            this.setState({display: "Loading...", editClass: "good"})
-            this.buttonInfo = {text: "View a damaging edit", style: {background: "#1db1f5"}}
-            this.labelstyle = {fontsize: 17, color: '#aaaaaa'}
+            this.setState({display: "Loading...", editClass: "good"});
+            this.buttonInfo = {text: "View a damaging edit", style: {background: "#1db1f5"}};
+            this.labelstyle = {fontsize: 17, color: '#aaaaaa'};
         } else {
-            this.setState({display: "Loading...", editClass: "damaging"})
-            this.buttonInfo = {text: "View a good edit", style: {background: "#aaaaaa"}}
-            this.labelstyle = {fontsize: 17, color: '#1db1f5'}
+            this.setState({display: "Loading...", editClass: "damaging"});
+            this.buttonInfo = {text: "View a good edit", style: {background: "#aaaaaa",}};
+            this.labelstyle = {fontsize: 17, color: '#1db1f5'};
         }
     };
 
@@ -149,8 +149,10 @@ export default class EditViewer2 extends Component {
         return (
             <div className='ev_wrapper'>
                 <h2>Edit Viewer</h2>
-                <p>Edit was labeled by a human as: <b><span style={this.labelstyle}>{this.state.editClass}</span></b></p>
-                <p>Damaging probability according to ORES: <b>{round(dict.probabilities[this.currentIndex])}</b></p>
+                <div id='evInfo'>
+                    <p className='info'>Edit was labeled by a human as: <b><span style={this.labelstyle}>{this.state.editClass}</span></b></p>
+                    <p className='info'>Damaging probability according to ORES: <b>{round(dict.probabilities[this.currentIndex])}</b></p>
+                </div>
                 <button className='ui button' id='btnGoodOrBad' style={this.buttonInfo.style}
                         onClick={this.chooseEditClass}>{this.buttonInfo.text}</button>
                 <div className='editViewer'>

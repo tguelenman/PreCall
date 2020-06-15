@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import './styling/App.css'
-import OptUrlGen from './OptUrlGen.js'
 import Visualizations from './Visualizations.js'
 import { OresApi } from './OresApi.js'
 
@@ -48,16 +47,10 @@ export default class App extends Component {
 							active={activeItem === 'visualizations'}
 							activename='visualizations'
 							onClick={this.handleItemClick} />
-						<Menu.Item
-							name='Optimization Queries'
-							active={activeItem === 'optUrlGen'}
-							activename='optUrlGen'
-							onClick={this.handleItemClick}
-						/>
 					</Menu>
 				</div>
 				<div className="Content">
-					{activeItem === 'optUrlGen' ? <OptUrlGen/> : 
+					{
 						activeItem === 'visualizations' && oresComplete ? <Visualizations data={oresComplete}/> :  ''
 					}
 				</div>

@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import {Slider} from 'devextreme-react/slider';
-import DraggableHistogramLine from "./DraggableHistogramLine.js"
 import {
     Chart, Series, CommonSeriesSettings, Legend, ValueAxis, ArgumentAxis, Title, Export, Tooltip, Border, ConstantLine
 } from 'devextreme-react/chart';
